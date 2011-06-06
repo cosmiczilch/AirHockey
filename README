@@ -1,0 +1,4 @@
+## To compile, hit ./main.cpp 
+## To run, hit ./main
+
+## Requires : SDL, SDL_image, SDL_net, freeglut, ftgl
