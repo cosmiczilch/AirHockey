@@ -161,6 +161,7 @@ void eventHandler( SDL_Event &event ){
 		x_mouse = -w/2.0 + event.motion.x; 
 		y_mouse = h/2.0 - event.motion.y; 
 
+		// button animation when mouse hovers on it (pop up) 
 		for( int i=0; i<NUM_BUTTONS; i++ ){ 
 			buttons[i].hasFocus = false; 
 		}
@@ -170,7 +171,14 @@ void eventHandler( SDL_Event &event ){
 			}
 		}
 	}
-		
+	else if( event.type == SDL_MOUSEBUTTONDOWN ){ 
+		for( int i=0; i<NUM_BUTTONS; i++ ){ 
+			if( buttons[i].hasFocus ){ 
+				buttons[i].clickHandler( x_mouse, y_mouse );
+			}
+		}
+	}
+
 
 	return; 
 }
@@ -184,6 +192,37 @@ int work( void * ){
 
 	return 0; 
 }
+
+void singlePlayerButton_clickHandler( float x, float y ){ 
+	gameState = RUNNING;
+	gameType = SINGLE_PLAYER;
+
+	return; 
+}
+
+void multiPlayerButton_clickHandler( float x, float y ){ 
+	gameState = RUNNING;
+	gameType = MULTI_PLAYER;
+
+	return; 
+}
+
+void settingsButton_clickHandler( float x, float y ){ 
+
+	return; 
+}
+
+void creditsButton_clickHandler( float x, float y ){ 
+
+	return; 
+}
+
+void exitButton_clickHandler( float x, float y ){ 
+	exit(0);
+
+	return; 
+}
+
 
 void init( ){ 
 	mainMenu_width = get_GW( ); 
@@ -203,6 +242,12 @@ void init( ){
 	buttons[SETTINGS_BUTTON].init( (int)SETTINGS_BUTTON,  -w*42.5/100.0, -h*6.66/100.0, SMALL_EPSILON,  w*15/100, h*5.83/100,  "./resources/images/settings_button.png" );
 	buttons[CREDITS_BUTTON].init( (int)CREDITS_BUTTON,  -w*42.5/100.0, -h*23/100.0, SMALL_EPSILON,  w*13/100, h*4.33/100,  "./resources/images/credits_button.png" );
 	buttons[EXIT_BUTTON].init( (int)EXIT_BUTTON,  -w*42.5/100.0, -h*41.66/100.0, SMALL_EPSILON,  w*24.3/100, h*5.0/100,  "./resources/images/exit_button.png" );
+
+	buttons[SINGLE_PLAYER_BUTTON].onClick = singlePlayerButton_clickHandler;
+	buttons[MULTI_PLAYER_BUTTON].onClick = multiPlayerButton_clickHandler;
+	buttons[SETTINGS_BUTTON].onClick = settingsButton_clickHandler;
+	// buttons[CREDITS_BUTTON].onClick = creditsButton_clickHandler;
+	buttons[EXIT_BUTTON].onClick = exitButton_clickHandler;
 
 	SDL_ShowCursor( 0 );
 	side_length__my_cursor = w*5/100.0; 

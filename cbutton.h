@@ -33,6 +33,8 @@ class CButton{
 
 	void draw( ); 
 
+	void (* onClick)(float, float);
+	void clickHandler( float, float );
 };
 
 #endif // CBUTTON_H
