@@ -14,12 +14,18 @@ void CButton::init( int Id, float X, float Y, float Z, float Width, float Height
 
 	texture.makeTexture( path_to_image, PNG );
 
+	enabled = true;
 	hasFocus = false;
 
 	return; 
 }
 
 void CButton::draw( ){ 
+	if( !enabled ){ 
+		// don't draw if not enabled
+		return; 
+	}
+
 	float width_temp, height_temp;
 	width_temp = width;  height_temp = height;
 	if( hasFocus ){

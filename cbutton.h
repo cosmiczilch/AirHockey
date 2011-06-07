@@ -22,6 +22,7 @@ class CButton{
 	float x, y, z; 
 	float width, height;
 	string path_to_image;
+	bool enabled;		// don't draw if not enabled
 	bool hasFocus;
 	CTexture texture;
 
