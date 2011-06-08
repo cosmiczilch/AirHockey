@@ -1,6 +1,6 @@
 #if 0
 #!/bin/sh
-g++ -g -Wall -lGLU -lftgl `sdl-config --cflags` models.cpp Transformation.cpp ctexture.cpp cgame.cpp cboard.cpp ccamera.cpp cbutton.cpp main.cpp -o main `sdl-config --libs` -lSDL_net -lSDL_image
+g++ -g -Wall -lGLU -lftgl `sdl-config --cflags` models.cpp Transformation.cpp ctexture.cpp cgame.cpp cboard.cpp cbat.cpp cplayer.cpp ccamera.cpp cbutton.cpp main.cpp -o main `sdl-config --libs` -lSDL_net -lSDL_image
 
 exit
 #endif
@@ -20,8 +20,10 @@ exit
 #include "ccamera.h"
 #include "ctexture.h"
 #include "cboard.h"
+#include "cplayer.h"
 #include "cgame.h"
 #include "game_mainmenu.h"
+#include "game_running.h"
 #include "poller.h"
 
 #include "main.h"
@@ -128,6 +130,8 @@ void setup_rc( ){
 
 void initObjeks( ){ 
 	board.init( BOARD_WIDTH, BOARD_LENGTH, BOARD_THICKNESS ); 
+	player1.init( PLAYER_1,  0.0, 1.0, 0.0,  BOARD_WIDTH/4.0, -BOARD_LENGTH/4.0, BOARD_THICKNESS/2.0 );
+	player2.init( PLAYER_2,  0.0, 0.0, 1.0,  -BOARD_WIDTH/4.0, BOARD_LENGTH/4.0, BOARD_THICKNESS/2.0 );
 
 	font.FaceSize(30);
 	if( font.Error( ) ){ 
@@ -140,6 +144,7 @@ void initObjeks( ){
 
 void initGameStates( ){ 
 	NSGame_MainMenu::init( );
+	NSGame_Running::init( );
 
 	return;
 }

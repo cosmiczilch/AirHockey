@@ -17,6 +17,8 @@
 ## Chat? 
 ## Change the poller (eventManager) to 'bite off' more than 20 events at once
 ## Investigate memory leaks in ftgl code
+## Add entry and exit functions in each gamestate that are called on each gamestate switch 
+## Make display lists out of mainmenu pictures, and the bats, and the puck
 
 #############################################################################################################################
 

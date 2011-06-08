@@ -17,6 +17,8 @@ void CButton::init( int Id, float X, float Y, float Z, float Width, float Height
 	enabled = true;
 	hasFocus = false;
 
+	onClick = NULL;
+
 	return; 
 }
 
@@ -50,5 +52,13 @@ bool CButton::pointLiesWithin( float px, float py, float tolerance ){
 		return true; 
 	}
 	return false; 
+}
+
+void CButton::clickHandler( float x, float y ){ 
+	if( onClick != NULL ){ 
+		onClick( x, y );
+	}
+
+	return; 
 }
 

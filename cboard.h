@@ -17,7 +17,7 @@
 #define GOALPOST_WIDTH 10
 
 class CBoard{ 
-	private: 
+	public: 
 	float width, length, thickness; 
 	float goalPost_width; 
 	CTexture board_texture;
