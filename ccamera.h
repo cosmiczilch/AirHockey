@@ -61,6 +61,7 @@ public:
     void init( CameraType cameraType, float X, float Y, float Z, float AspecRatio, float Angle_of_vision );
     void setAspecRatio( float AspecRatio );
     void setAngle_of_vision( float Angle_of_vision );
+    void setEye( float x, float y, float z );
     void setUpVector( float i, float j, float k );
     void setViewPort( int Vp_x1, int Vp_x2, int Vp_y1, int Vp_y2 );
 

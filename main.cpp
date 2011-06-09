@@ -1,6 +1,6 @@
 #if 0
 #!/bin/sh
-g++ -g -Wall -lGLU -lftgl `sdl-config --cflags` models.cpp Transformation.cpp ctexture.cpp cgame.cpp cboard.cpp cbat.cpp cplayer.cpp ccamera.cpp cbutton.cpp main.cpp -o main `sdl-config --libs` -lSDL_net -lSDL_image
+g++ -g -Wall -lGLU -lftgl `sdl-config --cflags` models.cpp bat_models.cpp Transformation.cpp ctexture.cpp cgame.cpp cboard.cpp cbat.cpp cplayer.cpp ccamera.cpp cbutton.cpp main.cpp -o main `sdl-config --libs` -lSDL_net -lSDL_image
 
 exit
 #endif
@@ -16,6 +16,7 @@ exit
 #include <FTGL/ftgl.h>
 
 #include "models.h"
+#include "bat_models.h"
 #include "Transformation.h"
 #include "ccamera.h"
 #include "ctexture.h"

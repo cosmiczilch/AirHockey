@@ -75,6 +75,20 @@ void CCamera::setAspecRatio( float AspecRatio ){
 	return; 
 }
 
+void CCamera::setEye( float x, float y, float z ){ 
+	// Nah!!!!!!!! Don't use yet. Doesn't work yet. Need to fix up_vector also. 
+
+	SDL_SemWait( semaphore ); 
+
+	x_eye = x;
+	y_eye = y;
+	z_eye = z;
+
+	SDL_SemPost( semaphore ); 
+
+	return;
+}
+
 void CCamera::setAngle_of_vision( float Angle_of_vision ){
 	SDL_SemWait( semaphore ); 
 

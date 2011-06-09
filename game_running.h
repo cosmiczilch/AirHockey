@@ -53,6 +53,8 @@ void renderScene( ){
 	glLoadIdentity( );
 
 	board.draw( );
+	player1.bat.draw( );
+	player2.bat.draw( );
 
 	SDL_GL_SwapBuffers( );
 

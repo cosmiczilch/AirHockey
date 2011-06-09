@@ -14,7 +14,6 @@ class CPlayer{
 	int numGoals; 
 
 	CBat bat;
-	float r, g, b;		// bat color
 
 	void init( PlayerID player_ID,  float r, float g, float b, float x, float y, float z );			// here x, y, and z are the initial co-ordinates of the player's bat
 
