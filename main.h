@@ -30,8 +30,8 @@ void (*renderScene) ( void );
 
 FTGLPixmapFont font("./resources/fonts/ARIAL.TTF");
 
-#define CAMERA_HOW_MUCH_BEHIND_BOARD 1.00 	// times the board length (use as a multiplicative factor for board.length)
-#define CAMERA_HOW_MUCH_ABOVE_BOARD 0.70	// times the board length (use as a multiplicative factor for board.length)
+#define CAMERA_HOW_MUCH_BEHIND_BOARD 0.80 	// times the board length (use as a multiplicative factor for board.length)
+#define CAMERA_HOW_MUCH_ABOVE_BOARD 0.90	// times the board length (use as a multiplicative factor for board.length)
 
 /**********************************************************************************************************************************************/ 
 
