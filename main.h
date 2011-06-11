@@ -25,6 +25,7 @@ enum GameType{
 
 CBoard board;
 CPlayer player1, player2;
+CPuck puck;
 
 void (*renderScene) ( void );
 

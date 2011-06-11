@@ -55,6 +55,7 @@ void renderScene( ){
 	board.draw( );
 	player1.bat.draw( );
 	player2.bat.draw( );
+	puck.draw( );
 
 	SDL_GL_SwapBuffers( );
 

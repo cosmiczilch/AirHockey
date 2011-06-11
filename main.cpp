@@ -1,6 +1,6 @@
 #if 0
 #!/bin/sh
-g++ -g -Wall -lGLU -lftgl `sdl-config --cflags` models.cpp bat_models.cpp Transformation.cpp ctexture.cpp cgame.cpp cboard.cpp cbat.cpp cplayer.cpp ccamera.cpp cbutton.cpp main.cpp -o main `sdl-config --libs` -lSDL_net -lSDL_image
+g++ -g -Wall -lGLU -lftgl `sdl-config --cflags` models.cpp bat_models.cpp puck_models.cpp Transformation.cpp ctexture.cpp cgame.cpp cboard.cpp cbat.cpp cpuck.cpp cplayer.cpp ccamera.cpp cbutton.cpp main.cpp -o main `sdl-config --libs` -lSDL_net -lSDL_image
 
 exit
 #endif
@@ -22,6 +22,7 @@ exit
 #include "ctexture.h"
 #include "cboard.h"
 #include "cplayer.h"
+#include "cpuck.h"
 #include "cgame.h"
 #include "game_mainmenu.h"
 #include "game_running.h"
@@ -88,8 +89,8 @@ void initLighting( ){
 
 	glEnable( GL_NORMALIZE );
 
-	glEnable( GL_COLOR_MATERIAL );
-	glColorMaterial( GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE );
+	// glEnable( GL_COLOR_MATERIAL );
+	// glColorMaterial( GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE );
 
 	float cmbr[4] = { 0.4, 0.4, 0.4, 1.0 };
 	glLightModelfv( GL_LIGHT_MODEL_AMBIENT, cmbr );
@@ -133,6 +134,7 @@ void initObjeks( ){
 	board.init( BOARD_WIDTH, BOARD_LENGTH, BOARD_THICKNESS ); 
 	player1.init( PLAYER_1,  0.0, 1.0, 0.0,  BOARD_WIDTH/4.0, -BOARD_LENGTH/4.0, BOARD_THICKNESS/2.0 );
 	player2.init( PLAYER_2,  0.0, 0.0, 1.0,  -BOARD_WIDTH/4.0, BOARD_LENGTH/4.0, BOARD_THICKNESS/2.0 );
+	puck.init( 0.0, 0.0, 0.0,  0.0, 0.0, 0.0 );
 
 	font.FaceSize(30);
 	if( font.Error( ) ){ 
