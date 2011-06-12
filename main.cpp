@@ -122,8 +122,12 @@ void setup_rc( ){
 	glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_BLEND);
 
+	glHint(GL_LINE_SMOOTH_HINT, GL_NICEST );
+
 	glEnable( GL_POLYGON_SMOOTH ); 
 	glHint( GL_POLYGON_SMOOTH_HINT, GL_NICEST );
+
+	glEnable(GL_MULTISAMPLE);
 
 	initLighting( );
 	
@@ -168,20 +172,33 @@ int main( int argc, char *argv[] ){
                 printf("Unable to initialize SDL: %s\n", SDL_GetError());
                 return 1;
         }
-         
-	SDL_GL_SetAttribute( SDL_GL_RED_SIZE, 8 );
-	SDL_GL_SetAttribute( SDL_GL_GREEN_SIZE, 8 );
-	SDL_GL_SetAttribute( SDL_GL_BLUE_SIZE, 8 );
-	SDL_GL_SetAttribute( SDL_GL_ALPHA_SIZE, 8 );
-	SDL_GL_SetAttribute( SDL_GL_DEPTH_SIZE, 24 );
-	SDL_GL_SetAttribute( SDL_GL_ACCUM_RED_SIZE, 16 );
-	SDL_GL_SetAttribute( SDL_GL_ACCUM_GREEN_SIZE, 16 );
-	SDL_GL_SetAttribute( SDL_GL_ACCUM_BLUE_SIZE, 16 );
-	SDL_GL_SetAttribute( SDL_GL_ACCUM_ALPHA_SIZE, 16 );
-        SDL_GL_SetAttribute( SDL_GL_DOUBLEBUFFER, 1 ); // *new*
 
-        G_screen = SDL_SetVideoMode( GW, GH, 32, SDL_OPENGL ); // *changed*
+	SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
+	SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
+	SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
+	SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
+
+	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
+	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+
+	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
+	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4);
+         
+        G_screen = SDL_SetVideoMode( GW, GH, 0, SDL_OPENGL ); // *changed*
 	SDL_WM_SetCaption( "first_sdl_ogl", NULL );
+
+	int Buffers, Samples;
+	glGetIntegerv( GL_SAMPLE_BUFFERS_ARB, &Buffers );
+	glGetIntegerv( GL_SAMPLES_ARB, &Samples );
+	if( !Buffers || !Samples ) {
+		printf( "\n Oh, crap. \n" );
+		exit( 0 );
+		// you didn't get a FSAA context, probably older hardware.
+		//  or you asked for more than one buffer, or you asked for
+		//  some insane number of samples (2, 4, or 8 is about it)
+	} else {
+		// FSAA was enabled.
+	}
 
         setup_rc( ); 
 
