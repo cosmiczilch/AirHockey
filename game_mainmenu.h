@@ -75,6 +75,17 @@ void drawMainMenu( ){
 	game_MainMenu.camera2->writeLookAt( true );
 
 	glColor3f( 1.0, 1.0, 0.0 );
+
+	GLfloat mat_ambient[] = { 1.0, 1.0, 1.0, 1.0 };
+	GLfloat mat_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
+	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+	GLfloat mat_shininess[] = { 1.0, 1.0, 1.0, 1.0 };
+
+	glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
+	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+
 	mainMenu_backgroundImageTexture.bindTexture( );
 	glBegin( GL_QUADS ); 
 	glTexCoord2f( 0.0, 1.0 );	glVertex3f( -mainMenu_width/2.0, -mainMenu_height/2.0, 0.0 );

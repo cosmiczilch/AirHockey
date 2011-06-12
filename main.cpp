@@ -132,8 +132,8 @@ void setup_rc( ){
 
 void initObjeks( ){ 
 	board.init( BOARD_WIDTH, BOARD_LENGTH, BOARD_THICKNESS ); 
-	player1.init( PLAYER_1,  0.0, 1.0, 0.0,  BOARD_WIDTH/4.0, -BOARD_LENGTH/4.0, BOARD_THICKNESS/2.0 );
-	player2.init( PLAYER_2,  0.0, 0.0, 1.0,  -BOARD_WIDTH/4.0, BOARD_LENGTH/4.0, BOARD_THICKNESS/2.0 );
+	player1.init( PLAYER_1,  0.0, 0.4, 0.0,  BOARD_WIDTH/4.0, -BOARD_LENGTH/4.0, BOARD_THICKNESS/2.0 );
+	player2.init( PLAYER_2,  0.0, 0.0, 0.4,  -BOARD_WIDTH/4.0, BOARD_LENGTH/4.0, BOARD_THICKNESS/2.0 );
 	puck.init( 0.0, 0.0, 0.0,  0.0, 0.0, 0.0 );
 
 	font.FaceSize(30);
