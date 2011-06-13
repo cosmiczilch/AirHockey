@@ -22,6 +22,7 @@
 
 ## Anti-aliasing : 
 ## 	Investigate GL_MULTISAMPLE_ARB, , needs to create window with that pixel format? 
+## 	Try w/ bigger objects, and bigger clipping volume, in the same window
 
 #############################################################################################################################
 

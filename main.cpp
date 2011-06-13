@@ -127,7 +127,7 @@ void setup_rc( ){
 	glEnable( GL_POLYGON_SMOOTH ); 
 	glHint( GL_POLYGON_SMOOTH_HINT, GL_NICEST );
 
-	glEnable(GL_MULTISAMPLE);
+	// glEnable(GL_MULTISAMPLE);
 
 	initLighting( );
 	
@@ -181,16 +181,16 @@ int main( int argc, char *argv[] ){
 	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
-	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
-	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4);
+	// SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
+	// SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4);
          
         G_screen = SDL_SetVideoMode( GW, GH, 0, SDL_OPENGL ); // *changed*
 	SDL_WM_SetCaption( "first_sdl_ogl", NULL );
 
-	int Buffers, Samples;
-	glGetIntegerv( GL_SAMPLE_BUFFERS_ARB, &Buffers );
-	glGetIntegerv( GL_SAMPLES_ARB, &Samples );
-	if( !Buffers || !Samples ) {
+	// int Buffers, Samples;
+	// glGetIntegerv( GL_SAMPLE_BUFFERS_ARB, &Buffers );
+	// glGetIntegerv( GL_SAMPLES_ARB, &Samples );
+	/* if( !Buffers || !Samples ) {
 		printf( "\n Oh, crap. \n" );
 		exit( 0 );
 		// you didn't get a FSAA context, probably older hardware.
@@ -199,6 +199,7 @@ int main( int argc, char *argv[] ){
 	} else {
 		// FSAA was enabled.
 	}
+	*/
 
         setup_rc( ); 
 
