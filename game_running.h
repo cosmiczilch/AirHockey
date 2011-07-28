@@ -21,7 +21,7 @@ GLuint fogMode[]= { GL_EXP, GL_EXP2, GL_LINEAR };	// Storage For Three Types Of 
 GLuint fogfilter= 1;					// Which Fog To Use
 GLfloat fogColor[4]= {0.7f, 0.7f, 0.7f, 1.0f};		// Fog Color
 
-int numTimes_for_accum_buffer = 1; 
+int numTimes_for_accum_buffer = 5; 
 
 #define SOMEWHERE_FAR_AWAY 20000
 #define SMALL_EPSILON 10.0
@@ -36,7 +36,8 @@ SDL_Thread *work_thread = NULL;
 
 void initCamera( ){ 
 	game_Running.camera1 = new CCamera( );
-	game_Running.camera1->init( CAMERA_TYPE_PERSP, 0.0, -board.length * CAMERA_HOW_MUCH_BEHIND_BOARD, board.length * CAMERA_HOW_MUCH_ABOVE_BOARD, 1.0, 80.0 );
+	game_Running.camera1->init( CAMERA_TYPE_PERSP, 0.0, -board.length * CAMERA_HOW_MUCH_BEHIND_BOARD * 1.2, board.length * CAMERA_HOW_MUCH_ABOVE_BOARD / 1.6, 1.0, 80.0 );
+	game_Running.camera1->setEye( 0.0, 0.0, -board.length * CAMERA_HOW_MUCH_ABOVE_BOARD );
 
 	return;
 }
@@ -45,17 +46,25 @@ void initCamera( ){
 void renderScene( ){ 
 
 	glClearColor( 1.0, 1.0, 1.0, 1.0 );
-	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT ); 
+	glClearAccum( 0.0, 0.0, 0.0, 0.0 );
+	glClear(GL_ACCUM_BUFFER_BIT);
 
-	game_Running.camera1->writeLookAt( );
+	for( int i=0; i<numTimes_for_accum_buffer; i++ ){ 
+		glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT ); 
 
-	glMatrixMode( GL_MODELVIEW ); 
-	glLoadIdentity( );
+		game_Running.camera1->writeLookAt( );
 
-	board.draw( );
-	player1.bat.draw( );
-	player2.bat.draw( );
-	puck.draw( );
+		glMatrixMode( GL_MODELVIEW ); 
+		glLoadIdentity( );
+
+		board.draw( );
+		player1.bat.draw( );
+		player2.bat.draw( );
+		puck.draw( );
+
+		glAccum(GL_ACCUM, 1.0/numTimes_for_accum_buffer);
+	}
+	glAccum(GL_RETURN, 1.0);
 
 	SDL_GL_SwapBuffers( );
 

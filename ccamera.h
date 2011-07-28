@@ -24,6 +24,11 @@ enum CameraType{
 #define NEG_Y_AXIS 4
 #define NEG_Z_AXIS 5
 
+#define LEFT 0
+#define RIGHT 1
+#define UP 2
+#define DOWN 3
+
 #define ROT_ANGLE 5.0		// degrees
 #define ZOOM_ANGLE_INC 2.0 	// degrees
 
@@ -74,6 +79,7 @@ public:
     void setRedrawTrue( );
     void writeLookAt( bool force=false );
     void rotateAboutAxis( int axis, float rot_angle=ROT_ANGLE );
+    void sidewind( int direction, float amount );
     void zoomin();
     void zoomout();
 };

@@ -22,7 +22,7 @@ int poller_0( void *data ){
 		if( !queueNonEmpty ){ 
 			SDL_CondWait( donePumping, availableEvents );
 		}
-		printf( "\npoller has the semaphore\n" );
+		// printf( "\npoller has the semaphore\n" );
 
 		// NOTE TO SELF : this can handle only 20events at once. see what can be done. 
 		SDL_Event events[20];

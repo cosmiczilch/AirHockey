@@ -263,6 +263,23 @@ void CCamera::rotateAboutAxis( int axis, float rot_angle ){
     return;
 }
 
+void CCamera::sidewind( int direction, float amount ) {
+    SDL_SemWait( semaphore ); 
+
+    switch( direction ) {
+    	case UP :
+    	case DOWN :
+    	case LEFT :
+    	case RIGHT :
+		break;
+    }
+	
+    redraw = true;
+    SDL_SemPost( semaphore ); 
+
+    return;
+}
+
 
 void CCamera::zoomin(){
     SDL_SemWait( semaphore ); 

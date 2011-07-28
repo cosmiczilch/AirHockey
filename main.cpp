@@ -1,6 +1,6 @@
 #if 0
 #!/bin/sh
-g++ -g -Wall -lGLU -lftgl `sdl-config --cflags` models.cpp bat_models.cpp puck_models.cpp Transformation.cpp ctexture.cpp cgame.cpp cboard.cpp cbat.cpp cpuck.cpp cplayer.cpp ccamera.cpp cbutton.cpp main.cpp -o main `sdl-config --libs` -lSDL_net -lSDL_image
+g++ -g -Wall -lGLU -lGLEW -lGL -lftgl `sdl-config --cflags` models.cpp bat_models.cpp puck_models.cpp Transformation.cpp ctexture.cpp cgame.cpp cboard.cpp cbat.cpp cpuck.cpp cplayer.cpp ccamera.cpp cbutton.cpp main.cpp -o main `sdl-config --libs` -lSDL_net -lSDL_image
 
 exit
 #endif
@@ -40,7 +40,7 @@ int mainLoop( ){
 	while( 1 ){ 
 
 		// must pump the eventLoop
-		printf( "\nmainLoop has the semaphore\n" );
+		// printf( "\nmainLoop has the semaphore\n" );
 		SDL_mutexP( availableEvents );
 		if( queueNonEmpty ){ 
 			SDL_CondWait( drainedPump, availableEvents );
@@ -119,8 +119,8 @@ void setup_rc( ){
 
 	glClearColor( 0.0f, 0.0f, 0.0f, 0.0f );
 
-	glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 
 	glHint(GL_LINE_SMOOTH_HINT, GL_NICEST );
 
@@ -184,7 +184,24 @@ int main( int argc, char *argv[] ){
 	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
 	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4);
          
+	/*
+	 * Initialize fullscreen and get the width and height of the entire screen
+	 * and then switch back to !fullscreen and set the video size accordingly.
+	 * Works for extended desktops also. 
+	 */
+        G_screen = SDL_SetVideoMode( 0, 0, 0, SDL_OPENGL ); // *changed*
+	float temp_w, temp_h; 
+	temp_w = get_GW( );
+	temp_h = get_GH( );
+	printf ("\n%f : %f\n", (float)temp_w, (float)temp_h );
+	if( temp_w/temp_h >= (float)GW/(float)GH ){ 
+		temp_w = (float)GW/(float)GH*temp_h;
+	} else{ 
+		temp_h = (float)GH/(float)GW*temp_w;
+	}
+	GW=temp_w * 95.0/100.0;  GH=temp_h * 95.0/100.0;
         G_screen = SDL_SetVideoMode( GW, GH, 0, SDL_OPENGL ); // *changed*
+
 	SDL_WM_SetCaption( "first_sdl_ogl", NULL );
 
 	int Buffers, Samples;
@@ -194,8 +211,8 @@ int main( int argc, char *argv[] ){
 		printf( "\n Oh, crap. \n" );
 		exit( 0 );
 		// you didn't get a FSAA context, probably older hardware.
-		//  or you asked for more than one buffer, or you asked for
-		//  some insane number of samples (2, 4, or 8 is about it)
+		// or you asked for more than one buffer, or you asked for
+		// some insane number of samples (2, 4, or 8 is about it)
 	} else {
 		// FSAA was enabled.
 	}
