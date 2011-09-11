@@ -5,7 +5,6 @@
 #include "main.h"
 #include "ccamera.h"
 #include "ctexture.h"
-#include <FTGL/ftgl.h>
 
 #include "cbutton.h" 
 
@@ -257,7 +256,7 @@ void init( ){
 	buttons[SINGLE_PLAYER_BUTTON].onClick = singlePlayerButton_clickHandler;
 	buttons[MULTI_PLAYER_BUTTON].onClick = multiPlayerButton_clickHandler;
 	buttons[SETTINGS_BUTTON].onClick = settingsButton_clickHandler;
-	// buttons[CREDITS_BUTTON].onClick = creditsButton_clickHandler;
+	buttons[CREDITS_BUTTON].onClick = creditsButton_clickHandler;
 	buttons[EXIT_BUTTON].onClick = exitButton_clickHandler;
 
 	SDL_ShowCursor( 0 );

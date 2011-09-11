@@ -1,6 +1,6 @@
 #if 0
 #!/bin/sh
-g++ -g -Wall -lGLU -lGLEW -lGL -lftgl `sdl-config --cflags` models.cpp bat_models.cpp puck_models.cpp Transformation.cpp ctexture.cpp cgame.cpp cboard.cpp cbat.cpp cpuck.cpp cplayer.cpp ccamera.cpp cbutton.cpp main.cpp -o main `sdl-config --libs` -lSDL_net -lSDL_image
+g++ -g -Wall -lGLU -lGLEW -lGL `sdl-config --cflags` models.cpp bat_models.cpp puck_models.cpp Transformation.cpp ctexture.cpp cgame.cpp cboard.cpp cbat.cpp cpuck.cpp cplayer.cpp ccamera.cpp cbutton.cpp main.cpp -o main `sdl-config --libs` -lSDL_net -lSDL_image
 
 exit
 #endif
@@ -13,7 +13,6 @@ exit
 #include "SDL_thread.h"
 #include "GL/gl.h"
 #include "GL/glu.h"
-#include <FTGL/ftgl.h>
 
 #include "models.h"
 #include "bat_models.h"
@@ -30,11 +29,7 @@ exit
 
 #include "main.h"
 
-#   define FTGL_RENDER_ALL   0xffff
-
 using namespace std; 
-using namespace FTGL; 
-
 
 int mainLoop( ){
 	while( 1 ){ 
@@ -127,7 +122,7 @@ void setup_rc( ){
 	glEnable( GL_POLYGON_SMOOTH ); 
 	glHint( GL_POLYGON_SMOOTH_HINT, GL_NICEST );
 
-	glEnable(GL_MULTISAMPLE);
+	// glEnable(GL_MULTISAMPLE);
 
 	initLighting( );
 	
@@ -139,12 +134,6 @@ void initObjeks( ){
 	player1.init( PLAYER_1,  0.0, 0.4, 0.0,  BOARD_WIDTH/4.0, -BOARD_LENGTH/4.0, BOARD_THICKNESS/2.0 );
 	player2.init( PLAYER_2,  0.0, 0.0, 0.4,  -BOARD_WIDTH/4.0, BOARD_LENGTH/4.0, BOARD_THICKNESS/2.0 );
 	puck.init( 0.0, 0.0, 0.0,  0.0, 0.0, 0.0 );
-
-	font.FaceSize(30);
-	if( font.Error( ) ){ 
-		exit( 0 ); 
-	}
-
 
 	return; 
 }
@@ -181,8 +170,8 @@ int main( int argc, char *argv[] ){
 	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
-	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
-	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4);
+	// SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
+	// SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4);
          
 	/*
 	 * Initialize fullscreen and get the width and height of the entire screen
@@ -204,10 +193,10 @@ int main( int argc, char *argv[] ){
 
 	SDL_WM_SetCaption( "first_sdl_ogl", NULL );
 
-	int Buffers, Samples;
-	glGetIntegerv( GL_SAMPLE_BUFFERS_ARB, &Buffers );
-	glGetIntegerv( GL_SAMPLES_ARB, &Samples );
-	if( !Buffers || !Samples ) {
+	// int Buffers, Samples;
+	// glGetIntegerv( GL_SAMPLE_BUFFERS_ARB, &Buffers );
+	// glGetIntegerv( GL_SAMPLES_ARB, &Samples );
+	/* if( !Buffers || !Samples ) {
 		printf( "\n Oh, crap. \n" );
 		exit( 0 );
 		// you didn't get a FSAA context, probably older hardware.
@@ -216,6 +205,7 @@ int main( int argc, char *argv[] ){
 	} else {
 		// FSAA was enabled.
 	}
+	*/
 
         setup_rc( ); 
 

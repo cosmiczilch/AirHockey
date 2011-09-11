@@ -1,8 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H 
 
-#include <FTGL/ftgl.h>
-
 /* Globals            : **********************************************************************************************************************/ 
 
 #define FRAME_RATE 10			// 20fps
@@ -28,8 +26,6 @@ CPlayer player1, player2;
 CPuck puck;
 
 void (*renderScene) ( void );
-
-FTGLPixmapFont font("./resources/fonts/ARIAL.TTF");
 
 #define CAMERA_HOW_MUCH_BEHIND_BOARD 0.60 	// times the board length (use as a multiplicative factor for board.length)
 #define CAMERA_HOW_MUCH_ABOVE_BOARD 0.40	// times the board length (use as a multiplicative factor for board.length)

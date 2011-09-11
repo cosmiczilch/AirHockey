@@ -9,6 +9,7 @@
 #include "SDL_image.h"
 
 #include "bat_models.h"
+#include "cboard.h"
 
 class CBat{ 
 	public :
@@ -17,6 +18,8 @@ class CBat{
 
 	void init( float x, float y, float z,  float r, float g, float b ); 
 	void draw( ); 
+	void translate_X( float X );
+	void translate_Y( float Y );
 };
 
 #endif  //CBAT_H

@@ -5,7 +5,6 @@
 #include "main.h"
 #include "ccamera.h"
 #include "ctexture.h"
-#include <FTGL/ftgl.h>
 
 #include "cbutton.h" 
 
@@ -21,12 +20,14 @@ GLuint fogMode[]= { GL_EXP, GL_EXP2, GL_LINEAR };	// Storage For Three Types Of 
 GLuint fogfilter= 1;					// Which Fog To Use
 GLfloat fogColor[4]= {0.7f, 0.7f, 0.7f, 1.0f};		// Fog Color
 
-int numTimes_for_accum_buffer = 5; 
+int numTimes_for_accum_buffer = 1; 
 
 #define SOMEWHERE_FAR_AWAY 20000
 #define SMALL_EPSILON 10.0
 
+#define MOUSE_SENSITIVITY 1/20.0
 float x_mouse, y_mouse;
+float x_mouse_prev=9999, y_mouse_prev=9999;
 
 /**********************************************************************************************************************************************/ 
 
@@ -95,6 +96,12 @@ void eventHandler( SDL_Event &event ){
 		x_mouse = -w/2.0 + event.motion.x; 
 		y_mouse = h/2.0 - event.motion.y; 
 		// do something
+		if( x_mouse_prev != 9999 )
+			player1.bat.translate_X( (x_mouse-x_mouse_prev)*MOUSE_SENSITIVITY );
+		if( y_mouse_prev != 9999 )
+			player1.bat.translate_Y( (y_mouse-y_mouse_prev)*MOUSE_SENSITIVITY );
+		x_mouse_prev = x_mouse;
+		y_mouse_prev = y_mouse;
 	}
 		
 
@@ -113,6 +120,7 @@ int work( void * ){
 
 void init( ){ 
 	game_Running.init( );
+	x_mouse_prev=player1.bat.x;	y_mouse_prev=player1.bat.y; 
 	game_Running.setGameState( RUNNING );
 	NSGame_Running::initCamera( );
 	game_Running.setRenderScene( NSGame_Running::renderScene ); 

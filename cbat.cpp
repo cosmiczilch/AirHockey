@@ -41,3 +41,41 @@ void CBat::draw( ){
 	return;
 }
 
+void CBat::translate_X( float X ){
+	if( X > 0 ){
+		if( x<BOARD_WIDTH/2.0 ){
+			x+=X;
+		}
+	}
+	else{
+		if( x>-BOARD_WIDTH/2.0){
+			x+=X;
+		}
+	}
+	if( x>BOARD_WIDTH/2.0 )
+		x = BOARD_WIDTH/2.0;
+	if( x<-BOARD_WIDTH/2.0 )
+		x = -BOARD_WIDTH/2.0;
+	
+	return;
+}
+		
+void CBat::translate_Y( float Y ){
+	if( Y > 0 ){
+		if( y<BOARD_LENGTH/2.0 ){
+			y+=Y;
+		}
+	}
+	else{
+		if( y>-BOARD_LENGTH/2.0){
+			y+=Y;
+		}
+	}
+	if( y>BOARD_LENGTH/2.0 )
+		y = BOARD_LENGTH/2.0;
+	if( y<-BOARD_LENGTH/2.0 )
+		y = -BOARD_LENGTH/2.0;
+	
+	return;
+}
+

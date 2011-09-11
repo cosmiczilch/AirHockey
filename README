@@ -1,27 +1,30 @@
 #############################################################################################################################
 
-## To compile, hit ./main.cpp 
+## To compile, hit make
 ## To run, hit ./main
 
 #############################################################################################################################
 
-## Requires : SDL, SDL_image, SDL_net, freeglut, ftgl
+## Requires : SDL, SDL_image, SDL_net, freeglut
 
 #############################################################################################################################
 
 ## Todo : 
 
-## Support Resize! and/or fullscreen
+V# Support Resize! and/or fullscreen
 ## Increase mouse sensitivity in MainMenu? 
 ## Custom music
 ## Chat? 
 ## Change the poller (eventManager) to 'bite off' more than 20 events at once
-## Investigate memory leaks in ftgl code
+V# Investigate memory leaks in ftgl code
 ## Add entry and exit functions in each gamestate that are called on each gamestate switch 
 ## Make display lists out of mainmenu pictures, and the bats, and the puck
 
 ## Anti-aliasing : 
 ## 	Investigate GL_MULTISAMPLE_ARB, , needs to create window with that pixel format? 
+## 	Try w/ bigger objects, and bigger clipping volume, in the same window
+##	Fall back to accum buffer smoothing
 
 #############################################################################################################################
+
 
