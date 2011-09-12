@@ -3,7 +3,7 @@
 
 /* Globals            : **********************************************************************************************************************/ 
 
-#define FRAME_RATE 10			// 20fps
+#define FRAME_RATE 30			// 20fps
 #define TIME_SLICE 1000.0/FRAME_RATE  	// in milliseconds
 
 SDL_Surface* G_screen; 
@@ -41,6 +41,7 @@ void resizeHandler( );
 void cleanUp( void ); 
 float get_GW( ); 
 float get_GH( );
+void initObjeks( );
 
 /**********************************************************************************************************************************************/ 
 

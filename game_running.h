@@ -25,7 +25,7 @@ int numTimes_for_accum_buffer = 1;
 #define SOMEWHERE_FAR_AWAY 20000
 #define SMALL_EPSILON 10.0
 
-#define MOUSE_SENSITIVITY 1/20.0
+#define MOUSE_SENSITIVITY 1/10.0
 float x_mouse, y_mouse;
 float x_mouse_prev=9999, y_mouse_prev=9999;
 
@@ -99,7 +99,7 @@ void eventHandler( SDL_Event &event ){
 		if( x_mouse_prev != 9999 )
 			player1.bat.translate_X( (x_mouse-x_mouse_prev)*MOUSE_SENSITIVITY );
 		if( y_mouse_prev != 9999 )
-			player1.bat.translate_Y( (y_mouse-y_mouse_prev)*MOUSE_SENSITIVITY );
+			player1.bat.translate_Y( (y_mouse-y_mouse_prev)*MOUSE_SENSITIVITY, player1.player_ID );
 		x_mouse_prev = x_mouse;
 		y_mouse_prev = y_mouse;
 	}

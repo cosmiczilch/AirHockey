@@ -13,7 +13,7 @@ namespace NSGame_MainMenu{
 
 /* File Variables     : **********************************************************************************************************************/ 
 
-int work_thread_anim_delay_msecs = 100.0; 
+int work_thread_anim_delay_msecs = 25.0; 
 
 GLuint filter;						// Which Filter To Use
 GLuint fogMode[]= { GL_EXP, GL_EXP2, GL_LINEAR };	// Storage For Three Types Of Fog

@@ -41,41 +41,40 @@ void CBat::draw( ){
 	return;
 }
 
-void CBat::translate_X( float X ){
-	if( X > 0 ){
-		if( x<BOARD_WIDTH/2.0 ){
-			x+=X;
-		}
-	}
-	else{
-		if( x>-BOARD_WIDTH/2.0){
-			x+=X;
-		}
-	}
-	if( x>BOARD_WIDTH/2.0 )
-		x = BOARD_WIDTH/2.0;
-	if( x<-BOARD_WIDTH/2.0 )
-		x = -BOARD_WIDTH/2.0;
+// translate the bat along x-axis by amount "deltaX"
+void CBat::translate_X( float deltaX ){
+
+	x += deltaX;
+
+	if( (x+BAT_RADIUS)>BOARD_WIDTH/2.0 )
+		x = BOARD_WIDTH/2.0 - BAT_RADIUS;
+	if( (x-BAT_RADIUS)<-BOARD_WIDTH/2.0 )
+		x = -BOARD_WIDTH/2.0 + BAT_RADIUS;
 	
 	return;
 }
 		
-void CBat::translate_Y( float Y ){
-	if( Y > 0 ){
-		if( y<BOARD_LENGTH/2.0 ){
-			y+=Y;
-		}
+// translate the bat along y-axis by amount "deltaY"
+void CBat::translate_Y( float deltaY, int player_id ){
+
+	y += deltaY;
+
+	switch ( player_id ) {
+		case PLAYER_1 :
+			if ( (y+BAT_RADIUS)>0 )
+				y = 0.0 - BAT_RADIUS;
+			if ( (y-BAT_RADIUS)<-BOARD_LENGTH/2.0 )
+				y = -BOARD_LENGTH/2.0 + BAT_RADIUS;
+			break;
+
+		case PLAYER_2 :
+			if ( (y-BAT_RADIUS)<0 )
+				y = 0.0 + BAT_RADIUS;
+			if ( (y+BAT_RADIUS)>BOARD_LENGTH/2.0 )
+				y = BOARD_LENGTH/2.0 - BAT_RADIUS;
+			break;
 	}
-	else{
-		if( y>-BOARD_LENGTH/2.0){
-			y+=Y;
-		}
-	}
-	if( y>BOARD_LENGTH/2.0 )
-		y = BOARD_LENGTH/2.0;
-	if( y<-BOARD_LENGTH/2.0 )
-		y = -BOARD_LENGTH/2.0;
-	
+
 	return;
 }
 

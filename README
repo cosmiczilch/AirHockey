@@ -25,6 +25,8 @@ V# Investigate memory leaks in ftgl code
 ## 	Try w/ bigger objects, and bigger clipping volume, in the same window
 ##	Fall back to accum buffer smoothing
 
+## Make player and bats and puck inits callable from game_mainmenu on transition to game_running
+
 #############################################################################################################################
 
 

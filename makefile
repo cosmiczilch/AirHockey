@@ -6,7 +6,7 @@ CXXFLAGS = -g -Wall -lGLU -lGLEW -lGL `sdl-config --cflags` `sdl-config --libs` 
 main: main.o models.o bat_models.o puck_models.o Transformation.o ctexture.o cgame.o cboard.o cbat.o cpuck.o cplayer.o ccamera.o cbutton.o
 	$(CXX) $(CXXFLAGS) -o main main.o models.o bat_models.o puck_models.o Transformation.o ctexture.o cgame.o cboard.o cbat.o cpuck.o cplayer.o ccamera.o cbutton.o
 
-main.o: main.cpp models.h bat_models.h puck_models.h Transformation.h ccamera.h ctexture.h cboard.h cplayer.h cpuck.h cgame.h game_mainmenu.h game_running.h poller.h main.h
+main.o: main.cpp models.h bat_models.h puck_models.h Transformation.h ccamera.h ctexture.h cboard.h cplayer.h cpuck.h cgame.h game_mainmenu.h game_running.h poller.h main.h globalDefs.h cbutton.h
 	$(CXX) $(CXXFLAGS) -c main.cpp
 
 models.o: models.cpp models.h
@@ -30,13 +30,13 @@ cgame.o: cgame.cpp cgame.h Transformation.h ccamera.h
 cboard.o: cboard.cpp cboard.h models.h ctexture.h
 	$(CXX) $(CXXFLAGS) -c cboard.cpp
 
-cbat.o: cbat.cpp cbat.h bat_models.h
+cbat.o: cbat.cpp cbat.h bat_models.h cboard.h globalDefs.h
 	$(CXX) $(CXXFLAGS) -c cbat.cpp
 
 cpuck.o: cpuck.cpp cpuck.h puck_models.h
 	$(CXX) $(CXXFLAGS) -c cpuck.cpp
 
-cplayer.o: cplayer.cpp cplayer.h cbat.h
+cplayer.o: cplayer.cpp cplayer.h cbat.h globalDefs.h
 	$(CXX) $(CXXFLAGS) -c cplayer.cpp
 
 ccamera.o: ccamera.cpp ccamera.h Transformation.h

@@ -6,7 +6,7 @@ int bat_dispList;
 //object: Bat
 void load_bat() {
 	glPushMatrix();
-	glTranslated(0.000000, 0.000000, 0.950696);
+	glTranslated(0.000000, 0.000000, -1.450696);
 	glScaled(1.000000, 1.000000, 1.000000);
 	glBegin(GL_QUADS);
 		glNormal3f(0.007385, 0.006043, -0.999939);

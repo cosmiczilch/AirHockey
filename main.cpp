@@ -14,6 +14,7 @@ exit
 #include "GL/gl.h"
 #include "GL/glu.h"
 
+#include "globalDefs.h"
 #include "models.h"
 #include "bat_models.h"
 #include "Transformation.h"
