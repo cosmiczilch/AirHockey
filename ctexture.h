@@ -15,6 +15,7 @@ using namespace std;
 #define PNG 0 
 #define JPG 1
 #define BMP 2
+#define TGA 3
 
 
 class CTexture{ 

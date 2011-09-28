@@ -25,8 +25,46 @@ V# Investigate memory leaks in ftgl code
 ## 	Try w/ bigger objects, and bigger clipping volume, in the same window
 ##	Fall back to accum buffer smoothing
 
-## Make player and bats and puck inits callable from game_mainmenu on transition to game_running
+V# Make player and bats and puck inits callable from game_mainmenu on transition to game_running
+V# i.e., Add single-use-only pattern to all loadModels( ) functions
 
+## Add NetworkProgramming threads
+## Add error checking while initialising each module, so that the game can still be played w/o 
+## certain modules, (example : networking, anti-aliasing)
+
+## *** Can't run more than 1 instance of AirHockey at once!!! 
+V#     Fixed the Networking part (try to bind to another socket)
+V#     Some issue w/ peepEvents : peepEvents fails when another udp server is running on the same socket_number
+## Looks fine now. Soln. : try to bind to 2000, and if failed, try to bind to 6000
+
+## Move applicable stuff into globalDefs.h
+## Change class member definitions from public to private where applicable
+
+## Support themes in settings
+## Make more themes
+
+V# Add textboxs for input and for credits etc
+V# Add controls in game_settings.h ? or keep it in game_mainmenu.h ? [edit : looks like it'll stay in game_mainmenu.h, for now]
+V# Have added some basic UI elements (FontPrinter, Panel, TextInput)
+V# Have the sub-buttons pop up in the middle of the screen w/ a CPanel around them
+V# Let CTextInput remain a CPanelObjek
+V# Add highlight/popout support for clabel
+V# Add pointLiesWithin/click supprot for cpanel
+## TextInput is numeric and periods only for now (ip address)
+V# Add inputDoneHandler to TextInput
+## !! Panel.enable/disableChildren doesn't work
+V# Add "enter remote server's ip address" label
+V# Add backspace support to TextInput
+## Add appropriate errorHandling to checkIpAddr( ) 
+## Make sure that clicking on multiplayer_panel does not make it vanish; basically, add clickHandler for Panel and set it empty here
+
+## Physics
+
+## AI for when playing singleplayer mode
+
+## Check if mouse/bat binding is good enough on any system; think about it
+
+## Add throttle to networking delay so as not to inundate a slow network with too many packets
 #############################################################################################################################
 
 

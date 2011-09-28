@@ -60327,6 +60327,12 @@ void load_4() {
 }
 
 void loadModel( ){ 
+	static bool loaded = false;
+
+	if ( loaded ) {
+		return;
+	}
+
 	goalPostF_dispList = glGenLists( 1 );
 	goalPostN_dispList = glGenLists( 1 );
 	guardRailR_dispList = glGenLists( 1 );
@@ -60352,6 +60358,8 @@ void loadModel( ){
 	glNewList( board_dispList, GL_COMPILE );
 	load_4();	
 	glEndList( );
+
+	loaded = true;
 
 	return; 
 }

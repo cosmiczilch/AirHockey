@@ -7,7 +7,7 @@ int puck_dispList;
 void load_puck() {
 	float matColors[4];
 	glPushMatrix();
-	glTranslated(0.000000, 0.000000, 0.339169);
+	glTranslated(0.000000, 0.000000, 0.539169);
 	glScaled(1.000000, 1.000000, 0.260262);
 	matColors[0] = 0.200000;
 	matColors[1] = 0.200000;
@@ -80023,11 +80023,18 @@ void load_puck() {
 }
 
 void loadPuck() {
+	static bool loaded = false; 
+	if ( loaded ) {
+		return;
+	}
+
 	puck_dispList = glGenLists( 1 );
 
 	glNewList( puck_dispList, GL_COMPILE );
 	load_puck();	//object: Puck
 	glEndList( );
+
+	loaded = true;
 
 	return;
 }

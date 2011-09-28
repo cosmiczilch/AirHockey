@@ -69133,11 +69133,18 @@ void load_bat() {
 
 
 void loadBat() {
+	static bool loaded = false; 
+	if ( loaded ) {
+		return;
+	}
+
 	bat_dispList = glGenLists( 1 );
 
 	glNewList( bat_dispList, GL_COMPILE );
 	load_bat();	//object: Bat
 	glEndList( );
+
+	loaded = true;
 
 	return;
 }

@@ -25,6 +25,9 @@ CBoard board;
 CPlayer player1, player2;
 CPuck puck;
 
+
+CFontPrinter fontPrinter;
+
 void (*renderScene) ( void );
 
 #define CAMERA_HOW_MUCH_BEHIND_BOARD 0.60 	// times the board length (use as a multiplicative factor for board.length)

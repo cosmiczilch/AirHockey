@@ -14,6 +14,9 @@ exit
 #include "GL/gl.h"
 #include "GL/glu.h"
 
+#include "Utilities.h"
+#include "cfontprinter.h"
+#include "ctextinput.h"
 #include "globalDefs.h"
 #include "models.h"
 #include "bat_models.h"
@@ -27,6 +30,8 @@ exit
 #include "game_mainmenu.h"
 #include "game_running.h"
 #include "poller.h"
+#include "network_server.h"
+#include "network_client.h"
 
 #include "main.h"
 
@@ -71,11 +76,34 @@ void cleanUp( ){
 	return; 
 }
 
+void initNetworkingComponents( ) {
+	printf( "\nInitializing Networking Components... " );
+
+	/* Initialize SDL_net */
+	printf( "\nInitializing SDL_net... " );
+	if (SDLNet_Init() < 0)
+	{
+		fprintf(stderr, "SDLNet_Init: %s\n", SDLNet_GetError());
+		exit(EXIT_FAILURE);
+	}
+
+	/* Initialize the server */
+	printf( "\nInitializing Network Server..." );
+	initNetworkServer( );
+
+	printf( "\nNetworking Components: Done. " );
+
+	return;
+}
+
 void initThreads( ){ 
 	poller_thread = SDL_CreateThread( poller_0, NULL );
 	availableEvents = SDL_CreateMutex( );
 	donePumping = SDL_CreateCond( );
 	drainedPump = SDL_CreateCond( );
+
+	networkServer_thread = SDL_CreateThread( network_server_loop, NULL );
+	networkClient_thread = SDL_CreateThread( network_client_loop, NULL );
 
 	return;
 }
@@ -135,6 +163,8 @@ void initObjeks( ){
 	player1.init( PLAYER_1,  0.0, 0.4, 0.0,  BOARD_WIDTH/4.0, -BOARD_LENGTH/4.0, BOARD_THICKNESS/2.0 );
 	player2.init( PLAYER_2,  0.0, 0.0, 0.4,  -BOARD_WIDTH/4.0, BOARD_LENGTH/4.0, BOARD_THICKNESS/2.0 );
 	puck.init( 0.0, 0.0, 0.0,  0.0, 0.0, 0.0 );
+
+	fontPrinter.init( 20.0, 30.0, SColor( 1.0, 1.0, 1.0, 1.0 ), "./resources/fonts/Verdana.png" );
 
 	return; 
 }
@@ -209,6 +239,8 @@ int main( int argc, char *argv[] ){
 	*/
 
         setup_rc( ); 
+
+	initNetworkingComponents( );
 
 	initObjeks( );
 	initGameStates( );

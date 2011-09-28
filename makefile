@@ -3,10 +3,10 @@
 CXX = g++
 CXXFLAGS = -g -Wall -lGLU -lGLEW -lGL `sdl-config --cflags` `sdl-config --libs` -lSDL_net -lSDL_image
 
-main: main.o models.o bat_models.o puck_models.o Transformation.o ctexture.o cgame.o cboard.o cbat.o cpuck.o cplayer.o ccamera.o cbutton.o
-	$(CXX) $(CXXFLAGS) -o main main.o models.o bat_models.o puck_models.o Transformation.o ctexture.o cgame.o cboard.o cbat.o cpuck.o cplayer.o ccamera.o cbutton.o
+main: main.o models.o bat_models.o puck_models.o Transformation.o ctexture.o cgame.o cboard.o cbat.o cpuck.o cplayer.o ccamera.o cbutton.o ctextinput.o cfontprinter.o cpanelobjek.o cpanel.o clabel.o
+	$(CXX) $(CXXFLAGS) -o main main.o models.o bat_models.o puck_models.o Transformation.o ctexture.o cgame.o cboard.o cbat.o cpuck.o cplayer.o ccamera.o cbutton.o ctextinput.o cfontprinter.o cpanelobjek.o cpanel.o clabel.o
 
-main.o: main.cpp models.h bat_models.h puck_models.h Transformation.h ccamera.h ctexture.h cboard.h cplayer.h cpuck.h cgame.h game_mainmenu.h game_running.h poller.h main.h globalDefs.h cbutton.h
+main.o: main.cpp models.h bat_models.h puck_models.h Transformation.h ccamera.h ctexture.h cboard.h cplayer.h cpuck.h cgame.h game_mainmenu.h game_running.h poller.h main.h globalDefs.h cbutton.h network_server.h network_client.h ctextinput.h cfontprinter.h Utilities.h cpanelobjek.h cpanel.h clabel.h cpacketdata.h
 	$(CXX) $(CXXFLAGS) -c main.cpp
 
 models.o: models.cpp models.h
@@ -44,6 +44,21 @@ ccamera.o: ccamera.cpp ccamera.h Transformation.h
 
 cbutton.o: cbutton.cpp cbutton.h ctexture.h
 	$(CXX) $(CXXFLAGS) -c cbutton.cpp
+
+ctextinput.o: ctextinput.cpp ctextinput.h ctexture.h cfontprinter.h cpanelobjek.h Utilities.h
+	$(CXX) $(CXXFLAGS) -c ctextinput.cpp
+
+cfontprinter.o: cfontprinter.cpp cfontprinter.h Utilities.h ctexture.h
+	$(CXX) $(CXXFLAGS) -c cfontprinter.cpp
+
+cpanelobjek.o: cpanelobjek.cpp cpanelobjek.h Utilities.h ctexture.h
+	$(CXX) $(CXXFLAGS) -c cpanelobjek.cpp
+
+cpanel.o: cpanel.cpp cpanel.h Utilities.h ctexture.h cpanelobjek.h
+	$(CXX) $(CXXFLAGS) -c cpanel.cpp
+
+clabel.o: clabel.cpp clabel.h Utilities.h ctexture.h cpanelobjek.h cfontprinter.h
+	$(CXX) $(CXXFLAGS) -c clabel.cpp
 
 
 .PHONY : clean
