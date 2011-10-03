@@ -27,12 +27,12 @@ exit
 #include "cplayer.h"
 #include "cpuck.h"
 #include "cgame.h"
+#include "cnetwork_queue.h"
 #include "game_mainmenu.h"
+#include "game_paused.h"
 #include "game_running.h"
 #include "poller.h"
-#include "network_server.h"
-#include "network_client.h"
-
+#include "networking.h"
 #include "main.h"
 
 using namespace std; 
@@ -77,21 +77,7 @@ void cleanUp( ){
 }
 
 void initNetworkingComponents( ) {
-	printf( "\nInitializing Networking Components... " );
-
-	/* Initialize SDL_net */
-	printf( "\nInitializing SDL_net... " );
-	if (SDLNet_Init() < 0)
-	{
-		fprintf(stderr, "SDLNet_Init: %s\n", SDLNet_GetError());
-		exit(EXIT_FAILURE);
-	}
-
-	/* Initialize the server */
-	printf( "\nInitializing Network Server..." );
-	initNetworkServer( );
-
-	printf( "\nNetworking Components: Done. " );
+	initNetworking();
 
 	return;
 }
@@ -102,8 +88,8 @@ void initThreads( ){
 	donePumping = SDL_CreateCond( );
 	drainedPump = SDL_CreateCond( );
 
-	networkServer_thread = SDL_CreateThread( network_server_loop, NULL );
-	networkClient_thread = SDL_CreateThread( network_client_loop, NULL );
+	networkSending_thread = SDL_CreateThread( network_sending_loop, NULL );
+	networkReceiving_thread = SDL_CreateThread( network_receiving_loop, NULL );
 
 	return;
 }
@@ -171,6 +157,7 @@ void initObjeks( ){
 
 void initGameStates( ){ 
 	NSGame_MainMenu::init( );
+	NSGame_Paused::init( );
 	NSGame_Running::init( );
 
 	return;
@@ -251,5 +238,12 @@ int main( int argc, char *argv[] ){
 	cleanUp( ); 
 
         return 0; 
+}
+
+void ASSERT( bool condition, string panic_string ) {
+	if (!condition) {
+		printf( "\nPANIC: %s\n", panic_string.c_str() );
+		exit (0);
+	}
 }
 

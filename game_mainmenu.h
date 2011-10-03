@@ -1,6 +1,8 @@
 #ifndef GAME_MAINMENU_H
 #define GAME_MAINMENU_H
 
+#include "SDL_net.h"
+
 #include "cgame.h"
 #include "main.h"
 #include "ccamera.h"
@@ -11,17 +13,20 @@
 #include "cpanelobjek.h"
 #include "clabel.h"
 #include "ctextinput.h"
+#include "cnetwork_queue.h"
+#include "globalDefs.h"
 
 /* Extern Variables   : **********************************************************************************************************************/ 
 
-extern string remote_server_ip_address;		// from network_client.h
-extern void initNetworkClient( );		// from network_client.h
+extern IPaddress remote_machine_ip;
 
 /**********************************************************************************************************************************************/ 
 
 namespace NSGame_MainMenu{ 
 
 /* File Variables     : **********************************************************************************************************************/ 
+
+bool entered = false;
 
 int work_thread_anim_delay_msecs = 25.0; 
 
@@ -71,6 +76,19 @@ float side_length__my_cursor;
 
 
 SDL_Thread *work_thread = NULL;
+
+void entryFunction( ) {
+	entered = true;
+
+	return;
+}
+
+
+void exitFunction( ) {
+	entered = false;
+
+	return;
+}
 
 void initCamera( ){ 
 	float w = get_GW( ); 
@@ -156,6 +174,9 @@ void blitMyCursorAtCurrentMouse( ){
 }
 
 void renderScene( ){ 
+	if (!entered) {
+		entryFunction( );
+	}
 
 	glClearColor( 1.0, 1.0, 1.0, 1.0 );
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT ); 
@@ -256,6 +277,9 @@ void eventHandler( SDL_Event &event ){
 int work( void * ){ 
 	while( 1 ){
 		SDL_Delay( work_thread_anim_delay_msecs ); 
+		if (gameState != MAIN_MENU) {
+			continue;
+		}
 
 		game_MainMenu.camera1->rotateAboutAxis( Z_AXIS, 1.0 );
 	}
@@ -268,12 +292,26 @@ bool checkIpAddr( string input ) {
 	return true;
 }
 
+void resolve_ip( string ip ) {
+	if (SDLNet_ResolveHost(&remote_machine_ip, ip.c_str(), NETWORK_SERVER_SOCKET) == -1)
+	{
+		fprintf(stderr, "SDLNet_ResolveHost\n" );
+		exit(EXIT_FAILURE);
+	}
+
+	return;
+}
+
 
 void singlePlayerButton_clickHandler( float x, float y ){ 
-	gameState = RUNNING;
+	exitFunction( );
+
+	gameState = PAUSED;
 	gameType = SINGLE_PLAYER;
 
 	initObjeks( );
+
+	// cleanUp( );
 
 	return; 
 }
@@ -315,8 +353,15 @@ void exitButton_clickHandler( float x, float y ){
 	return; 
 }
 
-void createServer_clickHandler( float x, float y ){ 
-	exit(0);
+void createServer_clickHandler( float x, float y ){
+	exitFunction( );
+
+	are_we_the_server = true;
+
+	gameState = PAUSED;
+	gameType = MULTI_PLAYER;
+
+	initObjeks( );
 
 	return; 
 }
@@ -341,13 +386,17 @@ void joinGame_clickHandler( float x, float y ){
 void ipaddr_inputDoneHandler( ) {
 	if ( checkIpAddr( ipaddr_textinput.inputText ) ) {	// this is always true for now.
 
-		remote_server_ip_address = ipaddr_textinput.inputText;
-		initNetworkClient( );
+		resolve_ip( ipaddr_textinput.inputText );
 
-		gameState = RUNNING;
+		gameState = PAUSED;
 		gameType = MULTI_PLAYER;
+		are_we_the_server = false;
 
 		initObjeks( );
+
+		exitFunction( );
+
+		// cleanUp( );
 	}
 
 	return;

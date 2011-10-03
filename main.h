@@ -21,6 +21,13 @@ enum GameType{
 	MULTI_PLAYER
 }gameType;
 
+/* network stuff */
+CNetwork_Queue network_queue;
+bool are_we_the_server = false;
+bool must_initiate_new_mp_game = false;
+bool new_mp_game_initiated = false;
+/* network stuff */
+
 CBoard board;
 CPlayer player1, player2;
 CPuck puck;
@@ -45,6 +52,7 @@ void cleanUp( void );
 float get_GW( ); 
 float get_GH( );
 void initObjeks( );
+void ASSERT( bool condition, string panic_string );
 
 /**********************************************************************************************************************************************/ 
 

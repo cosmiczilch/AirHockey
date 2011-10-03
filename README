@@ -35,6 +35,7 @@ V# i.e., Add single-use-only pattern to all loadModels( ) functions
 ## *** Can't run more than 1 instance of AirHockey at once!!! 
 V#     Fixed the Networking part (try to bind to another socket)
 V#     Some issue w/ peepEvents : peepEvents fails when another udp server is running on the same socket_number
+##     !!! cleanUP() in NSGame* doesn't work, , and causes SDL_PeepEvents to fail
 ## Looks fine now. Soln. : try to bind to 2000, and if failed, try to bind to 6000
 
 ## Move applicable stuff into globalDefs.h
