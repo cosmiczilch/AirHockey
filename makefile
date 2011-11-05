@@ -3,8 +3,8 @@
 CXX = g++
 CXXFLAGS = -g -Wall -lGLU -lGLEW -lGL `sdl-config --cflags` `sdl-config --libs` -lSDL_net -lSDL_image
 
-main: main.o models.o bat_models.o puck_models.o Transformation.o ctexture.o cgame.o cboard.o cbat.o cpuck.o cplayer.o ccamera.o cbutton.o ctextinput.o cfontprinter.o cpanelobjek.o cpanel.o clabel.o cnetwork_queue.o
-	$(CXX) $(CXXFLAGS) -o main main.o models.o bat_models.o puck_models.o Transformation.o ctexture.o cgame.o cboard.o cbat.o cpuck.o cplayer.o ccamera.o cbutton.o ctextinput.o cfontprinter.o cpanelobjek.o cpanel.o clabel.o cnetwork_queue.o
+main: main.o models.o bat_models.o puck_models.o Transformation.o ctexture.o cgame.o cboard.o cbat.o cpuck.o cplayer.o ccamera.o cbutton.o ctextinput.o cfontprinter.o cpanelobjek.o cpanel.o clabel.o cnetwork_queue.o Utilities.o
+	$(CXX) $(CXXFLAGS) -o main main.o models.o bat_models.o puck_models.o Transformation.o ctexture.o cgame.o cboard.o cbat.o cpuck.o cplayer.o ccamera.o cbutton.o ctextinput.o cfontprinter.o cpanelobjek.o cpanel.o clabel.o cnetwork_queue.o Utilities.o
 
 main.o: main.cpp models.h bat_models.h puck_models.h Transformation.h ccamera.h ctexture.h cboard.h cplayer.h cpuck.h cgame.h game_mainmenu.h game_paused.h game_running.h poller.h main.h globalDefs.h cbutton.h networking.h cnetwork_queue.h ctextinput.h cfontprinter.h Utilities.h cpanelobjek.h cpanel.h clabel.h cpacketdata.h
 	$(CXX) $(CXXFLAGS) -c main.cpp
@@ -30,10 +30,10 @@ cgame.o: cgame.cpp cgame.h Transformation.h ccamera.h
 cboard.o: cboard.cpp cboard.h models.h ctexture.h
 	$(CXX) $(CXXFLAGS) -c cboard.cpp
 
-cbat.o: cbat.cpp cbat.h bat_models.h cboard.h globalDefs.h
+cbat.o: cbat.cpp cbat.h bat_models.h cboard.h globalDefs.h Utilities.h
 	$(CXX) $(CXXFLAGS) -c cbat.cpp
 
-cpuck.o: cpuck.cpp cpuck.h puck_models.h
+cpuck.o: cpuck.cpp cpuck.h puck_models.h Utilities.h globalDefs.h
 	$(CXX) $(CXXFLAGS) -c cpuck.cpp
 
 cplayer.o: cplayer.cpp cplayer.h cbat.h globalDefs.h
@@ -63,6 +63,8 @@ clabel.o: clabel.cpp clabel.h Utilities.h ctexture.h cpanelobjek.h cfontprinter.
 cnetwork_queue.o: cnetwork_queue.cpp cpacketdata.h cnetwork_queue.h globalDefs.h
 	$(CXX) $(CXXFLAGS) -c cnetwork_queue.cpp
 
+Utilities.o: Utilities.cpp Utilities.h globalDefs.h
+	$(CXX) $(CXXFLAGS) -c Utilities.cpp
 
 
 .PHONY : clean

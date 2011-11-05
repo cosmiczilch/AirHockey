@@ -7,6 +7,7 @@
 #include "cplayer.h"
 #include "cbat.h"
 #include "Utilities.h"
+#include "globalDefs.h"
 #include "cnetwork_queue.h"
 
 #include <string>
@@ -71,6 +72,8 @@ void initNetworking ( ) {
 
 static 
 bool check_for_packets ( ) {
+	static long int seqNum = -1;
+
 	if (SDLNet_UDP_Recv(socketDesc, receiving_udpPacket)) {
 		printf("\nSomething has come ...");
 		/*
@@ -81,6 +84,16 @@ bool check_for_packets ( ) {
 		   printf("\tStatus:  %d\n", server_udpPacket->status);
 		   printf("\tAddress: %x %x\n", server_udpPacket->address.host, server_udpPacket->address.port);
 		 */
+
+		CPacketData *packetData = (CPacketData *)receiving_udpPacket->data;
+		if (packetData->seqNum <= seqNum) {
+			// udp network issues; out of order packet delivery
+			printf( "\nIgnoring out of order packet" );
+			return false;
+		}
+		printf( "\t%ld", seqNum );
+
+		seqNum = packetData->seqNum;
 
 		return true;
 	}		
@@ -105,9 +118,11 @@ void marshall_and_send_packet ( ) {
 
 	sending_udpPacket->len = sizeof( packetData );
 
-	printf( "\nSending some Packet to remote_machine ..." );
+	printf( "\nSending some Packet to remote_machine ...\t%ld", seqNum );
 	SDLNet_UDP_Send(socketDesc, -1, sending_udpPacket); /* This sets the p->channel */
 	/* Send the packet */
+
+	printf( "\tNum packets backed up for sending : %d", network_queue.queue_to_send.size() );
 
 	return;
 }
@@ -155,9 +170,23 @@ void handlePacket ( UDPpacket *udpPacket ) {
 				 * containing the remote_machine's player1's bat's coordinates,
 				 * update our player2's bat's coordinates accordingly
 				 */
-				player2.bat.x = -1 * packetData->cordinates.x;
-				player2.bat.y = -1 * packetData->cordinates.y;
-				player2.bat.z = packetData->cordinates.z;
+				if (packetData->header == PLAYER1_COORD_PACKET_HEADER ||
+				    packetData->header == PUCK_AND_PLAYER1_COORD_PACKET_HEADER) {
+					player2.bat.x = -1 * packetData->cordinates.x;
+					player2.bat.y = -1 * packetData->cordinates.y;
+					player2.bat.z = packetData->cordinates.z;
+					if (!are_we_the_server) {
+						/*
+						 * we are not the server; 
+						 * must accept the puck's coordinates from remote server
+						 */
+						ASSERT( packetData->header == PUCK_AND_PLAYER1_COORD_PACKET_HEADER, 
+								"PLAYER1_COORD_PACKET_HEADER received from server");
+						puck.x = -1 * packetData->puck_cordinates.x;
+						puck.y = -1 * packetData->puck_cordinates.y;
+					}
+				}
+				
 			}
 			break;
 

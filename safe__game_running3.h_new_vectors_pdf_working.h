@@ -48,30 +48,13 @@ CLabel labels[NUM_LABELS_RUNNING];
  * MAX_BAT_SPEED_SUSP, the more pronounced the effects
  * of friction shall be. See compute_velocity()
  */
-#define MAX_BAT_SPEED 5.0			// empirical
-#define MAX_BAT_SPEED_SUSP 4.0			// empirical
-#define MAX_PUCK_SPEED_SUSP 11.0		// empirical
-#define MAX_PUCK_DECELERATION_FACTOR 1.0900 	// empirical
-/**
- * used for mimicking friction; however, its more important
- * role is in limiting the puck's speed from becoming too
- * high and causing errors in collission_detection (esp w/
- * bat moving "over" puck)
- * but, we cannot clamp the puck's speed to some fixed number
- * as this will worsen the problem by causing errors in the
- * collission handling calculation
- * so, the idea is to increase the friction experienced by
- * the puck when its velocity is high, thus bringing its
- * velocity to a more managable value
- * its a division factor ranging from 1.0 (no friction)
- * to MAX_PUCK_DECELERATION_FACTOR (max friction)
- * see : adjust_puck_decelaration_and_velocity()
- */
-float puck_decelaration_factor;
+#define MAX_BAT_SPEED 7.5	// empirical
+#define MAX_BAT_SPEED_SUSP 1.0	// empirical
+#define MAX_PUCK_SPEED_SUSP 3.0	// empirical
 
 /**
- * needed for handle_collission__puck_with_bat(), 
- * but declaring here to save time there
+ * needed for handle_collission__puck_with_bat(), but declaring here
+ * to save time there
  */
 vec2 unit_normal;
 vec2 unit_tangent;
@@ -95,7 +78,7 @@ void entryFunction ( ) {
 	entered = true;
 
 	SDL_ShowCursor( 0 );
-	SDL_WM_GrabInput( SDL_GRAB_ON );
+	// SDL_WM_GrabInput( SDL_GRAB_ON );
 
 
 	return;
@@ -202,6 +185,10 @@ void eventHandler( SDL_Event &event ){
 		player1.bat.translate_X( delta_x*MOUSE_SENSITIVITY, false );
 		player1.bat.translate_Y( delta_y*MOUSE_SENSITIVITY, player1.player_ID, false );
 
+		// make sure bat cannot move "over" puck
+
+		// detect collission of puck w/ bats and handle appropriately
+
 	}
 
 	return; 
@@ -229,8 +216,7 @@ void handle_collission__puck_with_bat( CPuck *puck, CBat *bat ) {
 	 * Find the unit normal and unit tangent vectors, wr.to
 	 * the axis of collission
 	 */
-	unit_normal[VX] = puck->x - bat->x;
-	unit_normal[VY] = puck->y - bat->y;
+	unit_normal = puck->motion.velocity - bat->motion.velocity;
 	unit_normal.Normalize();
 
 	unit_tangent[VX] = -1.0 * unit_normal[VY];
@@ -300,102 +286,6 @@ bool detect_collission__puck_with_bat( ) {
 	return false;
 }
 
-void pauli() {
-	/**
-	 * this runs post collission_detection()
-	 * check if player1's bat is moving into the puck, and if so,
-	 * move the puck a little aside
-	 * call this condition(1)
-	 * if we are in SINGLE_PLAYER mode, this should be done for
-	 * player2's bat as well
-	 */
-	static vec2 axis;
-	static float epsilon;
-	static bool cond1_corrected = false, cond2_corrected = false;
-
-	axis[VX] = puck.x - player1.bat.x;
-	axis[VY] = puck.y - player1.bat.y;
-	if (axis.Length() < (BAT_RADIUS+PUCK_RADIUS)) {
-		epsilon = (BAT_RADIUS+PUCK_RADIUS) - axis.Length();
-		axis.Normalize();
-		puck.x += axis[VX] * epsilon;
-		puck.y += axis[VY] * epsilon;
-		printf( "\npauli1" );
-	}
-
-	if (gameType == SINGLE_PLAYER) {
-		axis[VX] = puck.x - player2.bat.x;
-		axis[VY] = puck.y - player2.bat.y;
-		if (axis.Length() < (BAT_RADIUS+PUCK_RADIUS)) {
-			epsilon = (BAT_RADIUS+PUCK_RADIUS) - axis.Length();
-			axis.Normalize();
-			puck.x += axis[VX] * epsilon;
-			puck.y += axis[VY] * epsilon;
-			printf( "\npauli1" );
-		}
-	}
-
-	/**
-	 * now, check for puck moving into the walls and if so,
-	 * move the puck a little aside
-	 * call this condition(2)
-	 */
-	if ((puck.x+PUCK_RADIUS) >  BOARD_WIDTH/2.0) {
-		puck.x -= abs( (puck.x+PUCK_RADIUS) - BOARD_WIDTH/2.0);
-		printf( "\npauli2" );
-		cond2_corrected = true;
-	}
-	if ((puck.x-PUCK_RADIUS) < -BOARD_WIDTH/2.0) {
-		puck.x += abs( (puck.x-PUCK_RADIUS) - (-BOARD_WIDTH/2.0));
-		printf( "\npauli2" );
-		cond2_corrected = true;
-	}
-	if ((puck.y+PUCK_RADIUS) > BOARD_LENGTH/2.0) {
-		puck.y -= abs( (puck.y+PUCK_RADIUS) - BOARD_LENGTH/2.0);
-		printf( "\npauli2" );
-		cond2_corrected = true;
-	}
-	if ((puck.y - PUCK_RADIUS) < -BOARD_LENGTH/2.0) {
-		puck.y += abs( (puck.y-PUCK_RADIUS) - (-BOARD_LENGTH/2.0));
-		printf( "\npauli2" );
-		cond2_corrected = true;
-	}
-
-	/**
-	 * now, having corrected condition(2)
-	 * we might have - in the process - broken condition(1),
-	 * correct it, but this time by moving the bat instead
-	 * If we are in SINGLE_PLAYER mode, this should be done for
-	 * player2's bat as well
-	 */
-	if (cond2_corrected) {
-		axis[VX] = puck.x - player1.bat.x;
-		axis[VY] = puck.y - player1.bat.y;
-		if (axis.Length() < (BAT_RADIUS+PUCK_RADIUS)) {
-			epsilon = (BAT_RADIUS+PUCK_RADIUS) - axis.Length();
-			axis.Normalize();
-			player1.bat.x -= axis[VX] * epsilon;
-			player1.bat.y -= axis[VY] * epsilon;
-			printf( "\npauli3" );
-		}
-		if (gameType == SINGLE_PLAYER) {
-			axis[VX] = puck.x - player2.bat.x;
-			axis[VY] = puck.y - player2.bat.y;
-			if (axis.Length() < (BAT_RADIUS+PUCK_RADIUS)) {
-				epsilon = (BAT_RADIUS+PUCK_RADIUS) - axis.Length();
-				axis.Normalize();
-				player2.bat.x -= axis[VX] * epsilon;
-				player2.bat.y -= axis[VY] * epsilon;
-				printf( "\npauli3" );
-			}
-		}
-	}
-
-	cond1_corrected = cond2_corrected = false;
-
-	return;
-}
-
 void collission_detection( ) {
 	// puck w/ wall
 	if ( (puck.x+PUCK_RADIUS) >= BOARD_WIDTH/2.0 ||
@@ -411,13 +301,6 @@ void collission_detection( ) {
 
 	// puck w/ bats
 	detect_collission__puck_with_bat( );	// and handle appropriately too
-
-	/**
-	 * in favor of pauli's exclusion principle
-	 * make sure that puck cannot move into walls, and that
-	 * bats cannot move into puck
-	 */
-	pauli( );
 
 	return;
 }
@@ -446,25 +329,6 @@ void compute_velocity( ) {
 	player1.bat.motion.velocity[VY] = vy;
 
 	clamp_velocity( &player1.bat.motion, MAX_BAT_SPEED_SUSP );
-
-	return;
-}
-
-void adjust_puck_decelaration_and_velocity( ) {
-	/**
-	 * puck_decelaration_factor will lie between 1.0 and
-	 * MAX_PUCK_DECELERATION_FACTOR
-	 * it is 1.0 when puck's velocity is 0.0, and MAX when
-	 * puck's velocity is MAX_PUCK_SPEED_SUSP
-	 */
-	puck_decelaration_factor  = 1.0;
-	puck_decelaration_factor += (MAX_PUCK_DECELERATION_FACTOR - 1.0) * puck.motion.velocity.Length() /\
-							MAX_PUCK_SPEED_SUSP;
-	
-	puck.motion.velocity[VX] /= puck_decelaration_factor;
-	puck.motion.velocity[VY] /= puck_decelaration_factor;
-
-	printf( "\nv, d : %f, %f", puck.motion.velocity.Length(), puck_decelaration_factor);
 
 	return;
 }
@@ -535,7 +399,6 @@ int work( void * ){
 			player1.bat.translate_Y( player1.bat.motion.velocity[VY], player1.player_ID );
 
 			puck.translate( );
-			adjust_puck_decelaration_and_velocity( );
 
 			/* compute bat1's motion */
 			/* compute bat2's motion */
@@ -546,7 +409,7 @@ int work( void * ){
 
 		}
 
-		// collission detection and handling(done inside)
+		// collission detection : PLACEHOLDER
 		collission_detection( );
 
 

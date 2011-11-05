@@ -1,10 +1,20 @@
 #ifndef GLOBALDEFS_H
 #define GLOBALDEFS_H
 
+#define DEBUG 0
+
+#define PI 3.14159265358979323846264
+
 #define PLAYER_1 1
 #define PLAYER_2 2
 
 #define BAT_RADIUS 2.5
+#define PUCK_RADIUS 1.5
+
+#define BUFFER_FACTOR_FOR_COLLISSION_DETECTION 1.0
+
+#define BAT_MASS 4.25
+#define PUCK_MASS 0.10
 
 /* Network Defs       : **********************************************************************************************************************/ 
 
@@ -14,7 +24,6 @@
 #define UDP_PACKET_SIZE 512
 
 /*********************************************************************************************************************************************/ 
-
 
 #endif
 

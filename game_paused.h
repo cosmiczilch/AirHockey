@@ -34,7 +34,6 @@ int numTimes_for_accum_buffer = 1;
 #define SOMEWHERE_FAR_AWAY 20000
 #define SMALL_EPSILON 10.0
 
-#define MOUSE_SENSITIVITY 1/10.0
 float x_mouse, y_mouse;
 CTexture my_cursor_texture; 
 float side_length__my_cursor;
@@ -74,6 +73,9 @@ void entryFunction( ) {
 
 	ticks = COUNTDOWNTIME / work_thread_anim_delay_msecs;
 
+	SDL_ShowCursor( 0 );
+
+
 	return;
 }
 
@@ -94,6 +96,7 @@ void exitFunction( ) {
 		network_queue.insert( pdata );
 	}
 
+	SDL_ShowCursor( 1 );
 
 	return;
 }
@@ -236,6 +239,8 @@ int work( void * ){
 			continue;
 		}
 
+		SDL_WarpMouse( get_GW()/2.0, get_GH()/2.0 );
+
 		ticks--;
 		char s[4];
 		sprintf( s, "%d", (int)((float)ticks * COUNTDOWNTIME/1000 * (float)work_thread_anim_delay_msecs/COUNTDOWNTIME + 1) );
@@ -298,7 +303,6 @@ void init( ){
 	game_Paused.setRenderScene( NSGame_Paused::renderScene ); 
 	game_Paused.setEventHandler( NSGame_Paused::eventHandler );
 
-	SDL_ShowCursor( 0 );
 	side_length__my_cursor = w*5/100.0; 
 	my_cursor_texture.makeTexture( "./resources/images/cursor.png", PNG );
 

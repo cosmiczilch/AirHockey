@@ -58,14 +58,42 @@ V# Add "enter remote server's ip address" label
 V# Add backspace support to TextInput
 ## Add appropriate errorHandling to checkIpAddr( ) 
 ## Make sure that clicking on multiplayer_panel does not make it vanish; basically, add clickHandler for Panel and set it empty here
+## Handle SDL_WM_GrabInput correctly to support multiplayer game on the same system;
+#  basically by allowing 'esc' to come out of GrabInput; perhaps have 'esc' place the game in PAUSE mode AND release Grab. seems like a good idea
+#  perhaps, have GrabInput as a user defined option? seems like a good idea
+## Also, w/ reduced mouse_sensitivity, the bat doesn't move all the way to left until it is moved all the way to the right at least once; investigate
 
 ## Physics
+## Puck's motion (vector)
+V# Bats'  motion (vector)
+V# Collission of bats w/ wall
+## Collission of puck w/ wall
+## Collission of bats w/ puck
+   http://en.wikipedia.org/wiki/Inelastic_collision
+   http://en.wikipedia.org/wiki/Elastic_collision
+## Take care of bats' motion when the bat has the puck pinned against a wall
+## Make sure that bat cannont move "over" the puck
+## Predictive collission handling to prevent bat from moving "over" puck and puck from going "into" walls
+## Convert everything to vectors
+## Add decelaration support to SMotion
+V# Add elastics to bat motion
+V# Make sure initial position of the elastic is centered over the bat
+## Fix MAX_BAT_SPEED to be configurable as "friction" (note: range-space: 1.5 - 6.0) (Note: will be needed if WM_Grab_Input() will be used)
+## FIX BUFFER_FACTOR_FOR_COLLISSION_DETECTION to real value
 
 ## AI for when playing singleplayer mode
 
 ## Check if mouse/bat binding is good enough on any system; think about it
 
 ## Add throttle to networking delay so as not to inundate a slow network with too many packets
+## Add throttle/skip if too many msgs backed up for sending in NetworkQueue;
+#  or have a feedback between num_msgs_backed_up_for_sending and ticks in game_running.h
+V# Add seqNum support
+## Add /smart/ seqNum handling
+
+## If the server exe is not started before the client exe, it won't connect (at least on a single comp)
+
+
 #############################################################################################################################
 
 

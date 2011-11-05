@@ -1,6 +1,9 @@
 #ifndef UTILITIES_H
 #define UTILITIES_H
 
+#include "globalDefs.h"
+#include "Transformation.h"
+
 #include <string>
 
 using namespace std;
@@ -44,7 +47,11 @@ struct SFont{
     SColor foreColor;
 };
 
+struct SMotion {
+	vec2 velocity;
+};
 
+extern float distance_between_2_points( float x1, float y1,  float x2, float y2 );
 
 
 #endif

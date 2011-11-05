@@ -5,7 +5,6 @@ g++ -g -Wall -lGLU -lGLEW -lGL `sdl-config --cflags` models.cpp bat_models.cpp p
 exit
 #endif
 
-
 #include "SDL.h"
 #include "SDL_opengl.h"
 #define NO_SDL_GLEXT
@@ -146,8 +145,10 @@ void setup_rc( ){
 
 void initObjeks( ){ 
 	board.init( BOARD_WIDTH, BOARD_LENGTH, BOARD_THICKNESS ); 
-	player1.init( PLAYER_1,  0.0, 0.4, 0.0,  BOARD_WIDTH/4.0, -BOARD_LENGTH/4.0, BOARD_THICKNESS/2.0 );
-	player2.init( PLAYER_2,  0.0, 0.0, 0.4,  -BOARD_WIDTH/4.0, BOARD_LENGTH/4.0, BOARD_THICKNESS/2.0 );
+	// player1.init( PLAYER_1,  0.0, 0.4, 0.0,  BOARD_WIDTH/4.0, -BOARD_LENGTH/4.0, BOARD_THICKNESS/2.0 );
+	// player2.init( PLAYER_2,  0.0, 0.0, 0.4,  -BOARD_WIDTH/4.0, BOARD_LENGTH/4.0, BOARD_THICKNESS/2.0 );
+	player1.init( PLAYER_1,  0.0, 0.4, 0.0,  0.0/4.0, -BOARD_LENGTH/4.0, BOARD_THICKNESS/2.0 );
+	player2.init( PLAYER_2,  0.0, 0.0, 0.4,  -0.0/4.0, BOARD_LENGTH/4.0, BOARD_THICKNESS/2.0 );
 	puck.init( 0.0, 0.0, 0.0,  0.0, 0.0, 0.0 );
 
 	fontPrinter.init( 20.0, 30.0, SColor( 1.0, 1.0, 1.0, 1.0 ), "./resources/fonts/Verdana.png" );
@@ -206,6 +207,10 @@ int main( int argc, char *argv[] ){
 	} else{ 
 		temp_h = (float)GH/(float)GW*temp_w;
 	}
+	#if DEBUG
+	temp_w /= 2.0;
+	temp_h /= 2.0;
+	#endif
 	GW=temp_w * 95.0/100.0;  GH=temp_h * 95.0/100.0;
         G_screen = SDL_SetVideoMode( GW, GH, 0, SDL_OPENGL ); // *changed*
 

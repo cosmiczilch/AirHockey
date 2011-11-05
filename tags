@@ -1,0 +1,878 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+0	vimSession.vim	/^normal! 0$/;"	m
+<Plug>NetrwBrowseX	vimSession.vim	/^nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)$/;"	m
+<S-Insert>	vimSession.vim	/^map <S-Insert> <MiddleMouse>$/;"	m
+<S-Insert>	vimSession.vim	/^map! <S-Insert> <MiddleMouse>$/;"	m
+ALGEBRA_ERROR	Transformation.h	96;"	d
+ASSERT	main.cpp	/^void ASSERT( bool condition, string panic_string ) {$/;"	f
+AggregatePositionDeg	Transformation.h	/^inline vec3 AggregatePositionDeg(const vec3& startCoord, const vec3& nominalPosition)$/;"	f
+AggregateTransformDeg	Transformation.h	/^inline vec3 AggregateTransformDeg(const vec3& transform, const vec3& original)$/;"	f
+AngleDiff	Transformation.h	/^inline float AngleDiff(float angleTo, float angleFrom)$/;"	f
+AngleDiffDeg	Transformation.h	/^inline float AngleDiffDeg(float angleTo, float angleFrom)$/;"	f
+AngleDiffDegVec3	Transformation.h	/^inline vec3 AngleDiffDegVec3(const vec3& angleTo, const vec3& angleFrom)$/;"	f
+BAT_MODELS_H	bat_models.h	2;"	d
+BAT_RADIUS	globalDefs.h	7;"	d
+BLUE	Transformation.h	/^enum {RED, GREEN, BLUE};	    \/\/ colors$/;"	e	enum:__anon3
+BMP	ctexture.h	17;"	d
+BOARD_LENGTH	cboard.h	14;"	d
+BOARD_THICKNESS	cboard.h	16;"	d
+BOARD_WIDTH	cboard.h	15;"	d
+CAMERA_HOW_MUCH_ABOVE_BOARD	main.h	41;"	d
+CAMERA_HOW_MUCH_BEHIND_BOARD	main.h	40;"	d
+CAMERA_TYPE_ORTHO	ccamera.h	/^	CAMERA_TYPE_ORTHO$/;"	e	enum:CameraType
+CAMERA_TYPE_PERSP	ccamera.h	/^	CAMERA_TYPE_PERSP,$/;"	e	enum:CameraType
+CBAT_H	cbat.h	2;"	d
+CBOARD_H	cboard.h	2;"	d
+CBUTTON_H	cbutton.h	2;"	d
+CBat	cbat.h	/^class CBat{ $/;"	c
+CBoard	cboard.h	/^class CBoard{ $/;"	c
+CButton	cbutton.cpp	/^CButton::CButton( ){ $/;"	f	class:CButton
+CButton	cbutton.h	/^class CButton{ $/;"	c
+CCAMERA_H	ccamera.h	2;"	d
+CCamera	ccamera.cpp	/^CCamera::CCamera()$/;"	f	class:CCamera
+CCamera	ccamera.h	/^class CCamera$/;"	c
+CFONTPRINTER_H	cfontprinter.h	2;"	d
+CFontPrinter	cfontprinter.h	/^class CFontPrinter {$/;"	c
+CGAME_H	cgame.h	2;"	d
+CGame	cgame.cpp	/^CGame::CGame( ){ $/;"	f	class:CGame
+CGame	cgame.h	/^class CGame$/;"	c
+CLABEL_H	clabel.h	2;"	d
+CLabel	clabel.h	/^class CLabel : public CPanelObjek {$/;"	c
+CNETWORK_QUEUE_H	cnetwork_queue.h	2;"	d
+CNetwork_Queue	cnetwork_queue.cpp	/^CNetwork_Queue::CNetwork_Queue( ) {$/;"	f	class:CNetwork_Queue
+CNetwork_Queue	cnetwork_queue.h	/^class CNetwork_Queue {$/;"	c
+COUNTDOWNTIME	game_paused.h	55;"	d
+CPACKETDATA_H	cpacketdata.h	2;"	d
+CPANELOBJEK_H	cpanelobjek.h	2;"	d
+CPANEL_H	cpanel.h	2;"	d
+CPLAYER_H	cplayer.h	2;"	d
+CPUCK_H	cpuck.h	2;"	d
+CPacketData	cpacketdata.h	/^class CPacketData {$/;"	c
+CPanel	cpanel.h	/^class CPanel {$/;"	c
+CPanelObjek	cpanelobjek.h	/^class CPanelObjek {$/;"	c
+CPlayer	cplayer.h	/^class CPlayer{ $/;"	c
+CPuck	cpuck.h	/^class CPuck{ $/;"	c
+CREATE_SERVER_LABEL	game_mainmenu.h	55;"	d
+CREDITS_BUTTON	game_mainmenu.h	50;"	d
+CTEXTINPUT_H	ctextinput.h	2;"	d
+CTEXTURE_H	ctexture.h	2;"	d
+CTextInput	ctextinput.h	/^class CTextInput : public CPanelObjek {$/;"	c
+CTexture	ctexture.h	/^class CTexture{ $/;"	c
+CXX	makefile	/^CXX = g++$/;"	m
+CXXFLAGS	makefile	/^CXXFLAGS = -g -Wall -lGLU -lGLEW -lGL `sdl-config --cflags` `sdl-config --libs` -lSDL_net -lSDL_image$/;"	m
+CameraType	ccamera.h	/^enum CameraType{ $/;"	g
+ClampAngle	Transformation.h	/^inline void ClampAngle(float& angle)$/;"	f
+ClampAngleDeg	Transformation.h	/^inline void ClampAngleDeg(float& angle)$/;"	f
+ClampAngleVectorDeg	Transformation.h	/^inline void ClampAngleVectorDeg(vec3& angle)$/;"	f
+Conjugate	Transformation.cpp	/^Quaternion Quaternion::Conjugate() const$/;"	f	class:Quaternion
+CoordDiff	Transformation.h	/^inline vec3 CoordDiff(const vec3& startCoord, const vec3& endCoord)$/;"	f
+CounterWarp	Transformation.cpp	/^float Quaternion::CounterWarp(float t, float fCos)$/;"	f	class:Quaternion
+Cross	Transformation.cpp	/^vec3 vec3::Cross(vec3 &v) const$/;"	f	class:vec3
+DOWN	ccamera.h	30;"	d
+Deg2Rad	Transformation.h	/^const float Deg2Rad = (M_PI \/ 180.0f);			\/\/ Degree to Rad$/;"	v
+Dot	Transformation.cpp	/^float Quaternion::Dot(const Quaternion& q0, const Quaternion& q1)$/;"	f	class:Quaternion
+END_MP_GAME_HEADER	cpacketdata.h	12;"	d
+ENTER_IP_LABEL	game_mainmenu.h	57;"	d
+ENTER_IP_LABEL2	game_mainmenu.h	58;"	d
+EPSILON	Transformation.h	84;"	d
+ES	Transformation.h	/^enum {KA, KD, KS, ES};		    \/\/ phong coefficients$/;"	e	enum:__anon4
+EXIT_BUTTON	game_mainmenu.h	51;"	d
+Exp	Transformation.cpp	/^Quaternion Quaternion::Exp(const Quaternion& q)$/;"	f	class:Quaternion
+FRAME_RATE	main.h	6;"	d
+FastNormalize	Transformation.cpp	/^Quaternion& Quaternion::FastNormalize() $/;"	f	class:Quaternion
+FromAxisAngle	Transformation.cpp	/^void Quaternion::FromAxisAngle (const vec3& axis, float angleRad)$/;"	f	class:Quaternion
+FromAxisAngle	Transformation.cpp	/^void mat3::FromAxisAngle(const vec3& axis, const float& angleRad)$/;"	f	class:mat3
+FromAxisXAngle	Transformation.cpp	/^void Quaternion::FromAxisXAngle(float angleRad)$/;"	f	class:Quaternion
+FromAxisYAngle	Transformation.cpp	/^void Quaternion::FromAxisYAngle(float angleRad)$/;"	f	class:Quaternion
+FromAxisZAngle	Transformation.cpp	/^void Quaternion::FromAxisZAngle(float angleRad)$/;"	f	class:Quaternion
+FromCoord	Transformation.cpp	/^void Transform::FromCoord(const vec3& coord)$/;"	f	class:Transform
+FromEulerAnglesXYZ	Transformation.cpp	/^mat3 mat3::FromEulerAnglesXYZ(const vec3& angleRad)$/;"	f	class:mat3
+FromEulerAnglesXZY	Transformation.cpp	/^mat3 mat3::FromEulerAnglesXZY(const vec3& angleRad)$/;"	f	class:mat3
+FromEulerAnglesYXZ	Transformation.cpp	/^mat3 mat3::FromEulerAnglesYXZ(const vec3& angleRad)$/;"	f	class:mat3
+FromEulerAnglesYZX	Transformation.cpp	/^mat3 mat3::FromEulerAnglesYZX(const vec3& angleRad)$/;"	f	class:mat3
+FromEulerAnglesZXY	Transformation.cpp	/^mat3 mat3::FromEulerAnglesZXY(const vec3& angleRad)$/;"	f	class:mat3
+FromEulerAnglesZYX	Transformation.cpp	/^mat3 mat3::FromEulerAnglesZYX(const vec3& angleRad)$/;"	f	class:mat3
+FromQuaternion	Transformation.cpp	/^void mat3::FromQuaternion(const Quaternion& q)$/;"	f	class:mat3
+FromRotation	Transformation.cpp	/^void Quaternion::FromRotation (const mat3& rot)$/;"	f	class:Quaternion
+GAME_MAINMENU_H	game_mainmenu.h	2;"	d
+GAME_MAINMENU_H	safe__game_mainmenu.h	2;"	d
+GAME_PAUSED_H	game_paused.h	2;"	d
+GAME_RUNNING_H	game_running.h	2;"	d
+GH	main.h	/^int GW=800, GH=600; $/;"	v
+GLOBALDEFS_H	globalDefs.h	2;"	d
+GOALPOST_WIDTH	cboard.h	17;"	d
+GREEN	Transformation.h	/^enum {RED, GREEN, BLUE};	    \/\/ colors$/;"	e	enum:__anon3
+GW	main.h	/^int GW=800, GH=600; $/;"	v
+G_screen	main.h	/^SDL_Surface* G_screen; $/;"	v
+GameState	cgame.h	/^enum GameState{ $/;"	g
+GameType	main.h	/^enum GameType{ $/;"	g
+GetCol	Transformation.cpp	/^vec3 mat3::GetCol(unsigned int axis) const$/;"	f	class:mat3
+GetRow	Transformation.cpp	/^vec3 mat3::GetRow(unsigned int axis) const$/;"	f	class:mat3
+GetYawPitchRoll	Transformation.cpp	/^vec3 mat3::GetYawPitchRoll(unsigned int leftAxis, unsigned int upAxis, unsigned int frontAxis) const$/;"	f	class:mat3
+INITIATE_MP_GAME_HEADER	cpacketdata.h	7;"	d
+IPADDR_TEXTINPUT	game_mainmenu.h	65;"	d
+ISQRT_ADDITIVE_CONSTANT	Transformation.cpp	/^static const float ISQRT_ADDITIVE_CONSTANT = ISQRT_SCALE \/ (float)sqrt(ISQRT_NEIGHBORHOOD);$/;"	v	file:
+ISQRT_FACTOR	Transformation.cpp	/^static const float ISQRT_FACTOR = ISQRT_SCALE * (-0.5f \/ (ISQRT_NEIGHBORHOOD * (float)sqrt(ISQRT_NEIGHBORHOOD)));$/;"	v	file:
+ISQRT_NEIGHBORHOOD	Transformation.cpp	/^static const float ISQRT_NEIGHBORHOOD = 0.959066f;$/;"	v	file:
+ISQRT_SCALE	Transformation.cpp	/^static const float ISQRT_SCALE = 1.000311f;$/;"	v	file:
+ISqrt_approx_in_neighborhood	Transformation.cpp	/^float Quaternion::ISqrt_approx_in_neighborhood(float s)$/;"	f	class:Quaternion
+Intermediate	Transformation.cpp	/^Quaternion Quaternion::Intermediate (const Quaternion& q0, const Quaternion& q1, const Quaternion& q2)$/;"	f	class:Quaternion
+Inverse	Transformation.cpp	/^Quaternion Quaternion::Inverse() const$/;"	f	class:Quaternion
+Inverse	Transformation.cpp	/^Transform Transform::Inverse() const$/;"	f	class:Transform
+Inverse	Transformation.cpp	/^mat3 mat3::Inverse() const    \/\/ Gauss-Jordan elimination with partial pivoting$/;"	f	class:mat3
+Inverse	Transformation.cpp	/^mat4 mat4::Inverse()	const    \/\/ Gauss-Jordan elimination with partial pivoting$/;"	f	class:mat4
+JOIN_GAME_LABEL	game_mainmenu.h	56;"	d
+JPG	ctexture.h	16;"	d
+KA	Transformation.h	/^enum {KA, KD, KS, ES};		    \/\/ phong coefficients$/;"	e	enum:__anon4
+KD	Transformation.h	/^enum {KA, KD, KS, ES};		    \/\/ phong coefficients$/;"	e	enum:__anon4
+KS	Transformation.h	/^enum {KA, KD, KS, ES};		    \/\/ phong coefficients$/;"	e	enum:__anon4
+LEFT	ccamera.h	27;"	d
+Length	Transformation.cpp	/^float Quaternion::Length() const$/;"	f	class:Quaternion
+Length	Transformation.cpp	/^float vec2::Length() const$/;"	f	class:vec2
+Length	Transformation.cpp	/^float vec3::Length() const$/;"	f	class:vec3
+Length	Transformation.cpp	/^float vec4::Length() const$/;"	f	class:vec4
+Lerp	Transformation.cpp	/^Transform Transform::Lerp(const float fPerc, const Transform& t0, const Transform& t1)$/;"	f	class:Transform
+Lerp	Transformation.cpp	/^mat3 mat3::Lerp(const mat3& rot0, const mat3& rot1, const float& fPerc)$/;"	f	class:mat3
+Lerp	Transformation.h	/^inline float Lerp(float v0, float v1, float fPerc)$/;"	f
+Log	Transformation.cpp	/^Quaternion Quaternion::Log(const Quaternion& q)$/;"	f	class:Quaternion
+M05_PI	Transformation.h	/^const float M05_PI = (M_PI\/2.0f);				\/\/ PI\/2$/;"	v
+M2_PI	Transformation.h	/^const float M2_PI = (M_PI*2.0f);				\/\/ PI*2$/;"	v
+MAIN_H	main.h	2;"	d
+MAIN_MENU	cgame.h	/^	MAIN_MENU,$/;"	e	enum:GameState
+MAX	Transformation.h	92;"	d
+MIN	Transformation.h	89;"	d
+MODELS_H	models.h	2;"	d
+MOUSE_SENSITIVITY	game_paused.h	37;"	d
+MOUSE_SENSITIVITY	game_running.h	34;"	d
+MULTIPLAYEROPTIONS_PANEL	game_mainmenu.h	62;"	d
+MULTI_PLAYER	main.h	/^	MULTI_PLAYER$/;"	e	enum:GameType
+MULTI_PLAYER_BUTTON	game_mainmenu.h	48;"	d
+M_PI	Transformation.h	/^const float M_PI = 3.14159265358979323846f;		\/\/ per CRC handbook, 14th. ed.$/;"	v
+Max	Transformation.cpp	/^vec2 Max(const vec2& a, const vec2& b)$/;"	f
+Max	Transformation.cpp	/^vec3 Max(const vec3& a, const vec3& b)$/;"	f
+Max	Transformation.cpp	/^vec4 Max(const vec4& a, const vec4& b)$/;"	f
+Min	Transformation.cpp	/^vec2 Min(const vec2& a, const vec2& b)$/;"	f
+Min	Transformation.cpp	/^vec3 Min(const vec3& a, const vec3& b)$/;"	f
+Min	Transformation.cpp	/^vec4 Min(const vec4& a, const vec4& b)$/;"	f
+NEG_X_AXIS	ccamera.h	23;"	d
+NEG_Y_AXIS	ccamera.h	24;"	d
+NEG_Z_AXIS	ccamera.h	25;"	d
+NETWORKING_H	networking.h	2;"	d
+NETWORK_CLIENT_H	network_client.h	2;"	d
+NETWORK_SERVER_H	network_server.h	2;"	d
+NETWORK_SERVER_SOCKET	globalDefs.h	11;"	d
+NETWORK_SERVER_SOCKET_2	globalDefs.h	12;"	d
+NO_SDL_GLEXT	bat_models.h	6;"	d
+NO_SDL_GLEXT	cbat.h	7;"	d
+NO_SDL_GLEXT	cboard.h	7;"	d
+NO_SDL_GLEXT	cbutton.h	6;"	d
+NO_SDL_GLEXT	ccamera.h	6;"	d
+NO_SDL_GLEXT	cgame.h	6;"	d
+NO_SDL_GLEXT	cpuck.h	7;"	d
+NO_SDL_GLEXT	ctextinput.h	6;"	d
+NO_SDL_GLEXT	ctexture.h	11;"	d
+NO_SDL_GLEXT	main.cpp	11;"	d	file:
+NO_SDL_GLEXT	models.h	6;"	d
+NO_SDL_GLEXT	puck_models.h	6;"	d
+NSGame_MainMenu	game_mainmenu.h	/^namespace NSGame_MainMenu{ $/;"	n
+NSGame_MainMenu	safe__game_mainmenu.h	/^namespace NSGame_MainMenu{ $/;"	n
+NSGame_Paused	game_paused.h	/^namespace NSGame_Paused{ $/;"	n
+NSGame_Running	game_running.h	/^namespace NSGame_Running{ $/;"	n
+NUM_BUTTONS	game_mainmenu.h	52;"	d
+NUM_LABELS	game_mainmenu.h	59;"	d
+NUM_LABELS_PAUSED	game_paused.h	50;"	d
+NUM_LABELS_RUNNING	game_running.h	44;"	d
+NUM_PACKET_HEADERS	cpacketdata.h	13;"	d
+NUM_PANELS_PAUSED	game_paused.h	44;"	d
+NUM_PANELS_RUNNING	game_running.h	40;"	d
+Normalize	Transformation.cpp	/^Quaternion& Quaternion::Normalize()$/;"	f	class:Quaternion
+Normalize	Transformation.cpp	/^vec2& vec2::Normalize() \/\/ it is up to caller to avoid divide-by-zero$/;"	f	class:vec2
+Normalize	Transformation.cpp	/^vec3& vec3::Normalize() \/\/ it is up to caller to avoid divide-by-zero$/;"	f	class:vec3
+Normalize	Transformation.cpp	/^vec4& vec4::Normalize() \/\/ it is up to caller to avoid divide-by-zero$/;"	f	class:vec4
+OVER	cgame.h	/^	OVER$/;"	e	enum:GameState
+PA	Transformation.h	/^enum {PA, PB, PC, PD};		    \/\/ planes$/;"	e	enum:__anon2
+PAUSED	cgame.h	/^	PAUSED,$/;"	e	enum:GameState
+PB	Transformation.h	/^enum {PA, PB, PC, PD};		    \/\/ planes$/;"	e	enum:__anon2
+PC	Transformation.h	/^enum {PA, PB, PC, PD};		    \/\/ planes$/;"	e	enum:__anon2
+PD	Transformation.h	/^enum {PA, PB, PC, PD};		    \/\/ planes$/;"	e	enum:__anon2
+PLAYER1_COORD_PACKET_HEADER	cpacketdata.h	9;"	d
+PLAYER_1	globalDefs.h	4;"	d
+PLAYER_2	globalDefs.h	5;"	d
+PNG	ctexture.h	15;"	d
+POLLER_H	poller.h	2;"	d
+PUCK_COORD_PACKET_HEADER	cpacketdata.h	10;"	d
+PUCK_MODELS_H	puck_models.h	2;"	d
+Perspective3D	Transformation.cpp	/^mat4 mat4::Perspective3D(const float d)$/;"	f	class:mat4
+Prod	Transformation.cpp	/^vec2 Prod(const vec2& a, const vec2& b)$/;"	f
+Prod	Transformation.cpp	/^vec3 Prod(const vec3& a, const vec3& b)$/;"	f
+Prod	Transformation.cpp	/^vec4 Prod(const vec4& a, const vec4& b)$/;"	f
+ProjectToAxis	Transformation.cpp	/^Quaternion Quaternion::ProjectToAxis(const Quaternion& q, vec3 axis)$/;"	f	class:Quaternion
+Quaternion	Transformation.cpp	/^Quaternion::Quaternion()$/;"	f	class:Quaternion
+Quaternion	Transformation.cpp	/^Quaternion::Quaternion(const Quaternion& q)$/;"	f	class:Quaternion
+Quaternion	Transformation.cpp	/^Quaternion::Quaternion(const float w, const float x, const float y, const float z)$/;"	f	class:Quaternion
+Quaternion	Transformation.cpp	/^Quaternion::Quaternion(const vec4& v)$/;"	f	class:Quaternion
+Quaternion	Transformation.h	/^class Quaternion$/;"	c
+RED	Transformation.h	/^enum {RED, GREEN, BLUE};	    \/\/ colors$/;"	e	enum:__anon3
+RIGHT	ccamera.h	28;"	d
+ROT_ANGLE	ccamera.h	32;"	d
+ROWCOL	Transformation.cpp	1426;"	d	file:
+ROWCOL	Transformation.cpp	1431;"	d	file:
+ROWCOL	Transformation.cpp	1682;"	d	file:
+ROWCOL	Transformation.cpp	1690;"	d	file:
+ROWCOL	Transformation.cpp	359;"	d	file:
+ROWCOL	Transformation.cpp	362;"	d	file:
+ROWCOL	Transformation.cpp	567;"	d	file:
+ROWCOL	Transformation.cpp	570;"	d	file:
+RUNNING	cgame.h	/^	RUNNING,$/;"	e	enum:GameState
+Rad2Deg	Transformation.h	/^const float Rad2Deg = (180.0f \/ M_PI);			\/\/ Rad to Degree$/;"	v
+ReadFromGLMatrix	Transformation.cpp	/^void mat3::ReadFromGLMatrix(float* m)$/;"	f	class:mat3
+ReadFromGLMatrix	Transformation.cpp	/^void mat4::ReadFromGLMatrix(float* m)$/;"	f	class:mat4
+Reorthogonalize	Transformation.cpp	/^bool mat3::Reorthogonalize()$/;"	f	class:mat3
+Rotation2DDeg	Transformation.cpp	/^mat3 mat3::Rotation2DDeg(const vec2& center, const float angleDeg)$/;"	f	class:mat3
+Rotation2DRad	Transformation.cpp	/^mat3 mat3::Rotation2DRad(const vec2& center, const float angleRad)$/;"	f	class:mat3
+Rotation3DDeg	Transformation.cpp	/^mat3 mat3::Rotation3DDeg(const int Axis, const float angleDeg)$/;"	f	class:mat3
+Rotation3DDeg	Transformation.cpp	/^mat3 mat3::Rotation3DDeg(const vec3& axis, const float angleDeg)$/;"	f	class:mat3
+Rotation3DDeg	Transformation.cpp	/^mat4 mat4::Rotation3DDeg(const vec3& axis, const float angleDeg)$/;"	f	class:mat4
+Rotation3DRad	Transformation.cpp	/^mat3 mat3::Rotation3DRad(const int Axis, const float angleRad)$/;"	f	class:mat3
+Rotation3DRad	Transformation.cpp	/^mat3 mat3::Rotation3DRad(const vec3& axis, const float angleRad)$/;"	f	class:mat3
+Rotation3DRad	Transformation.cpp	/^mat4 mat4::Rotation3DRad(const vec3& axis, const float angleRad)$/;"	f	class:mat4
+SCORE_LABEL	game_running.h	43;"	d
+SCORE_PACKET_HEADER	cpacketdata.h	11;"	d
+SCORE_PANEL	game_running.h	39;"	d
+SColor	Utilities.h	/^    SColor( ){$/;"	f	struct:SColor
+SColor	Utilities.h	/^    SColor( float R, float G, float B, float A ){$/;"	f	struct:SColor
+SColor	Utilities.h	/^struct SColor{$/;"	s
+SCordinates	Utilities.h	/^    SCordinates( ){$/;"	f	struct:SCordinates
+SCordinates	Utilities.h	/^    SCordinates( float X, float Y, float Z ){$/;"	f	struct:SCordinates
+SCordinates	Utilities.h	/^struct SCordinates{$/;"	s
+SETTINGS_BUTTON	game_mainmenu.h	49;"	d
+SFont	Utilities.h	/^struct SFont{$/;"	s
+SINGLE_PLAYER	main.h	/^	SINGLE_PLAYER, $/;"	e	enum:GameType
+SINGLE_PLAYER_BUTTON	game_mainmenu.h	47;"	d
+SMALL_EPSILON	game_mainmenu.h	43;"	d
+SMALL_EPSILON	game_paused.h	35;"	d
+SMALL_EPSILON	game_running.h	32;"	d
+SOMEWHERE_FAR_AWAY	game_mainmenu.h	42;"	d
+SOMEWHERE_FAR_AWAY	game_paused.h	34;"	d
+SOMEWHERE_FAR_AWAY	game_running.h	31;"	d
+STARTING_GAME_LABEL	game_paused.h	47;"	d
+STARTING_GAME_LABEL_MP	game_paused.h	48;"	d
+STARTING_GAME_PANEL	game_paused.h	43;"	d
+START_MP_GAME_HEADER	cpacketdata.h	8;"	d
+STATIC_VARIABLES_CGAME	cgame.cpp	6;"	d	file:
+Scaling2D	Transformation.cpp	/^mat3 mat3::Scaling2D(const vec2& scaleVector)$/;"	f	class:mat3
+Scaling3D	Transformation.cpp	/^mat4 mat4::Scaling3D(const vec3& scaleVector)$/;"	f	class:mat4
+SessionLoad	vimSession.vim	/^let SessionLoad = 1$/;"	v
+SetCol	Transformation.cpp	/^void mat3::SetCol(unsigned int axis, const vec3& colVec)$/;"	f	class:mat3
+SetRow	Transformation.cpp	/^void mat3::SetRow(unsigned int axis, const vec3& rowVec)$/;"	f	class:mat3
+Slerp	Transformation.cpp	/^Quaternion Quaternion::Slerp(float t, const Quaternion& q0, const Quaternion& q1)$/;"	f	class:Quaternion
+Slerp	Transformation.cpp	/^mat3 mat3::Slerp(const mat3& rot0, const mat3& rot1, const float& fPerc)$/;"	f	class:mat3
+SqrLength	Transformation.cpp	/^float Quaternion::SqrLength() const$/;"	f	class:Quaternion
+SqrLength	Transformation.cpp	/^float vec2::SqrLength() const$/;"	f	class:vec2
+SqrLength	Transformation.cpp	/^float vec3::SqrLength() const$/;"	f	class:vec3
+SqrLength	Transformation.cpp	/^float vec4::SqrLength() const$/;"	f	class:vec4
+Squad	Transformation.cpp	/^Quaternion Quaternion::Squad(float t, const Quaternion& q0, const Quaternion& a, const Quaternion& b, const Quaternion& q1)$/;"	f	class:Quaternion
+Swap	Transformation.cpp	/^void Swap(mat3& a, mat3& b)$/;"	f
+Swap	Transformation.cpp	/^void Swap(mat4& a, mat4& b)$/;"	f
+Swap	Transformation.cpp	/^void Swap(vec2& a, vec2& b)$/;"	f
+Swap	Transformation.cpp	/^void Swap(vec3& a, vec3& b)$/;"	f
+Swap	Transformation.cpp	/^void Swap(vec4& a, vec4& b)$/;"	f
+TGA	ctexture.h	18;"	d
+TIMER_LABEL	game_paused.h	49;"	d
+TIME_SLICE	main.h	7;"	d
+ToAxisAngle	Transformation.cpp	/^void Quaternion::ToAxisAngle (vec3& axis, float& angleRad) const$/;"	f	class:Quaternion
+ToAxisAngle	Transformation.cpp	/^void mat3::ToAxisAngle(vec3& axis, float& angleRad) const$/;"	f	class:mat3
+ToCoord	Transformation.cpp	/^vec3 Transform::ToCoord() const$/;"	f	class:Transform
+ToEulerAnglesXYZ	Transformation.cpp	/^bool mat3::ToEulerAnglesXYZ(vec3& angleRad) const$/;"	f	class:mat3
+ToEulerAnglesXZY	Transformation.cpp	/^bool mat3::ToEulerAnglesXZY(vec3& angleRad) const$/;"	f	class:mat3
+ToEulerAnglesYXZ	Transformation.cpp	/^bool mat3::ToEulerAnglesYXZ(vec3& angleRad) const$/;"	f	class:mat3
+ToEulerAnglesYZX	Transformation.cpp	/^bool mat3::ToEulerAnglesYZX(vec3& angleRad) const$/;"	f	class:mat3
+ToEulerAnglesZXY	Transformation.cpp	/^bool mat3::ToEulerAnglesZXY(vec3& angleRad) const$/;"	f	class:mat3
+ToEulerAnglesZYX	Transformation.cpp	/^bool mat3::ToEulerAnglesZYX(vec3& angleRad) const$/;"	f	class:mat3
+ToGLMatrix	Transformation.cpp	/^void Transform::ToGLMatrix(float* pData)$/;"	f	class:Transform
+ToGLMatrix	Transformation.cpp	/^void mat3::ToGLMatrix( float* pData )$/;"	f	class:mat3
+ToQuaternion	Transformation.cpp	/^Quaternion mat3::ToQuaternion() const$/;"	f	class:mat3
+ToRotation	Transformation.cpp	/^mat3 Quaternion::ToRotation () const$/;"	f	class:Quaternion
+Transform	Transformation.cpp	/^Transform::Transform()$/;"	f	class:Transform
+Transform	Transformation.cpp	/^Transform::Transform(const Transform& transform)$/;"	f	class:Transform
+Transform	Transformation.cpp	/^Transform::Transform(const mat3& rotation)$/;"	f	class:Transform
+Transform	Transformation.cpp	/^Transform::Transform(const vec3& translation)$/;"	f	class:Transform
+Transform	Transformation.cpp	/^Transform::Transform(const vec3& translation, const mat3& rotation)$/;"	f	class:Transform
+Transform	Transformation.h	/^class Transform$/;"	c
+TransformPositionDeg	Transformation.h	/^inline vec3 TransformPositionDeg(const vec3& originalCoord, const vec3& originalPosition, const vec3& newCoord)$/;"	f
+TransformPositionVectorDeg	Transformation.h	/^inline void TransformPositionVectorDeg(const vec3& originalCoord, vector<vec3>& vPosition, const vec3& newCoord)$/;"	f
+Translation2D	Transformation.cpp	/^mat3 mat3::Translation2D(const vec2& v)$/;"	f	class:mat3
+Translation3D	Transformation.cpp	/^mat4 mat4::Translation3D(const vec3& v)$/;"	f	class:mat4
+Transpose	Transformation.cpp	/^mat3 mat3::Transpose() const $/;"	f	class:mat3
+Transpose	Transformation.cpp	/^mat4 mat4::Transpose() const$/;"	f	class:mat4
+UDP_PACKET_SIZE	globalDefs.h	14;"	d
+UP	ccamera.h	29;"	d
+UTILITIES_H	Utilities.h	2;"	d
+UnitInverse	Transformation.cpp	/^Quaternion Quaternion::UnitInverse(const Quaternion& q)$/;"	f	class:Quaternion
+VW	Transformation.h	/^enum {VX, VY, VZ, VW};		    \/\/ axes$/;"	e	enum:__anon1
+VX	Transformation.h	/^enum {VX, VY, VZ, VW};		    \/\/ axes$/;"	e	enum:__anon1
+VY	Transformation.h	/^enum {VX, VY, VZ, VW};		    \/\/ axes$/;"	e	enum:__anon1
+VZ	Transformation.h	/^enum {VX, VY, VZ, VW};		    \/\/ axes$/;"	e	enum:__anon1
+W	Transformation.cpp	/^float Quaternion::W() const$/;"	f	class:Quaternion
+W	Transformation.cpp	/^float& Quaternion::W()$/;"	f	class:Quaternion
+WriteToGLMatrix	Transformation.cpp	/^void mat3::WriteToGLMatrix(float* m)$/;"	f	class:mat3
+WriteToGLMatrix	Transformation.cpp	/^void mat4::WriteToGLMatrix(float* m)$/;"	f	class:mat4
+X	Transformation.cpp	/^float Quaternion::X() const$/;"	f	class:Quaternion
+X	Transformation.cpp	/^float& Quaternion::X()$/;"	f	class:Quaternion
+X_AXIS	ccamera.h	19;"	d
+Y	Transformation.cpp	/^float Quaternion::Y() const$/;"	f	class:Quaternion
+Y	Transformation.cpp	/^float& Quaternion::Y()$/;"	f	class:Quaternion
+Y_AXIS	ccamera.h	20;"	d
+Z	Transformation.cpp	/^float Quaternion::Z() const$/;"	f	class:Quaternion
+Z	Transformation.cpp	/^float& Quaternion::Z()$/;"	f	class:Quaternion
+ZOOM_ANGLE_INC	ccamera.h	33;"	d
+Z_AXIS	ccamera.h	21;"	d
+Zero	Transformation.cpp	/^void Quaternion::Zero()$/;"	f	class:Quaternion
+a	Utilities.h	/^    float r, g, b, a;$/;"	m	struct:SColor
+ack_packet	cpacketdata.h	/^	bool ack_packet;$/;"	m	class:CPacketData
+addPanelObjek	cpanel.cpp	/^void CPanel::addPanelObjek( CPanelObjek *panelObjek ) {$/;"	f	class:CPanel
+angle_of_vision	ccamera.h	/^    float angle_of_vision;$/;"	m	class:CCamera
+are_we_the_server	main.h	/^bool are_we_the_server = false;$/;"	v
+aspecRatio	ccamera.h	/^    float aspecRatio;$/;"	m	class:CCamera
+availableEvents	poller.h	/^SDL_mutex *availableEvents = NULL;$/;"	v
+axle_vector	ccamera.h	/^    vec3 axle_vector;$/;"	m	class:CCamera
+axle_x	ccamera.h	/^    float axle_x, axle_y, axle_z;$/;"	m	class:CCamera
+axle_y	ccamera.h	/^    float axle_x, axle_y, axle_z;$/;"	m	class:CCamera
+axle_z	ccamera.h	/^    float axle_x, axle_y, axle_z;$/;"	m	class:CCamera
+b	Utilities.h	/^    float r, g, b, a;$/;"	m	struct:SColor
+b	cbat.h	/^	float r, g, b;		\/\/ bat color$/;"	m	class:CBat
+b	cpuck.h	/^	float r, g, b;		\/\/ puck color$/;"	m	class:CPuck
+bat	cplayer.h	/^	CBat bat;$/;"	m	class:CPlayer
+bat_dispList	bat_models.cpp	/^int bat_dispList;$/;"	v
+bindTexture	ctexture.cpp	/^int CTexture::bindTexture( ){ $/;"	f	class:CTexture
+blitMyCursorAtCurrentMouse	game_mainmenu.h	/^void blitMyCursorAtCurrentMouse( ){$/;"	f	namespace:NSGame_MainMenu
+blitMyCursorAtCurrentMouse	game_paused.h	/^void blitMyCursorAtCurrentMouse( ){$/;"	f	namespace:NSGame_Paused
+board	main.h	/^CBoard board;$/;"	v
+board_dispList	models.cpp	/^int goalPostF_dispList, goalPostN_dispList, guardRailR_dispList, guardRailL_dispList, board_dispList;$/;"	v
+board_texture	cboard.h	/^	CTexture board_texture;$/;"	m	class:CBoard
+buttons	game_mainmenu.h	/^CButton buttons[NUM_BUTTONS];$/;"	m	namespace:NSGame_MainMenu
+callEventHandler	cgame.cpp	/^void CGame::callEventHandler( SDL_Event &event ){ $/;"	f	class:CGame
+callRenderScene	cgame.cpp	/^void CGame::callRenderScene( ){ $/;"	f	class:CGame
+camera1	cgame.h	/^    CCamera *camera1, *camera2; $/;"	m	class:CGame
+camera2	cgame.h	/^    CCamera *camera1, *camera2; $/;"	m	class:CGame
+cameraType	ccamera.h	/^    CameraType cameraType;$/;"	m	class:CCamera
+camera_position	ccamera.h	/^    vec3 camera_position;$/;"	m	class:CCamera
+checkIpAddr	game_mainmenu.h	/^bool checkIpAddr( string input ) {$/;"	f	namespace:NSGame_MainMenu
+check_for_packets	networking.h	/^bool check_for_packets ( ) {$/;"	f
+cleanUp	main.cpp	/^void cleanUp( ){ $/;"	f
+cleanup	game_mainmenu.h	/^void cleanup( ){ $/;"	f	namespace:NSGame_MainMenu
+cleanup	game_paused.h	/^void cleanup( ){ $/;"	f	namespace:NSGame_Paused
+cleanup	game_running.h	/^void cleanup( ){ $/;"	f	namespace:NSGame_Running
+cleanup	safe__game_mainmenu.h	/^void cleanup( ){ $/;"	f	namespace:NSGame_MainMenu
+clickHandler	cbutton.cpp	/^void CButton::clickHandler( float x, float y ){ $/;"	f	class:CButton
+clickHandler	clabel.cpp	/^void CLabel::clickHandler( float x, float y ) {$/;"	f	class:CLabel
+client_initd_and_running	network_client.h	/^bool client_initd_and_running = false;$/;"	v
+client_udpPacket	network_client.h	/^UDPpacket *client_udpPacket;       \/* Pointer to packet memory    *\/$/;"	v
+clntaddr	network_server.h	/^IPaddress clntaddr; 		   \/* IPaddress of remote client, set in case we are the server *\/$/;"	v
+controls_button	safe__game_mainmenu.h	/^CButton controls_button; $/;"	m	namespace:NSGame_MainMenu
+cordinates	cpacketdata.h	/^	SCordinates cordinates;$/;"	m	class:CPacketData
+createServer_clickHandler	game_mainmenu.h	/^void createServer_clickHandler( float x, float y ){$/;"	f	namespace:NSGame_MainMenu
+creditsButton_clickHandler	game_mainmenu.h	/^void creditsButton_clickHandler( float x, float y ){ $/;"	f	namespace:NSGame_MainMenu
+depth	ccamera.h	/^    float depth;$/;"	m	class:CCamera
+disableChildren	cpanel.cpp	/^void CPanel::disableChildren( ) {	\/\/ !!!! Doesn't work yet$/;"	f	class:CPanel
+donePumping	poller.h	/^SDL_cond *donePumping = NULL;$/;"	v
+drainedPump	poller.h	/^SDL_cond *drainedPump = NULL;$/;"	v
+draw	cbat.cpp	/^void CBat::draw( ){ $/;"	f	class:CBat
+draw	cboard.cpp	/^void CBoard::draw( ){ $/;"	f	class:CBoard
+draw	cbutton.cpp	/^void CButton::draw( ){ $/;"	f	class:CButton
+draw	clabel.cpp	/^void CLabel::draw( ) {$/;"	f	class:CLabel
+draw	cpanel.cpp	/^void CPanel::draw( ) {$/;"	f	class:CPanel
+draw	cpuck.cpp	/^void CPuck::draw( ){ $/;"	f	class:CPuck
+draw	ctextinput.cpp	/^void CTextInput::draw( ) {$/;"	f	class:CTextInput
+drawBat	bat_models.cpp	/^void drawBat( ){ $/;"	f
+drawMainMenu	game_mainmenu.h	/^void drawMainMenu( ){ $/;"	f	namespace:NSGame_MainMenu
+drawModel	models.cpp	/^void drawModel( ){ $/;"	f
+drawPuck	puck_models.cpp	/^void drawPuck( ){ $/;"	f
+draw_UI_items	game_paused.h	/^void draw_UI_items( ) {$/;"	f	namespace:NSGame_Paused
+empty	cnetwork_queue.cpp	/^bool CNetwork_Queue::empty( ) {$/;"	f	class:CNetwork_Queue
+enableChildren	cpanel.cpp	/^void CPanel::enableChildren( ) {	\/\/ !!!! Doesn't work yet$/;"	f	class:CPanel
+enabled	cbutton.h	/^	bool enabled;		\/\/ don't draw if not enabled$/;"	m	class:CButton
+enabled	clabel.h	/^	bool visible, enabled;$/;"	m	class:CLabel
+enabled	cpanel.h	/^	bool visible, enabled;$/;"	m	class:CPanel
+enabled	cpanelobjek.h	/^	bool enabled, visible;$/;"	m	class:CPanelObjek
+enabled	ctextinput.h	/^	bool enabled;$/;"	m	class:CTextInput
+entered	game_mainmenu.h	/^bool entered = false;$/;"	m	namespace:NSGame_MainMenu
+entered	game_paused.h	/^bool entered = false;$/;"	m	namespace:NSGame_Paused
+entered	game_running.h	/^bool entered = false;$/;"	m	namespace:NSGame_Running
+entryFunction	game_mainmenu.h	/^void entryFunction( ) {$/;"	f	namespace:NSGame_MainMenu
+entryFunction	game_paused.h	/^void entryFunction( ) {$/;"	f	namespace:NSGame_Paused
+entryFunction	game_running.h	/^void entryFunction ( ) {$/;"	f	namespace:NSGame_Running
+eventHandler	cgame.h	/^    void (* eventHandler) (SDL_Event &event) ;$/;"	m	class:CGame
+eventHandler	game_mainmenu.h	/^void eventHandler( SDL_Event &event ){ $/;"	f	namespace:NSGame_MainMenu
+eventHandler	game_paused.h	/^void eventHandler( SDL_Event &event ){ $/;"	f	namespace:NSGame_Paused
+eventHandler	game_running.h	/^void eventHandler( SDL_Event &event ){ $/;"	f	namespace:NSGame_Running
+eventHandler	safe__game_mainmenu.h	/^void eventHandler( SDL_Event &event ){ $/;"	f	namespace:NSGame_MainMenu
+exitButton_clickHandler	game_mainmenu.h	/^void exitButton_clickHandler( float x, float y ){ $/;"	f	namespace:NSGame_MainMenu
+exitFunction	game_mainmenu.h	/^void exitFunction( ) {$/;"	f	namespace:NSGame_MainMenu
+exitFunction	game_paused.h	/^void exitFunction( ) {$/;"	f	namespace:NSGame_Paused
+exitFunction	game_running.h	/^void exitFunction ( ) {$/;"	f	namespace:NSGame_Running
+exit_button	safe__game_mainmenu.h	/^CButton exit_button; $/;"	m	namespace:NSGame_MainMenu
+filter	game_mainmenu.h	/^GLuint filter;						\/\/ Which Filter To Use$/;"	m	namespace:NSGame_MainMenu
+filter	game_paused.h	/^GLuint filter;						\/\/ Which Filter To Use$/;"	m	namespace:NSGame_Paused
+filter	game_running.h	/^GLuint filter;						\/\/ Which Filter To Use$/;"	m	namespace:NSGame_Running
+filter	safe__game_mainmenu.h	/^GLuint filter;						\/\/ Which Filter To Use$/;"	m	namespace:NSGame_MainMenu
+fogColor	game_mainmenu.h	/^GLfloat fogColor[4]= {0.7f, 0.7f, 0.7f, 1.0f};		\/\/ Fog Color$/;"	m	namespace:NSGame_MainMenu
+fogColor	game_paused.h	/^GLfloat fogColor[4]= {0.7f, 0.7f, 0.7f, 1.0f};		\/\/ Fog Color$/;"	m	namespace:NSGame_Paused
+fogColor	game_running.h	/^GLfloat fogColor[4]= {0.7f, 0.7f, 0.7f, 1.0f};		\/\/ Fog Color$/;"	m	namespace:NSGame_Running
+fogColor	safe__game_mainmenu.h	/^GLfloat fogColor[4]= {0.7f, 0.7f, 0.7f, 1.0f};		\/\/ Fog Color$/;"	m	namespace:NSGame_MainMenu
+fogMode	game_mainmenu.h	/^GLuint fogMode[]= { GL_EXP, GL_EXP2, GL_LINEAR };	\/\/ Storage For Three Types Of Fog$/;"	m	namespace:NSGame_MainMenu
+fogMode	game_paused.h	/^GLuint fogMode[]= { GL_EXP, GL_EXP2, GL_LINEAR };	\/\/ Storage For Three Types Of Fog$/;"	m	namespace:NSGame_Paused
+fogMode	game_running.h	/^GLuint fogMode[]= { GL_EXP, GL_EXP2, GL_LINEAR };	\/\/ Storage For Three Types Of Fog$/;"	m	namespace:NSGame_Running
+fogMode	safe__game_mainmenu.h	/^GLuint fogMode[]= { GL_EXP, GL_EXP2, GL_LINEAR };	\/\/ Storage For Three Types Of Fog$/;"	m	namespace:NSGame_MainMenu
+fogfilter	game_mainmenu.h	/^GLuint fogfilter= 1;					\/\/ Which Fog To Use$/;"	m	namespace:NSGame_MainMenu
+fogfilter	game_paused.h	/^GLuint fogfilter= 1;					\/\/ Which Fog To Use$/;"	m	namespace:NSGame_Paused
+fogfilter	game_running.h	/^GLuint fogfilter= 1;					\/\/ Which Fog To Use$/;"	m	namespace:NSGame_Running
+fogfilter	safe__game_mainmenu.h	/^GLuint fogfilter= 1;					\/\/ Which Fog To Use$/;"	m	namespace:NSGame_MainMenu
+font	cfontprinter.h	/^	SFont font;$/;"	m	class:CFontPrinter
+font	clabel.h	/^	SFont font;$/;"	m	class:CLabel
+font	ctextinput.h	/^	SFont font;$/;"	m	class:CTextInput
+fontHeight	Utilities.h	/^    float fontWidth, fontHeight;$/;"	m	struct:SFont
+fontImageFile	cfontprinter.h	/^	string fontImageFile;$/;"	m	class:CFontPrinter
+fontPrinter	main.h	/^CFontPrinter fontPrinter;$/;"	v
+fontWidth	Utilities.h	/^    float fontWidth, fontHeight;$/;"	m	struct:SFont
+foreColor	Utilities.h	/^    SColor foreColor;$/;"	m	struct:SFont
+format	ctexture.h	/^	int format; 		\/\/ image format : png, jpg, bmp, etc$/;"	m	class:CTexture
+g	Utilities.h	/^    float r, g, b, a;$/;"	m	struct:SColor
+g	cbat.h	/^	float r, g, b;		\/\/ bat color$/;"	m	class:CBat
+g	cpuck.h	/^	float r, g, b;		\/\/ puck color$/;"	m	class:CPuck
+gameState	cgame.h	/^    GameState gameState;$/;"	m	class:CGame
+gameState	main.h	/^GameState gameState;		\/\/ Global gameState, , change this to change the game state$/;"	v
+gameType	main.h	/^}gameType;$/;"	v	typeref:enum:GameType
+game_Generic	main.h	/^CGame *game_Generic;$/;"	v
+game_MainMenu	main.h	/^CGame game_MainMenu; $/;"	v
+game_Over	main.h	/^CGame game_Over; $/;"	v
+game_Paused	main.h	/^CGame game_Paused; $/;"	v
+game_Running	main.h	/^CGame game_Running; $/;"	v
+getGameByGameState	cgame.cpp	/^CGame* CGame::getGameByGameState( GameState gameState ){ $/;"	f	class:CGame
+get_GH	main.cpp	/^float get_GH( ){ $/;"	f
+get_GW	main.cpp	/^float get_GW( ){ $/;"	f
+goalPostF_dispList	models.cpp	/^int goalPostF_dispList, goalPostN_dispList, guardRailR_dispList, guardRailL_dispList, board_dispList;$/;"	v
+goalPostN_dispList	models.cpp	/^int goalPostF_dispList, goalPostN_dispList, guardRailR_dispList, guardRailL_dispList, board_dispList;$/;"	v
+goalPost_width	cboard.h	/^	float goalPost_width; $/;"	m	class:CBoard
+guardRailL_dispList	models.cpp	/^int goalPostF_dispList, goalPostN_dispList, guardRailR_dispList, guardRailL_dispList, board_dispList;$/;"	v
+guardRailR_dispList	models.cpp	/^int goalPostF_dispList, goalPostN_dispList, guardRailR_dispList, guardRailL_dispList, board_dispList;$/;"	v
+gx	vimSession.vim	/^nmap gx <Plug>NetrwBrowseX$/;"	m
+handlePacket	network_server.h	/^void handlePacket( ) {$/;"	f
+handlePacket	networking.h	/^void handlePacket ( UDPpacket *udpPacket ) {$/;"	f
+hasFocus	cbutton.h	/^	bool hasFocus;$/;"	m	class:CButton
+hasFocus	clabel.h	/^	bool hasFocus;$/;"	m	class:CLabel
+header	cpacketdata.h	/^	int header;$/;"	m	class:CPacketData
+height	cbutton.h	/^	float width, height;$/;"	m	class:CButton
+height	ccamera.h	/^    float height; $/;"	m	class:CCamera
+height	cpanel.h	/^	float width, height;$/;"	m	class:CPanel
+height	cpanelobjek.h	/^	float width, height;$/;"	m	class:CPanelObjek
+id	cbutton.h	/^	int id;$/;"	m	class:CButton
+id	cpanel.h	/^	int id;$/;"	m	class:CPanel
+id	cpanelobjek.h	/^	int id;$/;"	m	class:CPanelObjek
+init	Utilities.h	/^    void init( float R, float G, float B, float A ){$/;"	f	struct:SColor
+init	Utilities.h	/^    void init( float X, float Y, float Z ){$/;"	f	struct:SCordinates
+init	cbat.cpp	/^void CBat::init( float x, float y, float z, float r, float g, float b ){ $/;"	f	class:CBat
+init	cboard.cpp	/^void CBoard::init( float Width, float Length, float Thickness ){ $/;"	f	class:CBoard
+init	cbutton.cpp	/^void CButton::init( int Id, float X, float Y, float Z, float Width, float Height, string Path_to_image ){ $/;"	f	class:CButton
+init	ccamera.cpp	/^void CCamera::init( CameraType cameraType, float X, float Y, float Z, float AspecRatio, float Angle_of_vision ){$/;"	f	class:CCamera
+init	ccamera.cpp	/^void CCamera::init( CameraType cameraType, float X, float Y, float Z, float Width, float Height, float Depth ){ $/;"	f	class:CCamera
+init	cfontprinter.cpp	/^void CFontPrinter::init( float FontWidth, float FontHeight, SColor ForeColor,  string pathToFontImage ) {$/;"	f	class:CFontPrinter
+init	cgame.cpp	/^void CGame::init( ){ $/;"	f	class:CGame
+init	clabel.cpp	/^void CLabel::init( int Id, float Width, float Height,  float X, float Y, float Z ) {$/;"	f	class:CLabel
+init	cpanel.cpp	/^void CPanel::init( int Id, float Width, float Height,  float X, float Y, float Z,  string textureFileName ) {$/;"	f	class:CPanel
+init	cplayer.cpp	/^void CPlayer::init( int player_ID, float r, float g, float b,  float x, float y, float z ){ $/;"	f	class:CPlayer
+init	cpuck.cpp	/^void CPuck::init( float x, float y, float z, float r, float g, float b ){ $/;"	f	class:CPuck
+init	ctextinput.cpp	/^void CTextInput::init( int Id, float Width, float Height,  float X, float Y, float Z ) {$/;"	f	class:CTextInput
+init	game_mainmenu.h	/^void init( ){ $/;"	f	namespace:NSGame_MainMenu
+init	game_paused.h	/^void init( ){ $/;"	f	namespace:NSGame_Paused
+init	game_running.h	/^void init( ){ $/;"	f	namespace:NSGame_Running
+init	safe__game_mainmenu.h	/^void init( ){ $/;"	f	namespace:NSGame_MainMenu
+initCamera	game_mainmenu.h	/^void initCamera( ){ $/;"	f	namespace:NSGame_MainMenu
+initCamera	game_paused.h	/^void initCamera( ){ $/;"	f	namespace:NSGame_Paused
+initCamera	game_running.h	/^void initCamera( ){ $/;"	f	namespace:NSGame_Running
+initCamera	safe__game_mainmenu.h	/^void initCamera( ){ $/;"	f	namespace:NSGame_MainMenu
+initGameStates	main.cpp	/^void initGameStates( ){ $/;"	f
+initLighting	main.cpp	/^void initLighting( ){ $/;"	f
+initNetworkClient	network_client.h	/^void initNetworkClient( ) {$/;"	f
+initNetworkServer	network_server.h	/^void initNetworkServer ( ) {$/;"	f
+initNetworking	networking.h	/^void initNetworking ( ) {$/;"	f
+initNetworkingComponents	main.cpp	/^void initNetworkingComponents( ) {$/;"	f
+initObjeks	main.cpp	/^void initObjeks( ){ $/;"	f
+initThreads	main.cpp	/^void initThreads( ){ $/;"	f
+init_UI_items	game_paused.h	/^void init_UI_items( ) {$/;"	f	namespace:NSGame_Paused
+init_UI_items	game_running.h	/^void init_UI_items( ) {$/;"	f	namespace:NSGame_Running
+inputDoneHandler	ctextinput.cpp	/^void CTextInput::inputDoneHandler( ) {$/;"	f	class:CTextInput
+inputText	ctextinput.h	/^	string inputText;$/;"	m	class:CTextInput
+insert	cnetwork_queue.cpp	/^void CNetwork_Queue::insert( CPacketData pdata ) {$/;"	f	class:CNetwork_Queue
+ipaddr_inputDoneHandler	game_mainmenu.h	/^void ipaddr_inputDoneHandler( ) {$/;"	f	namespace:NSGame_MainMenu
+ipaddr_textinput	game_mainmenu.h	/^CTextInput ipaddr_textinput;$/;"	m	namespace:NSGame_MainMenu
+joinGame_clickHandler	game_mainmenu.h	/^void joinGame_clickHandler( float x, float y ){ $/;"	f	namespace:NSGame_MainMenu
+keyPressHandler	ctextinput.cpp	/^void CTextInput::keyPressHandler( SDLKey keysym ) {$/;"	f	class:CTextInput
+keysym_to_char	ctextinput.cpp	/^char keysym_to_char ( SDLKey keysym ) {$/;"	f
+labelText	clabel.h	/^	string labelText;$/;"	m	class:CLabel
+labels	game_mainmenu.h	/^CLabel labels[NUM_LABELS];$/;"	m	namespace:NSGame_MainMenu
+labels	game_paused.h	/^CLabel labels[NUM_LABELS_PAUSED];$/;"	m	namespace:NSGame_Paused
+labels	game_running.h	/^CLabel labels[NUM_LABELS_RUNNING];$/;"	m	namespace:NSGame_Running
+length	cboard.h	/^	float width, length, thickness; $/;"	m	class:CBoard
+list_of_games	cgame.cpp	/^vector <CGame*> CGame::list_of_games;$/;"	m	class:CGame	file:
+list_of_games	cgame.h	/^    static vector <CGame*> list_of_games;$/;"	m	class:CGame
+loadBat	bat_models.cpp	/^void loadBat() {$/;"	f
+loadModel	models.cpp	/^void loadModel( ){ $/;"	f
+loadPuck	puck_models.cpp	/^void loadPuck() {$/;"	f
+load_0	models.cpp	/^void load_0() {$/;"	f
+load_1	models.cpp	/^void load_1() {$/;"	f
+load_2	models.cpp	/^void load_2() {$/;"	f
+load_3	models.cpp	/^void load_3() {$/;"	f
+load_4	models.cpp	/^void load_4() {$/;"	f
+load_bat	bat_models.cpp	/^void load_bat() {$/;"	f
+load_puck	puck_models.cpp	/^void load_puck() {$/;"	f
+m_rotation	Transformation.h	/^	mat3 m_rotation;$/;"	m	class:Transform
+m_translation	Transformation.h	/^	vec3 m_translation;$/;"	m	class:Transform
+main	main.cpp	/^int main( int argc, char *argv[] ){ $/;"	f
+mainLoop	main.cpp	/^int mainLoop( ){$/;"	f
+mainMenu_backgroundImage	safe__game_mainmenu.h	/^CTexture mainMenu_backgroundImage; $/;"	m	namespace:NSGame_MainMenu
+mainMenu_backgroundImageTexture	game_mainmenu.h	/^CTexture mainMenu_backgroundImageTexture; $/;"	m	namespace:NSGame_MainMenu
+mainMenu_height	game_mainmenu.h	/^float mainMenu_width, mainMenu_height; $/;"	m	namespace:NSGame_MainMenu
+mainMenu_height	safe__game_mainmenu.h	/^float mainMenu_width, mainMenu_height; $/;"	m	namespace:NSGame_MainMenu
+mainMenu_width	game_mainmenu.h	/^float mainMenu_width, mainMenu_height; $/;"	m	namespace:NSGame_MainMenu
+mainMenu_width	safe__game_mainmenu.h	/^float mainMenu_width, mainMenu_height; $/;"	m	namespace:NSGame_MainMenu
+makeTexture	ctexture.cpp	/^int CTexture::makeTexture( string Path, int Format ){ $/;"	f	class:CTexture
+marshall_and_send_packet	networking.h	/^void marshall_and_send_packet ( ) {$/;"	f
+mat3	Transformation.cpp	/^mat3::mat3() $/;"	f	class:mat3
+mat3	Transformation.cpp	/^mat3::mat3(const float d)$/;"	f	class:mat3
+mat3	Transformation.cpp	/^mat3::mat3(const mat3& m)$/;"	f	class:mat3
+mat3	Transformation.cpp	/^mat3::mat3(const mat4& m){ $/;"	f	class:mat3
+mat3	Transformation.cpp	/^mat3::mat3(const vec3& v0, const vec3& v1, const vec3& v2)$/;"	f	class:mat3
+mat3	Transformation.h	/^class mat3$/;"	c
+mat4	Transformation.cpp	/^mat4::mat4() $/;"	f	class:mat4
+mat4	Transformation.cpp	/^mat4::mat4(const float d)$/;"	f	class:mat4
+mat4	Transformation.cpp	/^mat4::mat4(const float* d)$/;"	f	class:mat4
+mat4	Transformation.cpp	/^mat4::mat4(const mat3& m)$/;"	f	class:mat4
+mat4	Transformation.cpp	/^mat4::mat4(const mat3& m, const vec3& t)$/;"	f	class:mat4
+mat4	Transformation.cpp	/^mat4::mat4(const mat4& m)$/;"	f	class:mat4
+mat4	Transformation.cpp	/^mat4::mat4(const vec4& v0, const vec4& v1, const vec4& v2, const vec4& v3)$/;"	f	class:mat4
+mat4	Transformation.h	/^class mat4$/;"	c
+multiPlayerButton_clickHandler	game_mainmenu.h	/^void multiPlayerButton_clickHandler( float x, float y ){ $/;"	f	namespace:NSGame_MainMenu
+multiPlayer_button	safe__game_mainmenu.h	/^CButton multiPlayer_button; $/;"	m	namespace:NSGame_MainMenu
+multiplayerOptions_panel	game_mainmenu.h	/^CPanel multiplayerOptions_panel;$/;"	m	namespace:NSGame_MainMenu
+must_initiate_new_mp_game	main.h	/^bool must_initiate_new_mp_game = false;$/;"	v
+my_cursor_texture	game_mainmenu.h	/^CTexture my_cursor_texture; $/;"	m	namespace:NSGame_MainMenu
+my_cursor_texture	game_paused.h	/^CTexture my_cursor_texture; $/;"	m	namespace:NSGame_Paused
+n	Transformation.h	/^	float n[2];$/;"	m	class:vec2
+n	Transformation.h	/^	float n[3];$/;"	m	class:vec3
+n	Transformation.h	/^	float n[4];$/;"	m	class:Quaternion
+n	Transformation.h	/^	float n[4];$/;"	m	class:vec4
+nOfColors	ctexture.h	/^	GLint nOfColors;$/;"	m	class:CTexture
+networkReceiving_thread	networking.h	/^SDL_Thread *networkReceiving_thread = NULL;$/;"	v
+network_client_loop	network_client.h	/^int network_client_loop( void *data ) {$/;"	f
+network_client_thread_delay	network_client.h	/^int network_client_thread_delay = 20;$/;"	v
+network_queue	main.h	/^CNetwork_Queue network_queue;$/;"	v
+network_receiving_loop	networking.h	/^int network_receiving_loop( void *data ) {$/;"	f
+network_receiving_thread_delay_msecs	networking.h	/^int network_receiving_thread_delay_msecs = 100;$/;"	v
+network_sending_loop	networking.h	/^int network_sending_loop( void *data ) {$/;"	f
+network_sending_thread_delay_msecs	networking.h	/^int network_sending_thread_delay_msecs = 100;$/;"	v
+network_server_loop	network_server.h	/^int network_server_loop ( void *data ) {$/;"	f
+network_server_thread_delay	network_server.h	/^int network_server_thread_delay = 20;$/;"	v
+new_mp_game_initiated	main.h	/^bool new_mp_game_initiated = false;$/;"	v
+numGoals	cplayer.h	/^	int numGoals; $/;"	m	class:CPlayer
+numTimes_for_accum_buffer	game_mainmenu.h	/^int numTimes_for_accum_buffer = 1; $/;"	m	namespace:NSGame_MainMenu
+numTimes_for_accum_buffer	game_paused.h	/^int numTimes_for_accum_buffer = 1; $/;"	m	namespace:NSGame_Paused
+numTimes_for_accum_buffer	game_running.h	/^int numTimes_for_accum_buffer = 1; $/;"	m	namespace:NSGame_Running
+numTimes_for_accum_buffer	safe__game_mainmenu.h	/^int numTimes_for_accum_buffer = 1; $/;"	m	namespace:NSGame_MainMenu
+onClick	cbutton.h	/^	void (* onClick)(float, float);$/;"	m	class:CButton
+onClick	clabel.h	/^	void (*onClick)( float x, float y );$/;"	m	class:CLabel
+onInputDone	ctextinput.h	/^	void (*onInputDone)( );$/;"	m	class:CTextInput
+operator !=	Transformation.cpp	/^bool operator != (const Quaternion& q0, const Quaternion& q1)$/;"	f
+operator !=	Transformation.cpp	/^int operator != (const mat3& a, const mat3& b)$/;"	f
+operator !=	Transformation.cpp	/^int operator != (const mat4& a, const mat4& b)$/;"	f
+operator !=	Transformation.cpp	/^int operator != (const vec2& a, const vec2& b)$/;"	f
+operator !=	Transformation.cpp	/^int operator != (const vec3& a, const vec3& b)$/;"	f
+operator !=	Transformation.cpp	/^int operator != (const vec4& a, const vec4& b)$/;"	f
+operator *	Transformation.cpp	/^Quaternion operator * (const Quaternion& q, const float d)$/;"	f
+operator *	Transformation.cpp	/^Quaternion operator * (const Quaternion& q0, const Quaternion& q1)$/;"	f
+operator *	Transformation.cpp	/^Quaternion operator * (const float d, const Quaternion& q)$/;"	f
+operator *	Transformation.cpp	/^float operator * (const vec2& a, const vec2& b)$/;"	f
+operator *	Transformation.cpp	/^float operator * (const vec3& a, const vec3& b)$/;"	f
+operator *	Transformation.cpp	/^float operator * (const vec4& a, const vec4& b)$/;"	f
+operator *	Transformation.cpp	/^mat3 operator * (const float d, const mat3& a)$/;"	f
+operator *	Transformation.cpp	/^mat3 operator * (const mat3& a, const float d)$/;"	f
+operator *	Transformation.cpp	/^mat3 operator * (const mat3& a, const mat3& b) $/;"	f
+operator *	Transformation.cpp	/^mat4 operator * (const float d, const mat4& a)$/;"	f
+operator *	Transformation.cpp	/^mat4 operator * (const mat4& a, const float d)$/;"	f
+operator *	Transformation.cpp	/^mat4 operator * (const mat4& a, const mat4& b) $/;"	f
+operator *	Transformation.cpp	/^vec2 operator * (const float d, const vec2& a)$/;"	f
+operator *	Transformation.cpp	/^vec2 operator * (const mat3& a, const vec2& v) $/;"	f
+operator *	Transformation.cpp	/^vec2 operator * (const vec2& a, const float d)$/;"	f
+operator *	Transformation.cpp	/^vec2 operator * (const vec2& v, const mat3& a) $/;"	f
+operator *	Transformation.cpp	/^vec3 operator * (const float d, const vec3& a)$/;"	f
+operator *	Transformation.cpp	/^vec3 operator * (const mat3& a, const vec3& v) $/;"	f
+operator *	Transformation.cpp	/^vec3 operator * (const mat4& a, const vec3& v)$/;"	f
+operator *	Transformation.cpp	/^vec3 operator * (const vec3& a, const float d)$/;"	f
+operator *	Transformation.cpp	/^vec3 operator * (const vec3& v, const mat4& a)$/;"	f
+operator *	Transformation.cpp	/^vec4 operator * (const float d, const vec4& a)$/;"	f
+operator *	Transformation.cpp	/^vec4 operator * (const mat4& a, const vec4& v) $/;"	f
+operator *	Transformation.cpp	/^vec4 operator * (const vec4& a, const float d)$/;"	f
+operator *	Transformation.cpp	/^vec4 operator * (const vec4& v, const mat4& a)$/;"	f
+operator *	Transformation.h	/^inline Transform operator * (const Transform& t1, const Transform& t2)$/;"	f
+operator *	Transformation.h	/^inline vec3 operator * (const Transform& t, const vec3& v)$/;"	f
+operator *=	Transformation.cpp	/^Quaternion& Quaternion::operator *= (const Quaternion& q)$/;"	f	class:Quaternion
+operator *=	Transformation.cpp	/^Quaternion& Quaternion::operator *= (const float d)$/;"	f	class:Quaternion
+operator *=	Transformation.cpp	/^mat3& mat3::operator *= ( const float d )$/;"	f	class:mat3
+operator *=	Transformation.cpp	/^mat4& mat4::operator *= ( const float d )$/;"	f	class:mat4
+operator *=	Transformation.cpp	/^vec2& vec2::operator *= ( const float d )$/;"	f	class:vec2
+operator *=	Transformation.cpp	/^vec3& vec3::operator *= ( const float d )$/;"	f	class:vec3
+operator *=	Transformation.cpp	/^vec4& vec4::operator *= ( const float d )$/;"	f	class:vec4
+operator +	Transformation.cpp	/^Quaternion operator + (const Quaternion& q0, const Quaternion& q1)$/;"	f
+operator +	Transformation.cpp	/^mat3 operator + (const mat3& a, const mat3& b)$/;"	f
+operator +	Transformation.cpp	/^mat4 operator + (const mat4& a, const mat4& b)$/;"	f
+operator +	Transformation.cpp	/^vec2 operator + (const vec2& a, const vec2& b)$/;"	f
+operator +	Transformation.cpp	/^vec3 operator + (const vec3& a, const vec3& b)$/;"	f
+operator +	Transformation.cpp	/^vec4 operator + (const vec4& a, const vec4& b)$/;"	f
+operator +=	Transformation.cpp	/^Quaternion& Quaternion::operator += (const Quaternion& q)$/;"	f	class:Quaternion
+operator +=	Transformation.cpp	/^mat3& mat3::operator += ( const mat3& m )$/;"	f	class:mat3
+operator +=	Transformation.cpp	/^mat4& mat4::operator += ( const mat4& m )$/;"	f	class:mat4
+operator +=	Transformation.cpp	/^vec2& vec2::operator += ( const vec2& v )$/;"	f	class:vec2
+operator +=	Transformation.cpp	/^vec3& vec3::operator += ( const vec3& v )$/;"	f	class:vec3
+operator +=	Transformation.cpp	/^vec4& vec4::operator += ( const vec4& v )$/;"	f	class:vec4
+operator -	Transformation.cpp	/^Quaternion operator - (const Quaternion& q)$/;"	f
+operator -	Transformation.cpp	/^Quaternion operator - (const Quaternion& q0, const Quaternion& q1)$/;"	f
+operator -	Transformation.cpp	/^mat3 operator - (const mat3& a)$/;"	f
+operator -	Transformation.cpp	/^mat3 operator - (const mat3& a, const mat3& b)$/;"	f
+operator -	Transformation.cpp	/^mat4 operator - (const mat4& a)$/;"	f
+operator -	Transformation.cpp	/^mat4 operator - (const mat4& a, const mat4& b)$/;"	f
+operator -	Transformation.cpp	/^vec2 operator - (const vec2& a)$/;"	f
+operator -	Transformation.cpp	/^vec2 operator - (const vec2& a, const vec2& b)$/;"	f
+operator -	Transformation.cpp	/^vec3 operator - (const vec3& a)$/;"	f
+operator -	Transformation.cpp	/^vec3 operator - (const vec3& a, const vec3& b)$/;"	f
+operator -	Transformation.cpp	/^vec4 operator - (const vec4& a)$/;"	f
+operator -	Transformation.cpp	/^vec4 operator - (const vec4& a, const vec4& b)$/;"	f
+operator -=	Transformation.cpp	/^Quaternion& Quaternion::operator -= (const Quaternion& q)$/;"	f	class:Quaternion
+operator -=	Transformation.cpp	/^mat3& mat3::operator -= ( const mat3& m )$/;"	f	class:mat3
+operator -=	Transformation.cpp	/^mat4& mat4::operator -= ( const mat4& m )$/;"	f	class:mat4
+operator -=	Transformation.cpp	/^vec2& vec2::operator -= ( const vec2& v )$/;"	f	class:vec2
+operator -=	Transformation.cpp	/^vec3& vec3::operator -= ( const vec3& v )$/;"	f	class:vec3
+operator -=	Transformation.cpp	/^vec4& vec4::operator -= ( const vec4& v )$/;"	f	class:vec4
+operator /	Transformation.cpp	/^Quaternion operator \/ (const Quaternion& q, const float d)$/;"	f
+operator /	Transformation.cpp	/^mat3 operator \/ (const mat3& a, const float d)$/;"	f
+operator /	Transformation.cpp	/^mat4 operator \/ (const mat4& a, const float d)$/;"	f
+operator /	Transformation.cpp	/^vec2 operator \/ (const vec2& a, const float d)$/;"	f
+operator /	Transformation.cpp	/^vec3 operator \/ (const vec3& a, const float d)$/;"	f
+operator /	Transformation.cpp	/^vec4 operator \/ (const vec4& a, const float d)$/;"	f
+operator /=	Transformation.cpp	/^Quaternion& Quaternion::operator \/= (const float d)$/;"	f	class:Quaternion
+operator /=	Transformation.cpp	/^mat3& mat3::operator \/= ( const float d )$/;"	f	class:mat3
+operator /=	Transformation.cpp	/^mat4& mat4::operator \/= ( const float d )$/;"	f	class:mat4
+operator /=	Transformation.cpp	/^vec2& vec2::operator \/= ( const float d )$/;"	f	class:vec2
+operator /=	Transformation.cpp	/^vec3& vec3::operator \/= ( const float d )$/;"	f	class:vec3
+operator /=	Transformation.cpp	/^vec4& vec4::operator \/= ( const float d )$/;"	f	class:vec4
+operator <<	Transformation.cpp	/^ostream& operator << (ostream& s, const Quaternion& v)$/;"	f
+operator <<	Transformation.cpp	/^ostream& operator << (ostream& s, const mat3& v)$/;"	f
+operator <<	Transformation.cpp	/^ostream& operator << (ostream& s, const mat4& v)$/;"	f
+operator <<	Transformation.cpp	/^ostream& operator << (ostream& s, const vec2& v)$/;"	f
+operator <<	Transformation.cpp	/^ostream& operator << (ostream& s, const vec4& v)$/;"	f
+operator <<	Transformation.cpp	/^ostream& operator<<(ostream& s, const vec3& v)$/;"	f
+operator =	Transformation.cpp	/^Quaternion& Quaternion::operator = (const Quaternion& q)$/;"	f	class:Quaternion
+operator =	Transformation.cpp	/^Transform& Transform::operator = (const Transform& source)$/;"	f	class:Transform
+operator =	Transformation.cpp	/^mat3& mat3::operator = ( const mat3& m )$/;"	f	class:mat3
+operator =	Transformation.cpp	/^mat4& mat4::operator = ( const mat4& m )$/;"	f	class:mat4
+operator =	Transformation.cpp	/^vec2& vec2::operator = (const vec2& v)$/;"	f	class:vec2
+operator =	Transformation.cpp	/^vec3& vec3::operator = (const vec3& v)$/;"	f	class:vec3
+operator =	Transformation.cpp	/^vec4& vec4::operator = (const vec4& v)$/;"	f	class:vec4
+operator ==	Transformation.cpp	/^bool operator == (const Quaternion& q0, const Quaternion& q1)$/;"	f
+operator ==	Transformation.cpp	/^int operator == (const mat3& a, const mat3& b)$/;"	f
+operator ==	Transformation.cpp	/^int operator == (const mat4& a, const mat4& b)$/;"	f
+operator ==	Transformation.cpp	/^int operator == (const vec2& a, const vec2& b)$/;"	f
+operator ==	Transformation.cpp	/^int operator == (const vec3& a, const vec3& b)$/;"	f
+operator ==	Transformation.cpp	/^int operator == (const vec4& a, const vec4& b)$/;"	f
+operator >>	Transformation.cpp	/^istream& operator >> (istream& s, Quaternion& v)$/;"	f
+operator >>	Transformation.cpp	/^istream& operator >> (istream& s, mat3& v)$/;"	f
+operator >>	Transformation.cpp	/^istream& operator >> (istream& s, mat4& v)$/;"	f
+operator >>	Transformation.cpp	/^istream& operator >> (istream& s, vec2& v)$/;"	f
+operator >>	Transformation.cpp	/^istream& operator >> (istream& s, vec4& v)$/;"	f
+operator >>	Transformation.cpp	/^istream& operator>>(istream& s, vec3& v)$/;"	f
+operator []	Transformation.cpp	/^const vec3& mat3::operator [] ( int i) const $/;"	f	class:mat3
+operator []	Transformation.cpp	/^const vec4& mat4::operator [] ( int i) const $/;"	f	class:mat4
+operator []	Transformation.cpp	/^float Quaternion::operator [](int i) const$/;"	f	class:Quaternion
+operator []	Transformation.cpp	/^float vec2::operator [] ( int i) const $/;"	f	class:vec2
+operator []	Transformation.cpp	/^float vec3::operator [] ( int i) const {$/;"	f	class:vec3
+operator []	Transformation.cpp	/^float vec4::operator [] ( int i) const $/;"	f	class:vec4
+operator []	Transformation.cpp	/^float& Quaternion::operator [](int i)$/;"	f	class:Quaternion
+operator []	Transformation.cpp	/^float& vec2::operator [] ( int i) $/;"	f	class:vec2
+operator []	Transformation.cpp	/^float& vec3::operator [] ( int i) {$/;"	f	class:vec3
+operator []	Transformation.cpp	/^float& vec4::operator [] ( int i) $/;"	f	class:vec4
+operator []	Transformation.cpp	/^vec3& mat3::operator [] ( int i) $/;"	f	class:mat3
+operator []	Transformation.cpp	/^vec4& mat4::operator [] ( int i) $/;"	f	class:mat4
+operator ^	Transformation.cpp	/^vec3 operator ^ (const vec2& a, const vec2& b)$/;"	f
+operator ^	Transformation.cpp	/^vec3 operator ^ (const vec3& a, const vec3& b) $/;"	f
+panelObjeks	cpanel.h	/^	vector<CPanelObjek *> panelObjeks;$/;"	m	class:CPanel
+panels	game_paused.h	/^CPanel panels[NUM_PANELS_PAUSED];$/;"	m	namespace:NSGame_Paused
+panels	game_running.h	/^CPanel panels[NUM_PANELS_RUNNING];$/;"	m	namespace:NSGame_Running
+path	ctexture.h	/^	string path; 		\/\/ path to image file$/;"	m	class:CTexture
+path_to_image	cbutton.h	/^	string path_to_image;$/;"	m	class:CButton
+player1	main.h	/^CPlayer player1, player2;$/;"	v
+player2	main.h	/^CPlayer player1, player2;$/;"	v
+player_ID	cplayer.h	/^	int player_ID; 	\/\/ can be one of 1 or 2$/;"	m	class:CPlayer
+pointLiesWithin	cbutton.cpp	/^bool CButton::pointLiesWithin( float px, float py, float tolerance ){ $/;"	f	class:CButton
+pointLiesWithin	clabel.cpp	/^bool CLabel::pointLiesWithin( float px, float py, float tolerance ){ $/;"	f	class:CLabel
+poller_0	poller.h	/^int poller_0( void *data ){$/;"	f
+poller_thread	poller.h	/^SDL_Thread *poller_thread = NULL;$/;"	v
+popUpAnim	clabel.h	/^	bool popUpAnim;$/;"	m	class:CLabel
+print	cfontprinter.cpp	/^void CFontPrinter::print( string text, float x, float y, float z ) {$/;"	f	class:CFontPrinter
+puck	main.h	/^CPuck puck;$/;"	v
+puck_dispList	puck_models.cpp	/^int puck_dispList;$/;"	v
+queueNonEmpty	poller.h	/^bool queueNonEmpty = false; $/;"	v
+queue_to_send	cnetwork_queue.h	/^	vector<CPacketData> queue_to_send;$/;"	m	class:CNetwork_Queue
+r	Utilities.h	/^    float r, g, b, a;$/;"	m	struct:SColor
+r	cbat.h	/^	float r, g, b;		\/\/ bat color$/;"	m	class:CBat
+r	cpuck.h	/^	float r, g, b;		\/\/ puck color$/;"	m	class:CPuck
+radius	ccamera.h	/^    float radius;$/;"	m	class:CCamera
+receiving_udpPacket	networking.h	/^UDPpacket *receiving_udpPacket;       \/* Pointer to packet memory  *\/$/;"	v
+redraw	ccamera.h	/^    bool redraw;$/;"	m	class:CCamera
+remote_machine_ip	networking.h	/^IPaddress remote_machine_ip;$/;"	v
+remote_server_ip_address	network_client.h	/^string remote_server_ip_address;$/;"	v
+remove	cnetwork_queue.cpp	/^CPacketData CNetwork_Queue::remove( ) {$/;"	f	class:CNetwork_Queue
+removePanelObjek	cpanel.cpp	/^void CPanel::removePanelObjek( CPanelObjek *panelObjek ) {$/;"	f	class:CPanel
+renderScene	cgame.h	/^    void (* renderScene) (void) ; $/;"	m	class:CGame
+renderScene	game_mainmenu.h	/^void renderScene( ){ $/;"	f	namespace:NSGame_MainMenu
+renderScene	game_paused.h	/^void renderScene( ){ $/;"	f	namespace:NSGame_Paused
+renderScene	game_running.h	/^void renderScene( ){ $/;"	f	namespace:NSGame_Running
+renderScene	main.h	/^void (*renderScene) ( void );$/;"	v
+renderScene	safe__game_mainmenu.h	/^void renderScene( ){ $/;"	f	namespace:NSGame_MainMenu
+resolve_ip	game_mainmenu.h	/^void resolve_ip( string ip ) {$/;"	f	namespace:NSGame_MainMenu
+rotateAboutAxis	ccamera.cpp	/^void CCamera::rotateAboutAxis( int axis, float rot_angle ){$/;"	f	class:CCamera
+running_on_port_2	network_server.h	/^bool running_on_port_2 = false;$/;"	v
+s:cpo_save	vimSession.vim	/^let s:cpo_save=&cpo$/;"	v
+s:l	vimSession.vim	/^let s:l = 1 - ((0 * winheight(0) + 24) \/ 49)$/;"	v
+s:so_save	vimSession.vim	/^let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0$/;"	v
+s:sx	vimSession.vim	/^let s:sx = expand("<sfile>:p:r")."x.vim"$/;"	v
+s:wipebuf	vimSession.vim	/^  let s:wipebuf = bufnr('%')$/;"	v
+semaphore	ccamera.h	/^    SDL_sem *semaphore; $/;"	m	class:CCamera
+semaphore	cgame.h	/^    SDL_sem *semaphore; $/;"	m	class:CGame
+semaphore	cnetwork_queue.h	/^	SDL_sem *semaphore; $/;"	m	class:CNetwork_Queue
+sending_udpPacket	networking.h	/^UDPpacket *sending_udpPacket;       \/* Pointer to packet memory  *\/$/;"	v
+seqNum	cpacketdata.h	/^	long int seqNum;$/;"	m	class:CPacketData
+setAngle_of_vision	ccamera.cpp	/^void CCamera::setAngle_of_vision( float Angle_of_vision ){$/;"	f	class:CCamera
+setAspecRatio	ccamera.cpp	/^void CCamera::setAspecRatio( float AspecRatio ){ $/;"	f	class:CCamera
+setCamera1	cgame.cpp	/^void CGame::setCamera1( CCamera *camera1 ){$/;"	f	class:CGame
+setCamera2	cgame.cpp	/^void CGame::setCamera2( CCamera *camera2 ){$/;"	f	class:CGame
+setDepth	ccamera.cpp	/^void CCamera::setDepth( float Depth ){ $/;"	f	class:CCamera
+setEventHandler	cgame.cpp	/^void CGame::setEventHandler( void (* eventHandler) (SDL_Event &event) ){ $/;"	f	class:CGame
+setEye	ccamera.cpp	/^void CCamera::setEye( float x, float y, float z ){ $/;"	f	class:CCamera
+setFont	cfontprinter.cpp	/^void CFontPrinter::setFont( SFont Font ) {$/;"	f	class:CFontPrinter
+setFont	cfontprinter.cpp	/^void CFontPrinter::setFont( float FontWidth, float FontHeight, SColor ForeColor ) {$/;"	f	class:CFontPrinter
+setFont	ctextinput.cpp	/^void CTextInput::setFont( SFont Font ) {$/;"	f	class:CTextInput
+setGameState	cgame.cpp	/^void CGame::setGameState( GameState gameState ){ $/;"	f	class:CGame
+setHeight	ccamera.cpp	/^void CCamera::setHeight( float Height ){ $/;"	f	class:CCamera
+setLabelText	clabel.cpp	/^void CLabel::setLabelText( string LabelText ) {$/;"	f	class:CLabel
+setRedrawTrue	ccamera.cpp	/^void CCamera::setRedrawTrue( ){$/;"	f	class:CCamera
+setRenderScene	cgame.cpp	/^void CGame::setRenderScene( void (* renderScene) (void) ){ $/;"	f	class:CGame
+setUpVector	ccamera.cpp	/^void CCamera::setUpVector( float i, float j, float k ){ $/;"	f	class:CCamera
+setViewPort	ccamera.cpp	/^void CCamera::setViewPort( int Vp_x1, int Vp_y1, int Vp_x2, int Vp_y2 ){$/;"	f	class:CCamera
+setWidth	ccamera.cpp	/^void CCamera::setWidth( float Width ){ $/;"	f	class:CCamera
+settingsButton_clickHandler	game_mainmenu.h	/^void settingsButton_clickHandler( float x, float y ){ $/;"	f	namespace:NSGame_MainMenu
+setup_rc	main.cpp	/^void setup_rc( ){ $/;"	f
+side_length__my_cursor	game_mainmenu.h	/^float side_length__my_cursor;$/;"	m	namespace:NSGame_MainMenu
+side_length__my_cursor	game_paused.h	/^float side_length__my_cursor;$/;"	m	namespace:NSGame_Paused
+sidewind	ccamera.cpp	/^void CCamera::sidewind( int direction, float amount ) {$/;"	f	class:CCamera
+singlePlayerButton_clickHandler	game_mainmenu.h	/^void singlePlayerButton_clickHandler( float x, float y ){ $/;"	f	namespace:NSGame_MainMenu
+singlePlayer_button	safe__game_mainmenu.h	/^CButton singlePlayer_button; $/;"	m	namespace:NSGame_MainMenu
+socketDesc	networking.h	/^UDPsocket socketDesc;$/;"	v
+srvadd	network_client.h	/^IPaddress srvadd;		   \/* IPaddress of remote server, set in case we are not the server *\/$/;"	v
+texture	cbutton.h	/^	CTexture texture;$/;"	m	class:CButton
+texture	cfontprinter.h	/^	CTexture texture;$/;"	m	class:CFontPrinter
+texture	cpanel.h	/^	CTexture texture;$/;"	m	class:CPanel
+texture	ctexture.h	/^	GLuint texture;$/;"	m	class:CTexture
+texture_format	ctexture.h	/^	GLenum texture_format;$/;"	m	class:CTexture
+thickness	cboard.h	/^	float width, length, thickness; $/;"	m	class:CBoard
+ticks	game_paused.h	/^long int ticks;$/;"	m	namespace:NSGame_Paused
+translate_X	cbat.cpp	/^void CBat::translate_X( float deltaX ){$/;"	f	class:CBat
+translate_Y	cbat.cpp	/^void CBat::translate_Y( float deltaY, int player_id ){$/;"	f	class:CBat
+unbindTexture	ctexture.cpp	/^void CTexture::unbindTexture( ){ $/;"	f	class:CTexture
+up_vector	ccamera.h	/^    vec3 up_vector;$/;"	m	class:CCamera
+v	Transformation.h	/^	vec3 v[3];$/;"	m	class:mat3
+v	Transformation.h	/^	vec4 v[4];$/;"	m	class:mat4
+vec2	Transformation.cpp	/^vec2::vec2() $/;"	f	class:vec2
+vec2	Transformation.cpp	/^vec2::vec2(const float d)$/;"	f	class:vec2
+vec2	Transformation.cpp	/^vec2::vec2(const float x, const float y)$/;"	f	class:vec2
+vec2	Transformation.cpp	/^vec2::vec2(const vec2& v)$/;"	f	class:vec2
+vec2	Transformation.cpp	/^vec2::vec2(const vec3& v) \/\/ it is up to caller to avoid divide-by-zero$/;"	f	class:vec2
+vec2	Transformation.cpp	/^vec2::vec2(const vec3& v, int dropAxis) {$/;"	f	class:vec2
+vec2	Transformation.h	/^class vec2$/;"	c
+vec3	Transformation.cpp	/^vec3::vec3() $/;"	f	class:vec3
+vec3	Transformation.cpp	/^vec3::vec3(const float d)$/;"	f	class:vec3
+vec3	Transformation.cpp	/^vec3::vec3(const float x, const float y, const float z)$/;"	f	class:vec3
+vec3	Transformation.cpp	/^vec3::vec3(const vec2& v)$/;"	f	class:vec3
+vec3	Transformation.cpp	/^vec3::vec3(const vec2& v, float d)$/;"	f	class:vec3
+vec3	Transformation.cpp	/^vec3::vec3(const vec3& v)$/;"	f	class:vec3
+vec3	Transformation.cpp	/^vec3::vec3(const vec4& v) \/\/ it is up to caller to avoid divide-by-zero$/;"	f	class:vec3
+vec3	Transformation.cpp	/^vec3::vec3(const vec4& v, int dropAxis) $/;"	f	class:vec3
+vec3	Transformation.h	/^class vec3$/;"	c
+vec4	Transformation.cpp	/^vec4::vec4() $/;"	f	class:vec4
+vec4	Transformation.cpp	/^vec4::vec4(const float d)$/;"	f	class:vec4
+vec4	Transformation.cpp	/^vec4::vec4(const float x, const float y, const float z, const float w)$/;"	f	class:vec4
+vec4	Transformation.cpp	/^vec4::vec4(const vec3& v)$/;"	f	class:vec4
+vec4	Transformation.cpp	/^vec4::vec4(const vec3& v, const float d)$/;"	f	class:vec4
+vec4	Transformation.cpp	/^vec4::vec4(const vec4& v)$/;"	f	class:vec4
+vec4	Transformation.h	/^class vec4$/;"	c
+visible	clabel.h	/^	bool visible, enabled;$/;"	m	class:CLabel
+visible	cpanel.h	/^	bool visible, enabled;$/;"	m	class:CPanel
+visible	cpanelobjek.h	/^	bool enabled, visible;$/;"	m	class:CPanelObjek
+visible	ctextinput.h	/^	bool visible;$/;"	m	class:CTextInput
+vp_x1	ccamera.h	/^    int vp_x1, vp_x2, vp_y1, vp_y2; 	\/\/ viewport $/;"	m	class:CCamera
+vp_x2	ccamera.h	/^    int vp_x1, vp_x2, vp_y1, vp_y2; 	\/\/ viewport $/;"	m	class:CCamera
+vp_y1	ccamera.h	/^    int vp_x1, vp_x2, vp_y1, vp_y2; 	\/\/ viewport $/;"	m	class:CCamera
+vp_y2	ccamera.h	/^    int vp_x1, vp_x2, vp_y1, vp_y2; 	\/\/ viewport $/;"	m	class:CCamera
+width	cboard.h	/^	float width, length, thickness; $/;"	m	class:CBoard
+width	cbutton.h	/^	float width, height;$/;"	m	class:CButton
+width	ccamera.h	/^    float width; $/;"	m	class:CCamera
+width	cpanel.h	/^	float width, height;$/;"	m	class:CPanel
+width	cpanelobjek.h	/^	float width, height;$/;"	m	class:CPanelObjek
+work	game_mainmenu.h	/^int work( void * ){ $/;"	f	namespace:NSGame_MainMenu
+work	game_paused.h	/^int work( void * ){ $/;"	f	namespace:NSGame_Paused
+work	game_running.h	/^int work( void * ){ $/;"	f	namespace:NSGame_Running
+work	safe__game_mainmenu.h	/^int work( void * ){ $/;"	f	namespace:NSGame_MainMenu
+work_thread	game_mainmenu.h	/^SDL_Thread *work_thread = NULL;$/;"	m	namespace:NSGame_MainMenu
+work_thread	game_paused.h	/^SDL_Thread *work_thread = NULL;$/;"	m	namespace:NSGame_Paused
+work_thread	game_running.h	/^SDL_Thread *work_thread = NULL;$/;"	m	namespace:NSGame_Running
+work_thread	safe__game_mainmenu.h	/^SDL_Thread *work_thread = NULL;$/;"	m	namespace:NSGame_MainMenu
+work_thread_anim_delay_msecs	game_mainmenu.h	/^int work_thread_anim_delay_msecs = 25.0; $/;"	m	namespace:NSGame_MainMenu
+work_thread_anim_delay_msecs	game_paused.h	/^int work_thread_anim_delay_msecs = 100.0; $/;"	m	namespace:NSGame_Paused
+work_thread_anim_delay_msecs	game_running.h	/^int work_thread_anim_delay_msecs = 100.0; $/;"	m	namespace:NSGame_Running
+work_thread_anim_delay_msecs	safe__game_mainmenu.h	/^int work_thread_anim_delay_msecs = 100.0; $/;"	m	namespace:NSGame_MainMenu
+writeLookAt	ccamera.cpp	/^void CCamera::writeLookAt( bool force ){$/;"	f	class:CCamera
+x	Utilities.h	/^    float x, y, z;$/;"	m	struct:SCordinates
+x	cbat.h	/^	float x, y, z; $/;"	m	class:CBat
+x	cbutton.h	/^	float x, y, z; $/;"	m	class:CButton
+x	cpanel.h	/^	float x, y, z;$/;"	m	class:CPanel
+x	cpanelobjek.h	/^	float x, y, z;$/;"	m	class:CPanelObjek
+x	cpuck.h	/^	float x, y, z; $/;"	m	class:CPuck
+x_eye	ccamera.h	/^    float x_eye, y_eye, z_eye;$/;"	m	class:CCamera
+x_mouse	game_mainmenu.h	/^float x_mouse, y_mouse;$/;"	m	namespace:NSGame_MainMenu
+x_mouse	game_paused.h	/^float x_mouse, y_mouse;$/;"	m	namespace:NSGame_Paused
+x_mouse	game_running.h	/^float x_mouse, y_mouse;$/;"	m	namespace:NSGame_Running
+x_mouse_prev	game_running.h	/^float x_mouse_prev=9999, y_mouse_prev=9999;$/;"	m	namespace:NSGame_Running
+y	Utilities.h	/^    float x, y, z;$/;"	m	struct:SCordinates
+y	cbat.h	/^	float x, y, z; $/;"	m	class:CBat
+y	cbutton.h	/^	float x, y, z; $/;"	m	class:CButton
+y	cpanel.h	/^	float x, y, z;$/;"	m	class:CPanel
+y	cpanelobjek.h	/^	float x, y, z;$/;"	m	class:CPanelObjek
+y	cpuck.h	/^	float x, y, z; $/;"	m	class:CPuck
+y_eye	ccamera.h	/^    float x_eye, y_eye, z_eye;$/;"	m	class:CCamera
+y_mouse	game_mainmenu.h	/^float x_mouse, y_mouse;$/;"	m	namespace:NSGame_MainMenu
+y_mouse	game_paused.h	/^float x_mouse, y_mouse;$/;"	m	namespace:NSGame_Paused
+y_mouse	game_running.h	/^float x_mouse, y_mouse;$/;"	m	namespace:NSGame_Running
+y_mouse_prev	game_running.h	/^float x_mouse_prev=9999, y_mouse_prev=9999;$/;"	m	namespace:NSGame_Running
+z	Utilities.h	/^    float x, y, z;$/;"	m	struct:SCordinates
+z	cbat.h	/^	float x, y, z; $/;"	m	class:CBat
+z	cbutton.h	/^	float x, y, z; $/;"	m	class:CButton
+z	cpanel.h	/^	float x, y, z;$/;"	m	class:CPanel
+z	cpanelobjek.h	/^	float x, y, z;$/;"	m	class:CPanelObjek
+z	cpuck.h	/^	float x, y, z; $/;"	m	class:CPuck
+z_eye	ccamera.h	/^    float x_eye, y_eye, z_eye;$/;"	m	class:CCamera
+zoomin	ccamera.cpp	/^void CCamera::zoomin(){$/;"	f	class:CCamera
+zoomout	ccamera.cpp	/^void CCamera::zoomout(){$/;"	f	class:CCamera
+zt	vimSession.vim	/^normal! zt$/;"	m

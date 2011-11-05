@@ -9,6 +9,8 @@ void CPuck::init( float x, float y, float z, float r, float g, float b ){
 	this->g = g; 
 	this->b = b; 
 
+	this->motion.velocity[VX] = this->motion.velocity[VY] = 0.0;
+
 	// call something from puck_models.cpp here that will make display lists
 	loadPuck( );
 
@@ -41,3 +43,9 @@ void CPuck::draw( ){
 	return;
 }
 
+void CPuck::translate( ) {
+	x += motion.velocity[VX];
+	y += motion.velocity[VY];
+
+	return;
+}

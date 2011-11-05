@@ -1,13 +1,15 @@
 #include "cbat.h"
 
 void CBat::init( float x, float y, float z, float r, float g, float b ){ 
-	this->x = x; 
-	this->y = y; 
-	this->z = z; 
+	this->sx = this->x = x; 
+	this->sy = this->y = y; 
+	this->sz = this->z = z; 
 
 	this->r = r; 
 	this->g = g; 
 	this->b = b; 
+
+	this->motion.velocity[VX] = this->motion.velocity[VY] = 0.0;
 
 	// call something from bat_models.cpp here that will make display lists
 	loadBat( );
@@ -42,36 +44,38 @@ void CBat::draw( ){
 }
 
 // translate the bat along x-axis by amount "deltaX"
-void CBat::translate_X( float deltaX ){
+void CBat::translate_X( float deltaX, bool shadow_cordinates_uh){
+	float *px = shadow_cordinates_uh? &x : &sx;
 
-	x += deltaX;
+	*px += deltaX;
 
-	if( (x+BAT_RADIUS)>BOARD_WIDTH/2.0 )
-		x = BOARD_WIDTH/2.0 - BAT_RADIUS;
-	if( (x-BAT_RADIUS)<-BOARD_WIDTH/2.0 )
-		x = -BOARD_WIDTH/2.0 + BAT_RADIUS;
+	if( (*px+BAT_RADIUS)>BOARD_WIDTH/2.0 )
+		*px = BOARD_WIDTH/2.0 - BAT_RADIUS;
+	if( (*px-BAT_RADIUS)<-BOARD_WIDTH/2.0 )
+		*px = -BOARD_WIDTH/2.0 + BAT_RADIUS;
 	
 	return;
 }
 		
 // translate the bat along y-axis by amount "deltaY"
-void CBat::translate_Y( float deltaY, int player_id ){
+void CBat::translate_Y( float deltaY, int player_id, bool shadow_cordinates_uh){
+	float *py = shadow_cordinates_uh? &y : &sy;
 
-	y += deltaY;
+	*py += deltaY;
 
 	switch ( player_id ) {
 		case PLAYER_1 :
-			if ( (y+BAT_RADIUS)>0 )
-				y = 0.0 - BAT_RADIUS;
-			if ( (y-BAT_RADIUS)<-BOARD_LENGTH/2.0 )
-				y = -BOARD_LENGTH/2.0 + BAT_RADIUS;
+			if ( (*py+BAT_RADIUS)>0 )
+				*py = 0.0 - BAT_RADIUS;
+			if ( (*py-BAT_RADIUS)<-BOARD_LENGTH/2.0 )
+				*py = -BOARD_LENGTH/2.0 + BAT_RADIUS;
 			break;
 
 		case PLAYER_2 :
-			if ( (y-BAT_RADIUS)<0 )
-				y = 0.0 + BAT_RADIUS;
-			if ( (y+BAT_RADIUS)>BOARD_LENGTH/2.0 )
-				y = BOARD_LENGTH/2.0 - BAT_RADIUS;
+			if ( (*py-BAT_RADIUS)<0 )
+				*py = 0.0 + BAT_RADIUS;
+			if ( (*py+BAT_RADIUS)>BOARD_LENGTH/2.0 )
+				*py = BOARD_LENGTH/2.0 - BAT_RADIUS;
 			break;
 	}
 
