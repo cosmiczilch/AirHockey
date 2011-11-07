@@ -21,7 +21,7 @@ bool entered = false;
 
 int work_thread_anim_delay_msecs = 40.0; 
 
-GLuint filter;						// Which Filter To Use
+GLuint filter;
 GLuint fogMode[]= { GL_EXP, GL_EXP2, GL_LINEAR };	// Storage For Three Types Of Fog
 GLuint fogfilter= 1;					// Which Fog To Use
 GLfloat fogColor[4]= {0.7f, 0.7f, 0.7f, 1.0f};		// Fog Color
@@ -36,12 +36,13 @@ int numTimes_for_accum_buffer = 1;
 #define NUM_PANELS_RUNNING 1
 CPanel panels[NUM_PANELS_RUNNING];
 
-#define SCORE_LABEL 0
-#define NUM_LABELS_RUNNING 1
+#define SCORE_LABEL_P1 0
+#define SCORE_LABEL_P2 1
+#define NUM_LABELS_RUNNING 2
 CLabel labels[NUM_LABELS_RUNNING];
 /* Done UI items */
 
-#define MOUSE_SENSITIVITY 1/7.0
+#define MOUSE_SENSITIVITY 1/1.0
 
 /*
  * the lesser the difference between MAX_BAT_SPEED and
@@ -82,8 +83,11 @@ float bat_normal_dash;	// post collission
 vec2 puck_final_normal , bat_final_normal ;
 vec2 puck_final_tangent, bat_final_tangent;
 
-bool player1_collission_handled = false;
+#define PUCK_IS_ON_MY_SIDE (puck.y <= 0)
+bool puck_was_on_my_side = false;
+bool collission_handled = false;
 bool detect_collission__puck_with_bat( );
+#define EPSILON_FOR_GOAL_DETECTION 1.003
 
 /**********************************************************************************************************************************************/ 
 
@@ -95,7 +99,9 @@ void entryFunction ( ) {
 	entered = true;
 
 	SDL_ShowCursor( 0 );
+#if !DEBUG
 	SDL_WM_GrabInput( SDL_GRAB_ON );
+#endif
 
 
 	return;
@@ -154,6 +160,12 @@ void renderScene( ){
 
 	/* Draw UI items */
 	game_Running.camera2->writeLookAt( true );
+
+	static char temp_string[10];
+	sprintf( temp_string, "%d", player1.numGoals );
+	labels[SCORE_LABEL_P1].setLabelText( temp_string );
+	sprintf( temp_string, "%d", player2.numGoals );
+	labels[SCORE_LABEL_P2].setLabelText( temp_string );
 
 	for (int i=0; i<NUM_PANELS_RUNNING; i++) {
 		panels[i].draw( );
@@ -280,12 +292,13 @@ void handle_collission__puck_with_bat( CPuck *puck, CBat *bat ) {
 }
 
 // returns 1 if collission was detected and handled
-bool detect_collission__puck_with_bat( ) {
+bool detect_collission__puck_with_bats( ) {
 	if (distance_between_2_points( puck.x, puck.y, \
 				       player1.bat.x, player1.bat.y ) <= \
 	    (BAT_RADIUS + PUCK_RADIUS)*BUFFER_FACTOR_FOR_COLLISSION_DETECTION ) {
 
 		handle_collission__puck_with_bat( &puck, &player1.bat );
+		collission_handled = true;
 
 	}
 
@@ -294,6 +307,7 @@ bool detect_collission__puck_with_bat( ) {
 	    (BAT_RADIUS + PUCK_RADIUS)*BUFFER_FACTOR_FOR_COLLISSION_DETECTION ) {
 
 		handle_collission__puck_with_bat( &puck, &player2.bat );
+		collission_handled = true;
 
 	}
 
@@ -320,7 +334,8 @@ void pauli() {
 		axis.Normalize();
 		puck.x += axis[VX] * epsilon;
 		puck.y += axis[VY] * epsilon;
-		printf( "\npauli1" );
+		collission_handled = true;
+		// printf( "\npauli1" );
 	}
 
 	if (gameType == SINGLE_PLAYER) {
@@ -331,7 +346,8 @@ void pauli() {
 			axis.Normalize();
 			puck.x += axis[VX] * epsilon;
 			puck.y += axis[VY] * epsilon;
-			printf( "\npauli1" );
+			collission_handled = true;
+			// printf( "\npauli1" );
 		}
 	}
 
@@ -342,22 +358,26 @@ void pauli() {
 	 */
 	if ((puck.x+PUCK_RADIUS) >  BOARD_WIDTH/2.0) {
 		puck.x -= abs( (puck.x+PUCK_RADIUS) - BOARD_WIDTH/2.0);
-		printf( "\npauli2" );
+		// printf( "\npauli2" );
+		collission_handled = true;
 		cond2_corrected = true;
 	}
 	if ((puck.x-PUCK_RADIUS) < -BOARD_WIDTH/2.0) {
 		puck.x += abs( (puck.x-PUCK_RADIUS) - (-BOARD_WIDTH/2.0));
-		printf( "\npauli2" );
+		// printf( "\npauli2" );
+		collission_handled = true;
 		cond2_corrected = true;
 	}
 	if ((puck.y+PUCK_RADIUS) > BOARD_LENGTH/2.0) {
 		puck.y -= abs( (puck.y+PUCK_RADIUS) - BOARD_LENGTH/2.0);
-		printf( "\npauli2" );
+		// printf( "\npauli2" );
+		collission_handled = true;
 		cond2_corrected = true;
 	}
 	if ((puck.y - PUCK_RADIUS) < -BOARD_LENGTH/2.0) {
 		puck.y += abs( (puck.y-PUCK_RADIUS) - (-BOARD_LENGTH/2.0));
-		printf( "\npauli2" );
+		// printf( "\npauli2" );
+		collission_handled = true;
 		cond2_corrected = true;
 	}
 
@@ -376,7 +396,7 @@ void pauli() {
 			axis.Normalize();
 			player1.bat.x -= axis[VX] * epsilon;
 			player1.bat.y -= axis[VY] * epsilon;
-			printf( "\npauli3" );
+			// printf( "\npauli3" );
 		}
 		if (gameType == SINGLE_PLAYER) {
 			axis[VX] = puck.x - player2.bat.x;
@@ -386,7 +406,7 @@ void pauli() {
 				axis.Normalize();
 				player2.bat.x -= axis[VX] * epsilon;
 				player2.bat.y -= axis[VY] * epsilon;
-				printf( "\npauli3" );
+				// printf( "\npauli3" );
 			}
 		}
 	}
@@ -396,21 +416,44 @@ void pauli() {
 	return;
 }
 
+void reset_puck_after_goal( ) {
+	puck.x = 0.0; puck.y = 0.0;
+	puck.motion.velocity[VX] = 0.0;
+	puck.motion.velocity[VY] = 0.0;
+	return;
+}
+
 void collission_detection( ) {
-	// puck w/ wall
+	// check for goals
+	if ( (puck.y+PUCK_RADIUS) >=  BOARD_LENGTH/2.0   &&
+	     (puck.x-PUCK_RADIUS) >= -GOALPOST_WIDTH/2.0 &&
+	     (puck.x+PUCK_RADIUS) <=  GOALPOST_WIDTH/2.0 ) {
+	     player1.numGoals++;
+	     reset_puck_after_goal( );
+	}
+	if ( (puck.y-PUCK_RADIUS) <=  -BOARD_LENGTH/2.0   &&
+	     (puck.x-PUCK_RADIUS) >= -GOALPOST_WIDTH/2.0 &&
+	     (puck.x+PUCK_RADIUS) <=  GOALPOST_WIDTH/2.0 ) {
+	     player2.numGoals++;
+	     reset_puck_after_goal( );
+	}
+	     
+	// puck w/ walls
 	if ( (puck.x+PUCK_RADIUS) >= BOARD_WIDTH/2.0 ||
 	     (puck.x-PUCK_RADIUS) <= -BOARD_WIDTH/2.0 ) {
 	     // flip_puck_motion_vertically
 	     puck.motion.velocity[VX] *= -1.0;
+	     collission_handled = true;
 	}
 	if ( (puck.y+PUCK_RADIUS) >= BOARD_LENGTH/2.0 ||
 	     (puck.y-PUCK_RADIUS) <= -BOARD_LENGTH/2.0 ) {
 	     // flip_puck_motion_horizontally
 	     puck.motion.velocity[VY] *= -1.0;
+	     collission_handled = true;
 	}
 
 	// puck w/ bats
-	detect_collission__puck_with_bat( );	// and handle appropriately too
+	detect_collission__puck_with_bats( );	// and handle appropriately too
 
 	/**
 	 * in favor of pauli's exclusion principle
@@ -464,7 +507,7 @@ void adjust_puck_decelaration_and_velocity( ) {
 	puck.motion.velocity[VX] /= puck_decelaration_factor;
 	puck.motion.velocity[VY] /= puck_decelaration_factor;
 
-	printf( "\nv, d : %f, %f", puck.motion.velocity.Length(), puck_decelaration_factor);
+	// printf( "\nv, d : %f, %f", puck.motion.velocity.Length(), puck_decelaration_factor);
 
 	return;
 }
@@ -478,6 +521,47 @@ int work( void * ){
 			continue;
 		}
 
+		/* animation */
+		
+		/*
+		 * the velocity of player1's bat should be proportional to the
+		 * distance between itself and the shadow cordinates (elastic
+		 * band). That way, it'll move faster when it has to cover more
+		 * ground to catch up, but will slow down before it comes to
+		 * rest.
+		 * The current (x, y) of the leading edge of the elastic was set
+		 * as shadow cordinates in the bat in eventHandler()
+		 */
+		compute_velocity( );
+		// printf( "\nvelocity : %f %f", player1.bat.motion.velocity[VX], 
+		//				 player1.bat.motion.velocity[VY] );
+
+		/*
+		 * Now, apply the computed velocity to player1's bat
+		 */
+		player1.bat.translate_X( player1.bat.motion.velocity[VX] );
+		player1.bat.translate_Y( player1.bat.motion.velocity[VY], player1.player_ID );
+
+		if ( 1 || gameType == SINGLE_PLAYER ||
+	      	   (gameType == MULTI_PLAYER && are_we_the_server)) {
+		       /*
+		        * if in SINGLE_PLAYER mode or are_we_the_server, then we
+			* are reponsible for the motion of the puck as well
+			*/
+
+			puck.translate( );
+			adjust_puck_decelaration_and_velocity( );
+		}
+
+		puck_was_on_my_side = PUCK_IS_ON_MY_SIDE;
+		/*
+		 * IMPORTANT :
+		 * collission detection and handling(done inside)
+		 */
+		collission_detection( );
+
+
+		// if in MULTI_PLAYER mode, send coordinates data to remote client
 		if (gameType == MULTI_PLAYER) {
 			/*
 			 * we are in a MULTI_PLAYER game, 
@@ -491,64 +575,25 @@ int work( void * ){
 				CPacketData pdata;
 				pdata.header = PLAYER1_COORD_PACKET_HEADER;
 				pdata.ack_packet = false;
-				pdata.cordinates.x = player1.bat.x;
-				pdata.cordinates.y = player1.bat.y;
-				pdata.cordinates.z = player1.bat.z;
+				pdata.bat_data = player1.bat;
 
-				if (are_we_the_server) {
+				if (puck_was_on_my_side && collission_handled) {
 					/*
-					 * we are the server; we are responsible for doing collission detection
-					 * and sending the position of the puck as well
+					 * we handled the collission and
+					 * we are responsible for sending the position of the puck as well
 					 */
+					printf( "have done collission handling" );
 					pdata.header = PUCK_AND_PLAYER1_COORD_PACKET_HEADER;
 					pdata.ack_packet = false;
-					pdata.puck_cordinates.x = puck.x;
-					pdata.puck_cordinates.y = puck.y;
-					pdata.puck_cordinates.z = puck.z;
+					pdata.puck_data = puck;
+					/* IMPORTANT */
+					collission_handled = false;
 				}
 
 
 				network_queue.insert( pdata );
 			}
 		}
-
-		// animation
-		if (gameType == SINGLE_PLAYER ||
-		   (gameType == MULTI_PLAYER && are_we_the_server)) {
-			/*
-			 * the velocity of player1's bat should be proportional to the
-			 * distance between itself and the shadow cordinates (elastic
-			 * band). That way, it'll move faster when it has to cover more
-			 * ground to catch up, but will slow down before it comes to
-			 * rest.
-			 * The current (x, y) of the leading edge of the elastic was set
-			 * as shadow cordinates in the bat in eventHandler()
-			 */
-			compute_velocity( );
-			printf( "\nvelocity : %f %f", player1.bat.motion.velocity[VX], \
-						      player1.bat.motion.velocity[VY] );
-
-			/*
-			 * Now, apply the computed velocity to player1's bat
-			 */
-			player1.bat.translate_X( player1.bat.motion.velocity[VX] );
-			player1.bat.translate_Y( player1.bat.motion.velocity[VY], player1.player_ID );
-
-			puck.translate( );
-			adjust_puck_decelaration_and_velocity( );
-
-			/* compute bat1's motion */
-			/* compute bat2's motion */
-
-
-			/* save bat1's old_x, old_y and old_z */
-			/* save bat2's old_x, old_y and old_z */
-
-		}
-
-		// collission detection and handling(done inside)
-		collission_detection( );
-
 
 		// do something
 		ticks++;
@@ -565,6 +610,19 @@ void init_UI_items( ) {
 	"./resources/images/panel.png" );
 	panels[SCORE_PANEL].visible = true;
 	panels[SCORE_PANEL].enabled = true;
+
+	labels[SCORE_LABEL_P1].init( (int)SCORE_LABEL_P1, w*90/100.0, h*10/100,  -w*20/100.0, -h*40/100.0, 2.2*SMALL_EPSILON );
+	labels[SCORE_LABEL_P1].visible = true;
+	labels[SCORE_LABEL_P1].enabled = true;
+	labels[SCORE_LABEL_P1].setLabelText( "0" );
+	
+	labels[SCORE_LABEL_P2].init( (int)SCORE_LABEL_P1, w*90/100.0, h*10/100,  w*20/100.0, -h*40/100.0, 2.2*SMALL_EPSILON );
+	labels[SCORE_LABEL_P2].visible = true;
+	labels[SCORE_LABEL_P2].enabled = true;
+	labels[SCORE_LABEL_P2].setLabelText( "0" );
+
+	panels[SCORE_PANEL].addPanelObjek( &labels[SCORE_LABEL_P1] );
+	panels[SCORE_PANEL].addPanelObjek( &labels[SCORE_LABEL_P2] );
 
 	return;
 }

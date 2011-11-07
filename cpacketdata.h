@@ -2,6 +2,8 @@
 #define CPACKETDATA_H
 
 #include "Utilities.h"
+#include "cbat.h"
+#include "cpuck.h"
 
 /* packet headers */
 #define INITIATE_MP_GAME_HEADER 0
@@ -20,8 +22,8 @@ class CPacketData {
 	bool ack_packet;
 	long int seqNum;
 
-	SCordinates cordinates;
-	SCordinates puck_cordinates;
+	CBat bat_data;
+	CPuck puck_data;
 };
 
 

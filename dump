@@ -1,0 +1,431 @@
+
+1440.000000 : 900.000000
+
+Initializing Networking Components... 
+Initializing SDL_net... 
+Opening UDP Socket... 
+Allocating sending_packet... 
+Allocating receiving_packet... 
+Networking Components: Done. warning: ./resources/fonts/Verdana.png's width is not a power of 2
+warning: ./resources/fonts/Verdana.png's height is not a power of 2
+warning: ./resources/images/mainMenu_background.png's height is not a power of 2
+warning: ./resources/images/singleplayer_button.png's height is not a power of 2
+warning: ./resources/images/multiplayer_button.png's height is not a power of 2
+warning: ./resources/images/settings_button.png's width is not a power of 2
+warning: ./resources/images/credits_button.png's height is not a power of 2
+warning: ./resources/images/exit_button.png's height is not a power of 2
+warning: ./resources/images/panel.png's width is not a power of 2
+warning: ./resources/images/panel.png's height is not a power of 2
+warning: ./resources/images/cursor.png's width is not a power of 2
+warning: ./resources/images/cursor.png's height is not a power of 2
+warning: ./resources/images/panel.png's width is not a power of 2
+warning: ./resources/images/panel.png's height is not a power of 2
+warning: ./resources/images/cursor.png's width is not a power of 2
+warning: ./resources/images/cursor.png's height is not a power of 2
+warning: ./resources/images/panel.png's width is not a power of 2
+warning: ./resources/images/panel.png's height is not a power of 2
+warning: ./resources/fonts/Verdana.png's width is not a power of 2
+warning: ./resources/fonts/Verdana.png's height is not a power of 2
+
+Something has come ...	-1
+Sending some Packet to remote_machine ...	1	Num packets backed up for sending : 0
+Sending some Packet to remote_machine ...	2	Num packets backed up for sending : 0
+Something has come ...	0
+Sending some Packet to remote_machine ...	3	Num packets backed up for sending : 0
+Something has come ...	1
+Sending some Packet to remote_machine ...	4	Num packets backed up for sending : 0
+Something has come ...	2
+Sending some Packet to remote_machine ...	5	Num packets backed up for sending : 0
+Something has come ...	3
+Sending some Packet to remote_machine ...	6	Num packets backed up for sending : 0
+Something has come ...	4
+Sending some Packet to remote_machine ...	7	Num packets backed up for sending : 0
+Something has come ...	5
+Sending some Packet to remote_machine ...	8	Num packets backed up for sending : 0
+Something has come ...	6
+Sending some Packet to remote_machine ...	9	Num packets backed up for sending : 0
+Something has come ...	7
+Sending some Packet to remote_machine ...	10	Num packets backed up for sending : 0
+Something has come ...	8
+Sending some Packet to remote_machine ...	11	Num packets backed up for sending : 0
+Something has come ...	9
+Sending some Packet to remote_machine ...	12	Num packets backed up for sending : 0
+Something has come ...	10
+Sending some Packet to remote_machine ...	13	Num packets backed up for sending : 0
+Something has come ...	11
+Sending some Packet to remote_machine ...	14	Num packets backed up for sending : 0
+Something has come ...	12
+Sending some Packet to remote_machine ...	15	Num packets backed up for sending : 0
+Something has come ...	13
+Sending some Packet to remote_machine ...	16	Num packets backed up for sending : 0
+Something has come ...	14
+Sending some Packet to remote_machine ...	17	Num packets backed up for sending : 0
+Something has come ...	15
+Sending some Packet to remote_machine ...	18	Num packets backed up for sending : 0
+Something has come ...	16
+Sending some Packet to remote_machine ...	19	Num packets backed up for sending : 0
+Something has come ...	17
+Sending some Packet to remote_machine ...	20	Num packets backed up for sending : 0
+Something has come ...	18
+Sending some Packet to remote_machine ...	21	Num packets backed up for sending : 0
+Something has come ...	19
+Sending some Packet to remote_machine ...	22	Num packets backed up for sending : 0
+Something has come ...	20
+Sending some Packet to remote_machine ...	23	Num packets backed up for sending : 0
+Something has come ......	20
+Sending some Packet to remote_machine ...	23	Num packets backed up for sending : 0
+Something has come ...	21
+Sending some Packet to remote_machine ...	24	Num packets backed up for sending : 0
+Something has come ...	22
+Sending some Packet to remote_machine ...	25	Num packets backed up for sending : 0
+Something has come ...	23
+Sending some Packet to remote_machine ...	26	Num packets backed up for sending : 0
+Something has come ...	24
+Sending some Packet to remote_machine ...	27	Num packets backed up for sending : 0
+Something has come ...	25
+Sending some Packet to remote_machine ...	28	Num packets backed up for sending : 0
+Something has come ...	26
+Sending some Packet to remote_machine ...	29	Num packets backed up for sending : 0
+Something has come ...	27
+Sending some Packet to remote_machine ...	30	Num packets backed up for sending : 0
+Something has come ...	28
+Sending some Packet to remote_machine ...	31	Num packets backed up for sending : 0
+Something has come ...	29
+Sending some Packet to remote_machine ...	32
+Something has come ...	30	Num packets backed up for sending : 0
+Sending some Packet to remote_machine ...	33
+Something has come ...	31	Num packets backed up for sending : 0
+Sending some Packet to remote_machine ...	34
+Something has come ...	32	Num packets backed up for sending : 0
+Something has come ...	33
+Sending some Packet to remote_machine ...	35	Num packets backed up for sending : 0
+Sending some Packet to remote_machine ...	36
+Something has come ...	34	Num packets backed up for sending : 0
+Sending some Packet to remote_machine ...	37
+Something has come ...	35	Num packets backed up for sending : 0
+Something has come ...	36
+Sending some Packet to remote_machine ...	38	Num packets backed up for sending : 0
+Sending some Packet to remote_machine ...	39
+Something has come ...	37	Num packets backed up for sending : 0
+Something has come ...	38
+Sending some Packet to remote_machine ...	40	Num packets backed up for sending : 0
+Something has come ...	39
+Sending some Packet to remote_machine ...	41	Num packets backed up for sending : 0
+Sending some Packet to remote_machine ...	42
+Something has come ...	40	Num packets backed up for sending : 0
+Sending some Packet to remote_machine ...	43	Num packets backed up for sending : 0
+Something has come ...	41
+Sending some Packet to remote_machine ...	44
+Something has come ...	42	Num packets backed up for sending : 0
+Something has come ...	43
+Sending some Packet to remote_machine ...	45	Num packets backed up for sending : 0
+Something has come ...	44
+Sending some Packet to remote_machine ...	46	Num packets backed up for sending : 0
+Something has come ...	45
+Sending some Packet to remote_machine ...	47	Num packets backed up for sending : 0
+Something has come ...	46
+Sending some Packet to remote_machine ...	48	Num packets backed up for sending : 0
+Something has come ...	47
+Sending some Packet to remote_machine ...	49	Num packets backed up for sending : 0
+Something has come ...	48
+Sending some Packet to remote_machine ...	50	Num packets backed up for sending : 0
+Something has come ...	49
+Sending some Packet to remote_machine ...	51	Num packets backed up for sending : 0
+Sending some Packet to remote_machine ...	52	Num packets backed up for sending : 0
+Something has come ...	50
+Something has come ...	51
+Sending some Packet to remote_machine ...	53	Num packets backed up for sending : 0
+Something has come ...	52
+Sending some Packet to remote_machine ...	54	Num packets backed up for sending : 0
+Something has come ...	53
+Sending some Packet to remote_machine ...	55	Num packets backed up for sending : 0
+Something has come ...	54
+Sending some Packet to remote_machine ...	56	Num packets backed up for sending : 0
+Something has come ...	55
+Sending some Packet to remote_machine ...	57	Num packets backed up for sending : 0
+Something has come ...	56
+Sending some Packet to remote_machine ...	58	Num packets backed up for sending : 0
+Something has come ...	57
+Sending some Packet to remote_machine ...	59	Num packets backed up for sending : 0
+Something has come ...	58
+Sending some Packet to remote_machine ...	60	Num packets backed up for sending : 0
+Something has come ...	59
+Sending some Packet to remote_machine ...	61	Num packets backed up for sending : 0
+Something has come ...	60
+Sending some Packet to remote_machine ...	62	Num packets backed up for sending : 0
+Something has come ...	61
+Sending some Packet to remote_machine ...	63	Num packets backed up for sending : 0
+Something has come ...	62
+Sending some Packet to remote_machine ...	64	Num packets backed up for sending : 0have done collission handling
+Something has come ...	63
+Sending some Packet to remote_machine ...	65	Num packets backed up for sending : 0have done collission handling
+Something has come ...	64
+Sending some Packet to remote_machine ...	66	Num packets backed up for sending : 0
+Something has come ...	65
+Sending some Packet to remote_machine ...	67	Num packets backed up for sending : 0have done collission handling
+Sending some Packet to remote_machine ...	68	Num packets backed up for sending : 0
+Something has come ...	66
+Sending some Packet to remote_machine ...	69	Num packets backed up for sending : 0
+Something has come ...	67
+Sending some Packet to remote_machine ...	70	Num packets backed up for sending : 0
+Something has come ...	68
+Sending some Packet to remote_machine ...	71	Num packets backed up for sending : 0
+Something has come ...	69
+Something has come ...	70
+Sending some Packet to remote_machine ...	72	Num packets backed up for sending : 0
+Something has come ...	71
+Sending some Packet to remote_machine ...	73	Num packets backed up for sending : 0
+Something has come ...	72
+Sending some Packet to remote_machine ...	74	Num packets backed up for sending : 0
+Something has come ...	73
+Sending some Packet to remote_machine ...	75	Num packets backed up for sending : 0
+Something has come ...	74
+Sending some Packet to remote_machine ...	76	Num packets backed up for sending : 0
+Something has come ...	75
+Sending some Packet to remote_machine ...	77	Num packets backed up for sending : 0
+Something has come ...	76
+Sending some Packet to remote_machine ...	78	Num packets backed up for sending : 0
+Something has come ...	77
+Sending some Packet to remote_machine ...	79	Num packets backed up for sending : 0
+Sending some Packet to remote_machine ...	80
+Something has come ...	78	Num packets backed up for sending : 0
+Something has come ...	79
+Sending some Packet to remote_machine ...	81	Num packets backed up for sending : 0
+Sending some Packet to remote_machine ...	82
+Something has come ...	80	Num packets backed up for sending : 0have done collission handling
+Sending some Packet to remote_machine ...	83
+Something has come ...	81	Num packets backed up for sending : 0
+Something has come ...	82
+Sending some Packet to remote_machine ...	84	Num packets backed up for sending : 0
+Sending some Packet to remote_machine ...	85
+Something has come ...	83	Num packets backed up for sending : 0
+Sending some Packet to remote_machine ...	86
+Something has come ...	84	Num packets backed up for sending : 0
+Sending some Packet to remote_machine ...	87
+Something has come ...	85	Num packets backed up for sending : 0
+Something has come ...	86
+Sending some Packet to remote_machine ...	88	Num packets backed up for sending : 0
+Something has come ...	87
+Sending some Packet to remote_machine ...	89	Num packets backed up for sending : 0
+Something has come ...	88
+Sending some Packet to remote_machine ...	90	Num packets backed up for sending : 0
+Something has come ...	89
+Sending some Packet to remote_machine ...	91	Num packets backed up for sending : 0
+Sending some Packet to remote_machine ...	92	Num packets backed up for sending : 0
+Something has come ...	90
+Sending some Packet to remote_machine ...	93	Num packets backed up for sending : 0
+Something has come ...	91have done collission handling
+Sending some Packet to remote_machine ...	94
+Something has come ...	92	Num packets backed up for sending : 0have done collission handling
+Sending some Packet to remote_machine ...	95	Num packets backed up for sending : 0
+Something has come ...	93have done collission handling
+Sending some Packet to remote_machine ...	96	Num packets backed up for sending : 0
+Something has come ...	94have done collission handling
+Sending some Packet to remote_machine ...	97	Num packets backed up for sending : 0
+Something has come ...	95have done collission handling
+Sending some Packet to remote_machine ...	98	Num packets backed up for sending : 0
+Something has come ...	96have done collission handling
+Sending some Packet to remote_machine ...	99	Num packets backed up for sending : 0
+Something has come ...	97have done collission handling
+Sending some Packet to remote_machine ...	100	Num packets backed up for sending : 0
+Something has come ...	98have done collission handling
+Sending some Packet to remote_machine ...	101	Num packets backed up for sending : 0
+Something has come ...	99have done collission handling
+Something has come ...	100
+Sending some Packet to remote_machine ...	102	Num packets backed up for sending : 0have done collission handling
+Something has come ...	101
+Sending some Packet to remote_machine ...	103	Num packets backed up for sending : 0have done collission handling
+Something has come ...	102
+Sending some Packet to remote_machine ...	104	Num packets backed up for sending : 0have done collission handling
+Something has come ...	103
+Sending some Packet to remote_machine ...	105	Num packets backed up for sending : 0have done collission handling
+Sending some Packet to remote_machine ...	106	Num packets backed up for sending : 0
+Something has come ...	104have done collission handling
+Something has come ...	105
+Sending some Packet to remote_machine ...	107	Num packets backed up for sending : 0have done collission handling
+Something has come ...	106
+Sending some Packet to remote_machine ...	108	Num packets backed up for sending : 0have done collission handling
+Something has come ...	107
+Sending some Packet to remote_machine ...	109	Num packets backed up for sending : 0have done collission handling
+Sending some Packet to remote_machine ...	110
+Something has come ...	Num packets backed up for sending : 0	108have done collission handling
+Sending some Packet to remote_machine ...	111	Num packets backed up for sending : 0
+Something has come ...	109have done collission handling
+Something has come ...	110
+Sending some Packet to remote_machine ...	112	Num packets backed up for sending : 0have done collission handling
+Something has come ...	111
+Sending some Packet to remote_machine ...	113	Num packets backed up for sending : 0have done collission handling
+Sending some Packet to remote_machine ...	114
+Something has come ...	112	Num packets backed up for sending : 0have done collission handling
+Something has come ...
+Sending some Packet to remote_machine ...	115	113	Num packets backed up for sending : 0have done collission handling
+Sending some Packet to remote_machine ...	116	Num packets backed up for sending : 0
+Something has come ...	114have done collission handling
+Sending some Packet to remote_machine ...	117	Num packets backed up for sending : 0
+Something has come ...	115have done collission handling
+Sending some Packet to remote_machine ...	118	Num packets backed up for sending : 0
+Something has come ...	116have done collission handling
+Sending some Packet to remote_machine ...	119	Num packets backed up for sending : 0
+Something has come ...	117have done collission handling
+Sending some Packet to remote_machine ...	120
+Something has come ...	118	Num packets backed up for sending : 0have done collission handling
+Sending some Packet to remote_machine ...	121	Num packets backed up for sending : 0
+Something has come ...	119have done collission handling
+Sending some Packet to remote_machine ...	122
+Something has come ...	120	Num packets backed up for sending : 0have done collission handling
+Something has come ...	121
+Sending some Packet to remote_machine ...	123	Num packets backed up for sending : 0have done collission handling
+Sending some Packet to remote_machine ...	124
+Something has come ...	122	Num packets backed up for sending : 0have done collission handling
+Sending some Packet to remote_machine ...	125	Num packets backed up for sending : 0
+Something has come ...	123have done collission handling
+Sending some Packet to remote_machine ...	126	Num packets backed up for sending : 0
+Something has come ...	124have done collission handling
+Sending some Packet to remote_machine ...	127	Num packets backed up for sending : 0
+Something has come ...	125have done collission handling
+Sending some Packet to remote_machine ...	128
+Something has come ...	126	Num packets backed up for sending : 0have done collission handling
+Something has come ...	127
+Sending some Packet to remote_machine ...	129	Num packets backed up for sending : 0have done collission handling
+Something has come ...
+Sending some Packet to remote_machine ...	130	128	Num packets backed up for sending : 0have done collission handling
+Sending some Packet to remote_machine ...	131	Num packets backed up for sending : 0
+Something has come ...	129have done collission handling
+Sending some Packet to remote_machine ...	132	Num packets backed up for sending : 0
+Something has come ...	130have done collission handling
+Sending some Packet to remote_machine ...	133	Num packets backed up for sending : 0
+Something has come ...	131have done collission handling
+Sending some Packet to remote_machine ...	134	Num packets backed up for sending : 0
+Something has come ...	132have done collission handling
+Sending some Packet to remote_machine ...	135	Num packets backed up for sending : 0
+Something has come ...	133have done collission handling
+Sending some Packet to remote_machine ...	136	Num packets backed up for sending : 0
+Something has come ...	134have done collission handling
+Sending some Packet to remote_machine ...	137	Num packets backed up for sending : 0
+Something has come ...	135have done collission handling
+Sending some Packet to remote_machine ...	138	Num packets backed up for sending : 0
+Something has come ...	136have done collission handling
+Sending some Packet to remote_machine ...	139
+Something has come ...	137	Num packets backed up for sending : 0have done collission handling
+Something has come ...	138
+Sending some Packet to remote_machine ...	140	Num packets backed up for sending : 0have done collission handling
+Sending some Packet to remote_machine ...	141	Num packets backed up for sending : 0
+Something has come ...	139have done collission handling
+Sending some Packet to remote_machine ...	142	Num packets backed up for sending : 0
+Something has come ...	140have done collission handling
+Sending some Packet to remote_machine ...	143	Num packets backed up for sending : 0
+Something has come ...	141have done collission handling
+Sending some Packet to remote_machine ...	144	Num packets backed up for sending : 0
+Something has come ...	142have done collission handling
+Sending some Packet to remote_machine ...	145	Num packets backed up for sending : 0
+Something has come ...	143have done collission handling
+Sending some Packet to remote_machine ...	146	Num packets backed up for sending : 0
+Something has come ...	144have done collission handling
+Sending some Packet to remote_machine ...	147	Num packets backed up for sending : 0
+Something has come ...	145have done collission handling
+Sending some Packet to remote_machine ...	148	Num packets backed up for sending : 0
+Something has come ...	146have done collission handling
+Sending some Packet to remote_machine ...	149	Num packets backed up for sending : 0
+Something has come ...	147have done collission handling
+Sending some Packet to remote_machine ...	150	Num packets backed up for sending : 0
+Something has come ...	148have done collission handling
+Sending some Packet to remote_machine ...	151	Num packets backed up for sending : 0
+Something has come ...	149have done collission handling
+Something has come ...	150
+Sending some Packet to remote_machine ...	152	Num packets backed up for sending : 0have done collission handling
+Something has come ...	151
+Sending some Packet to remote_machine ...	153	Num packets backed up for sending : 0have done collission handling
+Something has come ...	152
+Sending some Packet to remote_machine ...	154	Num packets backed up for sending : 0have done collission handling
+Something has come ...	153
+Sending some Packet to remote_machine ...	155	Num packets backed up for sending : 0have done collission handling
+Sending some Packet to remote_machine ...	156	Num packets backed up for sending : 0
+Something has come ...	154have done collission handling
+Something has come ...	155
+Sending some Packet to remote_machine ...	157	Num packets backed up for sending : 0have done collission handling
+Something has come ...	156
+Sending some Packet to remote_machine ...	158	Num packets backed up for sending : 0have done collission handling
+Something has come ...	157
+Sending some Packet to remote_machine ...	159	Num packets backed up for sending : 0have done collission handling
+Something has come ...
+Sending some Packet to remote_machine ...	160	158	Num packets backed up for sending : 0have done collission handling
+Sending some Packet to remote_machine ...	161	Num packets backed up for sending : 0
+Something has come ...	159have done collission handling
+Sending some Packet to remote_machine ...	162	Num packets backed up for sending : 0
+Something has come ...	160have done collission handling
+Sending some Packet to remote_machine ...	163	Num packets backed up for sending : 0
+Something has come ...	161have done collission handling
+Sending some Packet to remote_machine ...	164	Num packets backed up for sending : 0
+Something has come ...	162have done collission handling
+Sending some Packet to remote_machine ...	165	Num packets backed up for sending : 0
+Something has come ...	163have done collission handling
+Sending some Packet to remote_machine ...	166	Num packets backed up for sending : 0
+Something has come ...	164have done collission handling
+Sending some Packet to remote_machine ...	167	Num packets backed up for sending : 0
+Something has come ...	165have done collission handling
+Sending some Packet to remote_machine ...	168	Num packets backed up for sending : 0
+Something has come ...	166have done collission handling
+Sending some Packet to remote_machine ...	169
+Something has come ...	167	Num packets backed up for sending : 0have done collission handling
+Something has come ...	168
+Sending some Packet to remote_machine ...	170	Num packets backed up for sending : 0have done collission handling
+Sending some Packet to remote_machine ...	171	Num packets backed up for sending : 0
+Something has come ...	169have done collission handling
+Sending some Packet to remote_machine ...	172	Num packets backed up for sending : 0
+Something has come ...	170have done collission handling
+Sending some Packet to remote_machine ...	173	Num packets backed up for sending : 0
+Something has come ...	171have done collission handling
+Sending some Packet to remote_machine ...	174	Num packets backed up for sending : 0
+Something has come ...	172have done collission handling
+Sending some Packet to remote_machine ...	175	Num packets backed up for sending : 0
+Something has come ...	173have done collission handling
+Sending some Packet to remote_machine ...	176	Num packets backed up for sending : 0
+Something has come ...	174have done collission handling
+Sending some Packet to remote_machine ...	177	Num packets backed up for sending : 0
+Something has come ...	175have done collission handling
+Sending some Packet to remote_machine ...	178	Num packets backed up for sending : 0
+Something has come ...	176have done collission handling
+Sending some Packet to remote_machine ...	179	Num packets backed up for sending : 0
+Something has come ...	177have done collission handling
+Something has come ...	178
+Sending some Packet to remote_machine ...	180	Num packets backed up for sending : 0have done collission handling
+Sending some Packet to remote_machine ...	181
+Something has come ...	179	Num packets backed up for sending : 0have done collission handling
+Sending some Packet to remote_machine ...	182
+Something has come ...	180	Num packets backed up for sending : 0have done collission handling
+Sending some Packet to remote_machine ...	183
+Something has come ...	181	Num packets backed up for sending : 0have done collission handling
+Seng
+Something has come ...	169
+Sending some Packet to remote_machine ...	173	Num packets backed up for sending : 0have done collission handling
+Something has come ...	170
+Sending some Packet to remote_machine ...	174	Num packets backed up for sending : 0have done collission handling
+Something has come ...	171
+Sending some Packet to remote_machine ...	175	Num packets backed up for sending : 0
+Something has come ...	172have done collission handling
+Something has come ...	173
+Sending some Packet to remote_machine ...	176	Num packets backed up for sending : 0have done collission handling
+Sending some Packet to remote_machine ...	177	Num packets backed up for sending : 0have done collission handling
+Something has come ...	174
+Sending some Packet to remote_machine ...	178	Num packets backed up for sending : 0have done collission handling
+Something has come ...	175
+Sending some Packet to remote_machine ...	179	Num packets backed up for sending : 0have done collission handling
+Something has come ...	176
+Sending some Packet to remote_machine ...	180	Num packets backed up for sending : 0
+Something has come ...	177have done collission handling
+Something has come ...	178
+Sending some Packet to remote_machine ...	181	Num packets backed up for sending : 0have done collission handling
+Sending some Packet to remote_machine ...	182	Num packets backed up for sending : 0have done collission handling
+Something has come ...	179
+Sending some Packet to remote_machine ...	183	Num packets backed up for sending : 0have done collission handling
+Something has come ...	180
+Sending some Packet to remote_machine ...	184	Num packets backed up for sending : 0have done collission handling
+Something has come ...	181
+Sending some Packet to remote_machine ...	185	Num packets backed up for sending : 0
+Something has come ...	182have done collission handling
+Something has come ...	183
+Sending some Packet to remote_machine ...	186	Num packets backed up for sending : 0have done collission handling
+Sending some Packet to remote_machine ...	187	Num packets backed up for sending : 0have done collission handling
+Sending some Packet to remote_machine ...	188	Num packets backed up for sending : 0have done collission handling
+Sending some Packet to remote_machine ...	189	Num packets backed up for sending : 0have done collission handling
+Sending some Packet to remote_machine ...	190	Num packets backed up for sending : 0

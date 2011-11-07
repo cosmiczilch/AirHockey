@@ -7,6 +7,7 @@
 class CPlayer{ 
 	public :
 	int player_ID; 	// can be one of 1 or 2
+	float r, g, b;
 	int numGoals; 
 
 	CBat bat;

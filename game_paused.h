@@ -96,6 +96,8 @@ void exitFunction( ) {
 		network_queue.insert( pdata );
 	}
 
+	SDL_WarpMouse( get_GW()/2.0, get_GH()/2.0 );
+
 	SDL_ShowCursor( 1 );
 
 	return;
@@ -238,8 +240,6 @@ int work( void * ){
 		if (gameState != PAUSED) {
 			continue;
 		}
-
-		SDL_WarpMouse( get_GW()/2.0, get_GH()/2.0 );
 
 		ticks--;
 		char s[4];

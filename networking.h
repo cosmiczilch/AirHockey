@@ -102,7 +102,7 @@ bool check_for_packets ( ) {
 
 
 void marshall_and_send_packet ( ) {
-	CPacketData packetData;
+	static CPacketData packetData;
 	static long int seqNum = 0;
 
 	if ( network_queue.empty() ) {
@@ -172,18 +172,25 @@ void handlePacket ( UDPpacket *udpPacket ) {
 				 */
 				if (packetData->header == PLAYER1_COORD_PACKET_HEADER ||
 				    packetData->header == PUCK_AND_PLAYER1_COORD_PACKET_HEADER) {
-					player2.bat.x = -1 * packetData->cordinates.x;
-					player2.bat.y = -1 * packetData->cordinates.y;
-					player2.bat.z = packetData->cordinates.z;
-					if (!are_we_the_server) {
+					player2.bat = packetData->bat_data;
+					player2.bat.x *= -1;
+					player2.bat.y *= -1;
+					player2.bat.motion.velocity[VX] *= -1.0;
+					player2.bat.motion.velocity[VY] *= -1.0;
+					player2.bat.r = player2.r; player2.bat.g = player2.g; player2.bat.b = player2.b;
+					if (packetData->header == PUCK_AND_PLAYER1_COORD_PACKET_HEADER) {
 						/*
-						 * we are not the server; 
-						 * must accept the puck's coordinates from remote server
+						 * the remote client changed the puck's cordinates due to
+						 * collission handling; 
+						 * so, we must accept the puck's coordinates from remote client
 						 */
 						ASSERT( packetData->header == PUCK_AND_PLAYER1_COORD_PACKET_HEADER, 
 								"PLAYER1_COORD_PACKET_HEADER received from server");
-						puck.x = -1 * packetData->puck_cordinates.x;
-						puck.y = -1 * packetData->puck_cordinates.y;
+						puck = packetData->puck_data;
+						puck.x *= -1;
+						puck.y *= -1;
+						puck.motion.velocity[VX] *= -1.0;
+						puck.motion.velocity[VY] *= -1.0;
 					}
 				}
 				

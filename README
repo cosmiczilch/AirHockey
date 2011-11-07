@@ -62,6 +62,7 @@ V# Add backspace support to TextInput
 #  basically by allowing 'esc' to come out of GrabInput; perhaps have 'esc' place the game in PAUSE mode AND release Grab. seems like a good idea
 #  perhaps, have GrabInput as a user defined option? seems like a good idea
 ## Also, w/ reduced mouse_sensitivity, the bat doesn't move all the way to left until it is moved all the way to the right at least once; investigate
+## Adjust Font to adjust w/ screen_size
 
 ## Physics
 ## Puck's motion (vector)
@@ -81,6 +82,8 @@ V# Make sure initial position of the elastic is centered over the bat
 ## Fix MAX_BAT_SPEED to be configurable as "friction" (note: range-space: 1.5 - 6.0) (Note: will be needed if WM_Grab_Input() will be used)
 ## FIX BUFFER_FACTOR_FOR_COLLISSION_DETECTION to real value
 
+## Revisit the bounding conditions for goal checking
+
 ## AI for when playing singleplayer mode
 
 ## Check if mouse/bat binding is good enough on any system; think about it
@@ -93,6 +96,10 @@ V# Add seqNum support
 
 ## If the server exe is not started before the client exe, it won't connect (at least on a single comp)
 
+## Finally, in production build :
+	debug = 1
+	MOUSE_SENSITIVITY = 1/7.0
+	WM_Grab_Input in game_Running should be true in entryFunction()
 
 #############################################################################################################################
 
