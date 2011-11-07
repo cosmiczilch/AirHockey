@@ -1,6 +1,6 @@
 #if 0
 #!/bin/sh
-g++ -g -Wall -lGLU -lGLEW -lGL `sdl-config --cflags` models.cpp bat_models.cpp puck_models.cpp Transformation.cpp ctexture.cpp cgame.cpp cboard.cpp cbat.cpp cpuck.cpp cplayer.cpp ccamera.cpp cbutton.cpp main.cpp -o main `sdl-config --libs` -lSDL_net -lSDL_image
+make
 
 exit
 #endif

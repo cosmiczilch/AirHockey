@@ -512,6 +512,61 @@ void adjust_puck_decelaration_and_velocity( ) {
 	return;
 }
 
+void scripting_for_player2( ) {
+	CBat *me = &player2.bat;
+
+	me->motion.velocity[VY] = 0.0;
+
+	if (puck.motion.velocity[VY] > 0) {	/* puck is moving toward 'my' goalPost 		*/
+
+		/**
+		 * find the time the puck would take to arrive (in ticks)
+		 * at my 'y' if it were to continue along at its current velocity.
+		 * is this overcounting? yes (due to friction)
+		 */
+		float time_left = 	(me->y - puck.y) /\
+					puck.motion.velocity[VY];
+		/**
+		 * we should try and intercept the puck at the x it would be at
+		 * time_left ticks from now; so, calculate the velocity[VX] at
+		 * which we'll have to sidle across
+		 */
+		float delta_x = puck.x - me->x;
+		me->motion.velocity[VX] = MAX_PUCK_SPEED_SUSP * delta_x / BOARD_WIDTH;
+
+		/**
+		 * if there is too much time_left, better orient myself to
+		 * score a goal along w/ just defending my goalPost
+		 * this should be a function of AMBITION
+		 */
+		/**
+		 * if there is not too much time_left, i might want to consider
+		 * (depending on my AMBITION) moving back a little to better 
+		 * align myself to score a goal
+		 */
+		/**
+		 * if i am too far back, i might want to come forward a little
+		 * too, towards the middle to better tackle the next attack on
+		 * my goalPost, probably do this in "idle" time (when puck is in
+		 * player1's court and moving away)
+		 */
+
+	} else {
+		/**
+		 * if the puck is moving away from my goalPost AND its in my court,
+		 * calculate the time_left before it leaves my court, and align
+		 * myself to try and score a goal
+		 * this too, along w/ the force(velocity) w/ which i strike the puck
+		 * should be a function of AMBITION
+		 */
+
+		me->motion.velocity[VX] = 0.0;
+	}
+
+
+	return;
+}
+
 int work( void * ){
 	static long int ticks = 0;
 
@@ -560,6 +615,19 @@ int work( void * ){
 		 */
 		collission_detection( );
 
+		if (gameType == SINGLE_PLAYER) {
+			/**
+			 * Perform some predictive calculations to
+			 * move player2's bat
+			 */
+			scripting_for_player2( );
+			/*
+			 * Now, apply the computed velocity to player1's bat
+			 */
+			player2.bat.translate_X( player2.bat.motion.velocity[VX] );
+			player2.bat.translate_Y( player2.bat.motion.velocity[VY], player2.player_ID );
+
+		}
 
 		// if in MULTI_PLAYER mode, send coordinates data to remote client
 		if (gameType == MULTI_PLAYER) {
