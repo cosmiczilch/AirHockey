@@ -1,5 +1,5 @@
 
-1440.000000 : 900.000000
+3360.000000 : 1050.000000
 
 Initializing Networking Components... 
 Initializing SDL_net... 
@@ -22,410 +22,308 @@ warning: ./resources/images/panel.png's width is not a power of 2
 warning: ./resources/images/panel.png's height is not a power of 2
 warning: ./resources/images/cursor.png's width is not a power of 2
 warning: ./resources/images/cursor.png's height is not a power of 2
-warning: ./resources/images/panel.png's width is not a power of 2
-warning: ./resources/images/panel.png's height is not a power of 2
+warning: ./resources/images/score_panel.png's width is not a power of 2
+warning: ./resources/images/score_panel.png's height is not a power of 2
 warning: ./resources/fonts/Verdana.png's width is not a power of 2
 warning: ./resources/fonts/Verdana.png's height is not a power of 2
 
-Something has come ...	-1
-Sending some Packet to remote_machine ...	1	Num packets backed up for sending : 0
-Sending some Packet to remote_machine ...	2	Num packets backed up for sending : 0
-Something has come ...	0
-Sending some Packet to remote_machine ...	3	Num packets backed up for sending : 0
-Something has come ...	1
-Sending some Packet to remote_machine ...	4	Num packets backed up for sending : 0
-Something has come ...	2
-Sending some Packet to remote_machine ...	5	Num packets backed up for sending : 0
-Something has come ...	3
-Sending some Packet to remote_machine ...	6	Num packets backed up for sending : 0
-Something has come ...	4
-Sending some Packet to remote_machine ...	7	Num packets backed up for sending : 0
-Something has come ...	5
-Sending some Packet to remote_machine ...	8	Num packets backed up for sending : 0
-Something has come ...	6
-Sending some Packet to remote_machine ...	9	Num packets backed up for sending : 0
-Something has come ...	7
-Sending some Packet to remote_machine ...	10	Num packets backed up for sending : 0
-Something has come ...	8
-Sending some Packet to remote_machine ...	11	Num packets backed up for sending : 0
-Something has come ...	9
-Sending some Packet to remote_machine ...	12	Num packets backed up for sending : 0
-Something has come ...	10
-Sending some Packet to remote_machine ...	13	Num packets backed up for sending : 0
-Something has come ...	11
-Sending some Packet to remote_machine ...	14	Num packets backed up for sending : 0
-Something has come ...	12
-Sending some Packet to remote_machine ...	15	Num packets backed up for sending : 0
-Something has come ...	13
-Sending some Packet to remote_machine ...	16	Num packets backed up for sending : 0
-Something has come ...	14
-Sending some Packet to remote_machine ...	17	Num packets backed up for sending : 0
-Something has come ...	15
-Sending some Packet to remote_machine ...	18	Num packets backed up for sending : 0
-Something has come ...	16
-Sending some Packet to remote_machine ...	19	Num packets backed up for sending : 0
-Something has come ...	17
-Sending some Packet to remote_machine ...	20	Num packets backed up for sending : 0
-Something has come ...	18
-Sending some Packet to remote_machine ...	21	Num packets backed up for sending : 0
-Something has come ...	19
-Sending some Packet to remote_machine ...	22	Num packets backed up for sending : 0
-Something has come ...	20
-Sending some Packet to remote_machine ...	23	Num packets backed up for sending : 0
-Something has come ......	20
-Sending some Packet to remote_machine ...	23	Num packets backed up for sending : 0
-Something has come ...	21
-Sending some Packet to remote_machine ...	24	Num packets backed up for sending : 0
-Something has come ...	22
-Sending some Packet to remote_machine ...	25	Num packets backed up for sending : 0
-Something has come ...	23
-Sending some Packet to remote_machine ...	26	Num packets backed up for sending : 0
-Something has come ...	24
-Sending some Packet to remote_machine ...	27	Num packets backed up for sending : 0
-Something has come ...	25
-Sending some Packet to remote_machine ...	28	Num packets backed up for sending : 0
-Something has come ...	26
-Sending some Packet to remote_machine ...	29	Num packets backed up for sending : 0
-Something has come ...	27
-Sending some Packet to remote_machine ...	30	Num packets backed up for sending : 0
-Something has come ...	28
-Sending some Packet to remote_machine ...	31	Num packets backed up for sending : 0
-Something has come ...	29
-Sending some Packet to remote_machine ...	32
-Something has come ...	30	Num packets backed up for sending : 0
-Sending some Packet to remote_machine ...	33
-Something has come ...	31	Num packets backed up for sending : 0
-Sending some Packet to remote_machine ...	34
-Something has come ...	32	Num packets backed up for sending : 0
-Something has come ...	33
-Sending some Packet to remote_machine ...	35	Num packets backed up for sending : 0
-Sending some Packet to remote_machine ...	36
-Something has come ...	34	Num packets backed up for sending : 0
-Sending some Packet to remote_machine ...	37
-Something has come ...	35	Num packets backed up for sending : 0
-Something has come ...	36
-Sending some Packet to remote_machine ...	38	Num packets backed up for sending : 0
-Sending some Packet to remote_machine ...	39
-Something has come ...	37	Num packets backed up for sending : 0
-Something has come ...	38
-Sending some Packet to remote_machine ...	40	Num packets backed up for sending : 0
-Something has come ...	39
-Sending some Packet to remote_machine ...	41	Num packets backed up for sending : 0
-Sending some Packet to remote_machine ...	42
-Something has come ...	40	Num packets backed up for sending : 0
-Sending some Packet to remote_machine ...	43	Num packets backed up for sending : 0
-Something has come ...	41
-Sending some Packet to remote_machine ...	44
-Something has come ...	42	Num packets backed up for sending : 0
-Something has come ...	43
-Sending some Packet to remote_machine ...	45	Num packets backed up for sending : 0
-Something has come ...	44
-Sending some Packet to remote_machine ...	46	Num packets backed up for sending : 0
-Something has come ...	45
-Sending some Packet to remote_machine ...	47	Num packets backed up for sending : 0
-Something has come ...	46
-Sending some Packet to remote_machine ...	48	Num packets backed up for sending : 0
-Something has come ...	47
-Sending some Packet to remote_machine ...	49	Num packets backed up for sending : 0
-Something has come ...	48
-Sending some Packet to remote_machine ...	50	Num packets backed up for sending : 0
-Something has come ...	49
-Sending some Packet to remote_machine ...	51	Num packets backed up for sending : 0
-Sending some Packet to remote_machine ...	52	Num packets backed up for sending : 0
-Something has come ...	50
-Something has come ...	51
-Sending some Packet to remote_machine ...	53	Num packets backed up for sending : 0
-Something has come ...	52
-Sending some Packet to remote_machine ...	54	Num packets backed up for sending : 0
-Something has come ...	53
-Sending some Packet to remote_machine ...	55	Num packets backed up for sending : 0
-Something has come ...	54
-Sending some Packet to remote_machine ...	56	Num packets backed up for sending : 0
-Something has come ...	55
-Sending some Packet to remote_machine ...	57	Num packets backed up for sending : 0
-Something has come ...	56
-Sending some Packet to remote_machine ...	58	Num packets backed up for sending : 0
-Something has come ...	57
-Sending some Packet to remote_machine ...	59	Num packets backed up for sending : 0
-Something has come ...	58
-Sending some Packet to remote_machine ...	60	Num packets backed up for sending : 0
-Something has come ...	59
-Sending some Packet to remote_machine ...	61	Num packets backed up for sending : 0
-Something has come ...	60
-Sending some Packet to remote_machine ...	62	Num packets backed up for sending : 0
-Something has come ...	61
-Sending some Packet to remote_machine ...	63	Num packets backed up for sending : 0
-Something has come ...	62
-Sending some Packet to remote_machine ...	64	Num packets backed up for sending : 0have done collission handling
-Something has come ...	63
-Sending some Packet to remote_machine ...	65	Num packets backed up for sending : 0have done collission handling
-Something has come ...	64
-Sending some Packet to remote_machine ...	66	Num packets backed up for sending : 0
-Something has come ...	65
-Sending some Packet to remote_machine ...	67	Num packets backed up for sending : 0have done collission handling
-Sending some Packet to remote_machine ...	68	Num packets backed up for sending : 0
-Something has come ...	66
-Sending some Packet to remote_machine ...	69	Num packets backed up for sending : 0
-Something has come ...	67
-Sending some Packet to remote_machine ...	70	Num packets backed up for sending : 0
-Something has come ...	68
-Sending some Packet to remote_machine ...	71	Num packets backed up for sending : 0
-Something has come ...	69
-Something has come ...	70
-Sending some Packet to remote_machine ...	72	Num packets backed up for sending : 0
-Something has come ...	71
-Sending some Packet to remote_machine ...	73	Num packets backed up for sending : 0
-Something has come ...	72
-Sending some Packet to remote_machine ...	74	Num packets backed up for sending : 0
-Something has come ...	73
-Sending some Packet to remote_machine ...	75	Num packets backed up for sending : 0
-Something has come ...	74
-Sending some Packet to remote_machine ...	76	Num packets backed up for sending : 0
-Something has come ...	75
-Sending some Packet to remote_machine ...	77	Num packets backed up for sending : 0
-Something has come ...	76
-Sending some Packet to remote_machine ...	78	Num packets backed up for sending : 0
-Something has come ...	77
-Sending some Packet to remote_machine ...	79	Num packets backed up for sending : 0
-Sending some Packet to remote_machine ...	80
-Something has come ...	78	Num packets backed up for sending : 0
-Something has come ...	79
-Sending some Packet to remote_machine ...	81	Num packets backed up for sending : 0
-Sending some Packet to remote_machine ...	82
-Something has come ...	80	Num packets backed up for sending : 0have done collission handling
-Sending some Packet to remote_machine ...	83
-Something has come ...	81	Num packets backed up for sending : 0
-Something has come ...	82
-Sending some Packet to remote_machine ...	84	Num packets backed up for sending : 0
-Sending some Packet to remote_machine ...	85
-Something has come ...	83	Num packets backed up for sending : 0
-Sending some Packet to remote_machine ...	86
-Something has come ...	84	Num packets backed up for sending : 0
-Sending some Packet to remote_machine ...	87
-Something has come ...	85	Num packets backed up for sending : 0
-Something has come ...	86
-Sending some Packet to remote_machine ...	88	Num packets backed up for sending : 0
-Something has come ...	87
-Sending some Packet to remote_machine ...	89	Num packets backed up for sending : 0
-Something has come ...	88
-Sending some Packet to remote_machine ...	90	Num packets backed up for sending : 0
-Something has come ...	89
-Sending some Packet to remote_machine ...	91	Num packets backed up for sending : 0
-Sending some Packet to remote_machine ...	92	Num packets backed up for sending : 0
-Something has come ...	90
-Sending some Packet to remote_machine ...	93	Num packets backed up for sending : 0
-Something has come ...	91have done collission handling
-Sending some Packet to remote_machine ...	94
-Something has come ...	92	Num packets backed up for sending : 0have done collission handling
-Sending some Packet to remote_machine ...	95	Num packets backed up for sending : 0
-Something has come ...	93have done collission handling
-Sending some Packet to remote_machine ...	96	Num packets backed up for sending : 0
-Something has come ...	94have done collission handling
-Sending some Packet to remote_machine ...	97	Num packets backed up for sending : 0
-Something has come ...	95have done collission handling
-Sending some Packet to remote_machine ...	98	Num packets backed up for sending : 0
-Something has come ...	96have done collission handling
-Sending some Packet to remote_machine ...	99	Num packets backed up for sending : 0
-Something has come ...	97have done collission handling
-Sending some Packet to remote_machine ...	100	Num packets backed up for sending : 0
-Something has come ...	98have done collission handling
-Sending some Packet to remote_machine ...	101	Num packets backed up for sending : 0
-Something has come ...	99have done collission handling
-Something has come ...	100
-Sending some Packet to remote_machine ...	102	Num packets backed up for sending : 0have done collission handling
-Something has come ...	101
-Sending some Packet to remote_machine ...	103	Num packets backed up for sending : 0have done collission handling
-Something has come ...	102
-Sending some Packet to remote_machine ...	104	Num packets backed up for sending : 0have done collission handling
-Something has come ...	103
-Sending some Packet to remote_machine ...	105	Num packets backed up for sending : 0have done collission handling
-Sending some Packet to remote_machine ...	106	Num packets backed up for sending : 0
-Something has come ...	104have done collission handling
-Something has come ...	105
-Sending some Packet to remote_machine ...	107	Num packets backed up for sending : 0have done collission handling
-Something has come ...	106
-Sending some Packet to remote_machine ...	108	Num packets backed up for sending : 0have done collission handling
-Something has come ...	107
-Sending some Packet to remote_machine ...	109	Num packets backed up for sending : 0have done collission handling
-Sending some Packet to remote_machine ...	110
-Something has come ...	Num packets backed up for sending : 0	108have done collission handling
-Sending some Packet to remote_machine ...	111	Num packets backed up for sending : 0
-Something has come ...	109have done collission handling
-Something has come ...	110
-Sending some Packet to remote_machine ...	112	Num packets backed up for sending : 0have done collission handling
-Something has come ...	111
-Sending some Packet to remote_machine ...	113	Num packets backed up for sending : 0have done collission handling
-Sending some Packet to remote_machine ...	114
-Something has come ...	112	Num packets backed up for sending : 0have done collission handling
-Something has come ...
-Sending some Packet to remote_machine ...	115	113	Num packets backed up for sending : 0have done collission handling
-Sending some Packet to remote_machine ...	116	Num packets backed up for sending : 0
-Something has come ...	114have done collission handling
-Sending some Packet to remote_machine ...	117	Num packets backed up for sending : 0
-Something has come ...	115have done collission handling
-Sending some Packet to remote_machine ...	118	Num packets backed up for sending : 0
-Something has come ...	116have done collission handling
-Sending some Packet to remote_machine ...	119	Num packets backed up for sending : 0
-Something has come ...	117have done collission handling
-Sending some Packet to remote_machine ...	120
-Something has come ...	118	Num packets backed up for sending : 0have done collission handling
-Sending some Packet to remote_machine ...	121	Num packets backed up for sending : 0
-Something has come ...	119have done collission handling
-Sending some Packet to remote_machine ...	122
-Something has come ...	120	Num packets backed up for sending : 0have done collission handling
-Something has come ...	121
-Sending some Packet to remote_machine ...	123	Num packets backed up for sending : 0have done collission handling
-Sending some Packet to remote_machine ...	124
-Something has come ...	122	Num packets backed up for sending : 0have done collission handling
-Sending some Packet to remote_machine ...	125	Num packets backed up for sending : 0
-Something has come ...	123have done collission handling
-Sending some Packet to remote_machine ...	126	Num packets backed up for sending : 0
-Something has come ...	124have done collission handling
-Sending some Packet to remote_machine ...	127	Num packets backed up for sending : 0
-Something has come ...	125have done collission handling
-Sending some Packet to remote_machine ...	128
-Something has come ...	126	Num packets backed up for sending : 0have done collission handling
-Something has come ...	127
-Sending some Packet to remote_machine ...	129	Num packets backed up for sending : 0have done collission handling
-Something has come ...
-Sending some Packet to remote_machine ...	130	128	Num packets backed up for sending : 0have done collission handling
-Sending some Packet to remote_machine ...	131	Num packets backed up for sending : 0
-Something has come ...	129have done collission handling
-Sending some Packet to remote_machine ...	132	Num packets backed up for sending : 0
-Something has come ...	130have done collission handling
-Sending some Packet to remote_machine ...	133	Num packets backed up for sending : 0
-Something has come ...	131have done collission handling
-Sending some Packet to remote_machine ...	134	Num packets backed up for sending : 0
-Something has come ...	132have done collission handling
-Sending some Packet to remote_machine ...	135	Num packets backed up for sending : 0
-Something has come ...	133have done collission handling
-Sending some Packet to remote_machine ...	136	Num packets backed up for sending : 0
-Something has come ...	134have done collission handling
-Sending some Packet to remote_machine ...	137	Num packets backed up for sending : 0
-Something has come ...	135have done collission handling
-Sending some Packet to remote_machine ...	138	Num packets backed up for sending : 0
-Something has come ...	136have done collission handling
-Sending some Packet to remote_machine ...	139
-Something has come ...	137	Num packets backed up for sending : 0have done collission handling
-Something has come ...	138
-Sending some Packet to remote_machine ...	140	Num packets backed up for sending : 0have done collission handling
-Sending some Packet to remote_machine ...	141	Num packets backed up for sending : 0
-Something has come ...	139have done collission handling
-Sending some Packet to remote_machine ...	142	Num packets backed up for sending : 0
-Something has come ...	140have done collission handling
-Sending some Packet to remote_machine ...	143	Num packets backed up for sending : 0
-Something has come ...	141have done collission handling
-Sending some Packet to remote_machine ...	144	Num packets backed up for sending : 0
-Something has come ...	142have done collission handling
-Sending some Packet to remote_machine ...	145	Num packets backed up for sending : 0
-Something has come ...	143have done collission handling
-Sending some Packet to remote_machine ...	146	Num packets backed up for sending : 0
-Something has come ...	144have done collission handling
-Sending some Packet to remote_machine ...	147	Num packets backed up for sending : 0
-Something has come ...	145have done collission handling
-Sending some Packet to remote_machine ...	148	Num packets backed up for sending : 0
-Something has come ...	146have done collission handling
-Sending some Packet to remote_machine ...	149	Num packets backed up for sending : 0
-Something has come ...	147have done collission handling
-Sending some Packet to remote_machine ...	150	Num packets backed up for sending : 0
-Something has come ...	148have done collission handling
-Sending some Packet to remote_machine ...	151	Num packets backed up for sending : 0
-Something has come ...	149have done collission handling
-Something has come ...	150
-Sending some Packet to remote_machine ...	152	Num packets backed up for sending : 0have done collission handling
-Something has come ...	151
-Sending some Packet to remote_machine ...	153	Num packets backed up for sending : 0have done collission handling
-Something has come ...	152
-Sending some Packet to remote_machine ...	154	Num packets backed up for sending : 0have done collission handling
-Something has come ...	153
-Sending some Packet to remote_machine ...	155	Num packets backed up for sending : 0have done collission handling
-Sending some Packet to remote_machine ...	156	Num packets backed up for sending : 0
-Something has come ...	154have done collission handling
-Something has come ...	155
-Sending some Packet to remote_machine ...	157	Num packets backed up for sending : 0have done collission handling
-Something has come ...	156
-Sending some Packet to remote_machine ...	158	Num packets backed up for sending : 0have done collission handling
-Something has come ...	157
-Sending some Packet to remote_machine ...	159	Num packets backed up for sending : 0have done collission handling
-Something has come ...
-Sending some Packet to remote_machine ...	160	158	Num packets backed up for sending : 0have done collission handling
-Sending some Packet to remote_machine ...	161	Num packets backed up for sending : 0
-Something has come ...	159have done collission handling
-Sending some Packet to remote_machine ...	162	Num packets backed up for sending : 0
-Something has come ...	160have done collission handling
-Sending some Packet to remote_machine ...	163	Num packets backed up for sending : 0
-Something has come ...	161have done collission handling
-Sending some Packet to remote_machine ...	164	Num packets backed up for sending : 0
-Something has come ...	162have done collission handling
-Sending some Packet to remote_machine ...	165	Num packets backed up for sending : 0
-Something has come ...	163have done collission handling
-Sending some Packet to remote_machine ...	166	Num packets backed up for sending : 0
-Something has come ...	164have done collission handling
-Sending some Packet to remote_machine ...	167	Num packets backed up for sending : 0
-Something has come ...	165have done collission handling
-Sending some Packet to remote_machine ...	168	Num packets backed up for sending : 0
-Something has come ...	166have done collission handling
-Sending some Packet to remote_machine ...	169
-Something has come ...	167	Num packets backed up for sending : 0have done collission handling
-Something has come ...	168
-Sending some Packet to remote_machine ...	170	Num packets backed up for sending : 0have done collission handling
-Sending some Packet to remote_machine ...	171	Num packets backed up for sending : 0
-Something has come ...	169have done collission handling
-Sending some Packet to remote_machine ...	172	Num packets backed up for sending : 0
-Something has come ...	170have done collission handling
-Sending some Packet to remote_machine ...	173	Num packets backed up for sending : 0
-Something has come ...	171have done collission handling
-Sending some Packet to remote_machine ...	174	Num packets backed up for sending : 0
-Something has come ...	172have done collission handling
-Sending some Packet to remote_machine ...	175	Num packets backed up for sending : 0
-Something has come ...	173have done collission handling
-Sending some Packet to remote_machine ...	176	Num packets backed up for sending : 0
-Something has come ...	174have done collission handling
-Sending some Packet to remote_machine ...	177	Num packets backed up for sending : 0
-Something has come ...	175have done collission handling
-Sending some Packet to remote_machine ...	178	Num packets backed up for sending : 0
-Something has come ...	176have done collission handling
-Sending some Packet to remote_machine ...	179	Num packets backed up for sending : 0
-Something has come ...	177have done collission handling
-Something has come ...	178
-Sending some Packet to remote_machine ...	180	Num packets backed up for sending : 0have done collission handling
-Sending some Packet to remote_machine ...	181
-Something has come ...	179	Num packets backed up for sending : 0have done collission handling
-Sending some Packet to remote_machine ...	182
-Something has come ...	180	Num packets backed up for sending : 0have done collission handling
-Sending some Packet to remote_machine ...	183
-Something has come ...	181	Num packets backed up for sending : 0have done collission handling
-Seng
-Something has come ...	169
-Sending some Packet to remote_machine ...	173	Num packets backed up for sending : 0have done collission handling
-Something has come ...	170
-Sending some Packet to remote_machine ...	174	Num packets backed up for sending : 0have done collission handling
-Something has come ...	171
-Sending some Packet to remote_machine ...	175	Num packets backed up for sending : 0
-Something has come ...	172have done collission handling
-Something has come ...	173
-Sending some Packet to remote_machine ...	176	Num packets backed up for sending : 0have done collission handling
-Sending some Packet to remote_machine ...	177	Num packets backed up for sending : 0have done collission handling
-Something has come ...	174
-Sending some Packet to remote_machine ...	178	Num packets backed up for sending : 0have done collission handling
-Something has come ...	175
-Sending some Packet to remote_machine ...	179	Num packets backed up for sending : 0have done collission handling
-Something has come ...	176
-Sending some Packet to remote_machine ...	180	Num packets backed up for sending : 0
-Something has come ...	177have done collission handling
-Something has come ...	178
-Sending some Packet to remote_machine ...	181	Num packets backed up for sending : 0have done collission handling
-Sending some Packet to remote_machine ...	182	Num packets backed up for sending : 0have done collission handling
-Something has come ...	179
-Sending some Packet to remote_machine ...	183	Num packets backed up for sending : 0have done collission handling
-Something has come ...	180
-Sending some Packet to remote_machine ...	184	Num packets backed up for sending : 0have done collission handling
-Something has come ...	181
-Sending some Packet to remote_machine ...	185	Num packets backed up for sending : 0
-Something has come ...	182have done collission handling
-Something has come ...	183
-Sending some Packet to remote_machine ...	186	Num packets backed up for sending : 0have done collission handling
-Sending some Packet to remote_machine ...	187	Num packets backed up for sending : 0have done collission handling
-Sending some Packet to remote_machine ...	188	Num packets backed up for sending : 0have done collission handling
-Sending some Packet to remote_machine ...	189	Num packets backed up for sending : 0have done collission handling
-Sending some Packet to remote_machine ...	190	Num packets backed up for sending : 0
+time left : 14.598804
+time left : 13.708949
+time left : 12.811060
+time left : 11.905201
+time left : 10.991434
+time left : 10.069821
+time left : 9.140426
+time left : 8.203305
+time left : 7.258519
+time left : 6.306126
+time left : 5.346183
+time left : 22.004282
+time left : 21.279009
+time left : 20.540821
+time left : 19.789890
+time left : 19.026371
+time left : 18.250425
+time left : 17.462204
+time left : 16.661852
+time left : 15.849521
+time left : 15.025345
+time left : 14.189470
+time left : 13.342027
+time left : 12.483150
+time left : 11.612967
+time left : 10.731607
+time left : 9.839191
+time left : 8.935842
+time left : 8.021677
+time left : 7.096811
+time left : 6.161358
+time left : 5.215427
+time left : 4.259130
+time left : 3.292573
+time left : 2.315859
+time left : 1.329090
+time left : 0.332365
+time left : 0.674215
+time left : 1.690556
+time left : 2.716562
+time left : 3.752143
+time left : 4.797204
+time left : 5.851660
+time left : 6.915422
+time left : 7.988406
+time left : 9.070523
+time left : 10.161695
+time left : 11.261840
+time left : 12.370879
+time left : 13.488729
+time left : 14.615317
+time left : 15.750565
+time left : 16.894402
+time left : 18.046751
+time left : 19.207542
+time left : 20.376709
+time left : 21.554174
+time left : 22.739870
+time left : 23.933737
+time left : 25.135700
+time left : 26.345699
+time left : 27.563671
+time left : 28.789551
+time left : 30.023275
+time left : 31.264784
+time left : 32.514019
+time left : 33.770916
+time left : 35.035423
+time left : 10.669147
+time left : 9.779090
+time left : 8.877791
+time left : 7.965375
+time left : 7.041963
+time left : 6.107674
+time left : 5.162627
+time left : 4.206935
+time left : 3.240711
+time left : 60.588554
+time left : 60.269901
+time left : 59.939949
+time left : 59.598812
+time left : 59.246624
+time left : 58.883503
+time left : 58.509560
+time left : 58.124916
+time left : 57.729691
+time left : 57.323994
+time left : 56.907921
+time left : 56.481594
+time left : 56.045101
+time left : 55.598560
+time left : 55.142063
+time left : 54.675716
+time left : 54.199604
+time left : 53.713821
+time left : 53.218468
+time left : 52.713634
+time left : 52.199406
+time left : 51.675865
+time left : 51.143108
+time left : 50.601219
+time left : 50.050274
+time left : 49.490360
+time left : 48.921555
+time left : 48.343933
+time left : 47.757576
+time left : 47.162552
+time left : 46.558949
+time left : 45.946823
+time left : 45.326263
+time left : 44.697330
+time left : 44.060097
+time left : 43.414631
+time left : 42.760994
+time left : 42.099262
+time left : 41.429489
+time left : 40.751751
+time left : 40.066105
+time left : 39.372608
+time left : 38.671326
+time left : 37.962322
+time left : 37.245651
+time left : 36.521378
+time left : 35.789551
+time left : 35.050232
+time left : 34.303471
+time left : 33.549332
+time left : 32.787865
+time left : 32.019123
+time left : 31.243162
+time left : 30.460028
+time left : 29.669773
+time left : 28.872452
+time left : 28.068108
+time left : 27.256792
+time left : 26.438553
+time left : 25.613440
+time left : 24.781500
+time left : 23.942780
+time left : 23.097321
+time left : 22.245171
+time left : 21.386377
+time left : 20.520979
+time left : 302.607971
+time left : 303.877625
+time left : 305.139832
+time left : 306.394623
+time left : 307.641968
+time left : 308.882050
+time left : 310.114868
+time left : 311.340515
+time left : 312.559052
+time left : 313.770477
+time left : 314.974884
+time left : 316.172272
+time left : 317.362671
+time left : 318.546143
+time left : 319.722778
+time left : 320.892639
+time left : 322.055786
+time left : 323.212219
+time left : 7.045240
+time left : 6.236125
+time left : 5.396399
+time left : 4.526973
+time left : 3.628704
+time left : 2.702400
+time left : 1.748825
+time left : 0.768704
+time left : 0.237277
+time left : 1.268467
+time left : 2.324245
+time left : 3.404020
+time left : 4.507232
+time left : 5.633344
+time left : 6.781841
+time left : 7.952235
+time left : 9.144056
+time left : 10.356854
+time left : 7.515206
+time left : 6.636100
+time left : 5.738778
+time left : 4.823563
+time left : 3.890771
+time left : 2.940705
+time left : 1.973659
+time left : 1.644807
+time left : 0.657257
+time left : 0.349235
+time left : 1.374319
+time left : 2.417656
+time left : 3.478918
+time left : 4.557790
+time left : 5.653966
+time left : 6.767153
+time left : 7.897065
+time left : 9.043428
+time left : 10.205976
+time left : 11.384451
+time left : 12.578603
+time left : 13.788190
+time left : 13.023053
+time left : 12.158415
+time left : 11.282642
+time left : 10.395861
+time left : 9.498187
+time left : 8.589740
+time left : 7.670636
+time left : 6.740985
+time left : 5.800899
+time left : 4.850484
+time left : 3.889846
+time left : 2.919089
+time left : 7.192128
+time left : 6.280192
+time left : 5.354232
+time left : 4.414446
+time left : 3.461017
+time left : 2.494134
+time left : 1.513973
+time left : 9.524511
+time left : 8.634668
+time left : 7.732066
+time left : 6.816868
+time left : 5.889230
+time left : 4.949306
+time left : 3.997243
+time left : 3.033187
+time left : 8.632844
+time left : 7.802057
+time left : 6.949581
+time left : 6.075878
+time left : 5.181388
+time left : 4.266535
+time left : 3.331726
+time left : 2.377349
+time left : 1.403781
+time left : 0.411385
+time left : 0.599494
+time left : 1.628518
+time left : 2.675366
+time left : 3.739724
+time left : 4.821291
+time left : 5.919777
+time left : 7.034900
+time left : 8.166387
+time left : 9.313973
+time left : 10.477407
+time left : 11.656440
+time left : 17.562119
+time left : 16.771605
+time left : 15.968600
+time left : 15.153257
+time left : 14.325729
+time left : 13.486163
+time left : 12.634699
+time left : 11.771481
+time left : 10.896643
+time left : 10.010317
+time left : 9.112636
+time left : 8.203727
+time left : 7.283715
+time left : 6.352721
+time left : 5.410864
+time left : 4.458261
+time left : 3.495028
+time left : 9.162548
+time left : 8.379505
+time left : 7.570571
+time left : 6.736400
+time left : 5.877610
+time left : 4.994796
+time left : 4.088521
+time left : 3.159321
+time left : 2.207712
+time left : 9.572781
+time left : 8.684503
+time left : 7.783359
+time left : 6.869516
+time left : 5.943130
+time left : 5.004358
+time left : 4.053351
+time left : 3.090257
+time left : 6.809057
+time left : 5.981635
+time left : 5.125361
+time left : 4.241046
+time left : 3.329453
+time left : 2.391307
+time left : 1.427295
+time left : 0.438070
+time left : 0.575751
+time left : 1.613574
+time left : 2.674839
+time left : 3.759008
+time left : 4.865569
+time left : 5.994030
+time left : 7.143922
+time left : 8.314796
+time left : 9.506221
