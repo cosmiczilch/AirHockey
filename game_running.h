@@ -42,7 +42,7 @@ CPanel panels[NUM_PANELS_RUNNING];
 CLabel labels[NUM_LABELS_RUNNING];
 /* Done UI items */
 
-#define MOUSE_SENSITIVITY 1/1.0
+#define MOUSE_SENSITIVITY 1/5.0
 
 /*
  * the lesser the difference between MAX_BAT_SPEED and
@@ -88,6 +88,28 @@ bool puck_was_on_my_side = false;
 bool collission_handled = false;
 bool detect_collission__puck_with_bat( );
 #define EPSILON_FOR_GOAL_DETECTION 1.003
+
+/**
+ * scripting moves for player2
+ */
+#define PLAYER2_THINK_AHEAD_TIME  500	/* milliseconds */
+#define PLAYER2_THINK_AHEAD_TICKS (PLAYER2_THINK_AHEAD_TIME/work_thread_anim_delay_msecs)
+enum Player2_Plans {
+	DO_NOTHING,		/* nothing */
+	SIMPLE_INTERCEPT,	/* just get in the way of the puck */
+	AMBITIOUS_INTERCEPT,	/* rush forward and get in the way of the puck */
+	SWING_BACK, 		/* take a step back and make room (if the puck is too close) */
+	GET_BEHIND_PUCK,
+	COME_TO_MIDDLE_OF_BOARD,/* use idle time to better position yourself */
+	PASS_THE_PUCK, 		/* if puck is in my side, just send it across */
+	AMBITIOUS_PASS_THE_PUCK,/* if puck is in my side, score a goal */
+	NUM_PLANS
+};
+struct Planning {
+	Player2_Plans plan_type;
+} player2_planning;
+#define AGGRESSION 100
+#define AGGRESSION_MAX 100
 
 /**********************************************************************************************************************************************/ 
 
@@ -512,84 +534,263 @@ void adjust_puck_decelaration_and_velocity( ) {
 	return;
 }
 
-void scripting_for_player2( ) {
+float ticks_to_arrive_at( float curr_point, float dest_point, float velocity ) {
+	if (curr_point == dest_point) {
+		return 0.00001;
+	}
+	if (velocity == 0.0) {
+		return INFINITY;
+	}
+	return (abs( (dest_point-curr_point) / velocity)) ;
+}
+
+void make_plan( ) {
 	CBat *me = &player2.bat;
 
-	me->motion.velocity[VY] = 0.0;
+	if (puck.y > me->y){ 			/* puck is not "behind" me */
+		if (AGGRESSION > AGGRESSION_MAX/1.5 && \
+		    rand()%100 < AGGRESSION) {
+			player2_planning.plan_type = GET_BEHIND_PUCK;
+			return;
+		} else {
+			player2_planning.plan_type = DO_NOTHING;
+			return;
+		}
+	}
 
-	if (puck.motion.velocity[VY] > 0) {	/* puck is moving toward 'my' goalPost 	*/
+	/* reached only if puck is not behind me : */
 
+	if (puck.motion.velocity[VY] > 0) { 	/* puck is moving toward my goalPost */
 		/**
 		 * find the time the puck would take to arrive (in ticks)
 		 * at my 'y' if it were to continue along at its current velocity.
 		 * is this overcounting? yes (due to friction)
+		 *
+		 * time_left is in ticks
 		 */
-		float time_left = abs( (me->y - puck.y) /\
-			   	  puck.motion.velocity[VY]);
+		float time_left = ticks_to_arrive_at( me->y, puck.y, puck.motion.velocity[VY] );
 
-		/**
-		 * compute a wanna_be_x for us to be at at the end of time_left
-		 */
-		float wanna_be_x;
-		if (time_left > 3 && 	/* lots of time left	 */
-		    puck.y < me->y) {	/* puck is not behind me */
-			/**
-			 * if there is too much time_left, better orient myself to
-			 * score a goal along w/ just defending my goalPost
-			 * this should be a function of AMBITION
-			 * i want to make sure that me, the puck and the other goalPost
-			 * are collinear
-			 */
-			float theta = atan2( puck.y - (-BOARD_LENGTH/2.0), puck.x - 0.0 );
-			wanna_be_x = puck.x + cos(theta) * (BAT_RADIUS+PUCK_RADIUS);
-		} else {		/* not too much time left */
-		 	/**
-			 * we should try to at least intercept the puck at the
-			 * x it would be at at the end of time_left
-			 * or, simpler still, we could just try to mimick the puck's x
-			 * at every point till then
-			 */
-			wanna_be_x = puck.x;
-			/**
-			 * if there is not too much time_left, i might want to consider
-			 * (depending on my AMBITION) moving back a little to better 
-			 * align myself to score a goal
-			 */
-		}
-		/**
-		 * now calculate the velocity[VX] at which we'll have to sidle across
-		 * so that we can be at wanna_be_x at the end of time_left
-		 */
-		float delta_x = wanna_be_x - me->x;
-		me->motion.velocity[VX] = MAX_PUCK_SPEED_SUSP * delta_x / BOARD_WIDTH;
+		if (time_left < (PLAYER2_THINK_AHEAD_TICKS/2.0) && \
+		    me->y <= (50.0/100.0*BOARD_LENGTH/2.0) ) {		/* i am standing too close to the middle line,
+		    							 * so, i'll go back a little and manoeuvre */
+			if (AGGRESSION > AGGRESSION_MAX/2 && \
+			    rand()%100 < AGGRESSION) {
+				player2_planning.plan_type = SWING_BACK;
+				return;
+			} else {
+				player2_planning.plan_type = SIMPLE_INTERCEPT;
+				return;
+			}
 
-	} else {				/* puck is moving away from 'my' goalPost */
-		/**
-		 * if i am too far back, i might want to come forward a little
-		 * too, towards the middle to better tackle the next attack on
-		 * my goalPost, probably do this in "idle" time (when puck is in
-		 * player1's court and moving away)
-		 */
-		if (puck.y <= 0) { 		/* puck is in player1's court */
-			/**
-			 * try and move my y to the middle of my court.
-			 * note that this is in "idle time"
-			 */
-			float delta_y = BOARD_LENGTH/4.0 - me->y;
-			me->motion.velocity[VY] = delta_y * BOARD_LENGTH/4.0 / MAX_PUCK_SPEED_SUSP;
+		} else {
+
+			if ( me->y >= (50.0/100.0*BOARD_LENGTH/2.0) && 	/* i am standing far enough away from the middle line
+									 * to come swooping down at the puck */
+			    AGGRESSION > AGGRESSION_MAX/2 && \
+			    rand()%100 < AGGRESSION) {
+				player2_planning.plan_type = AMBITIOUS_INTERCEPT;
+				return;
+			} else {
+				player2_planning.plan_type = SIMPLE_INTERCEPT;
+				return;
+			}
+
 		}
 
-		/**
-		 * if the puck is moving away from my goalPost AND its in my court,
-		 * calculate the time_left before it leaves my court, and align
-		 * myself to try and score a goal
-		 * this too, along w/ the force(velocity) w/ which i strike the puck
-		 * should be a function of AMBITION
-		 */
+		player2_planning.plan_type = SIMPLE_INTERCEPT;
+		return;
+	
+	} else {				/* puck is moving away from my goalPost */
 
-		me->motion.velocity[VX] = 0.0;
+		if (puck.y < 0.0) {		/* puck is not on my side */
+
+			player2_planning.plan_type = COME_TO_MIDDLE_OF_BOARD;
+			return;
+
+		} else {			/* puck is on my side, and is moving away */
+
+			if (AGGRESSION > AGGRESSION_MAX/1.5 && \
+			    rand()%100 < AGGRESSION) {
+				player2_planning.plan_type = AMBITIOUS_PASS_THE_PUCK;
+			} else {
+				player2_planning.plan_type = PASS_THE_PUCK;
+			}
+				
+			return;
+
+		}
+
+		player2_planning.plan_type = DO_NOTHING;
+		return;
+
 	}
 
+
+	return;
+}
+
+float predict_x_of_puck( float time_left ) {
+	float predicted_x_of_puck = puck.x + puck.motion.velocity[VX] * time_left;
+	if (predicted_x_of_puck < -BOARD_WIDTH/2.0) {
+		predicted_x_of_puck += abs( predicted_x_of_puck - (-BOARD_WIDTH/2.0) );
+	}
+	if (predicted_x_of_puck >  BOARD_WIDTH/2.0) {
+		predicted_x_of_puck -= abs( predicted_x_of_puck - BOARD_WIDTH/2.0 );
+	}
+
+	return predicted_x_of_puck;
+}
+
+float predict_y_of_puck( float time_left ) {
+	float predicted_y_of_puck = puck.y + puck.motion.velocity[VY] * time_left;
+
+	return predicted_y_of_puck;
+}
+
+
+void execute_plan( ) {
+	CBat *me = &player2.bat;
+
+	/**
+	 * find the time the puck would take to arrive (in ticks)
+	 * at my 'y' if it were to continue along at its current velocity.
+	 * is this overcounting? yes (due to friction)
+	 *
+	 * time_left is in ticks
+	 */
+	float time_left = 0.0;
+	/**
+	 * what will be the x of the puck when it arrives after
+	 * time_left ticks
+	 * the prediction can predict against 1 bounce off the walls
+	 */
+	float predicted_x_of_puck = 0.0;
+
+	/**
+	 * used for AMBITIOUS_INTERCEPT
+	 */
+	float wanna_meet_at_y = 0.0;
+
+
+	switch (player2_planning.plan_type) {
+
+		case DO_NOTHING:
+			me->motion.velocity[VX] = 0.0;
+			me->motion.velocity[VY] = 0.0;
+			printf( "\n DO_NOTHING" );
+			break;
+
+		case SIMPLE_INTERCEPT:
+			/* puck will be here by ... */
+			time_left = ticks_to_arrive_at( me->y, puck.y, puck.motion.velocity[VY] );
+			/* ... at x ... */
+			predicted_x_of_puck = predict_x_of_puck( time_left );
+			/* just get in the way of the puck */
+			me->motion.velocity[VX] = (predicted_x_of_puck - me->x) / time_left;
+			
+			printf( "\n SIMPLE_INTERCEPT" );
+			break;
+
+		case AMBITIOUS_INTERCEPT:
+			/**
+			 * we are quite far enough away from the puck
+			 * try to meet the puck at a y that is nearly halfway between our
+			 * current y and the middle line
+			 */
+			wanna_meet_at_y = (me->y - 0.0) / (2.0 + AGGRESSION/AGGRESSION_MAX);
+			/* puck will be at wanna_meet_at_y by ... */
+			time_left = ticks_to_arrive_at( wanna_meet_at_y, puck.y, puck.motion.velocity[VY] );
+			/* ... at x ... */
+			predicted_x_of_puck = predict_x_of_puck( time_left );
+			me->motion.velocity[VX] = (predicted_x_of_puck - me->x) / time_left;
+			me->motion.velocity[VY] = (wanna_meet_at_y-me->y) / time_left;
+
+			printf( "\n AMBITIOUS_INTERCEPT" );
+			break;
+
+		case SWING_BACK:
+			/**
+			 * i am standing too close to the board; i'll swing back to
+			 * a point nearly halfway between current y and the edge of the board
+			 * at a speed that's enough to take me there by PLAYER2_THINK_AHEAD_TICKS
+			 */
+			wanna_meet_at_y = me->y + (BOARD_LENGTH/2.0 - me->y) / (2.0 + AGGRESSION/AGGRESSION_MAX);
+			time_left = PLAYER2_THINK_AHEAD_TICKS;
+			predicted_x_of_puck = predict_x_of_puck( time_left );
+			me->motion.velocity[VX] = (predicted_x_of_puck - me->x) / time_left;
+			me->motion.velocity[VY] = (wanna_meet_at_y-me->y) / time_left;
+
+			printf( "\n SWING_BACK" );
+			break;
+
+		case GET_BEHIND_PUCK:
+			/**
+			 * puck is behind me, try and get behind it
+			 */
+			wanna_meet_at_y = me->y + (BOARD_LENGTH/2.0 - me->y) / (2.0 + AGGRESSION/AGGRESSION_MAX);
+			time_left = PLAYER2_THINK_AHEAD_TICKS;
+			me->motion.velocity[VY] = (wanna_meet_at_y-me->y) / time_left;
+
+			printf( "\n GET_BEHIND_PUCK" );
+			break;
+
+		case COME_TO_MIDDLE_OF_BOARD:
+			wanna_meet_at_y = BOARD_LENGTH/4.0;
+			predicted_x_of_puck = 0.0;
+			time_left = PLAYER2_THINK_AHEAD_TICKS;
+			me->motion.velocity[VX] = (predicted_x_of_puck - me->x) / time_left;
+			me->motion.velocity[VY] = (wanna_meet_at_y-me->y) / time_left;
+
+			printf( "\n COME_TO_MIDDLE_OF_BOARD" );
+			break;
+
+		case PASS_THE_PUCK:
+			/**
+			 * puck is on my side and is moving away. i'll have to nudge it across
+			 * find the time_left before it crosses over to the other side
+			 */
+			time_left = ticks_to_arrive_at( 0.0, puck.y, puck.motion.velocity[VY] );
+			/* we'll intercept it at 70% of time_left */
+			time_left = time_left * (70/100.0);
+			predicted_x_of_puck = predict_x_of_puck( time_left );
+			wanna_meet_at_y = predict_y_of_puck( time_left );
+			me->motion.velocity[VX] = (predicted_x_of_puck - me->x) / time_left;
+			me->motion.velocity[VY] = (wanna_meet_at_y-me->y) / time_left;
+
+			printf( "\n PASS_THE_PUCK" );
+			break;
+
+		case AMBITIOUS_PASS_THE_PUCK:
+			/**
+			 * puck is on my side and is moving away. i'll have to nudge it across.
+			 * find the time_left before it crosses over to the other side
+			 */
+			time_left = ticks_to_arrive_at( 0.0, puck.y, puck.motion.velocity[VY] );
+			/* we'll intercept it at 50% of time_left */
+			time_left = time_left * (50/100.0);
+
+			predicted_x_of_puck = predict_x_of_puck( time_left );
+			wanna_meet_at_y = predict_y_of_puck( time_left );
+			me->motion.velocity[VX] = (predicted_x_of_puck - me->x) / time_left;
+			me->motion.velocity[VY] = (wanna_meet_at_y - me->y) / time_left;
+
+			printf( "\n AMBITIOUS_PASS_THE_PUCK" );
+			break;
+
+		default:
+			break;
+	}
+
+	clamp_velocity( &me->motion, MAX_BAT_SPEED_SUSP * AGGRESSION/AGGRESSION_MAX );
+
+	return;
+}
+
+void scripting_for_player2( ) {
+
+	make_plan( );
+
+	execute_plan( );
 
 	return;
 }
@@ -643,12 +844,14 @@ int work( void * ){
 		collission_detection( );
 
 		if (gameType == SINGLE_PLAYER) {
+			if (ticks%PLAYER2_THINK_AHEAD_TICKS == 0) {
+				/**
+				 * Perform some predictive calculations on player2's
+				 * plan once every PLAYER2_THINK_AHEAD_TICKS ticks
+				 */
+				scripting_for_player2( );
+			}
 			/**
-			 * Perform some predictive calculations to
-			 * move player2's bat
-			 */
-			scripting_for_player2( );
-			/*
 			 * Now, apply the computed velocity to player1's bat
 			 */
 			player2.bat.translate_X( player2.bat.motion.velocity[VX] );
