@@ -112,6 +112,10 @@ struct Planning {
 #define AGGRESSION 100
 #define AGGRESSION_MAX 100
 
+
+void copy_bat1_to_packet( CPacketData* pdata );
+void copy_puck_to_packet( CPacketData* pdata );
+
 /**********************************************************************************************************************************************/ 
 
 
@@ -887,7 +891,7 @@ int work( void * ){
 				CPacketData pdata;
 				pdata.header = PLAYER1_COORD_PACKET_HEADER;
 				pdata.ack_packet = false;
-				pdata.bat_data = player1.bat;
+				copy_bat1_to_packet( &pdata );
 
 				if (puck_was_on_my_side && collission_handled) {
 					/*
@@ -897,7 +901,7 @@ int work( void * ){
 					printf( "have done collission handling" );
 					pdata.header = PUCK_AND_PLAYER1_COORD_PACKET_HEADER;
 					pdata.ack_packet = false;
-					pdata.puck_data = puck;
+					copy_puck_to_packet( &pdata );
 					/* IMPORTANT */
 					collission_handled = false;
 				}
@@ -912,6 +916,28 @@ int work( void * ){
 	}
 
 	return 0; 
+}
+
+void copy_bat1_to_packet( CPacketData *pdata ) {
+	pdata->batx = player1.bat.x;
+	pdata->baty = player1.bat.y;
+	pdata->batsx = player1.bat.sx;
+	pdata->batsy = player1.bat.sy;
+	
+	pdata->batvelocityx = player1.bat.motion.velocity[VX];
+	pdata->batvelocityy = player1.bat.motion.velocity[VY];
+
+	return;
+}
+
+void copy_puck_to_packet( CPacketData *pdata ) {
+	pdata->puckx = puck.x;
+	pdata->pucky = puck.y;
+
+	pdata->puckvelocityx = puck.motion.velocity[VX];
+	pdata->puckvelocityy = puck.motion.velocity[VY];
+
+	return;
 }
 
 void init_UI_items( ) {

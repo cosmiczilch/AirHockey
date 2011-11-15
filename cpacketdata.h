@@ -22,8 +22,19 @@ class CPacketData {
 	bool ack_packet;
 	long int seqNum;
 
-	CBat bat_data;
-	CPuck puck_data;
+	/**
+	 * player1's bat data
+	 */
+	float batx, baty;
+	float batsx, batsy;
+	float batvelocityx, batvelocityy;
+
+	/**
+	 * puck's data
+	 */
+	float puckx, pucky;
+	float puckvelocityx, puckvelocityy;
+
 };
 
 

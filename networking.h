@@ -29,6 +29,9 @@ int network_receiving_thread_delay_msecs = 100;
 
 extern CNetwork_Queue network_queue;
 
+void copy_packet_to_bat2( CPacketData *pdata );
+void copy_packet_to_puck( CPacketData *pdata );
+
 /*********************************************************************************************************************************************/ 
 
 void initNetworking ( ) {
@@ -172,7 +175,7 @@ void handlePacket ( UDPpacket *udpPacket ) {
 				 */
 				if (packetData->header == PLAYER1_COORD_PACKET_HEADER ||
 				    packetData->header == PUCK_AND_PLAYER1_COORD_PACKET_HEADER) {
-					player2.bat = packetData->bat_data;
+					copy_packet_to_bat2( packetData );
 					player2.bat.x *= -1;
 					player2.bat.y *= -1;
 					player2.bat.motion.velocity[VX] *= -1.0;
@@ -186,7 +189,7 @@ void handlePacket ( UDPpacket *udpPacket ) {
 						 */
 						ASSERT( packetData->header == PUCK_AND_PLAYER1_COORD_PACKET_HEADER, 
 								"PLAYER1_COORD_PACKET_HEADER received from server");
-						puck = packetData->puck_data;
+						copy_packet_to_puck( packetData );
 						puck.x *= -1;
 						puck.y *= -1;
 						puck.motion.velocity[VX] *= -1.0;
@@ -201,6 +204,28 @@ void handlePacket ( UDPpacket *udpPacket ) {
 			break;
 	}
 
+
+	return;
+}
+
+void copy_packet_to_bat2( CPacketData *pdata ) {
+	player2.bat.x = pdata->batx;
+	player2.bat.y = pdata->baty;
+	player2.bat.sx = pdata->batsx;
+	player2.bat.sy = pdata->batsy;
+
+	player2.bat.motion.velocity[VX] = pdata->batvelocityx;
+	player2.bat.motion.velocity[VY] = pdata->batvelocityy;
+
+	return;
+}
+
+void copy_packet_to_puck( CPacketData *pdata ) {
+	puck.x = pdata->puckx;
+	puck.y = pdata->pucky;
+
+	puck.motion.velocity[VX] = pdata->puckvelocityx;
+	puck.motion.velocity[VY] = pdata->puckvelocityy;
 
 	return;
 }
