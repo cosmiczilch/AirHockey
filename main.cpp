@@ -14,6 +14,9 @@ exit
 #include "GL/glu.h"
 
 #include "Utilities.h"
+#include "csoundplayer.h"
+#include "ctheme.h"
+#include "themes.h"
 #include "cfontprinter.h"
 #include "ctextinput.h"
 #include "globalDefs.h"
@@ -147,9 +150,9 @@ void initObjeks( ){
 	board.init( BOARD_WIDTH, BOARD_LENGTH, BOARD_THICKNESS ); 
 	// player1.init( PLAYER_1,  0.0, 0.4, 0.0,  BOARD_WIDTH/4.0, -BOARD_LENGTH/4.0, BOARD_THICKNESS/2.0 );
 	// player2.init( PLAYER_2,  0.0, 0.0, 0.4,  -BOARD_WIDTH/4.0, BOARD_LENGTH/4.0, BOARD_THICKNESS/2.0 );
-	player1.init( PLAYER_1,  0.0, 0.4, 0.0,  0.0/4.0, -BOARD_LENGTH/4.0, BOARD_THICKNESS/2.0 );
-	player2.init( PLAYER_2,  0.0, 0.0, 0.4,  -0.0/4.0, BOARD_LENGTH/4.0, BOARD_THICKNESS/2.0 );
-	puck.init( 0.0, 0.0, 0.0,  0.0, 0.0, 0.0 );
+	player1.init( PLAYER_1,  currentTheme->bat1Color[0], currentTheme->bat1Color[1], currentTheme->bat1Color[2],  0.0/4.0, -BOARD_LENGTH/4.0, BOARD_THICKNESS/2.0 );
+	player2.init( PLAYER_2,  currentTheme->bat2Color[0], currentTheme->bat2Color[1], currentTheme->bat2Color[2],  -0.0/4.0, BOARD_LENGTH/4.0, BOARD_THICKNESS/2.0 );
+	puck.init( 0.0, 0.0, 0.0,  0.8, 0.8, 0.8 );
 
 	fontPrinter.init( 20.0, 30.0, SColor( 1.0, 1.0, 1.0, 1.0 ), "./resources/fonts/Verdana.png" );
 
@@ -233,7 +236,9 @@ int main( int argc, char *argv[] ){
         setup_rc( ); 
 
 	initNetworkingComponents( );
-
+	soundPlayer.init( );
+	CTheme::readThemesFromConf( );
+	set_current_theme( 1 );		/* default */
 	initObjeks( );
 	initGameStates( );
 	initThreads( );

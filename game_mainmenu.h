@@ -71,14 +71,16 @@ float x_mouse, y_mouse;
 CTexture my_cursor_texture; 
 float side_length__my_cursor;
 
-/**********************************************************************************************************************************************/ 
+void startSounds( );
 
+/**********************************************************************************************************************************************/ 
 
 
 SDL_Thread *work_thread = NULL;
 
 void entryFunction( ) {
 	entered = true;
+	startSounds( );
 
 	return;
 }
@@ -89,6 +91,14 @@ void exitFunction( ) {
 
 	return;
 }
+
+void startSounds( ) {
+	soundPlayer.loadSoundEffect( SOUND_GOAL_SCORED, "./resources/sounds/goal.wav" );
+	soundPlayer.playMusic( );
+
+	return;
+}
+
 
 void initCamera( ){ 
 	float w = get_GW( ); 

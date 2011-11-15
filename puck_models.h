@@ -10,9 +10,9 @@
 #include "GL/glu.h"
 
 
-void loadPuck();
+void loadPuck( float r=0.0, float g=0.0, float b=0.0 );
 void drawPuck( ); 
 
-void load_puck();	//object: puck
+void load_puck( float r=0.0, float g=0.0, float b=0.0 ); //object: puck
 
 #endif // PUCK_MODELS_H

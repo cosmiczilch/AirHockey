@@ -1,12 +1,12 @@
 #
 
 CXX = g++
-CXXFLAGS = -g -Wall -lGLU -lGLEW -lGL `sdl-config --cflags` `sdl-config --libs` -lSDL_net -lSDL_image
+CXXFLAGS = -g -Wall -lGLU -lGLEW -lGL `sdl-config --cflags` `sdl-config --libs` -lSDL_net -lSDL_image -lSDL_mixer
 
-main: main.o models.o bat_models.o puck_models.o Transformation.o ctexture.o cgame.o cboard.o cbat.o cpuck.o cplayer.o ccamera.o cbutton.o ctextinput.o cfontprinter.o cpanelobjek.o cpanel.o clabel.o cnetwork_queue.o Utilities.o
-	$(CXX) $(CXXFLAGS) -o main main.o models.o bat_models.o puck_models.o Transformation.o ctexture.o cgame.o cboard.o cbat.o cpuck.o cplayer.o ccamera.o cbutton.o ctextinput.o cfontprinter.o cpanelobjek.o cpanel.o clabel.o cnetwork_queue.o Utilities.o
+main: main.o models.o bat_models.o puck_models.o Transformation.o ctexture.o cgame.o cboard.o cbat.o cpuck.o cplayer.o ccamera.o cbutton.o ctextinput.o cfontprinter.o cpanelobjek.o cpanel.o clabel.o cnetwork_queue.o Utilities.o csoundplayer.o ctheme.o
+	$(CXX) $(CXXFLAGS) -o main main.o models.o bat_models.o puck_models.o Transformation.o ctexture.o cgame.o cboard.o cbat.o cpuck.o cplayer.o ccamera.o cbutton.o ctextinput.o cfontprinter.o cpanelobjek.o cpanel.o clabel.o cnetwork_queue.o Utilities.o csoundplayer.o ctheme.o
 
-main.o: main.cpp models.h bat_models.h puck_models.h Transformation.h ccamera.h ctexture.h cboard.h cplayer.h cpuck.h cgame.h game_mainmenu.h game_paused.h game_running.h poller.h main.h globalDefs.h cbutton.h networking.h cnetwork_queue.h ctextinput.h cfontprinter.h Utilities.h cpanelobjek.h cpanel.h clabel.h cpacketdata.h
+main.o: main.cpp models.h bat_models.h puck_models.h Transformation.h ccamera.h ctexture.h cboard.h cplayer.h cpuck.h cgame.h game_mainmenu.h game_paused.h game_running.h poller.h main.h globalDefs.h cbutton.h networking.h cnetwork_queue.h ctextinput.h cfontprinter.h Utilities.h cpanelobjek.h cpanel.h clabel.h cpacketdata.h csoundplayer.h ctheme.h themes.h
 	$(CXX) $(CXXFLAGS) -c main.cpp
 
 models.o: models.cpp models.h
@@ -66,6 +66,11 @@ cnetwork_queue.o: cnetwork_queue.cpp cpacketdata.h cnetwork_queue.h globalDefs.h
 Utilities.o: Utilities.cpp Utilities.h globalDefs.h
 	$(CXX) $(CXXFLAGS) -c Utilities.cpp
 
+csoundplayer.o: csoundplayer.cpp csoundplayer.h
+	$(CXX) $(CXXFLAGS) -c csoundplayer.cpp
+
+ctheme.o: ctheme.cpp ctheme.h
+	$(CXX) $(CXXFLAGS) -c ctheme.cpp
 
 .PHONY : clean
 clean :

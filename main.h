@@ -35,6 +35,11 @@ CPuck puck;
 
 CFontPrinter fontPrinter;
 
+CSoundPlayer soundPlayer;
+
+CTheme *theme_list_head;
+CTheme *currentTheme;
+
 void (*renderScene) ( void );
 
 #define CAMERA_HOW_MUCH_BEHIND_BOARD 0.60 	// times the board length (use as a multiplicative factor for board.length)

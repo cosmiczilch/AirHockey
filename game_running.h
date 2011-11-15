@@ -42,7 +42,7 @@ CPanel panels[NUM_PANELS_RUNNING];
 CLabel labels[NUM_LABELS_RUNNING];
 /* Done UI items */
 
-#define MOUSE_SENSITIVITY 1/5.0
+#define MOUSE_SENSITIVITY 1/9.0
 
 /*
  * the lesser the difference between MAX_BAT_SPEED and
@@ -85,7 +85,8 @@ vec2 puck_final_tangent, bat_final_tangent;
 
 #define PUCK_IS_ON_MY_SIDE (puck.y <= 0)
 bool puck_was_on_my_side = false;
-bool collission_handled = false;
+bool collission_handled = false;	/* used for multiplayer games */
+bool collission_handled2 = false;	/* used for soundEffects */
 bool detect_collission__puck_with_bat( );
 #define EPSILON_FOR_GOAL_DETECTION 1.003
 
@@ -119,6 +120,8 @@ SDL_Thread *work_thread = NULL;
 
 void entryFunction ( ) {
 	entered = true;
+
+	soundPlayer.playSoundEffect( SOUND_GOAL_SCORED );
 
 	SDL_ShowCursor( 0 );
 #if !DEBUG
@@ -321,6 +324,7 @@ bool detect_collission__puck_with_bats( ) {
 
 		handle_collission__puck_with_bat( &puck, &player1.bat );
 		collission_handled = true;
+		collission_handled2 = true;
 
 	}
 
@@ -330,6 +334,7 @@ bool detect_collission__puck_with_bats( ) {
 
 		handle_collission__puck_with_bat( &puck, &player2.bat );
 		collission_handled = true;
+		collission_handled2 = true;
 
 	}
 
@@ -439,6 +444,8 @@ void pauli() {
 }
 
 void reset_puck_after_goal( ) {
+	soundPlayer.playSoundEffect( SOUND_GOAL_SCORED );
+
 	puck.x = 0.0; puck.y = 0.0;
 	puck.motion.velocity[VX] = 0.0;
 	puck.motion.velocity[VY] = 0.0;
@@ -466,12 +473,14 @@ void collission_detection( ) {
 	     // flip_puck_motion_vertically
 	     puck.motion.velocity[VX] *= -1.0;
 	     collission_handled = true;
+	     collission_handled2 = true;
 	}
 	if ( (puck.y+PUCK_RADIUS) >= BOARD_LENGTH/2.0 ||
 	     (puck.y-PUCK_RADIUS) <= -BOARD_LENGTH/2.0 ) {
 	     // flip_puck_motion_horizontally
 	     puck.motion.velocity[VY] *= -1.0;
 	     collission_handled = true;
+	     collission_handled2 = true;
 	}
 
 	// puck w/ bats
@@ -836,13 +845,6 @@ int work( void * ){
 			adjust_puck_decelaration_and_velocity( );
 		}
 
-		puck_was_on_my_side = PUCK_IS_ON_MY_SIDE;
-		/*
-		 * IMPORTANT :
-		 * collission detection and handling(done inside)
-		 */
-		collission_detection( );
-
 		if (gameType == SINGLE_PLAYER) {
 			if (ticks%PLAYER2_THINK_AHEAD_TICKS == 0) {
 				/**
@@ -858,6 +860,18 @@ int work( void * ){
 			player2.bat.translate_Y( player2.bat.motion.velocity[VY], player2.player_ID );
 
 		}
+
+		puck_was_on_my_side = PUCK_IS_ON_MY_SIDE;
+		/*
+		 * IMPORTANT :
+		 * collission detection and handling(done inside)
+		 */
+		collission_handled2 = false;
+		collission_detection( );
+		if (collission_handled2) {
+			soundPlayer.playSoundEffect( SOUND_TIKTIK );
+		}
+
 
 		// if in MULTI_PLAYER mode, send coordinates data to remote client
 		if (gameType == MULTI_PLAYER) {
