@@ -82,3 +82,16 @@ void CBat::translate_Y( float deltaY, int player_id, bool shadow_cordinates_uh){
 	return;
 }
 
+CBat& CBat::operator = (const CBat& bat2) {
+	x = bat2.x; y = bat2.y; z = bat2.z; 
+	sx = bat2.sx; sy = bat2.sy; sz = bat2.sz; 
+
+	motion.velocity[VX] = bat2.motion.velocity[VX];
+	motion.velocity[VY] = bat2.motion.velocity[VY];
+
+	r = bat2.r; g = bat2.g; b = bat2.b; 
+
+	return *this;
+}
+
+

@@ -35,6 +35,9 @@ class CBat{
 	void draw( ); 
 	void translate_X( float deltaX, bool shadow_cordinates_uh=true);
 	void translate_Y( float deltaY, int player_ID, bool shadow_cordinates_uh=true);
+
+	CBat& operator	= ( const CBat& bat2 );	// assignment of a vec2
+
 };
 
 #endif  //CBAT_H

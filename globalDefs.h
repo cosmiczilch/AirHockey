@@ -1,7 +1,7 @@
 #ifndef GLOBALDEFS_H
 #define GLOBALDEFS_H
 
-#define DEBUG 0
+#define DEBUG 1
 
 #define PI 3.14159265358979323846264
 #define INFINITY 99999
