@@ -17,6 +17,8 @@ void CSoundPlayer::init( ) {
 	soundEffect[SOUND_GOAL_SCORED] = NULL;
 	music = NULL;
 
+	volume = 64;
+
 	return;
 }
 
@@ -56,6 +58,31 @@ void CSoundPlayer::playSoundEffect( int which_soundEffect ) {
 
 void CSoundPlayer::quit( ) {
 	Mix_CloseAudio( );
+
+	return;
+}
+
+void CSoundPlayer::decrease_volume( ) {
+	volume -= 10;
+	if (volume < 0) {
+		volume = 0;
+	}
+	Mix_VolumeChunk( soundEffect[SOUND_TIKTIK], volume );
+	Mix_VolumeChunk( soundEffect[SOUND_GOAL_SCORED], volume );
+	Mix_VolumeMusic( volume );
+
+	return;
+}
+
+void CSoundPlayer::increase_volume( ) {
+	volume += 10;
+	if (volume > 128) {
+		volume = 128;
+	}
+
+	Mix_VolumeChunk( soundEffect[SOUND_TIKTIK], volume );
+	Mix_VolumeChunk( soundEffect[SOUND_GOAL_SCORED], volume );
+	Mix_VolumeMusic( volume );
 
 	return;
 }

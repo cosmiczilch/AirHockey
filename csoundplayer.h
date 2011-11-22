@@ -13,6 +13,7 @@ using namespace std;
 class CSoundPlayer {
 	Mix_Chunk *soundEffect[2];
 	Mix_Music *music;
+	int volume;
 
 	public: 
 	void init( );
@@ -24,6 +25,9 @@ class CSoundPlayer {
 
 	void playMusic( );
 	void playSoundEffect( int which_soundEffect );
+
+	void decrease_volume();
+	void increase_volume();
 
 	void quit( );
 };

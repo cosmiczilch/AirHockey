@@ -24,7 +24,7 @@ set ruler
 set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim72,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 set termencoding=utf-8
-set window=49
+set window=48
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
@@ -47,7 +47,7 @@ badd +24 cpacketdata.h
 badd +56 cbat.cpp
 badd +28 cbat.h
 badd +15 cpuck.cpp
-badd +1 cpuck.h
+badd +25 cpuck.h
 badd +1 Utilities.h
 badd +1 globalDefs.h
 badd +1 Utilities.cpp
@@ -57,9 +57,9 @@ badd +1 models.cpp
 badd +1 puck_models.h
 badd +1 csoundplayer.h
 badd +1 csoundplayer.cpp
-badd +0 ctheme.h
-badd +0 ctheme.cpp
-badd +0 themes.h
+badd +1 ctheme.h
+badd +1 ctheme.cpp
+badd +1 themes.h
 args main.cpp main.h game_mainmenu.h game_paused.h game_running.h networking.h cnetwork_queue.cpp cnetwork_queue.h makefile cpacketdata.h cnetwork_queue.o
 edit main.cpp
 set splitbelow splitright
@@ -172,34 +172,6 @@ normal zo
 normal zo
 180
 normal zo
-189
-normal zo
-191
-normal zo
-207
-normal zo
-217
-normal zo
-234
-normal zo
-189
-normal zo
-263
-normal zo
-264
-normal zo
-263
-normal zo
-149
-normal zo
-162
-normal zo
-170
-normal zo
-175
-normal zo
-180
-normal zo
 182
 normal zo
 198
@@ -216,7 +188,7 @@ normal zo
 normal zo
 253
 normal zo
-let s:l = 150 - ((24 * winheight(0) + 24) / 48)
+let s:l = 150 - ((0 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -324,7 +296,7 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 41 - ((34 * winheight(0) + 24) / 48)
+let s:l = 41 - ((0 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -548,128 +520,6 @@ normal zo
 normal zo
 95
 normal zo
-105
-normal zo
-120
-normal zo
-151
-normal zo
-120
-normal zo
-166
-normal zo
-188
-normal zo
-189
-normal zo
-188
-normal zo
-212
-normal zo
-213
-normal zo
-216
-normal zo
-217
-normal zo
-221
-normal zo
-225
-normal zo
-229
-normal zo
-216
-normal zo
-233
-normal zo
-240
-normal zo
-241
-normal zo
-244
-normal zo
-245
-normal zo
-244
-normal zo
-251
-normal zo
-254
-normal zo
-255
-normal zo
-254
-normal zo
-240
-normal zo
-233
-normal zo
-264
-normal zo
-265
-normal zo
-267
-normal zo
-265
-normal zo
-272
-normal zo
-274
-normal zo
-272
-normal zo
-264
-normal zo
-212
-normal zo
-289
-normal zo
-290
-normal zo
-292
-normal zo
-290
-normal zo
-289
-normal zo
-302
-normal zo
-307
-normal zo
-309
-normal zo
-307
-normal zo
-318
-normal zo
-331
-normal zo
-352
-normal zo
-357
-normal zo
-362
-normal zo
-368
-normal zo
-381
-normal zo
-398
-normal zo
-399
-normal zo
-398
-normal zo
-417
-normal zo
-491
-normal zo
-81
-normal zo
-89
-normal zo
-95
-normal zo
 103
 normal zo
 118
@@ -788,7 +638,7 @@ normal zo
 normal zo
 25
 normal zo
-let s:l = 83 - ((20 * winheight(0) + 24) / 48)
+let s:l = 83 - ((0 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -1008,270 +858,706 @@ setlocal wrapmargin=0
 normal zo
 93
 normal zo
-121
+125
 normal zo
-160
+139
 normal zo
-161
+148
 normal zo
-169
+164
+normal zo
+165
+normal zo
+173
 normal zo
 199
 normal zo
-160
+203
 normal zo
-209
+164
 normal zo
 213
 normal zo
 214
 normal zo
+217
+normal zo
 218
+normal zo
+222
+normal zo
+226
+normal zo
+217
+normal zo
+231
+normal zo
+232
+normal zo
+231
 normal zo
 213
 normal zo
-227
+251
 normal zo
-228
+252
 normal zo
-227
+251
 normal zo
-209
+259
 normal zo
-247
+260
 normal zo
-248
+259
 normal zo
-247
+268
 normal zo
-255
+269
 normal zo
-256
+280
 normal zo
-255
+291
 normal zo
-264
+301
 normal zo
-276
+311
 normal zo
-297
+268
 normal zo
-264
+324
 normal zo
-320
+327
 normal zo
-323
+337
 normal zo
-333
+324
 normal zo
-320
+348
 normal zo
-344
+349
 normal zo
-345
+363
 normal zo
-359
+372
 normal zo
-368
+375
 normal zo
-371
+372
 normal zo
-368
+385
 normal zo
-386
+390
 normal zo
-392
+396
 normal zo
-398
+402
 normal zo
-404
+408
 normal zo
-418
+415
 normal zo
-428
+422
 normal zo
-428
+425
 normal zo
-418
+432
 normal zo
-344
+435
 normal zo
-446
+432
 normal zo
-455
+422
+normal zo
+348
+normal zo
+450
 normal zo
 459
 normal zo
-465
+463
 normal zo
-472
+469
 normal zo
-479
+476
 normal zo
-489
+483
 normal zo
-455
+493
 normal zo
-499
+459
 normal zo
-502
+503
 normal zo
-510
+506
 normal zo
-499
+514
 normal zo
-527
+503
 normal zo
-528
+531
 normal zo
-527
+532
 normal zo
-546
-normal zo
-547
+531
 normal zo
 550
 normal zo
-546
+551
 normal zo
-556
+554
 normal zo
-559
+550
 normal zo
-561
+560
 normal zo
-559
+563
 normal zo
-572
+565
 normal zo
-573
+563
 normal zo
-583
+576
 normal zo
-583
+577
 normal zo
-586
+587
 normal zo
-596
+587
 normal zo
-599
+590
 normal zo
-583
+600
 normal zo
-614
+603
 normal zo
-622
+587
 normal zo
-614
+618
 normal zo
-572
+626
 normal zo
-556
+618
 normal zo
-641
+576
 normal zo
-643
+560
 normal zo
-646
+645
 normal zo
-641
+647
 normal zo
-653
+650
 normal zo
-660
+645
 normal zo
-663
+657
 normal zo
-671
+664
 normal zo
-678
+667
 normal zo
-684
+675
 normal zo
-704
+682
 normal zo
-721
+688
 normal zo
-736
+708
 normal zo
-757
+725
 normal zo
-773
+740
 normal zo
-684
+761
 normal zo
-660
+777
 normal zo
-798
+688
 normal zo
-807
+664
 normal zo
-810
+802
 normal zo
-812
+811
 normal zo
-818
+814
 normal zo
-831
+816
 normal zo
-838
+822
 normal zo
-839
+835
 normal zo
-838
+842
 normal zo
-848
+843
 normal zo
-849
+842
 normal zo
-850
+852
 normal zo
-849
+853
 normal zo
-856
+854
 normal zo
-848
+853
 normal zo
-865
+860
 normal zo
-871
+852
 normal zo
-877
+869
 normal zo
-878
+875
 normal zo
-882
-normal zo
-883
-normal zo
-892
-normal zo
-893
-normal zo
-892
+881
 normal zo
 882
 normal zo
-877
+886
 normal zo
-810
+887
 normal zo
-807
+896
 normal zo
-917
+897
+normal zo
+896
+normal zo
+886
+normal zo
+881
+normal zo
+814
+normal zo
+811
+normal zo
+921
+normal zo
+933
 normal zo
 943
 normal zo
-956
+969
+normal zo
+982
+normal zo
+125
+normal zo
+139
+normal zo
+148
+normal zo
+164
+normal zo
+165
+normal zo
+173
+normal zo
+199
+normal zo
+203
+normal zo
+164
+normal zo
+213
+normal zo
+214
+normal zo
+217
+normal zo
+218
+normal zo
+222
+normal zo
+226
+normal zo
+217
+normal zo
+231
+normal zo
+232
+normal zo
+231
+normal zo
+213
+normal zo
+251
+normal zo
+252
+normal zo
+251
+normal zo
+259
+normal zo
+260
+normal zo
+259
+normal zo
+268
+normal zo
+269
+normal zo
+280
+normal zo
+291
+normal zo
+301
+normal zo
+311
+normal zo
+268
+normal zo
+324
+normal zo
+327
+normal zo
+337
+normal zo
+324
+normal zo
+348
+normal zo
+349
+normal zo
+363
+normal zo
+372
+normal zo
+375
+normal zo
+372
+normal zo
+385
+normal zo
+390
+normal zo
+396
+normal zo
+402
+normal zo
+408
+normal zo
+415
+normal zo
+422
+normal zo
+425
+normal zo
+432
+normal zo
+435
+normal zo
+432
+normal zo
+422
+normal zo
+348
+normal zo
+450
+normal zo
+459
+normal zo
+463
+normal zo
+469
+normal zo
+476
+normal zo
+483
+normal zo
+493
+normal zo
+459
+normal zo
+503
+normal zo
+506
+normal zo
+514
+normal zo
+503
+normal zo
+531
+normal zo
+532
+normal zo
+531
+normal zo
+550
+normal zo
+551
+normal zo
+554
+normal zo
+550
+normal zo
+560
+normal zo
+563
+normal zo
+565
+normal zo
+563
+normal zo
+576
+normal zo
+577
+normal zo
+587
+normal zo
+587
+normal zo
+590
+normal zo
+600
+normal zo
+603
+normal zo
+587
+normal zo
+618
+normal zo
+626
+normal zo
+618
+normal zo
+576
+normal zo
+560
+normal zo
+645
+normal zo
+647
+normal zo
+650
+normal zo
+645
+normal zo
+657
+normal zo
+664
+normal zo
+667
+normal zo
+675
+normal zo
+682
+normal zo
+688
+normal zo
+708
+normal zo
+725
+normal zo
+740
+normal zo
+761
+normal zo
+777
+normal zo
+688
+normal zo
+664
+normal zo
+802
+normal zo
+811
+normal zo
+814
+normal zo
+816
+normal zo
+822
+normal zo
+835
+normal zo
+842
+normal zo
+843
+normal zo
+842
+normal zo
+852
+normal zo
+853
+normal zo
+854
+normal zo
+853
+normal zo
+860
+normal zo
+852
+normal zo
+869
+normal zo
+875
+normal zo
+881
+normal zo
+882
+normal zo
+886
+normal zo
+887
+normal zo
+896
+normal zo
+897
+normal zo
+896
+normal zo
+886
+normal zo
+881
+normal zo
+814
+normal zo
+811
 normal zo
 16
 normal zo
-let s:l = 447 - ((23 * winheight(0) + 24) / 48)
+921
+normal zo
+933
+normal zo
+943
+normal zo
+969
+normal zo
+982
+normal zo
+933
+normal zo
+943
+normal zo
+969
+normal zo
+982
+normal zo
+let s:l = 901 - ((18 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-447
-normal! 015l
+901
+normal! 04l
+tabedit cpacketdata.h
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+edit cpacketdata.h
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=ClangComplete
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal noexpandtab
+if &filetype != 'cpp'
+setlocal filetype=cpp
+endif
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=1
+setlocal foldmarker={{{,}}}
+set foldmethod=syntax
+setlocal foldmethod=syntax
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=tcq
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal nomodeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=ClangComplete
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=8
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'cpp'
+setlocal syntax=cpp
+endif
+setlocal tabstop=8
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+19
+normal zo
+25
+normal zo
+32
+normal zo
+19
+normal zo
+let s:l = 29 - ((28 * winheight(0) + 24) / 48)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+29
+normal! 019l
 tabedit networking.h
 set splitbelow splitright
 set nosplitbelow
@@ -1312,7 +1598,7 @@ setlocal foldcolumn=0
 setlocal foldenable
 setlocal foldexpr=0
 setlocal foldignore=#
-setlocal foldlevel=4
+setlocal foldlevel=6
 setlocal foldmarker={{{,}}}
 set foldmethod=syntax
 setlocal foldmethod=syntax
@@ -1340,7 +1626,8 @@ setlocal matchpairs=(:),{:},[:]
 setlocal nomodeline
 setlocal modifiable
 setlocal nrformats=octal,hex
-setlocal nonumber
+set number
+setlocal number
 setlocal numberwidth=4
 setlocal omnifunc=
 setlocal path=
@@ -1374,68 +1661,104 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-74
+37
+normal zo
+49
+normal zo
+53
+normal zo
+49
+normal zo
+61
+normal zo
+68
+normal zo
+37
 normal zo
 77
 normal zo
-89
+80
+normal zo
+82
+normal zo
+92
+normal zo
+80
 normal zo
 77
 normal zo
-74
+107
 normal zo
-104
+111
 normal zo
-108
+107
 normal zo
-104
-normal zo
-130
-normal zo
-132
+133
 normal zo
 135
 normal zo
-136
+138
+normal zo
+139
+normal zo
+138
+normal zo
+158
+normal zo
+159
+normal zo
+158
+normal zo
+170
+normal zo
+171
+normal zo
+177
+normal zo
+184
+normal zo
+185
+normal zo
+184
+normal zo
+177
+normal zo
+170
 normal zo
 135
 normal zo
-155
+133
 normal zo
-156
+211
 normal zo
-155
+223
 normal zo
-167
+233
 normal zo
-168
+234
 normal zo
-174
+235
 normal zo
-174
+234
 normal zo
-167
+233
 normal zo
-132
+244
 normal zo
-130
+245
 normal zo
-208
+246
 normal zo
-209
+245
 normal zo
-210
+244
 normal zo
-209
-normal zo
-208
-normal zo
-let s:l = 1 - ((0 * winheight(0) + 24) / 48)
+let s:l = 130 - ((7 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+130
+normal! 07l
 tabedit cnetwork_queue.cpp
 set splitbelow splitright
 set nosplitbelow
@@ -1646,7 +1969,7 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 8 - ((6 * winheight(0) + 24) / 48)
+let s:l = 8 - ((0 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -1992,7 +2315,7 @@ setlocal wrap
 setlocal wrapmargin=0
 8
 normal zo
-let s:l = 12 - ((11 * winheight(0) + 24) / 48)
+let s:l = 12 - ((0 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -2107,16 +2430,6 @@ normal zo
 normal zo
 26
 normal zo
-48
-normal zo
-53
-normal zo
-58
-normal zo
-63
-normal zo
-26
-normal zo
 47
 normal zo
 52
@@ -2129,7 +2442,7 @@ normal zo
 normal zo
 13
 normal zo
-let s:l = 30 - ((22 * winheight(0) + 24) / 48)
+let s:l = 30 - ((0 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -2244,7 +2557,7 @@ normal zo
 normal zo
 11
 normal zo
-let s:l = 13 - ((12 * winheight(0) + 24) / 48)
+let s:l = 13 - ((0 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -2587,117 +2900,6 @@ normal! zt
 60369
 normal! 032l
 lcd ~/sandbox/Projects/AirHockey
-tabedit ~/sandbox/Projects/AirHockey/cpuck.h
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-edit ~/sandbox/Projects/AirHockey/cpuck.h
-setlocal keymap=
-setlocal noarabic
-setlocal autoindent
-setlocal balloonexpr=
-setlocal nobinary
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal nocindent
-setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
-setlocal commentstring=/*%s*/
-setlocal complete=.,w,b,u,t,i
-setlocal completefunc=
-setlocal nocopyindent
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal define=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=
-setlocal noexpandtab
-if &filetype != 'cpp'
-setlocal filetype=cpp
-endif
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=1
-setlocal foldmarker={{{,}}}
-set foldmethod=syntax
-setlocal foldmethod=syntax
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldtext=foldtext()
-setlocal formatexpr=
-setlocal formatoptions=tcq
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal grepprg=
-setlocal iminsert=0
-setlocal imsearch=2
-setlocal include=
-setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
-setlocal nolinebreak
-setlocal nolisp
-setlocal nolist
-setlocal makeprg=
-setlocal matchpairs=(:),{:},[:]
-setlocal nomodeline
-setlocal modifiable
-setlocal nrformats=octal,hex
-setlocal nonumber
-setlocal numberwidth=4
-setlocal omnifunc=
-setlocal path=
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal shiftwidth=8
-setlocal noshortname
-setlocal nosmartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal statusline=
-setlocal suffixesadd=
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != 'cpp'
-setlocal syntax=cpp
-endif
-setlocal tabstop=8
-setlocal tags=
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
-setlocal wrapmargin=0
-17
-normal zo
-let s:l = 25 - ((20 * winheight(0) + 24) / 48)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-25
-normal! 08l
-lcd ~/sandbox/Projects/AirHockey
 tabedit ~/sandbox/Projects/AirHockey/Utilities.h
 set splitbelow splitright
 set nosplitbelow
@@ -3025,7 +3227,7 @@ normal! zt
 16
 normal! 0
 lcd ~/sandbox/Projects/AirHockey
-tabnext 1
+tabnext 6
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif

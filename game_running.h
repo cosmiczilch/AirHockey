@@ -42,8 +42,6 @@ CPanel panels[NUM_PANELS_RUNNING];
 CLabel labels[NUM_LABELS_RUNNING];
 /* Done UI items */
 
-#define MOUSE_SENSITIVITY 1/9.0
-
 /*
  * the lesser the difference between MAX_BAT_SPEED and
  * MAX_BAT_SPEED_SUSP, the more pronounced the effects
@@ -93,8 +91,6 @@ bool detect_collission__puck_with_bat( );
 /**
  * scripting moves for player2
  */
-#define PLAYER2_THINK_AHEAD_TIME  500	/* milliseconds */
-#define PLAYER2_THINK_AHEAD_TICKS (PLAYER2_THINK_AHEAD_TIME/work_thread_anim_delay_msecs)
 enum Player2_Plans {
 	DO_NOTHING,		/* nothing */
 	SIMPLE_INTERCEPT,	/* just get in the way of the puck */
@@ -124,6 +120,8 @@ SDL_Thread *work_thread = NULL;
 
 void entryFunction ( ) {
 	entered = true;
+
+	PLAYER2_THINK_AHEAD_TICKS = (PLAYER2_THINK_AHEAD_TIME/work_thread_anim_delay_msecs);
 
 	soundPlayer.playSoundEffect( SOUND_GOAL_SCORED );
 
@@ -210,7 +208,27 @@ void renderScene( ){
 	return;
 };
 
+void mouse_sensitivity_change_handler( bool increase ) {
+	if (increase) {
+		MOUSE_SENSITIVITY += MOUSE_SENSITIVITY_DELTA;
+	} else {
+		MOUSE_SENSITIVITY -= MOUSE_SENSITIVITY_DELTA;
+	}
+
+	if (MOUSE_SENSITIVITY > MOUSE_SENSITIVITY_MAX) {
+		MOUSE_SENSITIVITY = MOUSE_SENSITIVITY_MAX;
+	}
+	if (MOUSE_SENSITIVITY < MOUSE_SENSITIVITY_MIN) {
+		MOUSE_SENSITIVITY = MOUSE_SENSITIVITY_MIN;
+	}
+
+	return;
+}
+
+
 void eventHandler( SDL_Event &event ){
+	static Uint8 *keys;
+
 	if( event.type == SDL_QUIT ){ 
 		exit(0); 
 	}
@@ -218,15 +236,30 @@ void eventHandler( SDL_Event &event ){
 		if( event.key.keysym.sym == SDLK_ESCAPE ){ 
 			exit(0);
 			return;
-		}
-		if( event.key.keysym.sym == SDLK_UP ){ 
+		} else if( event.key.keysym.sym == SDLK_UP ){ 
 			// do something
 
-		}
-		if( event.key.keysym.sym == SDLK_DOWN ){ 
+		} else if( event.key.keysym.sym == SDLK_DOWN ){ 
 			// do something
 			
+		} else if (event.key.keysym.sym == SDLK_m) {
+			keys = SDL_GetKeyState(NULL);
+			if (keys[SDLK_LSHIFT] || keys[SDLK_RSHIFT]) {
+				// increase mouse sensitivity
+				mouse_sensitivity_change_handler( true );
+			} else {
+				// decrease mouse sensitivity
+				mouse_sensitivity_change_handler( false );
+			}
+		} else if (event.key.keysym.sym == SDLK_v) {
+			keys = SDL_GetKeyState(NULL);
+			if (keys[SDLK_LSHIFT] || keys[SDLK_RSHIFT]) {
+				soundPlayer.increase_volume();
+			} else {
+				soundPlayer.decrease_volume();
+			}
 		}
+				
 	} 
 	else if( event.type == SDL_MOUSEMOTION ){ 
 		/*
@@ -809,7 +842,7 @@ void scripting_for_player2( ) {
 }
 
 int work( void * ){
-	static long int ticks = 0;
+	static long int ticks = 1;
 
 	while( 1 ){
 		SDL_Delay( work_thread_anim_delay_msecs ); 
@@ -850,7 +883,7 @@ int work( void * ){
 		}
 
 		if (gameType == SINGLE_PLAYER) {
-			if (ticks%PLAYER2_THINK_AHEAD_TICKS == 0) {
+			if (ticks%(long int)PLAYER2_THINK_AHEAD_TICKS == 0) {
 				/**
 				 * Perform some predictive calculations on player2's
 				 * plan once every PLAYER2_THINK_AHEAD_TICKS ticks
@@ -944,17 +977,17 @@ void init_UI_items( ) {
 	float w = get_GW( ); 
 	float h = get_GH( ); 
 
-	panels[SCORE_PANEL].init( (int)SCORE_PANEL, w*90/100.0, h*10/100,  0.0, -h*40/100.0, 2*SMALL_EPSILON, \
+	panels[SCORE_PANEL].init( (int)SCORE_PANEL, w*100/100.0, h*15/100,  0.0, -h*42.5/100.0, 2*SMALL_EPSILON, \
 	"./resources/images/score_panel.png" );
 	panels[SCORE_PANEL].visible = true;
 	panels[SCORE_PANEL].enabled = true;
 
-	labels[SCORE_LABEL_P1].init( (int)SCORE_LABEL_P1, w*90/100.0, h*10/100,  -w*20/100.0, -h*40/100.0, 2.2*SMALL_EPSILON );
+	labels[SCORE_LABEL_P1].init( (int)SCORE_LABEL_P1, w*90/100.0, h*10/100,  -w*20/100.0, -h*42.5/100.0, 2.2*SMALL_EPSILON );
 	labels[SCORE_LABEL_P1].visible = true;
 	labels[SCORE_LABEL_P1].enabled = true;
 	labels[SCORE_LABEL_P1].setLabelText( "0" );
 	
-	labels[SCORE_LABEL_P2].init( (int)SCORE_LABEL_P1, w*90/100.0, h*10/100,  w*20/100.0, -h*40/100.0, 2.2*SMALL_EPSILON );
+	labels[SCORE_LABEL_P2].init( (int)SCORE_LABEL_P1, w*90/100.0, h*10/100,  w*20/100.0, -h*42.5/100.0, 2.2*SMALL_EPSILON );
 	labels[SCORE_LABEL_P2].visible = true;
 	labels[SCORE_LABEL_P2].enabled = true;
 	labels[SCORE_LABEL_P2].setLabelText( "0" );

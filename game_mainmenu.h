@@ -56,11 +56,26 @@ CButton buttons[NUM_BUTTONS];
 #define JOIN_GAME_LABEL 1
 #define ENTER_IP_LABEL 2
 #define ENTER_IP_LABEL2 3
-#define NUM_LABELS 4
-CLabel labels[NUM_LABELS];
+#define NUM_MULTIPLAYER_LABELS 4
+CLabel multiplayer_panel_labels[NUM_MULTIPLAYER_LABELS];
 
 #define MULTIPLAYEROPTIONS_PANEL 6
 CPanel multiplayerOptions_panel;
+
+
+#define MOUSE_SENSITIVITY_LABEL 0
+#define MOUSE_SENSITIVITY_LABEL2 1
+#define DIFFICULTY_LABEL 2
+#define DIFFICULTY_EASY_LABEL 3
+#define DIFFICULTY_NORMAL_LABEL 4
+#define DIFFICULTY_HARD_LABEL 5
+#define SOUND_VOLUME_LABEL 6
+#define SOUND_VOLUME_LABEL2 7
+#define NUM_SETTINGS_LABELS 8
+CLabel settings_panel_labels[NUM_SETTINGS_LABELS];
+
+#define SETTINGS_PANEL 7
+CPanel settings_panel;
 
 #define IPADDR_TEXTINPUT 0
 CTextInput ipaddr_textinput;
@@ -153,6 +168,9 @@ void drawMainMenu( ){
 	// draw the multiplayerOptions_panel : it'll get drawn if visible
 	multiplayerOptions_panel.draw( );
 
+	// draw the settings_panel : it'll get drawn if visible
+	settings_panel.draw( );
+
 	// fontPrinter.print( "Hello World. ", 30.0, 40.0, 25.0 ); // !!!!!!!!!! REMOVE THIS LINE LATER. 
 
 	glMatrixMode( GL_MODELVIEW );
@@ -234,17 +252,27 @@ void eventHandler( SDL_Event &event ){
 		x_mouse = -w/2.0 + event.motion.x; 
 		y_mouse = h/2.0 - event.motion.y; 
 
-		// label animation : when mouse hovers on it (pop up) 
+		// multiplayer panel labels animation : when mouse hovers on it (pop up) 
 		if ( multiplayerOptions_panel.enabled ) {
-			for ( int i=0; i<NUM_LABELS; i++ ) {
-				labels[i].hasFocus = false;
+			for ( int i=0; i<NUM_MULTIPLAYER_LABELS; i++ ) {
+				multiplayer_panel_labels[i].hasFocus = false;
 			}
-			for ( int i=0; i<NUM_LABELS; i++ ) {
-				if ( labels[i].pointLiesWithin( x_mouse, y_mouse, side_length__my_cursor/4.0 ) ) {
-					labels[i].hasFocus = true;
+			for ( int i=0; i<NUM_MULTIPLAYER_LABELS; i++ ) {
+				if ( multiplayer_panel_labels[i].pointLiesWithin( x_mouse, y_mouse, side_length__my_cursor/4.0 ) ) {
+					multiplayer_panel_labels[i].hasFocus = true;
 				}
 			}
-		} else {	// so, button anim happens only when multiplayerOptions_panel is not enabled
+		// settings panel labels animation : when mouse hovers on it (pop up) 
+		} else if (settings_panel.enabled) {
+			for (int i=0; i<NUM_SETTINGS_LABELS; i++) {
+				settings_panel_labels[i].hasFocus = false;
+			}
+			for (int i=0; i<NUM_SETTINGS_LABELS; i++) {
+				if ( settings_panel_labels[i].pointLiesWithin( x_mouse, y_mouse, side_length__my_cursor/4.0 ) ) {
+					settings_panel_labels[i].hasFocus = true;
+				}
+			}
+		} else {	// so, button anim happens only when multiplayerOptions_panel and settings_panel are not enabled
 			// button animation : when mouse hovers on it (pop up) 
 			for( int i=0; i<NUM_BUTTONS; i++ ){ 
 				buttons[i].hasFocus = false; 
@@ -267,17 +295,29 @@ void eventHandler( SDL_Event &event ){
 				return;
 			}
 		}
-		for ( int i=0; i<NUM_LABELS; i++ ) {
-			if ( labels[i].hasFocus && \
-			labels[i].pointLiesWithin( x_mouse, y_mouse, side_length__my_cursor/4.0 ) ) { 
-				labels[i].clickHandler( x_mouse, y_mouse );
+		for ( int i=0; i<NUM_MULTIPLAYER_LABELS; i++ ) {
+			if ( multiplayer_panel_labels[i].hasFocus && \
+			multiplayer_panel_labels[i].pointLiesWithin( x_mouse, y_mouse, side_length__my_cursor/4.0 ) ) { 
+				multiplayer_panel_labels[i].clickHandler( x_mouse, y_mouse );
 				return;
 			}
 		}
+		for ( int i=0; i<NUM_SETTINGS_LABELS; i++ ) {
+			if ( settings_panel_labels[i].hasFocus && \
+			settings_panel_labels[i].pointLiesWithin( x_mouse, y_mouse, side_length__my_cursor/4.0 ) ) { 
+				settings_panel_labels[i].clickHandler( x_mouse, y_mouse );
+				return;
+			}
+		}
+
 		multiplayerOptions_panel.visible = false;
 		multiplayerOptions_panel.enabled = false;
 		ipaddr_textinput.enabled = false;
 		multiplayerOptions_panel.disableChildren( );
+
+		settings_panel.visible = false;
+		settings_panel.enabled = false;
+		settings_panel.disableChildren( );
 	}
 
 
@@ -328,15 +368,15 @@ void singlePlayerButton_clickHandler( float x, float y ){
 
 void multiPlayerButton_clickHandler( float x, float y ){ 
 	multiplayerOptions_panel.enableChildren( );
-	labels[CREATE_SERVER_LABEL].enabled = true;
-	labels[CREATE_SERVER_LABEL].visible = true;
-	labels[JOIN_GAME_LABEL].enabled = true;
-	labels[JOIN_GAME_LABEL].visible = true;
+	multiplayer_panel_labels[CREATE_SERVER_LABEL].enabled = true;
+	multiplayer_panel_labels[CREATE_SERVER_LABEL].visible = true;
+	multiplayer_panel_labels[JOIN_GAME_LABEL].enabled = true;
+	multiplayer_panel_labels[JOIN_GAME_LABEL].visible = true;
 
-	labels[ENTER_IP_LABEL].visible = false;
-	labels[ENTER_IP_LABEL].enabled = false;
-	labels[ENTER_IP_LABEL2].visible = false;
-	labels[ENTER_IP_LABEL2].enabled = false;
+	multiplayer_panel_labels[ENTER_IP_LABEL].visible = false;
+	multiplayer_panel_labels[ENTER_IP_LABEL].enabled = false;
+	multiplayer_panel_labels[ENTER_IP_LABEL2].visible = false;
+	multiplayer_panel_labels[ENTER_IP_LABEL2].enabled = false;
 	ipaddr_textinput.enabled = false;
 	ipaddr_textinput.visible = false;
 
@@ -348,6 +388,16 @@ void multiPlayerButton_clickHandler( float x, float y ){
 }
 
 void settingsButton_clickHandler( float x, float y ){ 
+	settings_panel.enableChildren( );
+
+	settings_panel_labels[MOUSE_SENSITIVITY_LABEL].enabled = true;
+	settings_panel_labels[MOUSE_SENSITIVITY_LABEL].visible = true;
+	settings_panel_labels[MOUSE_SENSITIVITY_LABEL2].enabled = true;
+	settings_panel_labels[MOUSE_SENSITIVITY_LABEL2].visible = true;
+
+	settings_panel.visible = true;
+	settings_panel.enabled = true;
+
 
 	return; 
 }
@@ -378,15 +428,15 @@ void createServer_clickHandler( float x, float y ){
 
 void joinGame_clickHandler( float x, float y ){ 
 	multiplayerOptions_panel.disableChildren( );
-	labels[CREATE_SERVER_LABEL].enabled = false;
-	labels[CREATE_SERVER_LABEL].visible= false;
-	labels[JOIN_GAME_LABEL].enabled = false;
-	labels[JOIN_GAME_LABEL].visible = false;
+	multiplayer_panel_labels[CREATE_SERVER_LABEL].enabled = false;
+	multiplayer_panel_labels[CREATE_SERVER_LABEL].visible= false;
+	multiplayer_panel_labels[JOIN_GAME_LABEL].enabled = false;
+	multiplayer_panel_labels[JOIN_GAME_LABEL].visible = false;
 
-	labels[ENTER_IP_LABEL].enabled = true;
-	labels[ENTER_IP_LABEL].visible = true;
-	labels[ENTER_IP_LABEL2].enabled = true;
-	labels[ENTER_IP_LABEL2].visible = true;
+	multiplayer_panel_labels[ENTER_IP_LABEL].enabled = true;
+	multiplayer_panel_labels[ENTER_IP_LABEL].visible = true;
+	multiplayer_panel_labels[ENTER_IP_LABEL2].enabled = true;
+	multiplayer_panel_labels[ENTER_IP_LABEL2].visible = true;
 	ipaddr_textinput.enabled = true;
 	ipaddr_textinput.visible = true;
 
@@ -411,6 +461,22 @@ void ipaddr_inputDoneHandler( ) {
 
 	return;
 }
+
+void set_difficulty_level_easy( float, float ) {
+	difficulty_level = DIFFICULTY_LEVEL_EASY;
+	PLAYER2_THINK_AHEAD_TIME = PLAYER2_THINK_AHEAD_TIME_EASY;
+}
+
+void set_difficulty_level_medium( float, float ) {
+	difficulty_level = DIFFICULTY_LEVEL_MEDIUM;
+	PLAYER2_THINK_AHEAD_TIME = PLAYER2_THINK_AHEAD_TIME_MEDIUM;
+}
+
+void set_difficulty_level_hard( float, float ) {
+	difficulty_level = DIFFICULTY_LEVEL_HARD;
+	PLAYER2_THINK_AHEAD_TIME = PLAYER2_THINK_AHEAD_TIME_HARD;
+}
+
 
 void init( ){ 
 	mainMenu_width = get_GW( ); 
@@ -450,32 +516,102 @@ void init( ){
 	multiplayerOptions_panel.visible = false;
 	multiplayerOptions_panel.enabled = false;
 
-	labels[CREATE_SERVER_LABEL].init( (int)CREATE_SERVER_LABEL, w*20/100.0, h*10/100.0,  -w*14/100.0, h*10/100.0, 2.2*SMALL_EPSILON );
-	labels[CREATE_SERVER_LABEL].setLabelText( "Create Local Server" );
-	labels[CREATE_SERVER_LABEL].onClick = createServer_clickHandler;
+	multiplayer_panel_labels[CREATE_SERVER_LABEL].init( (int)CREATE_SERVER_LABEL, w*20/100.0, h*10/100.0,  -w*14/100.0, h*10/100.0, 2.2*SMALL_EPSILON );
+	multiplayer_panel_labels[CREATE_SERVER_LABEL].setLabelText( "Create Local Server" );
+	multiplayer_panel_labels[CREATE_SERVER_LABEL].onClick = createServer_clickHandler;
 
-	labels[JOIN_GAME_LABEL].init( (int)JOIN_GAME_LABEL, w*20/100.0, h*10/100.0,  -w*11/100.0, -h*10/100.0, 2.2*SMALL_EPSILON );
-	labels[JOIN_GAME_LABEL].setLabelText( "Join Remote Game" );
-	labels[JOIN_GAME_LABEL].onClick = joinGame_clickHandler;
+	multiplayer_panel_labels[JOIN_GAME_LABEL].init( (int)JOIN_GAME_LABEL, w*20/100.0, h*10/100.0,  -w*11/100.0, -h*10/100.0, 2.2*SMALL_EPSILON );
+	multiplayer_panel_labels[JOIN_GAME_LABEL].setLabelText( "Join Remote Game" );
+	multiplayer_panel_labels[JOIN_GAME_LABEL].onClick = joinGame_clickHandler;
 
-	labels[ENTER_IP_LABEL].init( (int)ENTER_IP_LABEL, w*20/100.0, h*10/100.0,  -w*14/100.0, h*10/100.0, 2.2*SMALL_EPSILON );
-	labels[ENTER_IP_LABEL].setLabelText( "Enter IP Address:" );
-	labels[ENTER_IP_LABEL].popUpAnim = false;
+	multiplayer_panel_labels[ENTER_IP_LABEL].init( (int)ENTER_IP_LABEL, w*20/100.0, h*10/100.0,  -w*14/100.0, h*10/100.0, 2.2*SMALL_EPSILON );
+	multiplayer_panel_labels[ENTER_IP_LABEL].setLabelText( "Enter IP Address:" );
+	multiplayer_panel_labels[ENTER_IP_LABEL].popUpAnim = false;
 
-	labels[ENTER_IP_LABEL2].init( (int)ENTER_IP_LABEL2, w*20/100.0, h*10/100.0,  -w*13/100.0, h*0.0/100.0, 2.2*SMALL_EPSILON );
-	labels[ENTER_IP_LABEL2].setLabelText( "___.___.___.___" );
-	labels[ENTER_IP_LABEL2].popUpAnim = false;
+	multiplayer_panel_labels[ENTER_IP_LABEL2].init( (int)ENTER_IP_LABEL2, w*20/100.0, h*10/100.0,  -w*13/100.0, h*0.0/100.0, 2.2*SMALL_EPSILON );
+	multiplayer_panel_labels[ENTER_IP_LABEL2].setLabelText( "___.___.___.___" );
+	multiplayer_panel_labels[ENTER_IP_LABEL2].popUpAnim = false;
 
 	ipaddr_textinput.init( (int)IPADDR_TEXTINPUT, w*20/100.0, h*10/100.0,  -w*13/100.0, -h*10/100.0, 2.2*SMALL_EPSILON );
 	ipaddr_textinput.onInputDone = ipaddr_inputDoneHandler;
 
-	multiplayerOptions_panel.addPanelObjek( &labels[CREATE_SERVER_LABEL] );
-	multiplayerOptions_panel.addPanelObjek( &labels[JOIN_GAME_LABEL] );
-	multiplayerOptions_panel.addPanelObjek( &labels[ENTER_IP_LABEL] );
-	multiplayerOptions_panel.addPanelObjek( &labels[ENTER_IP_LABEL2] );
+	multiplayerOptions_panel.addPanelObjek( &multiplayer_panel_labels[CREATE_SERVER_LABEL] );
+	multiplayerOptions_panel.addPanelObjek( &multiplayer_panel_labels[JOIN_GAME_LABEL] );
+	multiplayerOptions_panel.addPanelObjek( &multiplayer_panel_labels[ENTER_IP_LABEL] );
+	multiplayerOptions_panel.addPanelObjek( &multiplayer_panel_labels[ENTER_IP_LABEL2] );
 	multiplayerOptions_panel.addPanelObjek( &ipaddr_textinput );
-
 	// Done Init'ing multiplayerOptions_panel
+
+
+
+	// init the settings_panel
+	settings_panel.init( (int)SETTINGS_PANEL, w*60/100.0, h*60/100,  0.0, 0.0, 2*SMALL_EPSILON, \
+	"./resources/images/panel.png" );
+	settings_panel.visible = false;
+	settings_panel.enabled = false;
+
+	settings_panel_labels[MOUSE_SENSITIVITY_LABEL].init( (int)MOUSE_SENSITIVITY_LABEL, w*20/100.0, h*10/100.0,  -w*20/100.0, h*20/100.0, 2.2*SMALL_EPSILON );
+	settings_panel_labels[MOUSE_SENSITIVITY_LABEL].setLabelText( "Mouse Sensitivity: during the game" );
+	settings_panel_labels[MOUSE_SENSITIVITY_LABEL].popUpAnim = false;
+	settings_panel_labels[MOUSE_SENSITIVITY_LABEL].onClick = NULL;
+	settings_panel_labels[MOUSE_SENSITIVITY_LABEL].font.fontWidth  = 15;
+	settings_panel_labels[MOUSE_SENSITIVITY_LABEL].font.fontHeight = 25;
+
+	settings_panel_labels[MOUSE_SENSITIVITY_LABEL2].init( (int)MOUSE_SENSITIVITY_LABEL2, w*20/100.0, h*10/100.0,  -w*25/100.0, h*15/100.0, 2.2*SMALL_EPSILON );
+	settings_panel_labels[MOUSE_SENSITIVITY_LABEL2].setLabelText( "press 'm' to decrease / press 'M' to increase" );
+	settings_panel_labels[MOUSE_SENSITIVITY_LABEL2].popUpAnim = false;
+	settings_panel_labels[MOUSE_SENSITIVITY_LABEL2].onClick = NULL;
+	settings_panel_labels[MOUSE_SENSITIVITY_LABEL2].font.fontWidth  = 15;
+	settings_panel_labels[MOUSE_SENSITIVITY_LABEL2].font.fontHeight = 25;
+
+	settings_panel_labels[DIFFICULTY_LABEL].init( (int)DIFFICULTY_LABEL, w*20/100.0, h*10/100.0,  -w*10/100.0, h*5/100.0, 2.2*SMALL_EPSILON );
+	settings_panel_labels[DIFFICULTY_LABEL].setLabelText( "Difficulty Level:" );
+	settings_panel_labels[DIFFICULTY_LABEL].popUpAnim = false;
+	settings_panel_labels[DIFFICULTY_LABEL].onClick = NULL;
+	settings_panel_labels[DIFFICULTY_LABEL].font.fontWidth  = 15;
+	settings_panel_labels[DIFFICULTY_LABEL].font.fontHeight = 25;
+
+	settings_panel_labels[DIFFICULTY_EASY_LABEL].init( (int)DIFFICULTY_EASY_LABEL, w*4/100.0, h*10/100.0,  -w*20/100.0, h*0/100.0, \
+	2.2*SMALL_EPSILON );
+	settings_panel_labels[DIFFICULTY_EASY_LABEL].setLabelText( "easy" );
+	settings_panel_labels[DIFFICULTY_EASY_LABEL].popUpAnim = true;
+	settings_panel_labels[DIFFICULTY_EASY_LABEL].onClick = set_difficulty_level_easy;
+
+	settings_panel_labels[DIFFICULTY_NORMAL_LABEL].init( (int)DIFFICULTY_NORMAL_LABEL, w*4/100.0, h*10/100.0,  -w*5/100.0, h*0/100.0, \
+	2.2*SMALL_EPSILON );
+	settings_panel_labels[DIFFICULTY_NORMAL_LABEL].setLabelText( "medium" );
+	settings_panel_labels[DIFFICULTY_NORMAL_LABEL].popUpAnim = true;
+	settings_panel_labels[DIFFICULTY_NORMAL_LABEL].onClick = set_difficulty_level_medium;
+
+	settings_panel_labels[DIFFICULTY_HARD_LABEL].init( (int)DIFFICULTY_HARD_LABEL, w*4/100.0, h*10/100.0,  w*15/100.0, h*0/100.0, \
+	2.2*SMALL_EPSILON );
+	settings_panel_labels[DIFFICULTY_HARD_LABEL].setLabelText( "hard" );
+	settings_panel_labels[DIFFICULTY_HARD_LABEL].popUpAnim = true;
+	settings_panel_labels[DIFFICULTY_HARD_LABEL].onClick = set_difficulty_level_hard;
+
+	settings_panel_labels[SOUND_VOLUME_LABEL].init( (int)SOUND_VOLUME_LABEL, w*20/100.0, h*10/100.0,  -w*20/100.0, -h*12/100.0, 2.2*SMALL_EPSILON );
+	settings_panel_labels[SOUND_VOLUME_LABEL].setLabelText( "To Adjust Volume: during the game" );
+	settings_panel_labels[SOUND_VOLUME_LABEL].popUpAnim = false;
+	settings_panel_labels[SOUND_VOLUME_LABEL].onClick = NULL;
+	settings_panel_labels[SOUND_VOLUME_LABEL].font.fontWidth  = 15;
+	settings_panel_labels[SOUND_VOLUME_LABEL].font.fontHeight = 25;
+
+	settings_panel_labels[SOUND_VOLUME_LABEL2].init( (int)SOUND_VOLUME_LABEL2, w*20/100.0, h*10/100.0,  -w*25/100.0, -h*17/100.0, 2.2*SMALL_EPSILON );
+	settings_panel_labels[SOUND_VOLUME_LABEL2].setLabelText( "press 'v' to decrease / press 'V' to increase" );
+	settings_panel_labels[SOUND_VOLUME_LABEL2].popUpAnim = false;
+	settings_panel_labels[SOUND_VOLUME_LABEL2].onClick = NULL;
+	settings_panel_labels[SOUND_VOLUME_LABEL2].font.fontWidth  = 15;
+	settings_panel_labels[SOUND_VOLUME_LABEL2].font.fontHeight = 25;
+
+	settings_panel.addPanelObjek( &settings_panel_labels[MOUSE_SENSITIVITY_LABEL] );
+	settings_panel.addPanelObjek( &settings_panel_labels[MOUSE_SENSITIVITY_LABEL2] );
+	settings_panel.addPanelObjek( &settings_panel_labels[DIFFICULTY_LABEL] );
+	settings_panel.addPanelObjek( &settings_panel_labels[DIFFICULTY_EASY_LABEL] );
+	settings_panel.addPanelObjek( &settings_panel_labels[DIFFICULTY_NORMAL_LABEL] );
+	settings_panel.addPanelObjek( &settings_panel_labels[DIFFICULTY_HARD_LABEL] );
+	settings_panel.addPanelObjek( &settings_panel_labels[SOUND_VOLUME_LABEL] );
+	settings_panel.addPanelObjek( &settings_panel_labels[SOUND_VOLUME_LABEL2] );
+	// Done Init'ing settings_panel
 
 	SDL_ShowCursor( 0 );
 	side_length__my_cursor = w*5/100.0; 
