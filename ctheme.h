@@ -19,9 +19,10 @@ class CTheme {
 	float bat1Color[3];
 	float bat2Color[3];
 	float puckColor[3];
+	float backgroundColor[3];
 
 	CTheme( );
-	static void readThemesFromConf( );
+	static int readThemesFromConf( );
 
 };
 

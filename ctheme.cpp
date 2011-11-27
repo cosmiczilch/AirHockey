@@ -10,14 +10,23 @@ CTheme::CTheme( ) {
 	next = NULL;
 }
 
-void CTheme::readThemesFromConf( ) {
+int CTheme::readThemesFromConf( ) {
 	ifstream themeFile( "./resources/themes/themes.conf" );
 	string line;
 	CTheme *iter = theme_list_head;
+	string default_theme = "";
+	int index=0;
+	int current_theme;
 
 	while (themeFile.good( )) {
 		getline( themeFile, line );
 		if (line[0] == '#') { 	/* coment line, ignore */
+			continue;
+		}
+
+		/* the first non-comment line is the default/current theme */
+		if (default_theme == "") {
+			default_theme = line;
 			continue;
 		}
 
@@ -64,10 +73,20 @@ void CTheme::readThemesFromConf( ) {
 			iter->puckColor[z] = atof( line.c_str() );
 		}
 
+		for (int z=0; z<3; z++) {
+			getline( themeFile, line );
+			iter->backgroundColor[z] = atof( line.c_str() );
+		}
+
+		if (iter->themeName == default_theme) {
+			current_theme = index;
+		}
+
+		index++;
 		iter->next = NULL;
 
 	}
 
-	return;
+	return current_theme;
 }
 

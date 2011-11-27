@@ -9,7 +9,7 @@ void load_0() {
 	float matColors[4];
 	glPushMatrix();
 	glTranslatef(0.000000, -32.500000, 0.250000);
-  glRotatef(270.000028,0,0,1);
+	glRotatef(270.000028,0,0,1);
 	glScalef(2.499999, 24.999990, 2.250000);
 	matColors[0] = 0.500000;
 	matColors[1] = 0.500000;
@@ -60365,11 +60365,11 @@ void loadModel( ){
 }
 
 
-void drawModel( ){ 
-	GLfloat mat_ambient[] = { 0.2, 0.4, 0.4, 1.0 };
-	GLfloat mat_diffuse[] = { 0.2, 0.4, 0.4, 1.0 };
+void drawModel( float r, float g, float b ){ 
+	GLfloat mat_ambient[] = { r, g, b, 1.0 };
+	GLfloat mat_diffuse[] = { r, g, b, 1.0 };
 	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
-	GLfloat mat_shininess[] = { 1.0 };
+	GLfloat mat_shininess[] = { 64 };
 
 	glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
 	glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
@@ -60381,6 +60381,9 @@ void drawModel( ){
 	glCallList( guardRailR_dispList );
 	glCallList( guardRailL_dispList );
 	glCallList( board_dispList );
+
+	mat_shininess[0] = 1;
+	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
 	return; 
 }

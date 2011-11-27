@@ -1,20 +1,24 @@
 #include "cboard.h"
 
-void CBoard::init( float Width, float Length, float Thickness ){ 
+void CBoard::init( float Width, float Length, float Thickness, float R, float G, float B, string board_texture_image ){ 
 	width=Width; 
 	length=Length; 
 	thickness=Thickness; 
 
+	r = R;
+	g = G;
+	b = B;
+
 	loadModel( ); 		// make display display lists out of the board's 3D model
 
-	board_texture.makeTexture( "./resources/images/board.png", PNG );
+	board_texture.makeTexture( board_texture_image, PNG );
 
 	return; 
 }
 
 void CBoard::draw( ){ 
 	glColor3f( 0.3, 0.3, 0.3 );
-	drawModel( );
+	drawModel( r, g, b );
 
 	board_texture.bindTexture( );
 	glColor3f( 1.0, 1.0, 1.0 );

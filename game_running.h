@@ -19,7 +19,7 @@ namespace NSGame_Running{
 
 bool entered = false;
 
-int work_thread_anim_delay_msecs = 40.0; 
+int work_thread_anim_delay_msecs = 10.0; 
 
 GLuint filter;
 GLuint fogMode[]= { GL_EXP, GL_EXP2, GL_LINEAR };	// Storage For Three Types Of Fog
@@ -47,10 +47,10 @@ CLabel labels[NUM_LABELS_RUNNING];
  * MAX_BAT_SPEED_SUSP, the more pronounced the effects
  * of friction shall be. See compute_velocity()
  */
-#define MAX_BAT_SPEED 5.0			// empirical
-#define MAX_BAT_SPEED_SUSP 4.0			// empirical
-#define MAX_PUCK_SPEED_SUSP 11.0		// empirical
-#define MAX_PUCK_DECELERATION_FACTOR 1.0900 	// empirical
+#define MAX_BAT_SPEED (float)(work_thread_anim_delay_msecs/8.0)			// empirical: 5.0
+#define MAX_BAT_SPEED_SUSP (float)(work_thread_anim_delay_msecs/10.0)			// empirical: 4.0
+#define MAX_PUCK_SPEED_SUSP (work_thread_anim_delay_msecs/4.0)		// empirical: 10.0
+#define MAX_PUCK_DECELERATION_FACTOR 1.0500 	// empirical
 /**
  * used for mimicking friction; however, its more important
  * role is in limiting the puck's speed from becoming too
@@ -164,7 +164,7 @@ void renderScene( ){
 		entryFunction( );
 	}
 
-	glClearColor( 1.0, 1.0, 1.0, 1.0 );
+	glClearColor( currentTheme->backgroundColor[0], currentTheme->backgroundColor[1], currentTheme->backgroundColor[2], 1.0 );
 	glClearAccum( 0.0, 0.0, 0.0, 0.0 );
 	glClear(GL_ACCUM_BUFFER_BIT);
 
@@ -292,7 +292,7 @@ void clamp_angle( float *angle ) {
 void clamp_velocity( SMotion *motion, float max_speed ) {
 	if (motion->velocity.Length() > max_speed) {
 		motion->velocity.Normalize();
-		motion->velocity /= max_speed;
+		motion->velocity *= max_speed;
 	}
 
 	return;
@@ -582,12 +582,22 @@ void adjust_puck_decelaration_and_velocity( ) {
 
 float ticks_to_arrive_at( float curr_point, float dest_point, float velocity ) {
 	if (curr_point == dest_point) {
-		return 0.00001;
+		return 0.10011;
 	}
 	if (velocity == 0.0) {
 		return INFINITY;
 	}
-	return (abs( (dest_point-curr_point) / velocity)) ;
+	float time_left = (abs( (dest_point-curr_point) / velocity)) ;
+	/**
+	 * cap time_left to a max of 3seconds,
+	 * this is for the pathological "hung" case where the puck is moving
+	 * very slowly along y, and probably briskly along x
+	 */
+	if (time_left > 3000/work_thread_anim_delay_msecs) {
+		time_left = 3000/work_thread_anim_delay_msecs;
+	}
+
+	return time_left;
 }
 
 void make_plan( ) {
@@ -735,7 +745,9 @@ void execute_plan( ) {
 			me->motion.velocity[VX] = (predicted_x_of_puck - me->x) / time_left;
 			
 			printf( "\n SIMPLE_INTERCEPT" );
-			break;
+			if (time_left < 5000/work_thread_anim_delay_msecs)
+				break;
+			// else, fall through
 
 		case AMBITIOUS_INTERCEPT:
 			/**
@@ -827,7 +839,28 @@ void execute_plan( ) {
 			break;
 	}
 
-	clamp_velocity( &me->motion, MAX_BAT_SPEED_SUSP * AGGRESSION/AGGRESSION_MAX );
+	if (player2_planning.plan_type == AMBITIOUS_PASS_THE_PUCK && puck.motion.velocity[VY] == 0.0) {
+		switch (difficulty_level) {
+			case DIFFICULTY_LEVEL_HARD : clamp_velocity( &me->motion, MAX_BAT_SPEED_SUSP * AGGRESSION/AGGRESSION_MAX/8.0 );
+						     break;
+			default : clamp_velocity( &me->motion, MAX_BAT_SPEED_SUSP * AGGRESSION/AGGRESSION_MAX/12.0 );
+						     break;
+		}
+	} else if (player2_planning.plan_type == AMBITIOUS_PASS_THE_PUCK && puck.motion.velocity[VY] == 0.0) {
+		switch (difficulty_level) {
+			case DIFFICULTY_LEVEL_HARD : clamp_velocity( &me->motion, MAX_BAT_SPEED_SUSP * AGGRESSION/AGGRESSION_MAX/2.0 );
+						     break;
+			default : clamp_velocity( &me->motion, MAX_BAT_SPEED_SUSP * AGGRESSION/AGGRESSION_MAX/3.0 );
+						     break;
+		}
+	} else {
+		switch (difficulty_level) {
+			case DIFFICULTY_LEVEL_HARD : clamp_velocity( &me->motion, MAX_BAT_SPEED_SUSP * AGGRESSION/AGGRESSION_MAX );
+						     break;
+			default : clamp_velocity( &me->motion, MAX_BAT_SPEED_SUSP * AGGRESSION/AGGRESSION_MAX/2.0 );
+						     break;
+		}
+	}
 
 	return;
 }
@@ -842,7 +875,7 @@ void scripting_for_player2( ) {
 }
 
 int work( void * ){
-	static long int ticks = 1;
+	static long int ticks = 0;
 
 	while( 1 ){
 		SDL_Delay( work_thread_anim_delay_msecs ); 
@@ -978,7 +1011,7 @@ void init_UI_items( ) {
 	float h = get_GH( ); 
 
 	panels[SCORE_PANEL].init( (int)SCORE_PANEL, w*100/100.0, h*15/100,  0.0, -h*42.5/100.0, 2*SMALL_EPSILON, \
-	"./resources/images/score_panel.png" );
+	currentTheme->scorePanelImage );
 	panels[SCORE_PANEL].visible = true;
 	panels[SCORE_PANEL].enabled = true;
 

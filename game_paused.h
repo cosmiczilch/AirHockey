@@ -170,7 +170,7 @@ void renderScene( ){
 		entryFunction( );
 	}
 
-	glClearColor( 1.0, 1.0, 1.0, 1.0 );
+	glClearColor( currentTheme->backgroundColor[0], currentTheme->backgroundColor[1], currentTheme->backgroundColor[2], 1.0 );
 	glClearAccum( 0.0, 0.0, 0.0, 0.0 );
 	glClear(GL_ACCUM_BUFFER_BIT);
 

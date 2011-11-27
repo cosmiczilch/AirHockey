@@ -50,6 +50,7 @@ CFontPrinter fontPrinter;
 CSoundPlayer soundPlayer;
 
 CTheme *theme_list_head;
+int current_theme = 0;
 CTheme *currentTheme;
 
 void (*renderScene) ( void );

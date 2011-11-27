@@ -11,6 +11,9 @@
 #include "models.h"
 #include "ctexture.h"
 
+#include <string>
+using namespace std;
+
 #define BOARD_LENGTH 60
 #define BOARD_WIDTH 40
 #define BOARD_THICKNESS 5
@@ -19,11 +22,12 @@
 class CBoard{ 
 	public: 
 	float width, length, thickness; 
+	float r, g, b;
 	float goalPost_width; 
 	CTexture board_texture;
 
 	public: 
-	void init( float Width, float Length, float Thickness );
+	void init( float Width, float Length, float Thickness, float R, float G, float B, string board_texture_image );
 	void draw( );
 
 };

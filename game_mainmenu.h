@@ -108,7 +108,6 @@ void exitFunction( ) {
 }
 
 void startSounds( ) {
-	soundPlayer.loadSoundEffect( SOUND_GOAL_SCORED, "./resources/sounds/goal.wav" );
 	soundPlayer.playMusic( );
 
 	return;

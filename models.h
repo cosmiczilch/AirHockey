@@ -11,7 +11,7 @@
 
 
 void loadModel();
-void drawModel( ); 
+void drawModel( float r, float g, float b ); 
 
 void load_0();	//object: goalPostF
 void load_1();	//object: goalPostN

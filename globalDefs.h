@@ -18,7 +18,7 @@
 
 #define BUFFER_FACTOR_FOR_COLLISSION_DETECTION 1.0
 
-#define BAT_MASS 4.25
+#define BAT_MASS 0.25
 #define PUCK_MASS 0.10
 
 /* Network Defs       : **********************************************************************************************************************/ 
