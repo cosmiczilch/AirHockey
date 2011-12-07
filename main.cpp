@@ -33,6 +33,7 @@ exit
 #include "game_mainmenu.h"
 #include "game_paused.h"
 #include "game_running.h"
+#include "game_over.h"
 #include "poller.h"
 #include "networking.h"
 #include "main.h"
@@ -157,7 +158,7 @@ void initObjeks( ){
 	BOARD_THICKNESS/2.0 );
 	puck.init( 0.0, 0.0, 0.0,  currentTheme->puckColor[0], currentTheme->puckColor[1], currentTheme->puckColor[2] );
 
-	fontPrinter.init( 20.0, 30.0, SColor( 1.0, 1.0, 1.0, 1.0 ), "./resources/fonts/Verdana.png" );
+	fontPrinter.init( 20.0, 30.0, SColor( 1.0, 1.0, 1.0, 1.0 ), "./resources/fonts/VerdanaTransparent.png" );
 
 	return; 
 }
@@ -166,6 +167,7 @@ void initGameStates( ){
 	NSGame_MainMenu::init( );
 	NSGame_Paused::init( );
 	NSGame_Running::init( );
+	NSGame_Over::init( );
 
 	return;
 }
@@ -191,6 +193,13 @@ int main( int argc, char *argv[] ){
 	SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
 	SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
 	SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
+
+#if ANTI_ALIASING
+	SDL_GL_SetAttribute(SDL_GL_ACCUM_RED_SIZE, 8);
+	SDL_GL_SetAttribute(SDL_GL_ACCUM_GREEN_SIZE, 8);
+	SDL_GL_SetAttribute(SDL_GL_ACCUM_BLUE_SIZE, 8);
+	SDL_GL_SetAttribute(SDL_GL_ACCUM_ALPHA_SIZE, 8);
+#endif
 
 	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);

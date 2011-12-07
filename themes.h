@@ -21,6 +21,7 @@ void set_current_theme ( int index ) {
 	soundPlayer.haltAllSounds( );
 	soundPlayer.loadMusic( currentTheme->backgroundMusic );
 	soundPlayer.loadSoundEffect( SOUND_TIKTIK, currentTheme->tiktikSound );
+	soundPlayer.loadSoundEffect( SOUND_GOAL_SCORED, "./resources/sounds/goal.wav" );
 
 
 	return;

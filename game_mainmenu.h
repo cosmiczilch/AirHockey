@@ -97,12 +97,25 @@ void entryFunction( ) {
 	entered = true;
 	startSounds( );
 
+	/**
+	 * reset board's rim's color to white in mainmenu,
+	 * lest it jar too much against the mainmenu colors
+	 */
+	board.r = 0.8; board.g = 0.8; board.b = 0.8; 
+
 	return;
 }
 
 
 void exitFunction( ) {
 	entered = false;
+	/**
+	 * reset board's color's from currentTheme
+	 * see entryFunction() above
+	 */
+	board.r = currentTheme->boardColor[RED];
+	board.g = currentTheme->boardColor[GREEN];
+	board.b = currentTheme->boardColor[BLUE];
 
 	return;
 }

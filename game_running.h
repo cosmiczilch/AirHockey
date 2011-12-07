@@ -19,14 +19,22 @@ namespace NSGame_Running{
 
 bool entered = false;
 
-int work_thread_anim_delay_msecs = 10.0; 
+/* !!!!!!!!! See also entryFunction() */
+int work_thread_anim_delay_msecs = 10; 
+long int ticks = 0;
+/* !!!!!!!!! See also entryFunction() */
 
 GLuint filter;
 GLuint fogMode[]= { GL_EXP, GL_EXP2, GL_LINEAR };	// Storage For Three Types Of Fog
 GLuint fogfilter= 1;					// Which Fog To Use
 GLfloat fogColor[4]= {0.7f, 0.7f, 0.7f, 1.0f};		// Fog Color
 
-int numTimes_for_accum_buffer = 1; 
+#if ANTI_ALIASING
+int numTimes_for_accum_buffer = 5; 			// Should be 1, or a multiple of 5
+#else
+int numTimes_for_accum_buffer = 1; 			// Should be 1, or a multiple of 5
+#endif
+float jitter_amount = 0.05;
 
 #define SOMEWHERE_FAR_AWAY 20000
 #define SMALL_EPSILON 10.0
@@ -38,7 +46,8 @@ CPanel panels[NUM_PANELS_RUNNING];
 
 #define SCORE_LABEL_P1 0
 #define SCORE_LABEL_P2 1
-#define NUM_LABELS_RUNNING 2
+#define TIMER_LABEL 2
+#define NUM_LABELS_RUNNING 3
 CLabel labels[NUM_LABELS_RUNNING];
 /* Done UI items */
 
@@ -47,8 +56,8 @@ CLabel labels[NUM_LABELS_RUNNING];
  * MAX_BAT_SPEED_SUSP, the more pronounced the effects
  * of friction shall be. See compute_velocity()
  */
-#define MAX_BAT_SPEED (float)(work_thread_anim_delay_msecs/8.0)			// empirical: 5.0
-#define MAX_BAT_SPEED_SUSP (float)(work_thread_anim_delay_msecs/10.0)			// empirical: 4.0
+#define MAX_BAT_SPEED (float)(work_thread_anim_delay_msecs/6.0)			// empirical: 5.0
+#define MAX_BAT_SPEED_SUSP (float)(work_thread_anim_delay_msecs/8.0)			// empirical: 4.0
 #define MAX_PUCK_SPEED_SUSP (work_thread_anim_delay_msecs/4.0)		// empirical: 10.0
 #define MAX_PUCK_DECELERATION_FACTOR 1.0500 	// empirical
 /**
@@ -108,6 +117,7 @@ struct Planning {
 #define AGGRESSION 100
 #define AGGRESSION_MAX 100
 
+int timer_secs, timer_minutes;
 
 void copy_bat1_to_packet( CPacketData* pdata );
 void copy_puck_to_packet( CPacketData* pdata );
@@ -130,6 +140,11 @@ void entryFunction ( ) {
 	SDL_WM_GrabInput( SDL_GRAB_ON );
 #endif
 
+	work_thread_anim_delay_msecs = 10.0;
+	ticks = 0;
+
+	timer_secs = 0;
+	timer_minutes = 0;
 
 	return;
 }
@@ -139,6 +154,8 @@ void exitFunction ( ) {
 
 	SDL_ShowCursor( 1 );
 	SDL_WM_GrabInput( SDL_GRAB_OFF );
+
+	gameState = OVER;
 
 	return;
 }
@@ -158,6 +175,50 @@ void initCamera( ){
 	return;
 }
 
+void jitter_the_camera( int i ) {
+	switch (i) {
+		case 0 :
+			// do nothing;
+			break;
+
+		case 1 :
+			game_Running.camera1->sidewind( UP, jitter_amount );
+			break;
+		case 2 :
+			game_Running.camera1->sidewind( DOWN, jitter_amount );
+			break;
+		case 3 :
+			game_Running.camera1->sidewind( LEFT, jitter_amount );
+			break;
+		case 4 :
+			game_Running.camera1->sidewind( RIGHT, jitter_amount );
+			break;
+	}
+
+	return;
+}
+
+void unjitter_the_camera( int i ) {
+	switch (i) {
+		case 0 :
+			// do nothing;
+			break;
+
+		case 1 :
+			game_Running.camera1->sidewind( UP, -1 * jitter_amount );
+			break;
+		case 2 :
+			game_Running.camera1->sidewind( DOWN, -1 * jitter_amount );
+			break;
+		case 3 :
+			game_Running.camera1->sidewind( LEFT, -1 * jitter_amount );
+			break;
+		case 4 :
+			game_Running.camera1->sidewind( RIGHT, -1 * jitter_amount );
+			break;
+	}
+	return;
+}
 
 void renderScene( ){ 
 	if (!entered) {
@@ -165,13 +226,27 @@ void renderScene( ){
 	}
 
 	glClearColor( currentTheme->backgroundColor[0], currentTheme->backgroundColor[1], currentTheme->backgroundColor[2], 1.0 );
+	// glClearColor( 1.0, 1.0, 1.0, 1.0 );
 	glClearAccum( 0.0, 0.0, 0.0, 0.0 );
 	glClear(GL_ACCUM_BUFFER_BIT);
 
 	for( int i=0; i<numTimes_for_accum_buffer; i++ ){ 
 		glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT ); 
 
+		jitter_the_camera( i );
+
 		game_Running.camera1->writeLookAt( true );
+
+		/*
+		switch (i) {
+			case 0 : glTranslatef( jitter_amount, 0, 0 ); break;
+			case 1 : glTranslatef( -jitter_amount, 0, 0 ); break;
+			case 2 : glTranslatef( 0, jitter_amount, 0 ); break;
+			case 3 : glTranslatef( 0, -jitter_amount, 0 ); break;
+		}
+		*/
+
+		// game_Running.camera1->rotateAboutAxis( ((i%4)>1)?X_AXIS:Z_AXIS, 4.8*(i%2?-1.0:1.0) ); 
 
 		glMatrixMode( GL_MODELVIEW ); 
 		glLoadIdentity( );
@@ -182,6 +257,8 @@ void renderScene( ){
 		puck.draw( );
 
 		glAccum(GL_ACCUM, 1.0/numTimes_for_accum_buffer);
+
+		unjitter_the_camera( i );
 	}
 	glAccum(GL_RETURN, 1.0);
 
@@ -193,6 +270,8 @@ void renderScene( ){
 	labels[SCORE_LABEL_P1].setLabelText( temp_string );
 	sprintf( temp_string, "%d", player2.numGoals );
 	labels[SCORE_LABEL_P2].setLabelText( temp_string );
+	sprintf( temp_string, "%d:%d", timer_minutes, timer_secs );
+	labels[TIMER_LABEL].setLabelText( temp_string );
 
 	for (int i=0; i<NUM_PANELS_RUNNING; i++) {
 		panels[i].draw( );
@@ -234,7 +313,7 @@ void eventHandler( SDL_Event &event ){
 	}
 	else if( event.type == SDL_KEYDOWN ){ 
 		if( event.key.keysym.sym == SDLK_ESCAPE ){ 
-			exit(0);
+			exitFunction( );
 			return;
 		} else if( event.key.keysym.sym == SDLK_UP ){ 
 			// do something
@@ -698,7 +777,11 @@ float predict_x_of_puck( float time_left ) {
 }
 
 float predict_y_of_puck( float time_left ) {
-	float predicted_y_of_puck = puck.y + puck.motion.velocity[VY] * time_left;
+	/**
+	 * predicted y of the leading edge of the puck : hence the PUCK_RADIUS
+	 */
+	float predicted_y_of_puck = puck.y + puck.motion.velocity[VY] * time_left +\
+					PUCK_RADIUS;
 
 	return predicted_y_of_puck;
 }
@@ -875,12 +958,27 @@ void scripting_for_player2( ) {
 }
 
 int work( void * ){
-	static long int ticks = 0;
 
 	while( 1 ){
 		SDL_Delay( work_thread_anim_delay_msecs ); 
 		if (gameState != RUNNING) {
 			continue;
+		}
+
+		/* update clock */
+		if ((int)(ticks*work_thread_anim_delay_msecs)%1000 == 0) { // every second
+			timer_secs++;
+			if (timer_secs > 60) {
+				timer_minutes++;
+				timer_secs = 0;
+			}
+		}
+
+		/* check if game_over */
+		if (player1.numGoals >= 5 ||
+		    player2.numGoals >= 5 ||
+		    timer_minutes    >= 3) {
+			exitFunction();
 		}
 
 		/* animation */
@@ -1025,8 +1123,14 @@ void init_UI_items( ) {
 	labels[SCORE_LABEL_P2].enabled = true;
 	labels[SCORE_LABEL_P2].setLabelText( "0" );
 
+	labels[TIMER_LABEL].init( (int)TIMER_LABEL, w*90/100.0, h*10/100,  w*0/100.0, -h*42.5/100.0, 2.2*SMALL_EPSILON );
+	labels[TIMER_LABEL].visible = true;
+	labels[TIMER_LABEL].enabled = true;
+	labels[TIMER_LABEL].setLabelText( "0:0" );
+
 	panels[SCORE_PANEL].addPanelObjek( &labels[SCORE_LABEL_P1] );
 	panels[SCORE_PANEL].addPanelObjek( &labels[SCORE_LABEL_P2] );
+	panels[SCORE_PANEL].addPanelObjek( &labels[TIMER_LABEL] );
 
 	return;
 }

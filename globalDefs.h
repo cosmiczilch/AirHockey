@@ -3,6 +3,8 @@
 
 #define DEBUG 0
 
+#define ANTI_ALIASING 0
+
 #define PI 3.14159265358979323846264
 #define INFINITY 99999
 

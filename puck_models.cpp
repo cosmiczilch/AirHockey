@@ -14,9 +14,9 @@ void load_puck( float r, float g, float b ) {
 	matColors[2] = b;
 	matColors[3] = 1.000000;
 	glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,matColors);
-	matColors[0] = 1.000000;
-	matColors[1] = 1.000000;
-	matColors[2] = 1.000000;
+	matColors[0] = r;
+	matColors[1] = g;
+	matColors[2] = b;
 	matColors[3] = 1.000000;
 	glMaterialfv(GL_FRONT_AND_BACK,GL_SPECULAR,matColors);
 	glBegin(GL_QUADS);

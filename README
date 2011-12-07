@@ -106,6 +106,8 @@ V# Add seqNum support
 ## Esc should come back to main_menu, or something
 ## Add in game timer, and end condition for game on numbre of goals
 
+## Change board_color to 1.0 in mainmenu
+
 ## Finally, in production build :
 	debug = 1
 	MOUSE_SENSITIVITY = 1/7.0
@@ -113,6 +115,8 @@ V# Add seqNum support
 
 ## !! Decrease work_thread_anim_delay_msecs to 20
 ## Check the time taken for work_thread_anim_delay_msecs to execute in ms
+
+## Change puck's specular highlights and change disney's puck color to black
 
 #############################################################################################################################
 

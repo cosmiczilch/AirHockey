@@ -268,10 +268,25 @@ void CCamera::sidewind( int direction, float amount ) {
 
     switch( direction ) {
     	case UP :
-    	case DOWN :
-    	case LEFT :
-    	case RIGHT :
+		camera_position[2] += amount;
+		z_eye += amount;
 		break;
+
+    	case DOWN :
+		camera_position[2] -= amount;
+		z_eye -= amount;
+		break;
+
+    	case LEFT :
+		camera_position[0] -= amount;
+		x_eye -= amount;
+		break;
+
+    	case RIGHT :
+		camera_position[0] += amount;
+		x_eye += amount;
+		break;
+
     }
 	
     redraw = true;
