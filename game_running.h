@@ -1047,10 +1047,10 @@ int work( void * ){
 			 * we are in a MULTI_PLAYER game, 
 			 * constantly send coordinates data
 			 */
-			if (ticks%3 == 0) {
+			if (ticks%10 == 0) {
 				/*
 				 * Don't want to inundate the network w/ too many packets.
-				 * Send 1 packet every 3*work_thread_anim_delay_msecs
+				 * Send 1 packet every 10*work_thread_anim_delay_msecs
 				 */
 				CPacketData pdata;
 				pdata.header = PLAYER1_COORD_PACKET_HEADER;

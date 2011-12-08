@@ -75,7 +75,7 @@ void initNetworking ( ) {
 
 static 
 bool check_for_packets ( ) {
-	static long int seqNum = -1;
+	static int seqNum = -1;
 
 	if (SDLNet_UDP_Recv(socketDesc, receiving_udpPacket)) {
 		printf("\nSomething has come ...");
@@ -94,9 +94,12 @@ bool check_for_packets ( ) {
 			printf( "\nIgnoring out of order packet" );
 			return false;
 		}
-		printf( "\t%ld", seqNum );
+		printf( "\t%d", seqNum );
 
 		seqNum = packetData->seqNum;
+		if (seqNum >= 32764) {
+			seqNum = -1;
+		}
 
 		return true;
 	}		
@@ -106,7 +109,7 @@ bool check_for_packets ( ) {
 
 void marshall_and_send_packet ( ) {
 	static CPacketData packetData;
-	static long int seqNum = 0;
+	static int seqNum = 0;
 
 	if ( network_queue.empty() ) {
 		return;
@@ -115,13 +118,16 @@ void marshall_and_send_packet ( ) {
 	/* Start marshalling */
 	packetData = (CPacketData)network_queue.remove( );
 	packetData.seqNum = seqNum++;
+	if (seqNum > 32764) {
+		seqNum = 0;
+	}
 
 	sending_udpPacket->data = (Uint8 *)&packetData;
 	sending_udpPacket->address = remote_machine_ip;
 
 	sending_udpPacket->len = sizeof( packetData );
 
-	printf( "\nSending some Packet to remote_machine ...\t%ld", seqNum );
+	printf( "\nSending some Packet to remote_machine ...\t%d", seqNum );
 	SDLNet_UDP_Send(socketDesc, -1, sending_udpPacket); /* This sets the p->channel */
 	/* Send the packet */
 

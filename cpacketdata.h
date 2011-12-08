@@ -19,8 +19,8 @@
 class CPacketData {
 	public:
 	int header;
-	bool ack_packet;
-	long int seqNum;
+	int ack_packet;
+	int seqNum;
 
 	/**
 	 * player1's bat data
