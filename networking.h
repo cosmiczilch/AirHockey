@@ -131,7 +131,7 @@ void marshall_and_send_packet ( ) {
 	SDLNet_UDP_Send(socketDesc, -1, sending_udpPacket); /* This sets the p->channel */
 	/* Send the packet */
 
-	printf( "\tNum packets backed up for sending : %d", network_queue.queue_to_send.size() );
+	printf( "\tNum packets backed up for sending : %d", (int)network_queue.queue_to_send.size() );
 
 	return;
 }
