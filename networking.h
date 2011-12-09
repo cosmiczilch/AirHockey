@@ -24,8 +24,8 @@ UDPpacket *receiving_udpPacket;       /* Pointer to packet memory  */
 
 IPaddress remote_machine_ip;
 
-int network_sending_thread_delay_msecs = 100;
-int network_receiving_thread_delay_msecs = 100;
+int network_sending_thread_delay_msecs = 10;
+int network_receiving_thread_delay_msecs = 10;
 
 extern CNetwork_Queue network_queue;
 

@@ -26,6 +26,13 @@ CNetwork_Queue network_queue;
 bool are_we_the_server = false;
 bool must_initiate_new_mp_game = false;
 bool new_mp_game_initiated = false;
+/*
+ * skip 'n' packets coming from the remote client,
+ * this is to avoid the deja-vu when the puck crosses
+ * the mid-line
+ */
+#define SKIP_N_PACKETS 2
+int skip_n_packets = 0;
 /* network stuff */
 
 CBoard board;

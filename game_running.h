@@ -145,6 +145,8 @@ void entryFunction ( ) {
 
 	timer_secs = 0;
 	timer_minutes = 0;
+	player1.numGoals = 0;
+	player2.numGoals = 0;
 
 	return;
 }
@@ -1047,17 +1049,17 @@ int work( void * ){
 			 * we are in a MULTI_PLAYER game, 
 			 * constantly send coordinates data
 			 */
-			if (ticks%10 == 0) {
+			if (ticks%2 == 0) {
 				/*
 				 * Don't want to inundate the network w/ too many packets.
-				 * Send 1 packet every 10*work_thread_anim_delay_msecs
+				 * Send 1 packet every 2*work_thread_anim_delay_msecs
 				 */
 				CPacketData pdata;
 				pdata.header = PLAYER1_COORD_PACKET_HEADER;
 				pdata.ack_packet = false;
 				copy_bat1_to_packet( &pdata );
 
-				if (puck_was_on_my_side && collission_handled) {
+				if (puck_was_on_my_side) { // && collission_handled) {
 					/*
 					 * we handled the collission and
 					 * we are responsible for sending the position of the puck as well
@@ -1071,7 +1073,9 @@ int work( void * ){
 				}
 
 
-				network_queue.insert( pdata );
+				if (!(puck_was_on_my_side && !PUCK_IS_ON_MY_SIDE)) {
+					network_queue.insert( pdata );
+				}
 			}
 		}
 
