@@ -54,14 +54,14 @@ badd +16 globalDefs.h
 badd +1 Utilities.cpp
 badd +813 ~/Documents/Notes/Burts2/542571/50039277_WAFL_check_log.txt
 badd +1 puck_models.cpp
-badd +1 models.cpp
+badd +60389 models.cpp
 badd +1 puck_models.h
 badd +1 csoundplayer.h
 badd +1 csoundplayer.cpp
 badd +1 ctheme.h
 badd +1 ctheme.cpp
 badd +1 themes.h
-badd +0 game_over.h
+badd +1 game_over.h
 args main.cpp main.h game_mainmenu.h game_paused.h game_running.h networking.h cnetwork_queue.cpp cnetwork_queue.h makefile cpacketdata.h cnetwork_queue.o
 edit main.cpp
 set splitbelow splitright
@@ -164,38 +164,64 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-166
+150
 normal zo
-175
+167
 normal zo
-180
+176
 normal zo
-185
+181
 normal zo
-197
+186
 normal zo
-210
+188
 normal zo
-265
+211
 normal zo
-266
+221
 normal zo
-265
+238
 normal zo
-185
-normal zo
-265
+186
 normal zo
 266
 normal zo
-265
+267
 normal zo
-let s:l = 202 - ((25 * winheight(0) + 24) / 48)
+266
+normal zo
+150
+normal zo
+167
+normal zo
+176
+normal zo
+181
+normal zo
+186
+normal zo
+188
+normal zo
+211
+normal zo
+221
+normal zo
+238
+normal zo
+186
+normal zo
+266
+normal zo
+267
+normal zo
+266
+normal zo
+let s:l = 161 - ((16 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-202
-normal! 02l
+161
+normal! 095l
 tabedit main.h
 set splitbelow splitright
 set nosplitbelow
@@ -298,12 +324,14 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 41 - ((0 * winheight(0) + 24) / 48)
+56
+normal zo
+let s:l = 58 - ((33 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-41
-normal! 0
+58
+normal! 02l
 tabedit makefile
 set splitbelow splitright
 set nosplitbelow
@@ -406,7 +434,7 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 4 - ((3 * winheight(0) + 24) / 48)
+let s:l = 4 - ((2 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -524,156 +552,156 @@ normal zo
 normal zo
 110
 normal zo
-112
+118
 normal zo
-110
+125
 normal zo
-123
+140
 normal zo
-130
+171
 normal zo
-145
+140
 normal zo
-176
+189
 normal zo
-145
+211
 normal zo
-194
+212
 normal zo
-216
+211
 normal zo
-217
+238
 normal zo
-216
+239
 normal zo
-240
+242
 normal zo
-241
+243
 normal zo
-244
+247
 normal zo
-245
+251
 normal zo
-249
+255
 normal zo
-253
+242
 normal zo
-257
+259
 normal zo
-244
+266
 normal zo
-261
+267
 normal zo
-268
+270
 normal zo
-269
+271
 normal zo
-272
+270
 normal zo
-273
+277
 normal zo
-272
+280
 normal zo
-279
+281
 normal zo
-282
+280
 normal zo
-283
+287
 normal zo
-282
+290
 normal zo
-289
+291
 normal zo
-292
+290
 normal zo
-293
+266
 normal zo
-292
+259
 normal zo
-268
+300
 normal zo
-261
-normal zo
-302
+301
 normal zo
 303
 normal zo
-305
+301
 normal zo
-303
-normal zo
-310
-normal zo
-312
+308
 normal zo
 310
 normal zo
+308
+normal zo
+315
+normal zo
 317
 normal zo
-319
+315
 normal zo
-317
+322
 normal zo
-302
+326
 normal zo
-240
+300
 normal zo
-339
+238
 normal zo
-340
+345
 normal zo
-342
+346
 normal zo
-340
+348
 normal zo
-339
+346
 normal zo
-352
+345
 normal zo
-357
+358
 normal zo
-359
+363
 normal zo
-357
+365
 normal zo
-368
+363
 normal zo
-381
+374
 normal zo
-402
+384
 normal zo
-417
+405
 normal zo
-422
+420
 normal zo
-428
+425
 normal zo
-441
+431
 normal zo
-458
+442
 normal zo
 459
 normal zo
-458
+460
 normal zo
-477
+459
 normal zo
-482
+475
 normal zo
-487
+480
 normal zo
-493
+485
+normal zo
+491
 normal zo
 637
 normal zo
 25
 normal zo
-let s:l = 232 - ((24 * winheight(0) + 24) / 48)
+let s:l = 328 - ((41 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-232
-normal! 0
+328
+normal! 09l
 tabedit game_paused.h
 set splitbelow splitright
 set nosplitbelow
@@ -725,7 +753,7 @@ setlocal formatexpr=
 setlocal formatoptions=tcq
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal grepprg=
-setlocal iminsert=2
+setlocal iminsert=0
 setlocal imsearch=2
 setlocal include=
 setlocal includeexpr=
@@ -776,12 +804,26 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 1 - ((0 * winheight(0) + 24) / 48)
+19
+normal zo
+64
+normal zo
+81
+normal zo
+64
+normal zo
+92
+normal zo
+92
+normal zo
+19
+normal zo
+let s:l = 89 - ((0 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+89
+normal! 01l
 tabedit game_running.h
 set splitbelow splitright
 set nosplitbelow
@@ -886,1608 +928,346 @@ setlocal wrap
 setlocal wrapmargin=0
 16
 normal zo
-127
+154
 normal zo
-159
+170
 normal zo
-174
+185
 normal zo
-175
+186
 normal zo
-194
+185
 normal zo
-195
+208
 normal zo
-203
+209
 normal zo
-233
+208
 normal zo
-237
+230
 normal zo
-194
+231
 normal zo
-247
+242
 normal zo
-248
+252
 normal zo
-254
+242
 normal zo
-257
+293
 normal zo
-247
+297
 normal zo
-265
+230
 normal zo
-268
+307
 normal zo
-271
+308
 normal zo
-272
+314
 normal zo
-283
+317
 normal zo
-292
+307
 normal zo
-272
-normal zo
-271
-normal zo
-300
-normal zo
-301
-normal zo
-300
-normal zo
-265
-normal zo
-320
-normal zo
-321
-normal zo
-320
-normal zo
-328
-normal zo
-329
-normal zo
-328
-normal zo
-337
-normal zo
-338
-normal zo
-349
-normal zo
-360
-normal zo
-370
-normal zo
-380
-normal zo
-337
-normal zo
-393
-normal zo
-396
-normal zo
-406
-normal zo
-393
-normal zo
-417
-normal zo
-418
-normal zo
-432
-normal zo
-441
-normal zo
-444
-normal zo
-441
-normal zo
-454
-normal zo
-459
-normal zo
-465
-normal zo
-471
-normal zo
-477
-normal zo
-484
-normal zo
-491
-normal zo
-494
-normal zo
-501
-normal zo
-504
-normal zo
-501
-normal zo
-491
-normal zo
-417
-normal zo
-519
-normal zo
-528
-normal zo
-532
-normal zo
-538
-normal zo
-545
-normal zo
-552
-normal zo
-562
-normal zo
-528
-normal zo
-572
-normal zo
-575
-normal zo
-583
-normal zo
-572
-normal zo
-600
-normal zo
-601
-normal zo
-600
-normal zo
-619
-normal zo
-620
-normal zo
-623
-normal zo
-627
-normal zo
-632
-normal zo
-619
-normal zo
-639
-normal zo
-642
-normal zo
-644
-normal zo
-642
-normal zo
-655
-normal zo
-656
-normal zo
-666
-normal zo
-666
-normal zo
-669
-normal zo
-679
-normal zo
-682
-normal zo
-666
-normal zo
-697
-normal zo
-705
-normal zo
-697
-normal zo
-655
-normal zo
-639
-normal zo
-724
-normal zo
-726
-normal zo
-729
-normal zo
-724
-normal zo
-736
-normal zo
-737
-normal zo
-736
-normal zo
-747
-normal zo
-750
-normal zo
-758
-normal zo
-765
-normal zo
-771
-normal zo
-793
-normal zo
-810
-normal zo
-825
-normal zo
-846
-normal zo
-862
-normal zo
-771
-normal zo
-882
-normal zo
-883
-normal zo
-890
-normal zo
-897
-normal zo
-882
-normal zo
-747
-normal zo
-908
-normal zo
-917
-normal zo
-919
-normal zo
-921
-normal zo
-926
-normal zo
-928
-normal zo
-926
-normal zo
-937
-normal zo
-943
-normal zo
-956
-normal zo
-963
-normal zo
-964
-normal zo
-963
-normal zo
-973
-normal zo
-974
-normal zo
-975
-normal zo
-974
-normal zo
-981
-normal zo
-973
-normal zo
-990
-normal zo
-996
-normal zo
-1002
-normal zo
-1003
-normal zo
-1007
-normal zo
-1008
-normal zo
-1017
-normal zo
-1018
-normal zo
-1017
-normal zo
-1007
-normal zo
-1002
-normal zo
-919
-normal zo
-917
-normal zo
-1042
-normal zo
-1054
-normal zo
-1064
-normal zo
-1096
-normal zo
-1109
-normal zo
-175
-normal zo
-197
-normal zo
-198
-normal zo
-206
-normal zo
-236
-normal zo
-240
-normal zo
-197
-normal zo
-250
-normal zo
-251
-normal zo
-257
-normal zo
-260
-normal zo
-250
-normal zo
-268
-normal zo
-271
-normal zo
-274
-normal zo
-275
-normal zo
-286
-normal zo
-295
-normal zo
-275
-normal zo
-274
-normal zo
-303
-normal zo
-304
-normal zo
-303
-normal zo
-268
-normal zo
-323
-normal zo
-324
-normal zo
-323
+325
 normal zo
 331
 normal zo
 332
 normal zo
-331
-normal zo
-340
-normal zo
-341
+343
 normal zo
 352
 normal zo
-363
+332
 normal zo
-373
+331
 normal zo
-383
+360
 normal zo
-340
+361
 normal zo
-396
+360
 normal zo
-399
+325
+normal zo
+380
+normal zo
+381
+normal zo
+380
+normal zo
+388
+normal zo
+389
+normal zo
+388
+normal zo
+397
+normal zo
+398
 normal zo
 409
 normal zo
-396
-normal zo
 420
 normal zo
-421
+430
 normal zo
-435
+397
 normal zo
-444
+453
 normal zo
-447
-normal zo
-444
-normal zo
-457
-normal zo
-462
-normal zo
-468
-normal zo
-474
-normal zo
-480
-normal zo
-487
-normal zo
-494
-normal zo
-497
-normal zo
-504
-normal zo
-507
-normal zo
-504
-normal zo
-494
-normal zo
-420
-normal zo
-522
-normal zo
-531
-normal zo
-535
-normal zo
-541
-normal zo
-548
-normal zo
-555
-normal zo
-565
-normal zo
-531
-normal zo
-575
-normal zo
-578
-normal zo
-586
-normal zo
-575
-normal zo
-603
-normal zo
-604
-normal zo
-603
-normal zo
-622
-normal zo
-623
-normal zo
-626
-normal zo
-630
-normal zo
-635
-normal zo
-622
-normal zo
-642
-normal zo
-645
-normal zo
-647
-normal zo
-645
-normal zo
-658
-normal zo
-659
-normal zo
-669
-normal zo
-669
-normal zo
-672
-normal zo
-682
-normal zo
-685
-normal zo
-669
-normal zo
-700
-normal zo
-708
-normal zo
-700
-normal zo
-658
-normal zo
-642
-normal zo
-727
-normal zo
-729
-normal zo
-732
-normal zo
-727
-normal zo
-739
-normal zo
-740
-normal zo
-739
-normal zo
-750
-normal zo
-753
-normal zo
-761
-normal zo
-768
-normal zo
-774
-normal zo
-796
-normal zo
-813
-normal zo
-828
-normal zo
-849
-normal zo
-865
-normal zo
-774
-normal zo
-885
-normal zo
-886
-normal zo
-893
-normal zo
-900
-normal zo
-885
-normal zo
-750
-normal zo
-911
-normal zo
-920
-normal zo
-922
-normal zo
-924
-normal zo
-929
-normal zo
-931
-normal zo
-929
-normal zo
-940
-normal zo
-946
-normal zo
-959
-normal zo
-966
-normal zo
-967
-normal zo
-966
-normal zo
-976
-normal zo
-977
-normal zo
-978
-normal zo
-977
-normal zo
-984
-normal zo
-976
-normal zo
-993
-normal zo
-999
-normal zo
-1005
-normal zo
-1006
-normal zo
-1010
-normal zo
-1011
-normal zo
-1020
-normal zo
-1021
-normal zo
-1020
-normal zo
-1010
-normal zo
-1005
-normal zo
-922
-normal zo
-920
-normal zo
-1045
-normal zo
-1057
-normal zo
-1067
-normal zo
-1099
-normal zo
-1112
-normal zo
-174
-normal zo
-197
-normal zo
-198
-normal zo
-219
-normal zo
-220
-normal zo
-228
-normal zo
-258
-normal zo
-262
-normal zo
-219
-normal zo
-272
-normal zo
-273
-normal zo
-279
-normal zo
-282
-normal zo
-272
-normal zo
-290
-normal zo
-293
-normal zo
-296
-normal zo
-297
-normal zo
-308
-normal zo
-317
-normal zo
-297
-normal zo
-296
-normal zo
-325
-normal zo
-326
-normal zo
-325
-normal zo
-290
-normal zo
-345
-normal zo
-346
-normal zo
-345
-normal zo
-353
-normal zo
-354
-normal zo
-353
-normal zo
-362
-normal zo
-363
-normal zo
-374
-normal zo
-385
-normal zo
-395
-normal zo
-405
-normal zo
-362
-normal zo
-418
-normal zo
-421
-normal zo
-431
-normal zo
-418
-normal zo
-442
-normal zo
-443
-normal zo
-457
+456
 normal zo
 466
 normal zo
-469
+453
 normal zo
-466
+477
 normal zo
-479
+478
 normal zo
-484
+492
 normal zo
-490
+501
 normal zo
-496
+504
 normal zo
-502
+501
 normal zo
-509
-normal zo
-516
+514
 normal zo
 519
 normal zo
-526
+525
 normal zo
-529
+531
 normal zo
-526
-normal zo
-516
-normal zo
-442
+537
 normal zo
 544
 normal zo
-553
+551
 normal zo
-557
+554
 normal zo
-563
+561
 normal zo
-570
+564
 normal zo
-577
+561
 normal zo
-587
+551
 normal zo
-553
+477
 normal zo
-597
+579
 normal zo
-600
+588
 normal zo
-608
+592
 normal zo
-597
+598
 normal zo
-625
+605
 normal zo
-626
+612
 normal zo
-625
+622
 normal zo
-644
+588
 normal zo
-645
+632
 normal zo
-648
+635
 normal zo
-652
+643
 normal zo
-657
+632
 normal zo
-644
+660
 normal zo
-664
+661
 normal zo
-667
+660
 normal zo
-669
-normal zo
-667
+679
 normal zo
 680
 normal zo
-681
+683
 normal zo
-691
+687
 normal zo
-691
+692
 normal zo
-694
+679
+normal zo
+699
+normal zo
+702
 normal zo
 704
 normal zo
-707
+702
 normal zo
-691
+715
 normal zo
-722
+716
 normal zo
-730
+726
 normal zo
-722
+726
 normal zo
-680
+729
 normal zo
-664
+739
 normal zo
-749
+742
 normal zo
-751
+726
 normal zo
-754
+757
 normal zo
-749
+765
 normal zo
-761
+757
 normal zo
-762
+715
 normal zo
-761
+699
 normal zo
-772
+784
 normal zo
-775
+786
 normal zo
-783
+789
 normal zo
-790
+784
 normal zo
 796
+normal zo
+797
+normal zo
+796
+normal zo
+807
+normal zo
+810
 normal zo
 818
 normal zo
-835
+825
 normal zo
-850
+831
 normal zo
-871
+885
 normal zo
-887
-normal zo
-796
-normal zo
-907
-normal zo
-908
-normal zo
-915
+906
 normal zo
 922
 normal zo
-907
-normal zo
-772
-normal zo
-933
+831
 normal zo
 942
 normal zo
-944
+943
 normal zo
-946
+950
 normal zo
-951
+957
 normal zo
-953
+942
 normal zo
-951
-normal zo
-962
+807
 normal zo
 968
 normal zo
+977
+normal zo
+979
+normal zo
 981
 normal zo
-988
-normal zo
-989
+986
 normal zo
 988
 normal zo
-998
+986
 normal zo
-999
+997
 normal zo
-1000
+1003
 normal zo
-999
+1016
 normal zo
-1006
+1023
 normal zo
-998
+1024
 normal zo
-1015
-normal zo
-1021
-normal zo
-1027
-normal zo
-1028
-normal zo
-1032
+1023
 normal zo
 1033
 normal zo
-1042
+1034
 normal zo
-1043
+1035
 normal zo
-1042
+1034
 normal zo
-1032
+1041
 normal zo
-1027
+1033
 normal zo
-944
+1050
 normal zo
-942
+1056
+normal zo
+1062
 normal zo
 1067
 normal zo
-1079
+1068
 normal zo
-1089
+1077
 normal zo
-1121
+1078
 normal zo
-1134
+1077
 normal zo
-197
+1067
 normal zo
-219
+1062
 normal zo
-220
+979
 normal zo
-229
+977
 normal zo
-236
+1102
 normal zo
-272
+1114
 normal zo
-276
+1124
 normal zo
-229
+1159
 normal zo
-272
+1172
 normal zo
-276
+1124
 normal zo
-286
+1159
 normal zo
-287
-normal zo
-293
-normal zo
-296
-normal zo
-286
-normal zo
-304
-normal zo
-307
-normal zo
-310
-normal zo
-311
-normal zo
-322
-normal zo
-331
-normal zo
-311
-normal zo
-310
-normal zo
-339
-normal zo
-340
-normal zo
-339
-normal zo
-304
-normal zo
-359
-normal zo
-360
-normal zo
-359
-normal zo
-367
-normal zo
-368
-normal zo
-367
-normal zo
-376
-normal zo
-377
-normal zo
-388
-normal zo
-399
-normal zo
-409
-normal zo
-419
-normal zo
-376
-normal zo
-432
-normal zo
-435
-normal zo
-445
-normal zo
-432
-normal zo
-456
-normal zo
-457
-normal zo
-471
-normal zo
-480
-normal zo
-483
-normal zo
-480
-normal zo
-493
-normal zo
-498
-normal zo
-504
-normal zo
-510
-normal zo
-516
-normal zo
-523
-normal zo
-530
-normal zo
-533
-normal zo
-540
-normal zo
-543
-normal zo
-540
-normal zo
-530
-normal zo
-456
-normal zo
-558
-normal zo
-567
-normal zo
-571
-normal zo
-577
-normal zo
-584
-normal zo
-591
-normal zo
-601
-normal zo
-567
-normal zo
-611
-normal zo
-614
-normal zo
-622
-normal zo
-611
-normal zo
-639
-normal zo
-640
-normal zo
-639
-normal zo
-658
-normal zo
-659
-normal zo
-662
-normal zo
-666
-normal zo
-671
-normal zo
-658
-normal zo
-678
-normal zo
-681
-normal zo
-683
-normal zo
-681
-normal zo
-694
-normal zo
-695
-normal zo
-705
-normal zo
-705
-normal zo
-708
-normal zo
-718
-normal zo
-721
-normal zo
-705
-normal zo
-736
-normal zo
-744
-normal zo
-736
-normal zo
-694
-normal zo
-678
-normal zo
-763
-normal zo
-765
-normal zo
-768
-normal zo
-763
-normal zo
-775
-normal zo
-776
-normal zo
-775
-normal zo
-786
-normal zo
-789
-normal zo
-797
-normal zo
-804
-normal zo
-810
-normal zo
-832
-normal zo
-849
-normal zo
-864
-normal zo
-885
-normal zo
-901
-normal zo
-810
-normal zo
-921
-normal zo
-922
-normal zo
-929
-normal zo
-936
-normal zo
-921
-normal zo
-786
-normal zo
-947
-normal zo
-956
-normal zo
-958
-normal zo
-960
-normal zo
-965
-normal zo
-967
-normal zo
-965
-normal zo
-976
-normal zo
-982
-normal zo
-995
-normal zo
-1002
-normal zo
-1003
-normal zo
-1002
-normal zo
-1012
-normal zo
-1013
-normal zo
-1014
-normal zo
-1013
-normal zo
-1020
-normal zo
-1012
-normal zo
-1029
-normal zo
-1035
-normal zo
-1041
-normal zo
-1042
-normal zo
-1046
-normal zo
-1047
-normal zo
-1056
-normal zo
-1057
-normal zo
-1056
-normal zo
-1046
-normal zo
-1041
-normal zo
-958
-normal zo
-956
-normal zo
-1081
-normal zo
-1093
-normal zo
-1103
-normal zo
-1135
-normal zo
-1148
-normal zo
-219
-normal zo
-286
-normal zo
-287
-normal zo
-293
-normal zo
-296
-normal zo
-286
-normal zo
-304
-normal zo
-307
-normal zo
-310
-normal zo
-311
-normal zo
-322
-normal zo
-331
-normal zo
-311
-normal zo
-310
-normal zo
-339
-normal zo
-340
-normal zo
-339
-normal zo
-304
-normal zo
-359
-normal zo
-360
-normal zo
-359
-normal zo
-367
-normal zo
-368
-normal zo
-367
-normal zo
-376
-normal zo
-377
-normal zo
-388
-normal zo
-399
-normal zo
-409
-normal zo
-419
-normal zo
-376
-normal zo
-432
-normal zo
-435
-normal zo
-445
-normal zo
-432
-normal zo
-456
-normal zo
-457
-normal zo
-471
-normal zo
-480
-normal zo
-483
-normal zo
-480
-normal zo
-493
-normal zo
-498
-normal zo
-504
-normal zo
-510
-normal zo
-516
-normal zo
-523
-normal zo
-530
-normal zo
-533
-normal zo
-540
-normal zo
-543
-normal zo
-540
-normal zo
-530
-normal zo
-456
-normal zo
-558
-normal zo
-567
-normal zo
-571
-normal zo
-577
-normal zo
-584
-normal zo
-591
-normal zo
-601
-normal zo
-567
-normal zo
-611
-normal zo
-614
-normal zo
-622
-normal zo
-611
-normal zo
-639
-normal zo
-640
-normal zo
-639
-normal zo
-658
-normal zo
-659
-normal zo
-662
-normal zo
-666
-normal zo
-671
-normal zo
-658
-normal zo
-678
-normal zo
-681
-normal zo
-683
-normal zo
-681
-normal zo
-694
-normal zo
-695
-normal zo
-705
-normal zo
-705
-normal zo
-708
-normal zo
-718
-normal zo
-721
-normal zo
-705
-normal zo
-736
-normal zo
-744
-normal zo
-736
-normal zo
-694
-normal zo
-678
-normal zo
-763
-normal zo
-765
-normal zo
-768
-normal zo
-763
-normal zo
-775
-normal zo
-776
-normal zo
-775
-normal zo
-786
-normal zo
-789
-normal zo
-797
-normal zo
-804
-normal zo
-810
-normal zo
-832
-normal zo
-849
-normal zo
-864
-normal zo
-885
-normal zo
-901
-normal zo
-810
-normal zo
-921
-normal zo
-922
-normal zo
-929
-normal zo
-936
-normal zo
-921
-normal zo
-786
-normal zo
-947
-normal zo
-956
-normal zo
-958
-normal zo
-960
-normal zo
-965
-normal zo
-967
-normal zo
-965
-normal zo
-976
-normal zo
-982
-normal zo
-995
-normal zo
-1002
-normal zo
-1003
-normal zo
-1002
-normal zo
-1012
-normal zo
-1013
-normal zo
-1014
-normal zo
-1013
-normal zo
-1020
-normal zo
-1012
-normal zo
-1029
-normal zo
-1035
-normal zo
-1041
-normal zo
-1042
-normal zo
-1046
-normal zo
-1047
-normal zo
-1056
-normal zo
-1057
-normal zo
-1056
-normal zo
-1046
-normal zo
-1041
-normal zo
-958
-normal zo
-956
-normal zo
-1081
-normal zo
-1093
-normal zo
-1103
-normal zo
-1135
-normal zo
-1148
+1172
 normal zo
 16
 normal zo
-let s:l = 32 - ((16 * winheight(0) + 24) / 48)
+let s:l = 1151 - ((39 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-32
-normal! 032l
+1151
+normal! 018l
 tabedit game_over.h
 set splitbelow splitright
 set nosplitbelow
@@ -2857,73 +1637,49 @@ normal zo
 normal zo
 77
 normal zo
-107
+110
 normal zo
-111
-normal zo
-107
-normal zo
-133
-normal zo
-135
-normal zo
-138
+110
 normal zo
 139
 normal zo
-138
+141
 normal zo
-158
+144
 normal zo
-159
+144
 normal zo
-158
+164
 normal zo
-170
+164
 normal zo
-171
-normal zo
-177
-normal zo
-184
-normal zo
-185
-normal zo
-184
+176
 normal zo
 177
 normal zo
-170
+183
 normal zo
-135
+183
 normal zo
-133
+176
 normal zo
-211
+141
 normal zo
-223
+139
 normal zo
-233
+217
 normal zo
-234
+229
 normal zo
-235
+239
 normal zo
-234
+240
 normal zo
-233
+240
 normal zo
-244
+239
 normal zo
-245
-normal zo
-246
-normal zo
-245
-normal zo
-244
-normal zo
-let s:l = 130 - ((6 * winheight(0) + 22) / 44)
+let s:l = 130 - ((7 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -3032,7 +1788,7 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 1 - ((0 * winheight(0) + 22) / 44)
+let s:l = 1 - ((0 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -3141,7 +1897,7 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 8 - ((0 * winheight(0) + 22) / 44)
+let s:l = 8 - ((0 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -3252,7 +2008,7 @@ setlocal wrap
 setlocal wrapmargin=0
 13
 normal zo
-let s:l = 1 - ((0 * winheight(0) + 22) / 44)
+let s:l = 1 - ((0 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -3376,7 +2132,7 @@ normal zo
 normal zo
 52
 normal zo
-let s:l = 17 - ((0 * winheight(0) + 22) / 44)
+let s:l = 17 - ((0 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -3488,12 +2244,12 @@ setlocal wrap
 setlocal wrapmargin=0
 8
 normal zo
-let s:l = 12 - ((0 * winheight(0) + 22) / 44)
+let s:l = 15 - ((14 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-12
-normal! 013l
+15
+normal! 016l
 lcd ~/sandbox/Projects/AirHockey
 tabedit ~/sandbox/Projects/AirHockey/ctheme.cpp
 set splitbelow splitright
@@ -3602,20 +2358,20 @@ setlocal wrapmargin=0
 normal zo
 21
 normal zo
-56
+59
 normal zo
-61
+64
 normal zo
 21
 normal zo
 13
 normal zo
-let s:l = 30 - ((0 * winheight(0) + 22) / 44)
+let s:l = 51 - ((34 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-30
-normal! 011l
+51
+normal! 016l
 lcd ~/sandbox/Projects/AirHockey
 tabedit ~/sandbox/Projects/AirHockey/themes.h
 set splitbelow splitright
@@ -3726,7 +2482,7 @@ normal zo
 normal zo
 11
 normal zo
-let s:l = 13 - ((0 * winheight(0) + 22) / 44)
+let s:l = 13 - ((0 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -3841,9 +2597,13 @@ setlocal wrapmargin=0
 normal zo
 80025
 normal zo
+80027
+normal zo
 80025
 normal zo
-let s:l = 21 - ((20 * winheight(0) + 24) / 48)
+80042
+normal zo
+let s:l = 21 - ((17 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -3953,123 +2713,11 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 16 - ((12 * winheight(0) + 24) / 48)
+let s:l = 1 - ((0 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-16
-normal! 059l
-lcd ~/sandbox/Projects/AirHockey
-tabedit ~/sandbox/Projects/AirHockey/models.cpp
-set splitbelow splitright
-set nosplitbelow
-set nosplitright
-wincmd t
-set winheight=1 winwidth=1
-argglobal
-edit ~/sandbox/Projects/AirHockey/models.cpp
-setlocal keymap=
-setlocal noarabic
-setlocal autoindent
-setlocal balloonexpr=
-setlocal nobinary
-setlocal bufhidden=
-setlocal buflisted
-setlocal buftype=
-setlocal nocindent
-setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
-setlocal cinoptions=
-setlocal cinwords=if,else,while,do,for,switch
-setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
-setlocal commentstring=/*%s*/
-setlocal complete=.,w,b,u,t,i
-setlocal completefunc=ClangComplete
-setlocal nocopyindent
-setlocal nocursorcolumn
-setlocal nocursorline
-setlocal define=
-setlocal dictionary=
-setlocal nodiff
-setlocal equalprg=
-setlocal errorformat=
-setlocal noexpandtab
-if &filetype != 'cpp'
-setlocal filetype=cpp
-endif
-setlocal foldcolumn=0
-setlocal foldenable
-setlocal foldexpr=0
-setlocal foldignore=#
-setlocal foldlevel=2
-setlocal foldmarker={{{,}}}
-set foldmethod=syntax
-setlocal foldmethod=syntax
-setlocal foldminlines=1
-setlocal foldnestmax=20
-setlocal foldtext=foldtext()
-setlocal formatexpr=
-setlocal formatoptions=tcq
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
-setlocal grepprg=
-setlocal iminsert=0
-setlocal imsearch=2
-setlocal include=
-setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
-setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=
-setlocal nolinebreak
-setlocal nolisp
-setlocal nolist
-setlocal makeprg=
-setlocal matchpairs=(:),{:},[:]
-setlocal nomodeline
-setlocal modifiable
-setlocal nrformats=octal,hex
-set number
-setlocal nonumber
-setlocal numberwidth=4
-setlocal omnifunc=ClangComplete
-setlocal path=
-setlocal nopreserveindent
-setlocal nopreviewwindow
-setlocal quoteescape=\\
-setlocal noreadonly
-setlocal norightleft
-setlocal rightleftcmd=search
-setlocal noscrollbind
-setlocal shiftwidth=8
-setlocal noshortname
-setlocal nosmartindent
-setlocal softtabstop=0
-setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
-setlocal spellfile=
-setlocal spelllang=en
-setlocal statusline=
-setlocal suffixesadd=
-setlocal swapfile
-setlocal synmaxcol=3000
-if &syntax != 'cpp'
-setlocal syntax=cpp
-endif
-setlocal tabstop=8
-setlocal tags=
-setlocal textwidth=0
-setlocal thesaurus=
-setlocal nowinfixheight
-setlocal nowinfixwidth
-setlocal wrap
-setlocal wrapmargin=0
-60368
-normal zo
-let s:l = 60389 - ((47 * winheight(0) + 24) / 48)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-60389
+1
 normal! 0
 lcd ~/sandbox/Projects/AirHockey
 tabnext 1

@@ -77,6 +77,9 @@ CLabel settings_panel_labels[NUM_SETTINGS_LABELS];
 #define SETTINGS_PANEL 7
 CPanel settings_panel;
 
+#define CREDITS_PANEL 8
+CPanel credits_panel;
+
 #define IPADDR_TEXTINPUT 0
 CTextInput ipaddr_textinput;
 
@@ -108,14 +111,9 @@ void entryFunction( ) {
 
 
 void exitFunction( ) {
+	gameState = PAUSED;
+
 	entered = false;
-	/**
-	 * reset board's color's from currentTheme
-	 * see entryFunction() above
-	 */
-	board.r = currentTheme->boardColor[RED];
-	board.g = currentTheme->boardColor[GREEN];
-	board.b = currentTheme->boardColor[BLUE];
 
 	return;
 }
@@ -183,6 +181,9 @@ void drawMainMenu( ){
 	// draw the settings_panel : it'll get drawn if visible
 	settings_panel.draw( );
 
+	// draw the credits_panel : it'll get drawn if visible
+	credits_panel.draw( );
+
 	// fontPrinter.print( "Hello World. ", 30.0, 40.0, 25.0 ); // !!!!!!!!!! REMOVE THIS LINE LATER. 
 
 	glMatrixMode( GL_MODELVIEW );
@@ -227,6 +228,9 @@ void renderScene( ){
 	glLoadIdentity( );
 
 	board.draw( );
+	player1.bat.draw( );
+	player2.bat.draw( );
+	puck.draw( );
 
 	drawMainMenu( );
 
@@ -321,6 +325,18 @@ void eventHandler( SDL_Event &event ){
 				return;
 			}
 		}
+		if (multiplayerOptions_panel.pointLiesWithin( x_mouse, y_mouse, side_length__my_cursor/4.0 )) {
+			multiplayerOptions_panel.clickHandler( x_mouse, y_mouse );
+			return;
+		}
+		if (settings_panel.pointLiesWithin( x_mouse, y_mouse, side_length__my_cursor/4.0 )) {
+			settings_panel.clickHandler( x_mouse, y_mouse );
+			return;
+		}
+		if (credits_panel.pointLiesWithin( x_mouse, y_mouse, side_length__my_cursor/4.0 )) {
+			credits_panel.clickHandler( x_mouse, y_mouse );
+			return;
+		}
 
 		multiplayerOptions_panel.visible = false;
 		multiplayerOptions_panel.enabled = false;
@@ -330,6 +346,9 @@ void eventHandler( SDL_Event &event ){
 		settings_panel.visible = false;
 		settings_panel.enabled = false;
 		settings_panel.disableChildren( );
+
+		credits_panel.visible = false;
+		credits_panel.enabled = false;
 	}
 
 
@@ -366,12 +385,9 @@ void resolve_ip( string ip ) {
 
 
 void singlePlayerButton_clickHandler( float x, float y ){ 
-	exitFunction( );
-
-	gameState = PAUSED;
 	gameType = SINGLE_PLAYER;
 
-	initObjeks( );
+	exitFunction( );
 
 	// cleanUp( );
 
@@ -415,6 +431,8 @@ void settingsButton_clickHandler( float x, float y ){
 }
 
 void creditsButton_clickHandler( float x, float y ){ 
+	credits_panel.visible = true;
+	credits_panel.enabled = true;
 
 	return; 
 }
@@ -426,14 +444,12 @@ void exitButton_clickHandler( float x, float y ){
 }
 
 void createServer_clickHandler( float x, float y ){
-	exitFunction( );
-
 	are_we_the_server = true;
 
-	gameState = PAUSED;
 	gameType = MULTI_PLAYER;
 
-	initObjeks( );
+	exitFunction( );
+
 
 	return; 
 }
@@ -460,11 +476,8 @@ void ipaddr_inputDoneHandler( ) {
 
 		resolve_ip( ipaddr_textinput.inputText );
 
-		gameState = PAUSED;
 		gameType = MULTI_PLAYER;
 		are_we_the_server = false;
-
-		initObjeks( );
 
 		exitFunction( );
 
@@ -490,7 +503,7 @@ void set_difficulty_level_hard( float, float ) {
 }
 
 
-void init( ){ 
+void init( ){
 	mainMenu_width = get_GW( ); 
 	mainMenu_height = get_GH( ); 
 	mainMenu_backgroundImageTexture.makeTexture( "./resources/images/mainMenu_background.png", PNG );
@@ -527,6 +540,7 @@ void init( ){
 	"./resources/images/panel.png" );
 	multiplayerOptions_panel.visible = false;
 	multiplayerOptions_panel.enabled = false;
+	multiplayerOptions_panel.onClick = NULL;
 
 	multiplayer_panel_labels[CREATE_SERVER_LABEL].init( (int)CREATE_SERVER_LABEL, w*20/100.0, h*10/100.0,  -w*14/100.0, h*10/100.0, 2.2*SMALL_EPSILON );
 	multiplayer_panel_labels[CREATE_SERVER_LABEL].setLabelText( "Create Local Server" );
@@ -561,6 +575,7 @@ void init( ){
 	"./resources/images/panel.png" );
 	settings_panel.visible = false;
 	settings_panel.enabled = false;
+	settings_panel.onClick = NULL;
 
 	settings_panel_labels[MOUSE_SENSITIVITY_LABEL].init( (int)MOUSE_SENSITIVITY_LABEL, w*20/100.0, h*10/100.0,  -w*20/100.0, h*20/100.0, 2.2*SMALL_EPSILON );
 	settings_panel_labels[MOUSE_SENSITIVITY_LABEL].setLabelText( "Mouse Sensitivity: during the game" );
@@ -624,6 +639,13 @@ void init( ){
 	settings_panel.addPanelObjek( &settings_panel_labels[SOUND_VOLUME_LABEL] );
 	settings_panel.addPanelObjek( &settings_panel_labels[SOUND_VOLUME_LABEL2] );
 	// Done Init'ing settings_panel
+
+	credits_panel.init( (int)CREDITS_PANEL, w*60/100.0, h*60/100,  0.0, 0.0, 2*SMALL_EPSILON, \
+	"./resources/images/credits_panel.png" );
+	credits_panel.visible = false;
+	credits_panel.enabled = false;
+	credits_panel.onClick = NULL;
+
 
 	SDL_ShowCursor( 0 );
 	side_length__my_cursor = w*5/100.0; 

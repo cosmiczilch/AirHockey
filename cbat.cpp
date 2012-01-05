@@ -5,6 +5,10 @@ void CBat::init( float x, float y, float z, float r, float g, float b ){
 	this->sy = this->y = y; 
 	this->sz = this->z = z; 
 
+	this->sx *= 3.0;
+	this->sy *= 3.0;
+	this->sz *= 3.0;
+
 	this->r = r; 
 	this->g = g; 
 	this->b = b; 
@@ -44,10 +48,17 @@ void CBat::draw( ){
 }
 
 // translate the bat along x-axis by amount "deltaX"
-void CBat::translate_X( float deltaX, bool shadow_cordinates_uh){
+void CBat::translate_X( float deltaX, int player_id, bool shadow_cordinates_uh){
 	float *px = shadow_cordinates_uh? &x : &sx;
 
 	*px += deltaX;
+
+	/*
+	 * The following Hack is to help improve the UI
+	 */
+	if (shadow_cordinates_uh && player_id == PLAYER_1) {
+		return;
+	}
 
 	if( (*px+BAT_RADIUS)>BOARD_WIDTH/2.0 )
 		*px = BOARD_WIDTH/2.0 - BAT_RADIUS;
@@ -62,6 +73,13 @@ void CBat::translate_Y( float deltaY, int player_id, bool shadow_cordinates_uh){
 	float *py = shadow_cordinates_uh? &y : &sy;
 
 	*py += deltaY;
+
+	/*
+	 * The following Hack is to help improve the UI
+	 */
+	if (shadow_cordinates_uh && player_id == PLAYER_1) {
+		return;
+	}
 
 	switch ( player_id ) {
 		case PLAYER_1 :

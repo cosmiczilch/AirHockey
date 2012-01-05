@@ -62,10 +62,13 @@ long int ticks;
 SDL_Thread *work_thread = NULL;
 
 void entryFunction( ) {
+	entered = true;
+
+	initObjeks( );
+
 	gameState = PAUSED;
 	must_initiate_new_mp_game = false;
 
-	entered = true;
 	labels[STARTING_GAME_LABEL_MP].enabled = ((gameType == MULTI_PLAYER) && \
 				      (are_we_the_server == true))? true : false;
 	labels[TIMER_LABEL].enabled = ((gameType == MULTI_PLAYER) && \
@@ -75,6 +78,13 @@ void entryFunction( ) {
 
 	SDL_ShowCursor( 0 );
 
+	/**
+	 * reset board's color's from currentTheme
+	 * see entryFunction() in game_mainmenu
+	 */
+	board.r = currentTheme->boardColor[RED];
+	board.g = currentTheme->boardColor[GREEN];
+	board.b = currentTheme->boardColor[BLUE];
 
 	return;
 }
@@ -99,6 +109,9 @@ void exitFunction( ) {
 	SDL_WarpMouse( get_GW()/2.0, get_GH()/2.0 );
 
 	SDL_ShowCursor( 1 );
+
+	player1.numGoals = 0;
+	player2.numGoals = 0;
 
 	return;
 }

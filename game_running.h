@@ -51,14 +51,15 @@ CPanel panels[NUM_PANELS_RUNNING];
 CLabel labels[NUM_LABELS_RUNNING];
 /* Done UI items */
 
+
 /*
  * the lesser the difference between MAX_BAT_SPEED and
  * MAX_BAT_SPEED_SUSP, the more pronounced the effects
  * of friction shall be. See compute_velocity()
  */
-#define MAX_BAT_SPEED (float)(work_thread_anim_delay_msecs/6.0)			// empirical: 5.0
-#define MAX_BAT_SPEED_SUSP (float)(work_thread_anim_delay_msecs/8.0)			// empirical: 4.0
-#define MAX_PUCK_SPEED_SUSP (work_thread_anim_delay_msecs/4.0)		// empirical: 10.0
+#define MAX_BAT_SPEED (float)(work_thread_anim_delay_msecs/3.0)			// empirical: 5.0
+#define MAX_BAT_SPEED_SUSP (float)(work_thread_anim_delay_msecs/3.0)			// empirical: 4.0
+#define MAX_PUCK_SPEED_SUSP (work_thread_anim_delay_msecs/3.0)		// empirical: 10.0
 #define MAX_PUCK_DECELERATION_FACTOR 1.0500 	// empirical
 /**
  * used for mimicking friction; however, its more important
@@ -159,6 +160,9 @@ void exitFunction ( ) {
 
 	gameState = OVER;
 
+	timer_secs = 0;
+	timer_minutes = 0;
+
 	return;
 }
 
@@ -229,16 +233,21 @@ void renderScene( ){
 
 	glClearColor( currentTheme->backgroundColor[0], currentTheme->backgroundColor[1], currentTheme->backgroundColor[2], 1.0 );
 	// glClearColor( 1.0, 1.0, 1.0, 1.0 );
+#if ANTI_ALIASING
 	glClearAccum( 0.0, 0.0, 0.0, 0.0 );
 	glClear(GL_ACCUM_BUFFER_BIT);
+#endif
 
 	for( int i=0; i<numTimes_for_accum_buffer; i++ ){ 
 		glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT ); 
 
+#if ANTI_ALIASING
 		jitter_the_camera( i );
+#endif
 
 		game_Running.camera1->writeLookAt( true );
 
+#if ANTI_ALIASING
 		/*
 		switch (i) {
 			case 0 : glTranslatef( jitter_amount, 0, 0 ); break;
@@ -249,6 +258,7 @@ void renderScene( ){
 		*/
 
 		// game_Running.camera1->rotateAboutAxis( ((i%4)>1)?X_AXIS:Z_AXIS, 4.8*(i%2?-1.0:1.0) ); 
+#endif
 
 		glMatrixMode( GL_MODELVIEW ); 
 		glLoadIdentity( );
@@ -258,11 +268,15 @@ void renderScene( ){
 		player2.bat.draw( );
 		puck.draw( );
 
+#if ANTI_ALIASING
 		glAccum(GL_ACCUM, 1.0/numTimes_for_accum_buffer);
 
 		unjitter_the_camera( i );
+#endif
 	}
+#if ANTI_ALIASING
 	glAccum(GL_RETURN, 1.0);
+#endif
 
 	/* Draw UI items */
 	game_Running.camera2->writeLookAt( true );
@@ -354,7 +368,7 @@ void eventHandler( SDL_Event &event ){
 		 */
 		float delta_x = event.motion.xrel;
 		float delta_y = -1.0 * event.motion.yrel;
-		player1.bat.translate_X( delta_x*MOUSE_SENSITIVITY, false );
+		player1.bat.translate_X( delta_x*MOUSE_SENSITIVITY, player1.player_ID, false );
 		player1.bat.translate_Y( delta_y*MOUSE_SENSITIVITY, player1.player_ID, false );
 
 	}
@@ -459,6 +473,7 @@ bool detect_collission__puck_with_bats( ) {
 	return false;
 }
 
+char temp_str[200];
 void pauli() {
 	/**
 	 * this runs post collission_detection()
@@ -489,8 +504,8 @@ void pauli() {
 		if (axis.Length() < (BAT_RADIUS+PUCK_RADIUS)) {
 			epsilon = (BAT_RADIUS+PUCK_RADIUS) - axis.Length();
 			axis.Normalize();
-			puck.x += axis[VX] * epsilon;
-			puck.y += axis[VY] * epsilon;
+			puck.x += axis[VX] * 2*epsilon;
+			puck.y += axis[VY] * 2*epsilon;
 			collission_handled = true;
 			// printf( "\npauli1" );
 		}
@@ -926,23 +941,23 @@ void execute_plan( ) {
 
 	if (player2_planning.plan_type == AMBITIOUS_PASS_THE_PUCK && puck.motion.velocity[VY] == 0.0) {
 		switch (difficulty_level) {
-			case DIFFICULTY_LEVEL_HARD : clamp_velocity( &me->motion, MAX_BAT_SPEED_SUSP * AGGRESSION/AGGRESSION_MAX/8.0 );
+			case DIFFICULTY_LEVEL_HARD : clamp_velocity( &me->motion, MAX_BAT_SPEED_SUSP * AGGRESSION/AGGRESSION_MAX/10.0 );
 						     break;
-			default : clamp_velocity( &me->motion, MAX_BAT_SPEED_SUSP * AGGRESSION/AGGRESSION_MAX/12.0 );
+			default : clamp_velocity( &me->motion, MAX_BAT_SPEED_SUSP * AGGRESSION/AGGRESSION_MAX/20.0 );
 						     break;
 		}
-	} else if (player2_planning.plan_type == AMBITIOUS_PASS_THE_PUCK && puck.motion.velocity[VY] == 0.0) {
+	} else if (player2_planning.plan_type == AMBITIOUS_PASS_THE_PUCK) {
 		switch (difficulty_level) {
-			case DIFFICULTY_LEVEL_HARD : clamp_velocity( &me->motion, MAX_BAT_SPEED_SUSP * AGGRESSION/AGGRESSION_MAX/2.0 );
+			case DIFFICULTY_LEVEL_HARD : clamp_velocity( &me->motion, MAX_BAT_SPEED_SUSP * AGGRESSION/AGGRESSION_MAX/4.0 );
 						     break;
-			default : clamp_velocity( &me->motion, MAX_BAT_SPEED_SUSP * AGGRESSION/AGGRESSION_MAX/3.0 );
+			default : clamp_velocity( &me->motion, MAX_BAT_SPEED_SUSP * AGGRESSION/AGGRESSION_MAX/6.0 );
 						     break;
 		}
 	} else {
 		switch (difficulty_level) {
-			case DIFFICULTY_LEVEL_HARD : clamp_velocity( &me->motion, MAX_BAT_SPEED_SUSP * AGGRESSION/AGGRESSION_MAX );
+			case DIFFICULTY_LEVEL_HARD : clamp_velocity( &me->motion, MAX_BAT_SPEED_SUSP * AGGRESSION/AGGRESSION_MAX/2.0 );
 						     break;
-			default : clamp_velocity( &me->motion, MAX_BAT_SPEED_SUSP * AGGRESSION/AGGRESSION_MAX/2.0 );
+			default : clamp_velocity( &me->motion, MAX_BAT_SPEED_SUSP * AGGRESSION/AGGRESSION_MAX/4.0 );
 						     break;
 		}
 	}
@@ -1001,7 +1016,7 @@ int work( void * ){
 		/*
 		 * Now, apply the computed velocity to player1's bat
 		 */
-		player1.bat.translate_X( player1.bat.motion.velocity[VX] );
+		player1.bat.translate_X( player1.bat.motion.velocity[VX], player1.player_ID );
 		player1.bat.translate_Y( player1.bat.motion.velocity[VY], player1.player_ID );
 
 		if ( 1 || gameType == SINGLE_PLAYER ||
@@ -1026,7 +1041,7 @@ int work( void * ){
 			/**
 			 * Now, apply the computed velocity to player1's bat
 			 */
-			player2.bat.translate_X( player2.bat.motion.velocity[VX] );
+			player2.bat.translate_X( player2.bat.motion.velocity[VX], player2.player_ID );
 			player2.bat.translate_Y( player2.bat.motion.velocity[VY], player2.player_ID );
 
 		}
@@ -1059,7 +1074,7 @@ int work( void * ){
 				pdata.ack_packet = false;
 				copy_bat1_to_packet( &pdata );
 
-				if (puck_was_on_my_side) { // && collission_handled) {
+				if (puck_was_on_my_side && collission_handled) {
 					/*
 					 * we handled the collission and
 					 * we are responsible for sending the position of the puck as well
@@ -1073,9 +1088,7 @@ int work( void * ){
 				}
 
 
-				if (!(puck_was_on_my_side && !PUCK_IS_ON_MY_SIDE)) {
-					network_queue.insert( pdata );
-				}
+				network_queue.insert( pdata );
 			}
 		}
 
@@ -1120,16 +1133,19 @@ void init_UI_items( ) {
 	labels[SCORE_LABEL_P1].init( (int)SCORE_LABEL_P1, w*90/100.0, h*10/100,  -w*20/100.0, -h*42.5/100.0, 2.2*SMALL_EPSILON );
 	labels[SCORE_LABEL_P1].visible = true;
 	labels[SCORE_LABEL_P1].enabled = true;
+	labels[SCORE_LABEL_P1].setCustomFontPrinter( &fontPrinter_score );
 	labels[SCORE_LABEL_P1].setLabelText( "0" );
 	
 	labels[SCORE_LABEL_P2].init( (int)SCORE_LABEL_P1, w*90/100.0, h*10/100,  w*20/100.0, -h*42.5/100.0, 2.2*SMALL_EPSILON );
 	labels[SCORE_LABEL_P2].visible = true;
 	labels[SCORE_LABEL_P2].enabled = true;
+	labels[SCORE_LABEL_P2].setCustomFontPrinter( &fontPrinter_score );
 	labels[SCORE_LABEL_P2].setLabelText( "0" );
 
 	labels[TIMER_LABEL].init( (int)TIMER_LABEL, w*90/100.0, h*10/100,  w*0/100.0, -h*42.5/100.0, 2.2*SMALL_EPSILON );
 	labels[TIMER_LABEL].visible = true;
 	labels[TIMER_LABEL].enabled = true;
+	labels[TIMER_LABEL].setCustomFontPrinter( &fontPrinter_score );
 	labels[TIMER_LABEL].setLabelText( "0:0" );
 
 	panels[SCORE_PANEL].addPanelObjek( &labels[SCORE_LABEL_P1] );

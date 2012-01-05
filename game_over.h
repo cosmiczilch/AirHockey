@@ -41,17 +41,17 @@ float side_length__my_cursor;
 /* UI items */
 #define GAME_OVER_PANEL 0
 #define NUM_PANELS_OVER 1
-CPanel panels[NUM_PANELS_OVER];
+CPanel gameOver_panels[NUM_PANELS_OVER];
 
 #define GAME_OVER_LABEL 0
 #define YOU_LOST_LABEL 1
 #define YOU_WON_LABEL 2
 #define NUM_LABELS_OVER 3
-CLabel labels[NUM_LABELS_OVER];
+CLabel gameOver_labels[NUM_LABELS_OVER];
 /* Done UI items */
 
 /* countdown timer */
-#define COUNTDOWNTIME_OVER 3000 //msecs
+#define COUNTDOWNTIME_OVER 2000 //msecs
 long int ticks;
 /* countdown timer */
 
@@ -61,21 +61,29 @@ long int ticks;
 
 SDL_Thread *work_thread = NULL;
 
+void _setLabels( ) {
+	gameOver_labels[YOU_WON_LABEL].enabled = false;
+	gameOver_labels[YOU_LOST_LABEL].enabled = false;
+	if (player1.numGoals > player2.numGoals) {
+		gameOver_labels[YOU_WON_LABEL].enabled = true;
+	} else if (player1.numGoals < player2.numGoals) {
+		gameOver_labels[YOU_LOST_LABEL].enabled = true;
+	}
+	return;
+}
+
 void entryFunction( ) {
 	gameState = OVER;
 
 	entered = true;
 
-	panels[GAME_OVER_PANEL].enabled = true;
-	labels[GAME_OVER_LABEL].enabled = true;
-	labels[YOU_WON_LABEL].enabled = false;
-	labels[YOU_LOST_LABEL].enabled = false;
-	if (player1.numGoals > player2.numGoals) {
-		labels[YOU_WON_LABEL].enabled = true;
-	} else if (player1.numGoals < player2.numGoals) {
-		labels[YOU_LOST_LABEL].enabled = true;
-	}
-
+	gameOver_panels[GAME_OVER_PANEL].enabled = true;
+	gameOver_labels[GAME_OVER_LABEL].enabled = true;
+	/*
+	 * set the visiblity of the "you won" and "you lost" labels correctly
+	 */
+	_setLabels( );
+	
 	ticks = COUNTDOWNTIME_OVER / work_thread_anim_delay_msecs;
 
 	SDL_ShowCursor( 0 );
@@ -88,6 +96,9 @@ void exitFunction( ) {
 	entered = false;
 
 	gameState = MAIN_MENU;
+
+	player1.numGoals = 0;
+	player2.numGoals = 0;
 
 	SDL_WarpMouse( get_GW()/2.0, get_GH()/2.0 );
 
@@ -149,8 +160,9 @@ void draw_UI_items( ) {
 	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
 	game_Over.camera2->writeLookAt( true );
+
 	for (int i=0; i<NUM_PANELS_OVER; i++ ) {
-		panels[i].draw( );
+		gameOver_panels[i].draw( );
 	}
 
 	/* Done drawing UI items */
@@ -254,26 +266,26 @@ void init_UI_items( ) {
 	float w = get_GW( ); 
 	float h = get_GH( ); 
 
-	panels[GAME_OVER_PANEL].init( (int)GAME_OVER_PANEL, w*60/100.0, h*60/100.0,  0.0, 0.0, 2*SMALL_EPSILON, \
+	gameOver_panels[GAME_OVER_PANEL].init( (int)GAME_OVER_PANEL, w*60/100.0, h*60/100.0,  0.0, 0.0, 2*SMALL_EPSILON, \
 	"./resources/images/panel.png" );
-	panels[GAME_OVER_PANEL].visible = true;
-	panels[GAME_OVER_PANEL].enabled = true;
+	gameOver_panels[GAME_OVER_PANEL].visible = true;
+	gameOver_panels[GAME_OVER_PANEL].enabled = true;
 
-	labels[GAME_OVER_LABEL].init( (int)GAME_OVER_LABEL, w*20/100.0, h*10/100.0,  -w*7/100.0, h*10/100.0, 2.2*SMALL_EPSILON );
-	labels[GAME_OVER_LABEL].setLabelText( "GAME OVER" );
-	labels[GAME_OVER_LABEL].onClick = NULL;
+	gameOver_labels[GAME_OVER_LABEL].init( (int)GAME_OVER_LABEL, w*20/100.0, h*10/100.0,  -w*7/100.0, h*10/100.0, 2.2*SMALL_EPSILON );
+	gameOver_labels[GAME_OVER_LABEL].setLabelText( "GAME OVER" );
+	gameOver_labels[GAME_OVER_LABEL].onClick = NULL;
 
-	labels[YOU_LOST_LABEL].init( (int)YOU_LOST_LABEL, w*20/100.0, h*10/100.0,  -w*6/100.0, -h*10/100.0, 2.2*SMALL_EPSILON );
-	labels[YOU_LOST_LABEL].setLabelText( "You Lost" );
-	labels[YOU_LOST_LABEL].onClick = NULL;
+	gameOver_labels[YOU_LOST_LABEL].init( (int)YOU_LOST_LABEL, w*20/100.0, h*10/100.0,  -w*6/100.0, -h*10/100.0, 2.2*SMALL_EPSILON );
+	gameOver_labels[YOU_LOST_LABEL].setLabelText( "You Lost" );
+	gameOver_labels[YOU_LOST_LABEL].onClick = NULL;
 
-	labels[YOU_WON_LABEL].init( (int)YOU_WON_LABEL, w*20/100.0, h*10/100.0,  -w*6.0/100.0, -h*5/100.0, 2.2*SMALL_EPSILON );
-	labels[YOU_WON_LABEL].setLabelText( "You Won" );
-	labels[YOU_WON_LABEL].onClick = NULL;
+	gameOver_labels[YOU_WON_LABEL].init( (int)YOU_WON_LABEL, w*20/100.0, h*10/100.0,  -w*6.0/100.0, -h*5/100.0, 2.2*SMALL_EPSILON );
+	gameOver_labels[YOU_WON_LABEL].setLabelText( "You Won" );
+	gameOver_labels[YOU_WON_LABEL].onClick = NULL;
 
-	panels[GAME_OVER_PANEL].addPanelObjek( &labels[GAME_OVER_LABEL] );
-	panels[GAME_OVER_PANEL].addPanelObjek( &labels[YOU_LOST_LABEL] );
-	panels[GAME_OVER_PANEL].addPanelObjek( &labels[YOU_WON_LABEL] );
+	gameOver_panels[GAME_OVER_PANEL].addPanelObjek( &gameOver_labels[GAME_OVER_LABEL] );
+	gameOver_panels[GAME_OVER_PANEL].addPanelObjek( &gameOver_labels[YOU_LOST_LABEL] );
+	gameOver_panels[GAME_OVER_PANEL].addPanelObjek( &gameOver_labels[YOU_WON_LABEL] );
 
 	return;
 }

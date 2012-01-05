@@ -53,6 +53,10 @@ float PLAYER2_THINK_AHEAD_TIME=PLAYER2_THINK_AHEAD_TIME_MEDIUM;	/* milliseconds 
 float PLAYER2_THINK_AHEAD_TICKS=1;
 
 CFontPrinter fontPrinter;
+/*
+ * Will be used only in game_running
+ */
+CFontPrinter fontPrinter_score;
 
 CSoundPlayer soundPlayer;
 

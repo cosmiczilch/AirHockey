@@ -33,7 +33,7 @@ class CBat{
 
 	void init( float x, float y, float z,  float r, float g, float b ); 
 	void draw( ); 
-	void translate_X( float deltaX, bool shadow_cordinates_uh=true);
+	void translate_X( float deltaX, int player_ID, bool shadow_cordinates_uh=true);
 	void translate_Y( float deltaY, int player_ID, bool shadow_cordinates_uh=true);
 
 	CBat& operator	= ( const CBat& bat2 );	// assignment of a vec2

@@ -5,12 +5,12 @@
 #include <string> 
 using namespace std; 
 
+#include "SDL.h"
+#include "SDL_opengl.h"
+#define NO_SDL_GLEXT
+#include "SDL_image.h"
 #include "GL/gl.h"
 #include "GL/glu.h"
-#include "SDL.h"
-#define NO_SDL_GLEXT
-#include "SDL_opengl.h"
-#include "SDL_image.h"
 
 #define PNG 0 
 #define JPG 1

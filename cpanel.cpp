@@ -78,3 +78,19 @@ void CPanel::disableChildren( ) {	// !!!! Doesn't work yet
 	return;
 }
 
+bool CPanel::pointLiesWithin( float px, float py, float tolerance ){ 
+	if (px >= (x-width/2.0 -tolerance) && px <= (x+width/2.0+ tolerance) && \
+	    py >= (y-height/2.0-tolerance) && py <= (y+height/2.0+tolerance)) {
+		return true; 
+	}
+	return false; 
+}
+
+void CPanel::clickHandler( float x, float y ) {
+	if ( onClick ) {
+		onClick( x, y );
+	}
+
+	return;
+}
+

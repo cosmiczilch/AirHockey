@@ -18,10 +18,12 @@ class CLabel : public CPanelObjek {
 	bool visible, enabled;
 	bool hasFocus;
 	bool popUpAnim;
+	CFontPrinter *customFontPrinter;
 
 	void init( int Id, float Width, float Height,  float X, float Y, float Z );
 	void setLabelText( string LabelText );
 	bool pointLiesWithin( float px, float py, float tolerance=0 ); 
+	void setCustomFontPrinter( CFontPrinter *customFontPrinter );
 
 	void draw( );
 	void clickHandler( float x, float y );

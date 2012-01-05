@@ -17,7 +17,7 @@ void CBoard::init( float Width, float Length, float Thickness, float R, float G,
 }
 
 void CBoard::draw( ){ 
-	glColor3f( 0.3, 0.3, 0.3 );
+	// glColor3f( 0.3, 0.3, 0.3 );
 	drawModel( r, g, b );
 
 	board_texture.bindTexture( );

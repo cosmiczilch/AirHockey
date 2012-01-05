@@ -158,9 +158,10 @@ void initObjeks( ){
 	BOARD_THICKNESS/2.0 );
 	puck.init( 0.0, 0.0, 0.0,  currentTheme->puckColor[0], currentTheme->puckColor[1], currentTheme->puckColor[2] );
 
-	fontPrinter.init( 20.0, 30.0, SColor( 1.0, 1.0, 1.0, 1.0 ), "./resources/fonts/VerdanaTransparent.png" );
+	fontPrinter.init( 20.0, 30.0, SColor( 1.0, 1.0, 1.0, 1.0 ), "./resources/fonts/VerdanaTransperant.png" );
+	fontPrinter_score.init( 20.0, 30.0, SColor( 1.0, 1.0, 1.0, 1.0 ), currentTheme->fontImage );
 
-	return; 
+	return;
 }
 
 void initGameStates( ){ 
@@ -201,7 +202,7 @@ int main( int argc, char *argv[] ){
 	SDL_GL_SetAttribute(SDL_GL_ACCUM_ALPHA_SIZE, 8);
 #endif
 
-	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
+	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 8);
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
 	// SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);

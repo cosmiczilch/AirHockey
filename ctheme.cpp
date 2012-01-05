@@ -48,6 +48,9 @@ int CTheme::readThemesFromConf( ) {
 		iter->scorePanelImage = line;
 
 		getline( themeFile, line );
+		iter->fontImage = line;
+
+		getline( themeFile, line );
 		iter->backgroundMusic = line;
 
 		getline( themeFile, line );

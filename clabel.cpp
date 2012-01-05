@@ -14,6 +14,8 @@ void CLabel::init( int Id, float Width, float Height,  float X, float Y, float Z
 	font.foreColor.b = 0.0;
 	font.foreColor.a = 1.0;
 
+	customFontPrinter = NULL;
+
 	hasFocus = false;
 	enabled = true;
 	visible = true;
@@ -31,7 +33,12 @@ void CLabel::setLabelText( string LabelText ) {
 
 	return;
 }
-	
+
+void CLabel::setCustomFontPrinter( CFontPrinter *customFontPrinter ) {
+	this->customFontPrinter = customFontPrinter;
+
+	return;
+}
 
 void CLabel::draw( ) {
 	if ( !enabled || !visible ) {
@@ -48,8 +55,13 @@ void CLabel::draw( ) {
 
 	}
 		
-	fontPrinter.setFont( font_temp );
-	fontPrinter.print( labelText, x_temp, y_temp, z );
+	if (customFontPrinter != NULL) {
+		customFontPrinter->setFont( font_temp );
+		customFontPrinter->print( labelText, x_temp, y_temp, z );
+	} else {
+		fontPrinter.setFont( font_temp );
+		fontPrinter.print( labelText, x_temp, y_temp, z );
+	}
 
 	return;
 }

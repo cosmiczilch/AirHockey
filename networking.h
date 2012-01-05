@@ -94,9 +94,9 @@ bool check_for_packets ( ) {
 			printf( "\nIgnoring out of order packet" );
 			return false;
 		}
+		seqNum = packetData->seqNum;
 		printf( "\t%d", seqNum );
 
-		seqNum = packetData->seqNum;
 		if (seqNum >= 32764) {
 			seqNum = -1;
 		}
@@ -143,11 +143,11 @@ void handlePacket ( UDPpacket *udpPacket ) {
 			if (gameType == MULTI_PLAYER && \
 			    are_we_the_server) {
 				/*
-				 * we are the server, and having created a local server we are
+				 * We are the server, and having created a local server we are
 				 * waiting for remote_machine to join. 
 				 * remote_machine has now requested ot start a new mp game, ack back,
-				 * also, save remote_machine's ip for further communication first
-				 * also advance gameState to RUNNING
+				 * Also, save remote_machine's ip for further communication first
+				 * Also advance gameState to RUNNING
 				 */
 				remote_machine_ip = udpPacket->address;
 

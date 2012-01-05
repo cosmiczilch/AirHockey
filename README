@@ -53,7 +53,7 @@ V# Add inputDoneHandler to TextInput
 V# Add "enter remote server's ip address" label
 V# Add backspace support to TextInput
 ## Add appropriate errorHandling to checkIpAddr( ) 
-## Make sure that clicking on multiplayer_panel does not make it vanish; basically, add clickHandler for Panel and set it empty here
+V# Make sure that clicking on multiplayer_panel does not make it vanish; basically, add clickHandler for Panel and set it empty here
 ## Handle SDL_WM_GrabInput correctly to support multiplayer game on the same system;
 #  basically by allowing 'esc' to come out of GrabInput; perhaps have 'esc' place the game in PAUSE mode AND release Grab. seems like a good idea
 #  perhaps, have GrabInput as a user defined option? seems like a good idea
@@ -70,6 +70,8 @@ V# Collission of bats w/ puck
    http://en.wikipedia.org/wiki/Elastic_collision
 V# Take care of bats' motion when the bat has the puck pinned against a wall
 ## Fix the spinning thing. Will it go away w/ lesser work_thread_anim_delay_msecs?
+#	Have changed epsilon to 2*epsilon while dealing w/ bat2 in pauli(); this seems to help, somewhat
+#	Explore adding a new MOVE in make_plan() to help reduce this problem
 V# Make sure that bat cannont move "over" the puck
 V# Predictive collission handling to prevent bat from moving "over" puck and puck from going "into" walls
 V# Convert everything to vectors
@@ -77,7 +79,7 @@ V# Add elastics to bat motion
 V# Make sure initial position of the elastic is centered over the bat
 ## Fix MAX_BAT_SPEED to be configurable as "friction" (note: range-space: 1.5 - 6.0) (Note: will be needed if WM_Grab_Input() will be used)
 ## FIX BUFFER_FACTOR_FOR_COLLISSION_DETECTION to real value
-## Bat2's y velocity is too high after changing work_thread_anim_delay_msecs from 40 to 10. Check
+V# Bat2's y velocity is too high after changing work_thread_anim_delay_msecs from 40 to 10. Check
 ## Have reduced bat's mass from 4.25 to 0.25 : this reduces the "spinning" thing, and makes the collissiions more inelastic
 
 ## Revisit the bounding conditions for goal checking
@@ -94,26 +96,26 @@ V# Add seqNum support
 
 ## If the server exe is not started before the client exe, it won't connect (at least on a single comp)
 
-## Support themes in settings
-## Make more themes
-## Add background color in themes
+## Support themes in settings; or add themes.conf to main directory
+V# Make more themes
+V# Add background color in themes
 
 ## Add in settings:
-## theme, music_volume, soundEffects_volume, mouse_sensitivity, friction, difficulty level
-## Change settings panel to contain key bindings info
+V# theme, music_volume, soundEffects_volume, mouse_sensitivity, friction, difficulty level
+V# Change settings panel to contain key bindings info
 ## Add an on-disk settings.conf file to keep settings persistent, and add friction, inelasticity, etc there
 
-## Esc should come back to main_menu, or something
-## Add in game timer, and end condition for game on numbre of goals
+V# Esc should come back to main_menu, or something
+V# Add in game timer, and end condition for game on number of goals
 
-## Change board_color to 1.0 in mainmenu
+V# Change board_color to 1.0 in mainmenu
 
 ## Finally, in production build :
 	debug = 1
 	MOUSE_SENSITIVITY = 1/7.0
 	WM_Grab_Input in game_Running should be true in entryFunction()
 
-## !! Decrease work_thread_anim_delay_msecs to 20
+V# !! Decrease work_thread_anim_delay_msecs to 10
 ## Check the time taken for work_thread_anim_delay_msecs to execute in ms
 
 ## Change puck's specular highlights and change disney's puck color to black
@@ -127,3 +129,13 @@ http://content.gpwiki.org/index.php/SDL:Tutorials:Setup
 http://forums.libsdl.org/viewtopic.php?t=7551&sid=5cafdbd040f9e60c88ce9ae062746389
 
 
+## On windows :
+# Puck color is white w/ low res
+# Change mp3 to wav
+  fixed w/ smpeg.dll
+# Networking not working
+# Try increasing the frame_rate on rendering thread
+# Write a windows README
+V "credits"
+# Color doesn't come back to white in mainMenu
+# Remove all printfs

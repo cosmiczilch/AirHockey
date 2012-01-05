@@ -12,6 +12,7 @@ class CTheme {
 	string themeName;
 	string boardImage;
 	string scorePanelImage;
+	string fontImage;
 	string backgroundMusic;
 	string tiktikSound;
 
