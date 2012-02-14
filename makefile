@@ -4,7 +4,7 @@ CXX = g++
 CXXFLAGS = -g -Wall -lGLU -lGLEW -lGL `sdl-config --cflags` `sdl-config --libs` -lSDL_net -lSDL_image -lSDL_mixer -lSDL -lSDLmain
 
 main: main.o models.o bat_models.o puck_models.o Transformation.o ctexture.o cgame.o cboard.o cbat.o cpuck.o cplayer.o ccamera.o cbutton.o ctextinput.o cfontprinter.o cpanelobjek.o cpanel.o clabel.o cnetwork_queue.o Utilities.o csoundplayer.o ctheme.o
-	$(CXX) $(CXXFLAGS) -o main main.o models.o bat_models.o puck_models.o Transformation.o ctexture.o cgame.o cboard.o cbat.o cpuck.o cplayer.o ccamera.o cbutton.o ctextinput.o cfontprinter.o cpanelobjek.o cpanel.o clabel.o cnetwork_queue.o Utilities.o csoundplayer.o ctheme.o
+	$(CXX) -o main main.o models.o bat_models.o puck_models.o Transformation.o ctexture.o cgame.o cboard.o cbat.o cpuck.o cplayer.o ccamera.o cbutton.o ctextinput.o cfontprinter.o cpanelobjek.o cpanel.o clabel.o cnetwork_queue.o Utilities.o csoundplayer.o ctheme.o $(CXXFLAGS)
 
 main.o: main.cpp models.h bat_models.h puck_models.h Transformation.h ccamera.h ctexture.h cboard.h cplayer.h cpuck.h cgame.h game_mainmenu.h game_paused.h game_running.h game_over.h poller.h main.h globalDefs.h cbutton.h networking.h cnetwork_queue.h ctextinput.h cfontprinter.h Utilities.h cpanelobjek.h cpanel.h clabel.h cpacketdata.h csoundplayer.h ctheme.h themes.h
 	$(CXX) $(CXXFLAGS) -c main.cpp
