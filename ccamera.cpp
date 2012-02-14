@@ -219,7 +219,7 @@ void CCamera::rotateAboutAxis( int axis, float rot_angle ){
 
     switch( axis ){
     case Z_AXIS :
-        axis_of_rotation = vec3::vec3(up_vector);
+        axis_of_rotation = vec3(up_vector);
         rotation_matrix = mat3::Rotation3DDeg( axis_of_rotation, rot_angle );
         camera_position = rotation_matrix * camera_position;
         up_vector = rotation_matrix * up_vector;
@@ -228,7 +228,7 @@ void CCamera::rotateAboutAxis( int axis, float rot_angle ){
         break;
 
     case NEG_Z_AXIS :
-        axis_of_rotation = vec3::vec3(up_vector);
+        axis_of_rotation = vec3(up_vector);
         rotation_matrix = mat3::Rotation3DDeg( axis_of_rotation, -rot_angle );
         camera_position = rotation_matrix * camera_position;
         up_vector = rotation_matrix * up_vector;
@@ -237,7 +237,7 @@ void CCamera::rotateAboutAxis( int axis, float rot_angle ){
         break;
 
     case X_AXIS :
-        axis_of_rotation = vec3::vec3(axle_vector);
+        axis_of_rotation = vec3(axle_vector);
         rotation_matrix = mat3::Rotation3DDeg( axis_of_rotation, -rot_angle );
         camera_position = rotation_matrix * camera_position;
         up_vector = rotation_matrix * up_vector;
@@ -246,7 +246,7 @@ void CCamera::rotateAboutAxis( int axis, float rot_angle ){
         break;
 
     case NEG_X_AXIS :
-        axis_of_rotation = vec3::vec3(axle_vector);
+        axis_of_rotation = vec3(axle_vector);
         rotation_matrix = mat3::Rotation3DDeg( axis_of_rotation, rot_angle );
         camera_position = rotation_matrix * camera_position;
         up_vector = rotation_matrix * up_vector;

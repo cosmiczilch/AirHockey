@@ -6,19 +6,10 @@ int goalPostF_dispList, goalPostN_dispList, guardRailR_dispList, guardRailL_disp
 
 //object: board_0
 void load_0() {
-	float matColors[4];
 	glPushMatrix();
 	glTranslated(0.000000, 0.000000, -1.000000);
 	glScaled(19.999992, 29.999985, 1.000000);
-	matColors[0] = 0.500000;
-	matColors[1] = 0.500000;
-	matColors[2] = 0.500000;
-	matColors[3] = 1.000000;
 	// glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,matColors);
-	matColors[0] = 1.000000;
-	matColors[1] = 1.000000;
-	matColors[2] = 1.000000;
-	matColors[3] = 1.000000;
 	// glMaterialfv(GL_FRONT_AND_BACK,GL_SPECULAR,matColors);
 	glBegin(GL_QUADS);
 		glNormal3f(0.577349, 0.577349, -0.577349);
@@ -86,20 +77,11 @@ void load_0() {
 
 //object: goalPostF_1
 void load_1() {
-	float matColors[4];
 	glPushMatrix();
 	glTranslated(0.000000, 32.500000, 0.250000);
   glRotated(90.000070,0,0,1);
 	glScaled(2.499999, 24.999990, 2.250000);
-	matColors[0] = 0.500000;
-	matColors[1] = 0.500000;
-	matColors[2] = 0.500000;
-	matColors[3] = 1.000000;
 	// glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,matColors);
-	matColors[0] = 1.000000;
-	matColors[1] = 1.000000;
-	matColors[2] = 1.000000;
-	matColors[3] = 1.000000;
 	// glMaterialfv(GL_FRONT_AND_BACK,GL_SPECULAR,matColors);
 	glBegin(GL_QUADS);
 		glNormal3f(0.577776, -0.574328, -0.579882);
@@ -6347,20 +6329,11 @@ void load_1() {
 
 //object: goalPostN_2
 void load_2() {
-	float matColors[4];
 	glPushMatrix();
 	glTranslated(0.000000, -32.500000, 0.250000);
   glRotated(270.000028,0,0,1);
 	glScaled(2.499999, 24.999990, 2.250000);
-	matColors[0] = 0.500000;
-	matColors[1] = 0.500000;
-	matColors[2] = 0.500000;
-	matColors[3] = 1.000000;
 	// glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,matColors);
-	matColors[0] = 1.000000;
-	matColors[1] = 1.000000;
-	matColors[2] = 1.000000;
-	matColors[3] = 1.000000;
 	// glMaterialfv(GL_FRONT_AND_BACK,GL_SPECULAR,matColors);
 	glBegin(GL_QUADS);
 		glNormal3f(0.578234, -0.574541, -0.579211);
@@ -12608,20 +12581,11 @@ void load_2() {
 
 //object: railR_3
 void load_3() {
-	float matColors[4];
 	glPushMatrix();
 	glTranslated(22.500000, 0.000000, 0.000000);
   glRotated(180.000056,0,0,1);
 	glScaled(2.499999, 32.499989, 2.000000);
-	matColors[0] = 0.500000;
-	matColors[1] = 0.500000;
-	matColors[2] = 0.500000;
-	matColors[3] = 1.000000;
 	// glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,matColors);
-	matColors[0] = 1.000000;
-	matColors[1] = 1.000000;
-	matColors[2] = 1.000000;
-	matColors[3] = 1.000000;
 	// glMaterialfv(GL_FRONT_AND_BACK,GL_SPECULAR,matColors);
 	glBegin(GL_QUADS);
 		glNormal3f(0.699149, -0.709738, 0.086062);
@@ -13909,19 +13873,10 @@ void load_3() {
 
 //object: railL_4
 void load_4() {
-	float matColors[4];
 	glPushMatrix();
 	glTranslated(-22.500000, 0.000000, 0.000000);
 	glScaled(2.499999, 32.499989, 2.000000);
-	matColors[0] = 0.500000;
-	matColors[1] = 0.500000;
-	matColors[2] = 0.500000;
-	matColors[3] = 1.000000;
 	// glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,matColors);
-	matColors[0] = 1.000000;
-	matColors[1] = 1.000000;
-	matColors[2] = 1.000000;
-	matColors[3] = 1.000000;
 	// glMaterialfv(GL_FRONT_AND_BACK,GL_SPECULAR,matColors);
 	glBegin(GL_QUADS);
 		glNormal3f(0.699149, -0.709738, 0.086062);

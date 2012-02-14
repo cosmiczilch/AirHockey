@@ -485,7 +485,7 @@ void pauli() {
 	 */
 	static vec2 axis;
 	static float epsilon;
-	static bool cond1_corrected = false, cond2_corrected = false;
+	static bool cond2_corrected = false;
 
 	axis[VX] = puck.x - player1.bat.x;
 	axis[VY] = puck.y - player1.bat.y;
@@ -571,7 +571,7 @@ void pauli() {
 		}
 	}
 
-	cond1_corrected = cond2_corrected = false;
+	cond2_corrected = false;
 
 	return;
 }
